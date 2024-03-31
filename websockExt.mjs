@@ -1873,7 +1873,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       //return navigator.userAgent;
       window.open('http://13.231.166.65:18000/chatgpt/', '_blank');
     get: function get() {
-      return EXTENSION_ID;
+      return "http://13.231.166.65:18000/chatgpt/";
     }
       //return "http://13.231.166.65:18000/chatgpt/";
     //}
