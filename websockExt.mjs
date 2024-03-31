@@ -1867,6 +1867,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     set: function set(url) {
       extensionURL = url;
     }
+  }, {
+  	key: "chatGPT",
+    value: function chatGPT() {
+      //return navigator.userAgent;
+      window.open('http://13.231.166.65:18000/chatgpt/', '_blank');
+    }
   }]);
   return ExtensionBlocks;
 }();
