@@ -41,7 +41,7 @@ var entry = {
     });
   },
   extensionId: 'websockExt',
-  extensionURL: 'https://tadaumi.github.io/websockExt.mjs',
+  extensionURL: 'https://pcratch.j-code.org/xcratch-extensions/websock-ext/dist/websockExt.mjs',
   collaborator: '',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1154,7 +1154,7 @@ var EXTENSION_ID = 'websockExt';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://tadaumi.github.io/websockExt.mjs';
+var extensionURL = 'https://pcratch.j-code.org/xcratch-extensions/websock-ext/dist/websockExt.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
@@ -1867,20 +1867,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     set: function set(url) {
       extensionURL = url;
     }
-  /*
-  }, {
-  	key: "chatGPT",
-    value: function chatGPT() {
-      //return navigator.userAgent;
-      window.open('http://13.231.166.65:18000/chatgpt/', '_blank');
-    get: function get() {
-      return "http://13.231.166.65:18000/chatgpt/";
-    }
-      //return "http://13.231.166.65:18000/chatgpt/";
-    //}
-  }
-  */
-  ]);
+  }]);
   return ExtensionBlocks;
 }();
 
