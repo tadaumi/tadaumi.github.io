@@ -1867,6 +1867,20 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     set: function set(url) {
       extensionURL = url;
     }
+  }, {
+    key: "extensionURL1",
+    get: function get() {
+      return extensionURL;
+    }
+
+    /**
+     * Set URL to get this extension.
+     * The extensionURL will be changed to the URL of the loading server.
+     * @param {string} url - URL
+     */,
+    set: function set(url) {
+      extensionURL = url;
+    }
   }]);
   return ExtensionBlocks;
 }();
