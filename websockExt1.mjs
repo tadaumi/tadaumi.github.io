@@ -1878,9 +1878,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
       //return "http://13.231.166.65:18000/chatgpt/";
     //}
-  }
   */
-  ]);
+  }]);
   return ExtensionBlocks;
 }();
 
