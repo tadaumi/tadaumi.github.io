@@ -1345,6 +1345,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
    * @returns {object} metadata for this extension and its blocks.
    */
   _createClass$1(ExtensionBlocks, [{
+    /*
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
@@ -1374,6 +1375,76 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         menus: {}
       };
     }
+    */
+ 
+    key: "getInfo",
+    value: function getInfo() {
+      setupTranslations();
+      return {
+        id: ExtensionBlocks.EXTENSION_ID,
+        name: ExtensionBlocks.EXTENSION_NAME,
+        extensionURL: ExtensionBlocks.extensionURL,
+        blockIconURI: img,
+        showStatusButton: false,
+        blocks: [{
+          opcode: 'doIt',
+          blockType: BlockType$1.REPORTER,
+          blockAllThreads: false,
+          text: formatMessage({
+            id: 'xcratchExample.doIt',
+            default: 'do it [SCRIPT]',
+            description: 'execute javascript for example'
+          }),
+          func: 'doIt',
+          arguments: {
+            SCRIPT: {
+              type: ArgumentType$1.STRING,
+              defaultValue: ""
+            }
+          }
+        }],
+        menus: {}
+      };
+    },
+
+    // ChatGPTのAPIにテキストを送信して生成されたテキストを返す関数
+    doIt: function(arg) {
+        const inputText = arg;
+        const API_ENDPOINT = 'https://api.openai.com/v1/completions';
+        const API_KEY = 'YOUR_API_KEY_HERE';
+
+        // テキストをChatGPTに送信して、生成されたテキストを取得する関数
+        async function getChatGPTResponse(inputText) {
+            try {
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        model: 'text-davinci-002',
+                        prompt: inputText,
+                        max_tokens: 100
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('ChatGPT APIへのリクエストが失敗しました。');
+                }
+
+                const data = await response.json();
+                return data.choices[0].text.trim();
+            } catch (error) {
+                console.error('ChatGPT APIエラー:', error.message);
+                return null;
+            }
+        }
+
+        // 関数を実行してChatGPTからの応答を返す
+        return getChatGPTResponse(inputText);
+    }
+
   }, {
     key: "doIt",
     value: function doIt(args) {
