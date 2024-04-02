@@ -1446,7 +1446,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         // 関数を実行してChatGPTからの応答を返す
         return getChatGPTResponse(inputText);
     }
-
+	/*
   }, {
     key: "doIt",
     value: function doIt(args) {
@@ -1455,6 +1455,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       log$1.log("doIt: ".concat(statement));
       return func.call(this);
     }
+  */
   }], [{
     key: "formatMessage",
     set:
