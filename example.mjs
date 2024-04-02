@@ -1410,6 +1410,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     // ChatGPTのAPIにテキストを送信して生成されたテキストを返す関数
     doIt: function(arg) {
         const inputText = arg.TEXT;
+        console.log("Input text:", inputText); // 入力されたテキストをコンソールに出力
+    		debugger; // ここで停止する
         const API_ENDPOINT = 'https://api.openai.com/v1/completions';
         const API_KEY = 'YOUR_API_KEY_HERE';
 
