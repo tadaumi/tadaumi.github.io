@@ -1318,7 +1318,8 @@ var EXTENSION_ID = 'xcratchExample';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
+//var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
+var extensionURL = 'https://tadaumi.github.io/example1.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
