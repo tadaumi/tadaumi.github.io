@@ -42,7 +42,8 @@ var entry = {
     });
   },
   extensionId: 'xcratchExample',
-  extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
+  //extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
+  var extensionURL = 'https://tadaumi.github.io/example1.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
