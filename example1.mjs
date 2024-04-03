@@ -1350,8 +1350,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
+      var EXTENSION_ID = 'xcratchExample';
       return {
-        id: ExtensionBlocks.EXTENSION_ID,
+        //id: ExtensionBlocks.EXTENSION_ID,
+        id: EXTENSION_ID,
         name: ExtensionBlocks.EXTENSION_NAME,
         extensionURL: ExtensionBlocks.extensionURL,
         blockIconURI: img,
