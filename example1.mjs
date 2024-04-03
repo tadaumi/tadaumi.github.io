@@ -1350,7 +1350,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
-      var EXTENSION_ID = 'xcratchExample';
+      //var EXTENSION_ID = 'xcratchExample';
       return {
         //id: ExtensionBlocks.EXTENSION_ID,
         id: EXTENSION_ID,
