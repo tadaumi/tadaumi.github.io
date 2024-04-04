@@ -42,7 +42,7 @@ class ChatGPTExtension {
         };
     }
 
-    async getChatResponse({ text }) {
+    getChatResponse({ text }) {
         const url = 'https://api.openai.com/v1/completions';
         const apiKey = 'YOUR_API_KEY'; // あなたのOpenAI APIキーを設定してください
 
@@ -52,20 +52,20 @@ class ChatGPTExtension {
             max_tokens: 50
         };
 
-        const response = await fetch(url, {
+        return fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify(requestBody)
-        });
-
-        const responseData = await response.json();
-
-        return responseData.choices[0].text.trim();
+        })
+        .then(response => response.json())
+        .then(responseData => responseData.choices[0].text.trim());
     }
 }
 
-Scratch.extensions.register(new ChatGPTExtension());
+function register() {
+    return new ChatGPTExtension();
+}
 
