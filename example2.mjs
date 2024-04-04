@@ -325,23 +325,20 @@ var XcratchExampleExtension = /*#__PURE__*/function (_Extension) {
   var _super = _createSuper(XcratchExampleExtension);
 
   function XcratchExampleExtension() {
+    var _this;
+
     _classCallCheck(this, XcratchExampleExtension);
 
-    return _super.call(this, {
+    _this = _super.call(this, {
       extensionId: 'xcratchExample',
       collaborator: 'xcratch'
     });
+    _this._serviceName = 'extensionManager'; // 追加
+    return _this;
   }
 
   _createClass(XcratchExampleExtension, [{
     key: "openWindow",
-    value: function openWindow() {
-      var eventName = EVENTS$1.EVENT_HAT_CLICKED;
-      var e = new Event(eventName);
-      window.dispatchEvent(e);
-    }
-  }, {
-    key: "onWindowOpen",
     value: function onWindowOpen(handler) {
       window.addEventListener(EVENTS$1.EVENT_HAT_CLICKED, handler);
     }
