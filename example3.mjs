@@ -60,9 +60,18 @@ class ChatGPTExtension {
             },
             body: JSON.stringify(requestBody)
         })
-        .then(response => response.json())
-        .then(responseData => responseData.choices[0].text.trim());
-    }
+        .then(response => {
+		      if (!response.ok) {
+		          throw new Error('Network response was not ok');
+		      }
+		      return response.json();
+					})
+				.then(responseData => responseData.choices[0].text.trim())
+				.catch(error => {
+				    console.error('Error fetching data:', error);
+				    throw error;
+				}
+		);
 }
 
 function register() {
