@@ -1355,6 +1355,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: img,
         showStatusButton: false,
         blocks: [{
+        	/*
           opcode: 'do-it',
           blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
@@ -1372,7 +1373,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
         },
         // 拡張機能のブロック定義
-        {
+        { */
           opcode: 'say-hello',
           blockType: BlockType$1.COMMAND,
           text: formatMessage({
