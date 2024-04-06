@@ -1355,7 +1355,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: img,
         showStatusButton: false,
         blocks: [{
-        	
+        	/*
           opcode: 'do-it',
           blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
@@ -1371,7 +1371,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               defaultValue: "window.open('http://13.231.166.65:18000/chatgpt/', '_blank')"
             }
           }
-        },
+        }, */
         // 拡張機能のブロック定義
         { 
           opcode: 'say-hello',
@@ -1383,7 +1383,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }),
           func: 'sayHello'
         }],
-        menus: {}
+        //menus: {}
       };
     }
 
