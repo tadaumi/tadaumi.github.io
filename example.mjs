@@ -1275,18 +1275,21 @@ var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
 	"xcratchExample.name": "Xcratch Example",
-	"xcratchExample.doIt": "do it [SCRIPT]"
+	//"xcratchExample.doIt": "do it [SCRIPT]"
+	"xcratchExample.'say-hello": "'say-hello"
 };
 var ja = {
 	"xcratchExample.name": "Xcratchの例",
-	"xcratchExample.doIt": "[SCRIPT] を実行する"
+	//"xcratchExample.doIt": "[SCRIPT] を実行する"
+	"xcratchExample.'say-hello": "'say-hello"
 };
 var translations = {
 	en: en,
 	ja: ja,
 	"ja-Hira": {
 	"xcratchExample.name": "エクスクラッチのれい",
-	"xcratchExample.doIt": "[SCRIPT] をじっこうする"
+	//"xcratchExample.doIt": "[SCRIPT] をじっこうする"
+	"xcratchExample.'say-hello": "'say-hello"
 }
 };
 
