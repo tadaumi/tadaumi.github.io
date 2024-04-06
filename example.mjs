@@ -31,7 +31,7 @@ var translations$1 = {
  * @returns {string} - translated message for the current locale
  */
 var formatMessage$1 = function formatMessage(messageData) {
-  return messageData.defaultMessage;
+  return messageData.defaultMessage.toString();
 };
 var entry = {
   get name() {
