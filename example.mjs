@@ -42,7 +42,8 @@ var entry = {
     });
   },
   extensionId: 'xcratchExample',
-  extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
+  //extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
+  extensionURL: 'https://tadaumi.github.io/example.mjs';
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1385,6 +1386,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             description: 'say hello'
           }),
           func: 'sayHello'
+          arguments: {
+            SCRIPT: {
+              type: ArgumentType$1.STRING,
+              //defaultValue: "window.open('http://13.231.166.65:18000/chatgpt/', '_blank')"
+              defaultValue: "hello"
+            }
+          }
         }],
         //menus: {}
       };
