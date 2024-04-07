@@ -1377,24 +1377,15 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
         }, */
         // 拡張機能のブロック定義
-        { 
-          opcode: 'say-hello',
+          opcode: 'sayHello',
           blockType: BlockType$1.COMMAND,
           text: formatMessage({
             id: 'xcratchExample.sayHello',
             default: 'say hello',
             description: 'say hello'
           }),
-          func: 'sayHello'
-          arguments: {
-            SCRIPT: {
-              type: ArgumentType$1.STRING,
-              //defaultValue: "window.open('http://13.231.166.65:18000/chatgpt/', '_blank')"
-              defaultValue: "hello"
-            }
-          }
         }],
-        //menus: {}
+        menus: {}
       };
     }
 
