@@ -31,7 +31,8 @@ var translations$1 = {
  * @returns {string} - translated message for the current locale
  */
 var formatMessage$1 = function formatMessage(messageData) {
-  return messageData.defaultMessage.toString();
+  //return messageData.defaultMessage;
+  return messageData.default.toString();
 };
 var entry = {
   get name() {
@@ -42,8 +43,7 @@ var entry = {
     });
   },
   extensionId: 'xcratchExample',
-  //extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
-  extensionURL: 'https://tadaumi.github.io/example.mjs';
+  extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1276,21 +1276,18 @@ var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
 	"xcratchExample.name": "Xcratch Example",
-	//"xcratchExample.doIt": "do it [SCRIPT]"
-	"xcratchExample.'say-hello": "'say-hello"
+	"xcratchExample.doIt": "do it [SCRIPT]"
 };
 var ja = {
 	"xcratchExample.name": "Xcratchの例",
-	//"xcratchExample.doIt": "[SCRIPT] を実行する"
-	"xcratchExample.'say-hello": "'say-hello"
+	"xcratchExample.doIt": "[SCRIPT] を実行する"
 };
 var translations = {
 	en: en,
 	ja: ja,
 	"ja-Hira": {
 	"xcratchExample.name": "エクスクラッチのれい",
-	//"xcratchExample.doIt": "[SCRIPT] をじっこうする"
-	"xcratchExample.'say-hello": "'say-hello"
+	"xcratchExample.doIt": "[SCRIPT] をじっこうする"
 }
 };
 
@@ -1322,11 +1319,15 @@ var EXTENSION_ID = 'xcratchExample';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://tadaumi.github.io/example.mjs';
+var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
  */
+function sayHello() {
+  alert("Hello, Xcratch!");
+}
+
 var ExtensionBlocks = /*#__PURE__*/function () {
   /**
    * Construct a set of blocks for xcratchExample.
@@ -1341,7 +1342,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     this.runtime = runtime;
     if (runtime.formatMessage) {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
-      formatMessage = runtime.formatMessage;
+      formatMessage$1 = runtime.formatMessage;
     }
   }
 
@@ -1359,55 +1360,23 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: img,
         showStatusButton: false,
         blocks: [{
-        	/*
-          opcode: 'do-it',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: formatMessage({
-            id: 'xcratchExample.doIt',
-            default: 'do it [SCRIPT]',
-            description: 'execute javascript for example'
-          }),
-          func: 'doIt',
-          arguments: {
-            SCRIPT: {
-              type: ArgumentType$1.STRING,
-              defaultValue: "window.open('http://13.231.166.65:18000/chatgpt/', '_blank')"
-            }
-          }
-        }, */
-        // 拡張機能のブロック定義
           opcode: 'sayHello',
           blockType: BlockType$1.COMMAND,
+          blockAllThreads: false,
           text: formatMessage({
             id: 'xcratchExample.sayHello',
             default: 'say hello',
             description: 'say hello'
-          }),
+          })
         }],
         menus: {}
       };
     }
-
-	/*
   }, {
-    key: "doIt",
-    value: function doIt(args) {
-      var statement = Cast$1.toString(args.SCRIPT);
-      var func = new Function("return (".concat(statement, ")"));
-      log$1.log("doIt: ".concat(statement));
-      return func.call(this);
-    }
-    */
-    
-  }, {
-    // 新しいメソッド
     key: "sayHello",
     value: function sayHello() {
-      alert("Hello, Xcratch!");
+			alert("Hello, Xcratch!");
     }
-    
-  
   }], [{
     key: "formatMessage",
     set:
