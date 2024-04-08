@@ -42,8 +42,7 @@ var entry = {
     });
   },
   extensionId: 'xcratchExample',
-  //extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
-  extensionURL: 'https://tadaumi.github.io/xcratchExample.mjs',
+  extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1319,8 +1318,8 @@ var EXTENSION_ID = 'xcratchExample';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-//var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
-var extensionURL: 'https://tadaumi.github.io/xcratchExample.mjs';
+var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
+
 /**
  * Scratch 3.0 blocks for example of Xcratch.
  */
@@ -1356,42 +1355,33 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: img,
         showStatusButton: false,
         blocks: [{
-          //opcode: 'do-it',
-          opcode: 'sayHello',
-          //blockType: BlockType$1.REPORTER,
-          blockType: BlockType$1.COMMAND,
+          opcode: 'do-it',
+          blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
           text: formatMessage({
             id: 'xcratchExample.sayHello',
             default: 'do it [SCRIPT]',
             description: 'execute javascript for example'
-          })
-          /*,
+          }),
           func: 'sayHello',
           arguments: {
             SCRIPT: {
               type: ArgumentType$1.STRING,
-              defaultValue: '3 + 4'
+              defaultValue: '3 + 5'
             }
           }
-          */
         }],
         menus: {}
       };
     }
   }, {
     key: "sayHello",
-    value: function sayHello() {
-      alert("Hello, Xcratch!");
-    }
-    /*
     value: function sayHello(args) {
       var statement = Cast$1.toString(args.SCRIPT);
       var func = new Function("return (".concat(statement, ")"));
       log$1.log("sayHello: ".concat(statement));
       return func.call(this);
     }
-    */
   }], [{
     key: "formatMessage",
     set:
@@ -1421,7 +1411,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
      * @return {string} - the ID of this extension.
      */
   }, {
-		}, {
     key: "EXTENSION_ID",
     get: function get() {
       return EXTENSION_ID;
