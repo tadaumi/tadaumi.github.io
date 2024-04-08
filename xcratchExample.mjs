@@ -1420,7 +1420,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     /**
      * @return {string} - the ID of this extension.
      */
-  }, {https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
+  }, {
+		}, {
     key: "EXTENSION_ID",
     get: function get() {
       return EXTENSION_ID;
