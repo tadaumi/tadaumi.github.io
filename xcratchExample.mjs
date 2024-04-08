@@ -1364,7 +1364,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             id: 'xcratchExample.sayHello',
             default: 'do it [SCRIPT]',
             description: 'execute javascript for example'
-          }),
+          })
+          /*,
           func: 'sayHello',
           arguments: {
             SCRIPT: {
@@ -1372,6 +1373,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               defaultValue: '3 + 4'
             }
           }
+          */
         }],
         menus: {}
       };
