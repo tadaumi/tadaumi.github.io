@@ -1356,7 +1356,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         showStatusButton: false,
         blocks: [{
           opcode: 'do-it',
-          blockType: BlockType$1.REPORTER,
+          //blockType: BlockType$1.REPORTER,
+          blockType: BlockType$1.COMMAND,
           blockAllThreads: false,
           text: formatMessage({
             id: 'xcratchExample.sayHello',
@@ -1376,12 +1377,17 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
   }, {
     key: "sayHello",
+    value: function sayHello() {
+      alert("Hello, Xcratch!");
+    }
+    /*
     value: function sayHello(args) {
       var statement = Cast$1.toString(args.SCRIPT);
       var func = new Function("return (".concat(statement, ")"));
       log$1.log("sayHello: ".concat(statement));
       return func.call(this);
     }
+    */
   }], [{
     key: "formatMessage",
     set:
