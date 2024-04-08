@@ -1355,8 +1355,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: img,
         showStatusButton: false,
         blocks: [{
-          opcode: 'do-it',
-          blockType: BlockType$1.REPORTER,
+          opcode: 'say-hello',
+          blockType: BlockType$1.COMMAND,
           blockAllThreads: false,
           text: formatMessage({
             id: 'xcratchExample.sayHello',
@@ -1367,7 +1367,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           arguments: {
             SCRIPT: {
               type: ArgumentType$1.STRING,
-              defaultValue: '3 + 5'
+              defaultValue: '3 + 6'
             }
           }
         }],
