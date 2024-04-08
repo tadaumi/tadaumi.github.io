@@ -1355,7 +1355,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: img,
         showStatusButton: false,
         blocks: [{
-          opcode: 'do-it',
+          //opcode: 'do-it',
+          opcode: 'sayHello',
           //blockType: BlockType$1.REPORTER,
           blockType: BlockType$1.COMMAND,
           blockAllThreads: false,
@@ -1416,7 +1417,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     /**
      * @return {string} - the ID of this extension.
      */
-  }, {
+  }, {https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
     key: "EXTENSION_ID",
     get: function get() {
       return EXTENSION_ID;
