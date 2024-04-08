@@ -1360,7 +1360,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           blockAllThreads: false,
           text: formatMessage({
             id: 'xcratchExample.sayHello',
-            default: 'do it [SCRIPT]',
+            //default: 'do it [SCRIPT]',
+            default: 'say hello',
             description: 'execute javascript for example'
           }),
           func: 'sayHello',
