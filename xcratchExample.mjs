@@ -1368,7 +1368,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           arguments: {
             SCRIPT: {
               type: ArgumentType$1.STRING,
-              defaultValue: '3 + 6'
+              defaultValue: '3 + 7'
             }
           }
         }],
@@ -1377,12 +1377,17 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
   }, {
     key: "sayHello",
+    value: function sayHello() {
+      alert("Hello, Xcratch!");
+    }
+    /*
     value: function sayHello(args) {
       var statement = Cast$1.toString(args.SCRIPT);
       var func = new Function("return (".concat(statement, ")"));
       log$1.log("sayHello: ".concat(statement));
       return func.call(this);
     }
+    */
   }], [{
     key: "formatMessage",
     set:
