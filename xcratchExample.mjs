@@ -1379,6 +1379,42 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     key: "sayHello",
     value: function sayHello() {
       alert("Hello, Xcratch!");
+      
+      var message = "Hello";
+      const apiEndpoint = "https://api.chatgpt.com/v1/completions/chat";
+      const apiKey = "YOUR_API_KEY";
+      
+			const requestData = {
+        model: "text-davinci-002", // 使用するChatGPTモデル
+        prompt: message, // 送信するメッセージ
+        max_tokens: 50 // ChatGPTから生成される応答の最大トークン数
+    	};
+    	
+    	const requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+        },
+        body: JSON.stringify(requestData)
+    	};
+    	
+    	// HTTPリクエストを送信し、ChatGPTからの応答を取得する
+		  fetch(apiEndpoint, requestOptions)
+		      .then(response => response.json())
+		      .then(data => {
+		          // ChatGPTからの応答をログに出力する
+		          console.log("ChatGPT Response:", data.choices[0].text);
+		          // ChatGPTからの応答を表示するなど、適切な処理を行う
+		          alert("ChatGPT Response: " + data.choices[0].text);
+		      })
+		      .catch(error => {
+		          // エラーが発生した場合の処理
+		          console.error("Error:", error);
+		          // エラーを表示するなど、適切な処理を行う
+		          alert("Error: " + error.message);
+		      });
+
     }
     /*
     value: function sayHello(args) {
