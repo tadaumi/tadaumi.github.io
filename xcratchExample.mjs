@@ -1275,18 +1275,18 @@ var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
 	"xcratchExample.name": "Xcratch Example",
-	"xcratchExample.doIt": "do it [SCRIPT]"
+	"xcratchExample.sayHello": "do it [SCRIPT]"
 };
 var ja = {
 	"xcratchExample.name": "Xcratchの例",
-	"xcratchExample.doIt": "[SCRIPT] を実行する"
+	"xcratchExample.sayHello": "[SCRIPT] を実行する"
 };
 var translations = {
 	en: en,
 	ja: ja,
 	"ja-Hira": {
 	"xcratchExample.name": "エクスクラッチのれい",
-	"xcratchExample.doIt": "[SCRIPT] をじっこうする"
+	"xcratchExample.sayHello": "[SCRIPT] をじっこうする"
 }
 };
 
@@ -1359,11 +1359,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
           text: formatMessage({
-            id: 'xcratchExample.doIt',
+            id: 'xcratchExample.sayHello',
             default: 'do it [SCRIPT]',
             description: 'execute javascript for example'
           }),
-          func: 'doIt',
+          func: 'sayHello',
           arguments: {
             SCRIPT: {
               type: ArgumentType$1.STRING,
@@ -1375,11 +1375,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       };
     }
   }, {
-    key: "doIt",
-    value: function doIt(args) {
+    key: "sayHello",
+    value: function sayHello(args) {
       var statement = Cast$1.toString(args.SCRIPT);
       var func = new Function("return (".concat(statement, ")"));
-      log$1.log("doIt: ".concat(statement));
+      log$1.log("sayHello: ".concat(statement));
       return func.call(this);
     }
   }], [{
