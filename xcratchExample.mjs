@@ -42,7 +42,8 @@ var entry = {
     });
   },
   extensionId: 'xcratchExample',
-  extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
+  //extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
+  extensionURL: 'https://tadaumi.github.io/xcratchExample.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1318,8 +1319,8 @@ var EXTENSION_ID = 'xcratchExample';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
-
+//var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
+var extensionURL: 'https://tadaumi.github.io/xcratchExample.mjs';
 /**
  * Scratch 3.0 blocks for example of Xcratch.
  */
