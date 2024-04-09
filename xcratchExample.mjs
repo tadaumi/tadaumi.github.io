@@ -1,8 +1,10 @@
+/*
 const express = require('express');
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
+*/
 
 //import OpenAI from "https://cdn.jsdelivr.net/npm/openai-api-browser@1.1.0/dist/openai-api-browser.js";
 //const OpenAI = require("./node_modules/openai");
