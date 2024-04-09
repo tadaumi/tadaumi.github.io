@@ -1382,7 +1382,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       
       var message = "Hello";
       const apiEndpoint = "https://api.chatgpt.com/v1/completions/chat";
-      const apiKey = "YOUR_API_KEY";
+      const apiKey = "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";
       
 			const requestData = {
         model: "text-davinci-002", // 使用するChatGPTモデル
