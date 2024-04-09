@@ -1355,6 +1355,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   /**
    * @returns {object} metadata for this extension and its blocks.
    */
+  import OpenAI from "openai";
+	const openai = new OpenAI();
+	
   _createClass$1(ExtensionBlocks, [{
     key: "getInfo",
     value: function getInfo() {
@@ -1391,8 +1394,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     value: async function sayHello() {
       alert("Hello, Xcratch!");
       
-      import OpenAI from "openai";
-			const openai = new OpenAI();
 			
       var message = "Hello";
       const apiEndpoint = "https://api.chatgpt.com/v1/completions/chat";
