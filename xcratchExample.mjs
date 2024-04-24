@@ -6,9 +6,10 @@ const app = express();
 app.use(cors());
 */
 
-//import OpenAI from "https://cdn.jsdelivr.net/npm/openai-api-browser@1.1.0/dist/openai-api-browser.js";
 //const OpenAI = require("./node_modules/openai");
-//import OpenAI from "./node_modules/openai";
+//import OpenAI from "/home/tadaumi/Documents/xcratch/node_modules/openai";
+//import OpenAI from "/openai/";
+//import OpenAI from 'https://cdn.jsdelivr.net/npm/openai/dist/openai-browser.min.js';
 //const openai = new OpenAI();
 //const openAi = new OpenAI({
   //apiKey: "xxxxxxxxxxxxxxxxxxxxxx",
@@ -20,7 +21,7 @@ var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8' standal
 
 var en$1 = {
 	"xcratchExample.entry.name": "Xcratch Example",
-	"xcratchExample.entry.description": "Do it in JavaScript"
+	"xcratchExample.entry.description": "chatgot in JavaScript"
 };
 var ja$1 = {
 	"xcratchExample.entry.name": "Xcratchの例",
@@ -1291,7 +1292,7 @@ var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
 	"xcratchExample.name": "Xcratch Example",
-	"xcratchExample.sayHello": "do it [SCRIPT]"
+	"xcratchExample.sayHello": "chatgot [SCRIPT]"
 };
 var ja = {
 	"xcratchExample.name": "Xcratchの例",
@@ -1334,11 +1335,13 @@ var EXTENSION_ID = 'xcratchExample';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
+//var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
+var extensionURL = 'http://localhost/example';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
  */
+
 var ExtensionBlocks = /*#__PURE__*/function () {
   /**
    * Construct a set of blocks for xcratchExample.
@@ -1356,11 +1359,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       formatMessage = runtime.formatMessage;
     }
   }
-
+  
   /**
    * @returns {object} metadata for this extension and its blocks.
    */
-	
+
   _createClass$1(ExtensionBlocks, [{
     key: "getInfo",
     value: function getInfo() {
@@ -1371,9 +1374,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         extensionURL: ExtensionBlocks.extensionURL,
         blockIconURI: img,
         showStatusButton: false,
-        blocks: [{
+        blocks: [
+          {
           opcode: 'say-hello',
-          blockType: BlockType$1.COMMAND,
+          blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
           text: formatMessage({
             id: 'xcratchExample.sayHello',
@@ -1382,70 +1386,90 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             description: 'execute javascript for example'
           }),
           func: 'sayHello',
+          //func: this.sayHello.bind(this), // メソッドにバインドする
           arguments: {
             SCRIPT: {
               type: ArgumentType$1.STRING,
-              defaultValue: '3 + 7'
+              defaultValue: 'hello'
             }
           }
-        }],
+          }
+        ],
         menus: {}
       };
     }
   }, {
     key: "sayHello",
-    value: async function sayHello() {
+    value: function sayHello(args) {
+    //value: async function sayHello(args) {
       alert("Hello, Xcratch!");
-      var loc = window.location.pathname;
-			var dir = loc.substring(0, loc.lastIndexOf('/'));
-			alert(dir);
-			
-      var message = "Hello";
-      //const apiEndpoint = "https://api.chatgpt.com/v1/completions/chat";
-      const apiKey = "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";
+      //var loc = window.location.pathname;
+			//var dir = loc.substring(0, loc.lastIndexOf('/'));
+			//alert(loc);
+			//console.log("runtime: " + runtime);
+      console.log("args: " + args);
+      for (let key in args) {
+          console.log(key + ': ' + args[key]);
+      }
+
       
-      const completion = await openai.chat.completions.create({
-	            model: "gpt-4", // 使いたいGPTのModel
-	            messages: [{ "role": "user", "content": message }],
-			});
-			console.log(completion.choices[0].message.content); //GPTの回答
-      alert(completion.choices[0].message.content);
-      /*
-			const requestData = {
-        model: "text-davinci-002", // 使用するChatGPTモデル
-        prompt: message, // 送信するメッセージ
-        max_tokens: 50 // ChatGPTから生成される応答の最大トークン数
-    	};
-    	
-    	const requestOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-        },
-        body: JSON.stringify(requestData)
-    	};
-    	
-    	// HTTPリクエストを送信し、ChatGPTからの応答を取得する
-		  fetch(apiEndpoint, requestOptions)
-		      .then(response => response.json())
-		      .then(data => {
-		          // ChatGPTからの応答をログに出力する
-		          console.log("ChatGPT Response:", data.choices[0].text);
-		          // ChatGPTからの応答を表示するなど、適切な処理を行う
-		          alert("ChatGPT Response: " + data.choices[0].text);
-		      })
-		      .catch(error => {
-		          // エラーが発生した場合の処理
-		          console.error("Error:", error);
-		          // エラーを表示するなど、適切な処理を行う
-		          alert("Error: " + error.message);
-		      });
-		   */
+      const server2Url = 'http://localhost:8080/chatgpt/'; 
+      //const textToSend = 'Hello, Server 2!';
+      alert("args.SCRIPT: " + args.SCRIPT);
+      var textToSend = args.SCRIPT || "what is your name";
+      
+      //const textToSend = runtime.getArgument('SCRIPT');
+      alert("textToSend: " + textToSend);
+      // サーバー2にPOSTリクエストを送信する関数
+      //async function sendRequestToServer2(runtime, args) {
+      async function sendRequestToServer2(args) {
+        try {
+          alert(server2Url);
+          alert(textToSend);
+          const response = await fetch(server2Url, {
+          //const response = fetch(server2Url, {
+            method: 'POST',
+            //mode: 'no-cors',
+            headers: {
+              'Content-Type': 'text/plain',
+              'Origin': 'http://localhost:8601'
+            },
+            body: textToSend
+          });
 
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const responseData = await response.text();
+          console.log('Response from Server 2:', responseData);
+          
+          return responseData;
+          
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }  
+      
+      // サーバー1からサーバー2にリクエストを送信
+      return sendRequestToServer2(args);
+      
     }
+    
 
-  }], [{
+  /*
+  }, {
+    key: "setMyVariable",
+    //value: function(runtime, args) {
+    value: function(args) {
+      console.log("args.VALUE in setMyVariable: " + args.VALUE);
+      var myVariable = args.VALUE;
+      console.log('myVariable:', myVariable);
+      return myVariable;
+    }
+  */
+  
+  }], [{  
     key: "formatMessage",
     set:
     /**
