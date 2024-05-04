@@ -1555,7 +1555,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const lines = responseData.split('\n');
           const firstLine = lines.length > 0 ? lines[0] : '';
           console.log('first line of Response:', firstLine);
-          const texts = firstLine.split(/[（ 【 。]/);
+          const texts = firstLine.split(/[( （ 【 。]/);
           console.log("=========texts: " + texts);
           var word = texts[0];
           return word;
