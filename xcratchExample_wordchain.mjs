@@ -1494,6 +1494,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     key: "checkLastLetter",
     value: function checkLastLetter({ TEXT, LETTER }) {
       console.log("=========TEXT: " + TEXT);
+      
       const lastChar = TEXT.slice(-1); // Get the last character of the input text
       console.log(LETTER + ": " + lastChar);
       if (lastChar === LETTER) {
@@ -1554,7 +1555,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const lines = responseData.split('\n');
           const firstLine = lines.length > 0 ? lines[0] : '';
           console.log('first line of Response:', firstLine);
-          return firstLine;
+          const texts = firstLine.split(/[（【 。]/);
+          console.log("=========texts: " + texts);
+          var word = texts[0];
+          return word;
           
         } catch (error) {
           console.error('Error:', error);
