@@ -1528,7 +1528,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         var textToSend = "しりとりをしましょう。単語のみ、ひらがなで返答して下さい。「りんご」から始めます。";
         wordchain.firstCall = true;
       } else {
-        var textToSend = "しりとりをしましょう。文章ではなく、単語のみ、ひらがなで返答して下さい。「" + TEXT + "」から始めます。";;
+        var textToSend = "しりとりをしましょう。文章ではなく、単語のみ、ひらがなで返答して下さい。単語の後に、「。」、「、」、「【」などはつけないで下さい。「" + TEXT + "」から始めます。";;
       }
       
       console.log('Wordchain function called ' + wordchain.callCount + ' times.');
