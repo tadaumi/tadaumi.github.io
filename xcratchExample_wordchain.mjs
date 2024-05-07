@@ -1609,7 +1609,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       formatMessage = formatter;
       if (formatMessage) setupTranslations();
     }
-apple 
+
     /**
      * @return {string} - the name of this extension.
      */
@@ -1636,7 +1636,7 @@ apple
      * URL to get this extension.
      * @type {string}
      */
-  }, {apple 
+  }, {
     key: "extensionURL",
     get: function get() {
       return extensionURL;
