@@ -1489,7 +1489,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           
           },{
           opcode: 'showImage',
-          blockType: BlockType$1.REPORTER,
+          blockType: BlockType$1.COMMAND,
           text: formatMessage({
             id: 'extension.show_image',
             default: 'show image [URL]',
