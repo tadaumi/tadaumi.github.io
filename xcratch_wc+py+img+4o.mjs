@@ -1519,6 +1519,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
           
+          /*
           },{
           opcode: 'get_image',
           blockType: BlockType$1.REPORTER,
@@ -1534,6 +1535,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 defaultValue: "https://happylilac.net/thumb/matigai-w-undokai-01.png"
             }
           }
+          */
           
           },{
           opcode: 'ask_chatgpt4o',
@@ -1596,7 +1598,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       &emsp;&emsp;Return: image on stage div<br>
       &emsp;create image of:<br>
       &emsp;&emsp;Function: create image spechified in "" such as "create an image of cat". you need to input  "create an image of XXX"(japanese can be used if the same meaning).<br>
-      &emsp;&emsp;Return: url of the created image
+      &emsp;&emsp;Return: url of the created image<br>
+      &emsp;ask "まちがいさがし" about image "URL of image":<br>
+      &emsp;&emsp;Function: find differencee of input image( URL of image )<br>
+      &emsp;&emsp;Return: answer text about the differences
+      
+      
       `;
       const newWindow = window.open();
       newWindow.document.write(text);
@@ -1913,6 +1920,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       return sendRequestToServer2(args);
     }
     
+    /*
     }, {
     key: "getImage",
     value: function getImage(args) {
@@ -1949,6 +1957,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           console.error(error);
       });
     }
+    */
     
     }, {
     key: "askChatgpt4o",
