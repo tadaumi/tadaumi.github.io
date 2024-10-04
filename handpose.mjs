@@ -36,6 +36,10 @@ var translations$1 = {
  * @param {object} messageData - data for format-message
  * @returns {string} - translated message for the current locale
  */
+var formatMessage = function formatMessage(messageData) {
+  return messageData.default;
+};
+
 var entry = {
   get name() {
     return formatMessage$1({
@@ -1301,9 +1305,6 @@ var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAA
  * @param {object} messageData - format-message object
  * @returns {string} - message for the locale
  */
-var formatMessage = function formatMessage(messageData) {
-  return messageData.default;
-};
 
 /**
  * Setup format-message for this extension.
