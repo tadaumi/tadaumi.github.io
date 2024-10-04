@@ -20,7 +20,7 @@ var img$2 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAF0CAYAAAD/4EcMA
 var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8' standalone='no'%3f%3e%3c!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg width='100%25' height='100%25' viewBox='0 0 53 53' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd%3bclip-rule:evenodd%3bstroke-linejoin:round%3bstroke-miterlimit:2%3b'%3e%3crect id='%e3%82%a2%e3%83%bc%e3%83%88%e3%83%9c%e3%83%bc%e3%83%891' x='0' y='-0' width='52.083' height='52.056' style='fill:none%3b'/%3e%3cclipPath id='_clip1'%3e%3crect x='0' y='-0' width='52.083' height='52.056'/%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip1)'%3e%3cg%3e%3cg%3e%3cpath d='M17.605%2c14.113c1.125%2c0.983 1.582%2c2.148 2.563%2c3.17c2.407%2c2.507 4.811%2c5.102 7.423%2c7.551c4.352%2c4.079 10.045%2c7.577 14.675%2c11.435' style='fill:none%3bstroke:white%3bstroke-width:19.17px%3bstroke-linecap:round%3bstroke-miterlimit:1.5%3b'/%3e%3cpath d='M40.824%2c11.292c-0.914%2c2.03 -3.668%2c3.898 -5.723%2c5.559c-2.684%2c2.171 -5.276%2c4.398 -7.941%2c6.581c-7.278%2c5.958 -12.955%2c12.359 -18.301%2c19.04' style='fill:none%3bstroke:white%3bstroke-width:19.17px%3bstroke-linecap:round%3bstroke-miterlimit:1.5%3b'/%3e%3c/g%3e%3cg%3e%3cpath d='M17.605%2c14.113c1.125%2c0.983 1.582%2c2.148 2.563%2c3.17c2.407%2c2.507 4.811%2c5.102 7.423%2c7.551c4.352%2c4.079 10.045%2c7.577 14.675%2c11.435' style='fill:none%3bstroke:%23f9a83a%3bstroke-width:12.5px%3bstroke-linecap:round%3bstroke-miterlimit:1.5%3b'/%3e%3cpath d='M40.824%2c11.292c-0.914%2c2.03 -3.668%2c3.898 -5.723%2c5.559c-2.684%2c2.171 -5.276%2c4.398 -7.941%2c6.581c-7.278%2c5.958 -12.955%2c12.359 -18.301%2c19.04' style='fill:none%3bstroke:%23f9a83a%3bstroke-width:12.5px%3bstroke-linecap:round%3bstroke-miterlimit:1.5%3b'/%3e%3c/g%3e%3cg%3e%3cpath d='M16.783%2c15.055c0.264%2c0.231 0.482%2c0.475 0.679%2c0.725c0.621%2c0.785 1.078%2c1.612 1.804%2c2.368c1.456%2c1.517 2.91%2c3.065 4.41%2c4.594c0.996%2c1.015 2.012%2c2.021 3.06%2c3.004c1.353%2c1.268 2.831%2c2.481 4.368%2c3.666c3.429%2c2.643 7.152%2c5.143 10.362%2c7.817c0.53%2c0.442 1.319%2c0.37 1.76%2c-0.16c0.442%2c-0.53 0.37%2c-1.319 -0.16%2c-1.76c-3.233%2c-2.694 -6.982%2c-5.215 -10.435%2c-7.877c-1.472%2c-1.135 -2.89%2c-2.296 -4.185%2c-3.51c-1.023%2c-0.959 -2.014%2c-1.941 -2.985%2c-2.931c-1.494%2c-1.522 -2.942%2c-3.064 -4.392%2c-4.574c-0.667%2c-0.695 -1.075%2c-1.465 -1.645%2c-2.187c-0.288%2c-0.365 -0.61%2c-0.72 -0.997%2c-1.058c-0.52%2c-0.454 -1.31%2c-0.4 -1.764%2c0.119c-0.453%2c0.52 -0.4%2c1.31 0.12%2c1.764Z' style='fill:white%3b'/%3e%3cpath d='M39.685%2c10.779c-0.331%2c0.733 -0.963%2c1.428 -1.694%2c2.108c-1.138%2c1.059 -2.52%2c2.058 -3.676%2c2.992l-7.947%2c6.585c-3.596%2c2.944 -6.805%2c5.995 -9.778%2c9.133c-3.104%2c3.276 -5.949%2c6.648 -8.707%2c10.094c-0.431%2c0.539 -0.343%2c1.326 0.195%2c1.757c0.539%2c0.431 1.326%2c0.344 1.757%2c-0.195c2.715%2c-3.392 5.515%2c-6.712 8.57%2c-9.937c2.903%2c-3.064 6.036%2c-6.043 9.547%2c-8.917l7.935%2c-6.576c1.418%2c-1.146 3.155%2c-2.393 4.43%2c-3.716c0.716%2c-0.743 1.293%2c-1.516 1.647%2c-2.301c0.283%2c-0.629 0.003%2c-1.37 -0.626%2c-1.653c-0.629%2c-0.284 -1.37%2c-0.003 -1.653%2c0.626Z' style='fill:white%3b'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e";
 
 var en$1 = {
-	"xcratchExample.entry.name": "Xcratch Example",
+	"xcratchExample.entry.name": "chatgpt extension",
 	"xcratchExample.entry.description": "chatgot in JavaScript"
 };
 var ja$1 = {
@@ -54,7 +54,7 @@ var entry = {
   get name() {
     return formatMessage$1({
       id: 'xcratchExample.entry.name',
-      defaultMessage: 'Xcratch Example',
+      defaultMessage: 'chatgpt extension',
       description: 'name of the extension'
     });
   },
@@ -215,7 +215,11 @@ var ArgumentType = {
   /**
    * Inline image on block (as part of the label)
    */
-  IMAGE: 'image'
+  IMAGE: 'image',
+  /**
+   * List of values
+   */
+  LIST: 'list'
 };
 var argumentType = ArgumentType;
 var ArgumentType$1 = /*@__PURE__*/getDefaultExportFromCjs(argumentType);
@@ -1291,19 +1295,19 @@ var log = minilog('vm');
 var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
-	"xcratchExample.name": "Xcratch Example",
-	"xcratchExample.sayHello": "chatgot [SCRIPT]"
+	"xcratchExample.name": "chatgpt extension",
+	"xcratchExample.sayHello": "ask chatgpt about [SCRIPT]"
 };
 var ja = {
-	"xcratchExample.name": "Xcratchの例",
-	"xcratchExample.sayHello": "[SCRIPT] を実行する"
+	"xcratchExample.name": "chatgptの拡張機能",
+	"xcratchExample.sayHello": "[SCRIPT] をchatgptに質問する"
 };
 var translations = {
 	en: en,
 	ja: ja,
 	"ja-Hira": {
-	"xcratchExample.name": "エクスクラッチのれい",
-	"xcratchExample.sayHello": "[SCRIPT] をじっこうする"
+	"xcratchExample.name": "chatgptのかくちょうきのう",
+	"xcratchExample.sayHello": "[SCRIPT] をchatgptにしつもんする"
 }
 };
 
@@ -1374,8 +1378,16 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         extensionURL: ExtensionBlocks.extensionURL,
         blockIconURI: img,
         showStatusButton: false,
-        blocks: [
-          {
+        blocks: [{
+          opcode: 'show_explanation',
+          blockType: BlockType$1.COMMAND,
+          blockAllThreads: false,
+          text: "show explanation of this extention",
+          func: 'showExplanation',
+          arguments: {
+          }
+          },{
+          
           opcode: 'say-hello',
           blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
@@ -1385,6 +1397,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             default: 'say hello',
             description: 'execute javascript for example'
           }),
+          tooltip: "このブロックは、新しいタブを開いてテキストを表示します。",
           func: 'sayHello',
           //func: this.sayHello.bind(this), // メソッドにバインドする
           arguments: {
@@ -1393,43 +1406,308 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               defaultValue: 'hello'
             }
           }
+          
+          },{
+          opcode: 'wordchain',
+          blockType: BlockType$1.REPORTER,
+          blockAllThreads: false,
+          text: "wordchain with [TEXT]",
+          func: 'wordchain',
+          arguments: {
+            TEXT: {
+                type: "string",
+                defaultValue: "りんご"
+            }
+          }
+          
+          },{
+          opcode: 'check_last_letter',
+          blockType: BlockType$1.REPORTER,
+          blockAllThreads: false,
+          text: "check last letter of [TEXT] for [LETTER]",
+          func: 'checkLastLetter',
+          arguments: {
+            TEXT: {
+                type: "string",
+                defaultValue: "word"
+            },
+            LETTER: {
+                type: "string",
+                defaultValue: "ん"
+            }
+          }
+          
+          },{
+          opcode: 'check_hisotry',
+          blockType: BlockType$1.REPORTER,
+          text: formatMessage({
+            id: 'extension.check_duplicate_words',
+            default: 'list [LIST] has dupulicated [WORD]?',
+            description: 'Check if a list contains duplicate word'
+          }),
+          func: 'checkHistory',
+          arguments: {
+            LIST: {
+              type: ArgumentType.LIST,
+              defaultValue: ["history"]
+            },
+          WORD: {
+            type: ArgumentType.STRING,
+            defaultValue: 'input data'
+            }
+          }
+          },{
+          opcode: 'create-program',
+          blockType: BlockType$1.REPORTER,
+          blockAllThreads: false,
+          text: formatMessage({
+            id: 'xcratchExample.createProgram',
+            default: 'create program by python [TEXT]',
+            description: 'create program'
+            }),
+          func: 'createProgram',
+          //func: this.sayHello.bind(this), // メソッドにバインドする
+          arguments: {
+            TEXT: {
+              type: ArgumentType$1.STRING,
+              defaultValue: 'copyfile'
+            }
+          }
+          
+          },{
+          opcode: 'show',
+          blockType: BlockType$1.COMMAND,
+          blockAllThreads: false,
+          text: "show text [TEXT]",
+          func: 'showText',
+          arguments: {
+            TEXT: {
+                type: "string",
+                defaultValue: "hello"
+            }
+          }
+          
+          //=============
           }
         ],
         menus: {}
       };
     }
+    
   }, {
+    key: "showExplanation",
+    value: function showExplanation() {
+      const text = `explanation of blocks:<br>
+      &emsp;ask chatgpt about:<br>
+      &emsp;&emsp;Function: ask chatchatgpt about "hello". "hello" should be replaceed by your question.<br> 
+      &emsp;&emsp;Return: answer text of chatgpt<br>
+      &emsp;wordchain with "りんご":<br>
+      &emsp;&emsp;Function: send chatgpt "りんご" as wordchain. "りんご" should be replaced with your wordchain answer.<br>
+      &emsp;&emsp;Return: answer word of chatgpt<br>
+      &emsp;check last letter of "word" for "ん":<br>
+      &emsp;&emsp;Function: check if "word" end with "ん"<br>
+      &emsp;&emsp;Return: "NG if the kast letter is "ん", else "OK"<br>
+      &emsp;list "[list name]" has duplicated "inpur data":<br>
+      &emsp;&emsp;Function: check if words in "<list namae>" has duplicated with "input data". "input data" should be replaced with your wordchain answer or chatgpt's answer.<br>
+      &emsp;&emsp;Return: "OK" if matched, else "NG"<br>
+      &emsp;create program by python "copy file":<br>
+      &emsp;&emsp;Function: create python program of function "copy file". "copy file" should be replaced with your description of function which you want to create.<br>
+      &emsp;&emsp;Return: generated program and the explanetion<br>
+      &emsp;show text "hello":<br>
+      &emsp;&emsp;Function: show "hello" in rigtside new tab, "input data" should be replaced with chatgpt's generated program or any of your text. <br>
+      &emsp;&emsp;Return: rigtside new tab
+            `;
+      const newWindow = window.open();
+      newWindow.document.write(text);
+    }
+    
+  }, {   
     key: "sayHello",
     value: function sayHello(args) {
-    //value: async function sayHello(args) {
-      alert("Hello, Xcratch!");
-      //var loc = window.location.pathname;
-			//var dir = loc.substring(0, loc.lastIndexOf('/'));
-			//alert(loc);
-			//console.log("runtime: " + runtime);
       console.log("args: " + args);
-      for (let key in args) {
-          console.log(key + ': ' + args[key]);
-      }
-
       
-      const server2Url = 'http://localhost:8080/chatgpt/'; 
-      //const textToSend = 'Hello, Server 2!';
-      alert("args.SCRIPT: " + args.SCRIPT);
+      //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
+      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt/';
       var textToSend = args.SCRIPT || "what is your name";
       
-      //const textToSend = runtime.getArgument('SCRIPT');
-      alert("textToSend: " + textToSend);
-      // サーバー2にPOSTリクエストを送信する関数
-      //async function sendRequestToServer2(runtime, args) {
       async function sendRequestToServer2(args) {
         try {
-          alert(server2Url);
-          alert(textToSend);
+          console.log(server2Url);
+          console.log(textToSend);
           const response = await fetch(server2Url, {
-          //const response = fetch(server2Url, {
             method: 'POST',
-            //mode: 'no-cors',
+            headers: {
+              'Content-Type': 'text/plain',
+              'Origin': 'http://localhost:8601'
+            },
+            body: textToSend
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const responseData = await response.text();
+          console.log('Response from Server 2:', responseData);
+          
+          return responseData;
+          
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }  
+      
+      // サーバー1からサーバー2にリクエストを送信
+      return sendRequestToServer2(args);
+    }
+    
+  },{
+    key: "checkLastLetter",
+    value: function checkLastLetter({ TEXT, LETTER }) {
+      console.log("=========TEXT: " + TEXT);
+      
+      const lastChar = TEXT.slice(-1); // Get the last character of the input text
+      console.log(LETTER + ": " + lastChar);
+      if (lastChar === LETTER) {
+          return "NG"; // If the last character matches the specified letter, return "NG"
+      } else {
+          return "OK"; // Otherwise, return "OK"
+      }
+    }
+  },{
+    key: "wordchain",
+    value: function wordchain(TEXT) {
+      console.log("==============start wordchain: " + TEXT);      
+      //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
+      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt/';
+      
+      var txt = JSON.stringify(TEXT);
+      TEXT = JSON.parse(txt).TEXT;
+      console.log("==============TEXT: " + TEXT);
+      if (TEXT == 'りんご' | '{"TEXT":"りんご"}') {
+        wordchain.callCount = 0;
+        wordchain.firstCall = false;
+      }
+      //var textToSend = "hello";
+      //let callCount = wordchain.callCount || 0;
+      //wordchain.callCount = callCount + 1;
+      if (typeof wordchain.callCount === 'undefined') {
+        wordchain.callCount = 0;
+      }
+      console.log("==============wordchain.firstCall: " + wordchain.firstCall);
+      if (!wordchain.firstCall) {
+        var textToSend = "しりとりをしましょう。単語のみ、ひらがなで返答して下さい。「りんご」から始めます。";
+        wordchain.firstCall = true;
+      } else {
+        var textToSend = "しりとりをしましょう。文章ではなく、単語のみ、ひらがなで返答して下さい。単語の後に、「。」、「、」、「【」などはつけないで下さい。「" + TEXT + "」から始めます。";;
+      }
+      
+      console.log('Wordchain function called ' + wordchain.callCount + ' times.');
+      
+      async function sendRequestToServer2() {
+        try {
+          console.log(server2Url);
+          console.log(textToSend);
+          const response = await fetch(server2Url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain',
+              'Origin': 'http://localhost:8601'
+            },
+            body: textToSend
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const responseData = await response.text();
+          console.log('Response from Server 2:', responseData);
+          const lines = responseData.split('\n');
+          const firstLine = lines.length > 0 ? lines[0] : '';
+          console.log('first line of Response:', firstLine);
+          const texts = firstLine.split(/[( 、 （ 、 【 。]/);
+          console.log("=========texts: " + texts);
+          var word = texts[0];
+          return word;
+          
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }  
+      
+      wordchain.callCount++;
+      
+      // サーバー1からサーバー2にリクエストを送信
+      return sendRequestToServer2();
+      
+    }
+    
+    },{
+    key: "checkHistory",
+    value: function checkHistory(args) {
+      var listText = args.LIST;
+      var list = listText.split(" ");
+      console.log('===========list:', list);
+      var tmp_word = args.WORD;
+      console.log('===========tmp_word:', tmp_word);
+      
+      // リスト内の単語をループしてチェック
+      console.log('===========list.length:', list.length);
+      for (var i = 0; i < list.length; i++) {
+        console.log('===========list[i]', list[i]);
+        if (list[i] === tmp_word) {
+            return "OK";
+          }
+      }
+      return "NG";
+    }
+    
+    },{
+    key: "showText",
+    value: function showText(args) {
+      const text = args.TEXT.replace(/\n/g, "<br>");;
+      const newWindow = window.open();
+      newWindow.document.write(text);
+      
+      /*
+      var stage = document.querySelector(".monitor-list_monitor-list_20k-y");
+      //var stage = document.querySelector(".Stage");
+      console.log('===========stage: ', stage);
+      // ステージ要素が読み込まれるまで待つ
+      if (stage) {
+        console.log('===========stage exists: ', stage);
+        var textElement = document.createElement("textarea");
+        textElement.value = text; // テキストを設定
+        //textElement.readOnly = true;
+        textElement.style.position = "absolute";
+        textElement.style.left = "10px";
+        textElement.style.top = "10px";
+        textElement.style.width = "200px"; // 幅を設定
+        textElement.style.height = "300px"; // 高さを設定
+        textElement.style.border = "1px solid black"; // 枠のスタイルを指定
+        textElement.style.padding = "10px"; // テキストと枠の間の余白を設定
+        textElement.style.backgroundColor = "white"; // 背景色を指定
+        stage.appendChild(textElement); // ステージに追加  
+      }
+      */
+    }
+    }, {
+    key: "createProgram",
+    value: function createProgram(args) {
+      console.log("args: " + args);
+      
+      //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
+      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt/';
+      var textToSend = "以下のPythonプログラムを作ってください。\n" + args.TEXT + 
+      "\nそして、そのプログラムについて、小学生の高学年でも分かるように説明して下さい。";
+      
+      async function sendRequestToServer2(args) {
+        try {
+          console.log(server2Url);
+          console.log(textToSend);
+          const response = await fetch(server2Url, {
+            method: 'POST',
             headers: {
               'Content-Type': 'text/plain',
               'Origin': 'http://localhost:8601'
@@ -1456,19 +1734,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       
     }
     
-
-  /*
-  }, {
-    key: "setMyVariable",
-    //value: function(runtime, args) {
-    value: function(args) {
-      console.log("args.VALUE in setMyVariable: " + args.VALUE);
-      var myVariable = args.VALUE;
-      console.log('myVariable:', myVariable);
-      return myVariable;
-    }
-  */
-  
+  //==================  
   }], [{  
     key: "formatMessage",
     set:
