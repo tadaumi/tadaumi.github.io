@@ -1284,19 +1284,19 @@ var log = minilog('vm');
 var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
-	"handpose.name": "chatgpt extension",
-	"handpose.sayHello": "ask chatgpt about [SCRIPT]"
+	"handpose.name": "handpose2scratch",
+	"handpose.sayHello": "handpose2scratch"
 };
 var ja = {
-	"handpose.name": "chatgptの拡張機能",
-	"handpose.sayHello": "[SCRIPT] をchatgptに質問する"
+	"handpose.name": "handpose2scratch",
+	"handpose.sayHello": "handpose2scratch"
 };
 var translations = {
 	en: en,
 	ja: ja,
 	"ja-Hira": {
-	"handpose.name": "chatgptのかくちょうきのう",
-	"handpose.sayHello": "[SCRIPT] をchatgptにしつもんする"
+	"handpose.name": "handpose2scratch",
+	"handpose.sayHello": "handpose2scratch"
 }
 };
 
@@ -1368,14 +1368,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: img,
         showStatusButton: false,
         blocks: [{
-          opcode: 'show_explanation',
-          blockType: BlockType$1.COMMAND,
-          blockAllThreads: false,
-          text: "show explanation of this extention",
-          func: 'showExplanation',
-          arguments: {
-          }
-          },{
           
           opcode: 'say-hello',
           blockType: BlockType$1.REPORTER,
@@ -1484,33 +1476,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
     
   }, {
-    key: "showExplanation",
-    value: function showExplanation() {
-      const text = `explanation of blocks:<br>
-      &emsp;ask chatgpt about:<br>
-      &emsp;&emsp;Function: ask chatchatgpt about "hello". "hello" should be replaceed by your question.<br> 
-      &emsp;&emsp;Return: answer text of chatgpt<br>
-      &emsp;wordchain with "りんご":<br>
-      &emsp;&emsp;Function: send chatgpt "りんご" as wordchain. "りんご" should be replaced with your wordchain answer.<br>
-      &emsp;&emsp;Return: answer word of chatgpt<br>
-      &emsp;check last letter of "word" for "ん":<br>
-      &emsp;&emsp;Function: check if "word" end with "ん"<br>
-      &emsp;&emsp;Return: "NG if the kast letter is "ん", else "OK"<br>
-      &emsp;list "[list name]" has duplicated "inpur data":<br>
-      &emsp;&emsp;Function: check if words in "<list namae>" has duplicated with "input data". "input data" should be replaced with your wordchain answer or chatgpt's answer.<br>
-      &emsp;&emsp;Return: "OK" if matched, else "NG"<br>
-      &emsp;create program by python "copy file":<br>
-      &emsp;&emsp;Function: create python program of function "copy file". "copy file" should be replaced with your description of function which you want to create.<br>
-      &emsp;&emsp;Return: generated program and the explanetion<br>
-      &emsp;show text "hello":<br>
-      &emsp;&emsp;Function: show "hello" in rigtside new tab, "input data" should be replaced with chatgpt's generated program or any of your text. <br>
-      &emsp;&emsp;Return: rigtside new tab
-            `;
-      const newWindow = window.open();
-      newWindow.document.write(text);
-    }
     
-  }, {   
     key: "sayHello",
     value: function sayHello(args) {
       console.log("args: " + args);
