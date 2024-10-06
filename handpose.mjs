@@ -1286,18 +1286,178 @@ var en = {
 };
 var ja = {
 	"handpose.name": "handpose2scratch",
-	"handpose.sayHello": "handpose2scratch"
+	"handpose.sayHello": "handpose2scratchを実行する"
 };
 var translations = {
 	en: en,
 	ja: ja,
 	"ja-Hira": {
 	"handpose.name": "handpose2scratch",
-	"handpose.sayHello": "handpose2scratch"
+	"handpose.sayHello": "handpose2scratchをじっこうする"
 }
 };
 
-var img = "data:image/png;base64,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";
+const Message = {
+  getX: {
+    'ja': '[LANDMARK] のx座標',
+    'ja-Hira': '[LANDMARK] のxざひょう',
+    'en': 'x of [LANDMARK]'
+  },
+  getY: {
+    'ja': '[LANDMARK] のy座標',
+    'ja-Hira': '[LANDMARK] のyざひょう',
+    'en': 'y of [LANDMARK]'
+  },
+  getZ: {
+    'ja': '[LANDMARK] のz座標',
+    'ja-Hira': '[LANDMARK] のzざひょう',
+    'en': 'z of [LANDMARK]'
+  },
+  videoToggle: {
+    'ja': 'ビデオを [VIDEO_STATE] にする',
+    'ja-Hira': 'ビデオを [VIDEO_STATE] にする',
+    'en': 'turn video [VIDEO_STATE]'
+  },
+  setRatio: {
+    'ja': '倍率を [RATIO] にする',
+    'ja-Hira': 'ばいりつを [RATIO] にする',
+    'en': 'set ratio to [RATIO]'
+  },
+  setInterval: {
+    'ja': '認識を [INTERVAL] 秒ごとに行う',
+    'ja-Hira': 'にんしきを [INTERVAL] びょうごとにおこなう',
+    'en': 'Label once every [INTERVAL] seconds'
+  },
+  on: {
+    'ja': '入',
+    'ja-Hira': 'いり',
+    'en': 'on'
+  },
+  off: {
+    'ja': '切',
+    'ja-Hira': 'きり',
+    'en': 'off'
+  },
+  video_on_flipped: {
+    'ja': '左右反転',
+    'ja-Hira': 'さゆうはんてん',
+    'en': 'on flipped'
+  },
+  please_wait: {
+    'ja': '準備に時間がかかります。少しの間、操作ができなくなりますがお待ち下さい。',
+    'ja-Hira': 'じゅんびにじかんがかかります。すこしのあいだ、そうさができなくなりますがおまちください。',
+    'en': 'Setup takes a while. The browser will get stuck, but please wait.'
+  },
+  landmarks: [
+    {
+      'ja': '手首',
+      'ja-Hira': 'てくび',
+      'en': 'wrist'
+    },
+    {
+      'ja': '親指の根元',
+      'ja-Hira': 'おやゆびのねもと',
+      'en': 'the base of thumb'
+    },
+    {
+      'ja': '親指の第2関節',
+      'ja-Hira': 'おやゆびのだい2かんせつ',
+      'en': 'the 2nd joint of thumb'
+    },
+    {
+      'ja': '親指の第1関節',
+      'ja-Hira': 'おやゆびのだい1かんせつ',
+      'en': 'the 1st joint of thumb'
+    },
+    {
+      'ja': '親指の先端',
+      'ja-Hira': 'おやゆびのさき',
+      'en': 'thumb'
+    },
+    {
+      'ja': '人差し指の第3関節',
+      'ja-Hira': 'ひとさしゆびのだい3かんせつ',
+      'en': 'the 3rd joint of index finger'
+    },
+    {
+      'ja': '人差し指の第2関節',
+      'ja-Hira': 'ひとさしゆびのだい2かんせつ',
+      'en': 'the 2nd joint of index finger'
+    },
+    {
+      'ja': '人差し指の第1関節',
+      'ja-Hira': 'ひとさしゆびのだい1かんせつ',
+      'en': 'the 1st joint of index finger'
+    },
+    {
+      'ja': '人差し指の先端',
+      'ja-Hira': 'ひとさしゆびのせんたん',
+      'en': 'index finger'
+    },
+    {
+      'ja': '中指の第3関節',
+      'ja-Hira': 'なかゆびのだい3かんせつ',
+      'en': 'the 3rd joint of middle finger'
+    },
+    {
+      'ja': '中指の第2関節',
+      'ja-Hira': 'なかゆびのだい2かんせつ',
+      'en': 'the 2nd joint of middle finger'
+    },
+    {
+      'ja': '中指の第1関節',
+      'ja-Hira': 'なかゆびのだい1かんせつ',
+      'en': 'the 1st joint of middle finger'
+    },
+    {
+      'ja': '中指の先端',
+      'ja-Hira': 'なかゆびのせんたん',
+      'en': 'middle finger'
+    },
+    {
+      'ja': '薬指の第3関節',
+      'ja-Hira': 'くすりゆびのだい3かんせつ',
+      'en': 'the 3rd joint of ring finger'
+    },
+    {
+      'ja': '薬指の第2関節',
+      'ja-Hira': 'くすりゆびのだい2かんせつ',
+      'en': 'the 2nd joint of ring finger'
+    },
+    {
+      'ja': '薬指の第1関節',
+      'ja-Hira': 'くすりゆびのだい1かんせつ',
+      'en': 'the 1st joint of ring finger'
+    },
+    {
+      'ja': '薬指の先端',
+      'ja-Hira': 'くすりゆびのせんたん',
+      'en': 'ring finger'
+    },
+    {
+      'ja': '小指の第3関節',
+      'ja-Hira': 'こゆびのだい3かんせつ',
+      'en': 'the 3rd joint of little finger'
+    },
+    {
+      'ja': '小指の第2関節',
+      'ja-Hira': 'こゆびのだい2かんせつ',
+      'en': 'the 2nd joint of little finger'
+    },
+    {
+      'ja': '小指の第1関節',BlockType
+      'ja-Hira': 'こゆびのだい1かんせつ',
+      'en': 'the 1st joint of little finger'
+    },
+    {
+      'ja': '小指の先端',
+      'ja-Hira': 'こゆびのせんたん',
+      'en': 'little finger'
+    }
+  ]
+}
+
+var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABgWlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kctLQkEUh7+0MHpgUESLFhLWSsMKpDZBRlggEWbQa6PXV6B2ufdGRNugrVAQtem1qL+gtkHrICiKINoFrYvalNzOVUGJPMOZ881v5hxmzoAtklGyer0PsjlDCwcDrvmFRZfjFTsObHTiiSq6OjYzE6KmfT1QZ8U7r1Wr9rl/rTme0BWoaxQeVVTNEJ4UDq0bqsW7wh1KOhoXPhf2aHJB4XtLj5X4zeJUiX8s1iLhcbC1CbtSVRyrYiWtZYXl5bizmTWlfB/rJS2J3NysxB7xbnTCBAngYooJxvEzwIjMfrwM0i8rauT7ivnTrEquIrPKBhorpEhj4BF1TaonJCZFT8jIsGH1/29f9eTQYKl6SwAaXkzzoxccO1DIm+b3sWkWTsD+DFe5Sv7qEQx/ip6vaO5DcG7BxXVFi+3B5TZ0PalRLVqU7OK2ZBLez6B1AdpvoWmp1LPyPqePENmUr7qB/QPok/PO5V8gz2fGkateTgAAAAlwSFlzAAALEwAACxMBAJqcGAAACQxJREFUWIXtmGt0VdURx39zzrkX8oLwSIhY3iAokYURsBBsQCO2aitraavL1mWF2pZVUFFpfdtWHtaqYMUlaGm11epCq/XRWqmIAUHDS40QgzwUECQYSCCQ1z3nTD/sc869NwkBvrD6obPW+bBnz+z579lnZs9s+B8nOdUGVfV04GLgwoB1APgAeFFEEqcaTyowR1XvVVVX26fdqnpta72T8qCq5gNXAP0AF9gHLBWR/cfRiwNvAhdEvMYD4DUh8RyId0kVv0lE/nAyuFDVXFV9UVW9dnaeUNXnVTX3GLqWqj4QCvs1mzWxYoY2vzDOfEtLNLF2rvoNX6eu+d1Q/7geVNUzgDeAIRHTbQSxwO6UKloJXCIiO1N0beAR4BeArXXbSLx9A3gtbexI7mBiFy4CJwNgPTBGRLRDgKrqAOuAkQD+npV4lc+gtZ8BguQOxi78CVbvcaHKF8AoETmgqt2B54FJAHpoB+67N6FNBw2gnD5ITl/8mk3QcggAe+hV2CNvDNcqFpE1VkcAgZ+H4Lyq53DfuwM9WAXqg3po7RbcVbPwPvhttps://xcratch.github.io/xcx-example/dist/xcratchExample.mjs1rKN8fWKqqhUB5BK5uG+7KWyNwVsFoYhctwTn/QWITH41Owv+qPNX2EIDjAZwKoA3VeBWLI6ZkFSA5faKxV7EIf+eycHgBsBEYDODvfofE2z9DG0wcSe5gnOJ5EMsKxkOQWDYAeuRLs3lDvQGcYyFT1U5AIYC//TVQz+x+0GScUbNAfbzKp/E2LQHAXTePWE5fpPswgBjq4236I17lM8mN5Q7BOf/B8D8zdup3oy2HzXzXQebfNlQNHXuwT7SBRH3EtAdcElizsIdPwer/bTP2WkiU3YIe2g5uI+7qu9LAWX1LiZUuRjLzkxZa6nFXzQLf5GfrtLGp9ldABx4EdgM+YKXu2K9ej91jeDR2Rt9Oon4XeqASWg6ReGc60ikXrd+V3MjZP8U+s1UOVh93zV1o/W4j1qUf9pk/Cmc/FJHPoQMPikgzsB3AGnBZ5HoTxVuSglaMWMl8pNvQwCuHk+CcTJzieW3BtRzGLZuJX73BjONdUo9eMcFJhwADWgwmJVgDLjMcrxn3vTuguS4pFcsmNmEBkjs4ucGs04iVLsI6fXzaglq3jcSyKfjV66MNOsVzkexvhCL3iMjaaJ2O0AWBUgX0x2smsXxa5D3pcRaxCY+Ck5lUaD5EYsV0iOcQK54Hnbqmred/+S5u+f3gNhlGvCtO8Rys/HNCkeeAa0VETwhgALIEWA7Y2rAf9z9T0KZao9xzBLGSR9KiErfB5DWx09bxNv8Zb/OfojQiuUNwxs9Dsk4LRZYBl4tIU6reCRULqjodeAxAa7eQWHEjJI6YBfJGEit5GOzO7St7LbhrZ+PvWh6xrD4X4Jx3V6rOs8ANrcGdDEDBeHEigNZUkFgxA3zXGOxVhFOyoI3XtLnO3CAHqyKePXwKduGU0LQCvwQeTj3WVDpekIQ0LQSH12TyWwAOywmi3G6jJLHsZHQH5Fevj668AOU1wMBjGT6Rf/AmYAEAiSMkVs5CayrMpB3HGXt/m0htTf72V3E3zo8SsmT0xBl3P9JzRChyGLheRF4+KYCqeiXwIoA21eKWzUTrtppJJxNn/ANYvc5NB7N/I5LTH8nonr7WgU24q+80hSqYBD5iGvbQq1OvtwXAr0QkqseOCVBVv4m5bjqTOGJSzKEdZjLehVjJw0j3s9LBff4G7rrfIZ274xTPQXoUpq/ZeAB3zd3JEwCs3sU4592dWlWXA5eJSM0xAarqQEwjk4efwF15a5T1JaMHTskCpGv6b+NteQHvo4WY/x6TgItmYg26vNXiPl7FE3hVz0eyktkLZ9xspEe04feAUhFpbgNQVbsBa4BhoLhrH8D//I2k50oXIzl908F98lRQGLQNRGvQZJyimWClX/v+3tW45bMhqGSwHJzRt2P1/04o8riITE8DGDQ3bwETALzKv+B9sjjySGzCAiRvZDq4jfPxtr4Uje1hP0QTR/G3/yPiSc+zTVBk5KU74+g+3DX3oAcrkzYufALpfiZAA1AQ5YYg1y0BJgP4u97G2/BQaAJnzJ2tolVxy+fg73gtCW7ENOzCqVi9i5HMPPx95ebmaNiP/8W/TXGafXoSeDwbe8AlaFONaSPUR+t3Yg+4FCAGbEnNg3cD14FJxG757KTh4dcn677Qcx89hv/Fm8kNjJqVWi5hDfwesYkLkYyehhEkbe+Tp1KrZnO0594Wede0FF44O9AKvHcR8FswZXdi1e3JIrLfxdiFU9PA+dtextuyNMBm4Yy9D2vQ5HB6B7ABgqOd9DRWwejA6aYKd8tuTk3WYMXAjgeLJ8BrjpxsB63hS0ABLfW4K2ZAY9A/5I0kVjw3NU/hf/V+4F3jBbvoZuyBURtbgfl/Hwd6AqPFycDqNwnERvd/aHAe/QrduQzpnAvxrvifLcX/sszY7HYG9pArw/VeEVWdDLwCpvkJOzTJ6Uus9EmI50TgtG4bieXTTMUC2Gd8H/ucm8Ppj4GJIlIbyateAzwJZIG55rwPfh1VQ+2RM+aOsPZUoI8FFAHgNuJt/buRsjvhfOuhdHCNNaZ/CMBZvYtTe9g9wKWp4ABE5G/AKGAzgNVrFM6kZ7AKxrQLzh56dbIwhrdEZI8DDANMZxUazz8nLdpwG3FXzUq2jt2G4oz9TXj0RwJwe9ozKiJVqjoGc+w/Nol+Pv7+jfg7XjfFazwbe/AVYUcYbngqmKYpaNmSKVGP7DGRJLZpbt6/L3hNAMnMT+0ffOAqEfm4XZckQTYA16tqGTAfyLXyi7Dyi9oT34spXPeCKbdMxGXmRXer1u/GLZuJ9+mzJN66Dn/vaqPqZOKc//tk6oAZIvKvjsC1Avo0pqFfCBxtNV0LzAGGisiGSCd4HKoEbH9fOe7K29LzVEh23FQvBeeFnPkicsuJgmtNqmphnvH6A1uBPe0VrRIIPwLMBPCr1+GuuTd5RxJc5uPnpRafrwJXiIjHqSBVzVHVj6PXOa9F/a8r1Nv+uvoHq1S9ROrb3T9VNeuUAGsFMktVXzjG82xIi4MnuVNGrasZAcYCPwBKA3YLpmFaIiJV/J/S6b82VDQYGIn3DAAAAABJRU5ErkJggg==";
 
 /**
  * Formatter which is used for translation.
@@ -1355,6 +1515,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
+      this._locale = this.setLocale();
+      
       return {
         id: ExtensionBlocks.EXTENSION_ID,
         name: ExtensionBlocks.EXTENSION_NAME,
@@ -1368,7 +1530,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           blockAllThreads: false,
           text: formatMessage({
             id: 'handpose.sayHello',
-            //default: 'do it [SCRIPT]',
+            //default: 'do it [SCRIPT]',https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
             default: 'say hello',
             description: 'execute javascript for example'
           }),
@@ -1381,6 +1543,19 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               defaultValue: 'hello'
             }
           }
+          opcode: 'getX',
+                    blockType: BlockType.REPORTER,
+                    text: Message.getX[this._locale],
+                    arguments: {
+                        LANDMARK: {
+                            type: ArgumentType.STRING,
+                            menu: 'landmark',
+                            defaultValue: '1'
+                        }
+                    }
+          },{
+          
+          }
           
           },{
           opcode: 'wordchain',
@@ -1390,48 +1565,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           func: 'wordchain',
           arguments: {
             TEXT: {
-                type: "string",
+                type: "string",https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
                 defaultValue: "りんご"
             }
           }
           
           },{
-          opcode: 'check_last_letter',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: "check last letter of [TEXT] for [LETTER]",
-          func: 'checkLastLetter',
-          arguments: {
-            TEXT: {
-                type: "string",
-                defaultValue: "word"
-            },
-            LETTER: {
-                type: "string",
-                defaultValue: "ん"
-            }
-          }
           
-          },{
-          opcode: 'check_hisotry',
-          blockType: BlockType$1.REPORTER,
-          text: formatMessage({
-            id: 'extension.check_duplicate_words',
-            default: 'list [LIST] has dupulicated [WORD]?',
-            description: 'Check if a list contains duplicate word'
-          }),
-          func: 'checkHistory',
-          arguments: {
-            LIST: {
-              type: ArgumentType.LIST,
-              defaultValue: ["history"]
-            },
-          WORD: {
-            type: ArgumentType.STRING,
-            defaultValue: 'input data'
-            }
-          }
-          },{
           opcode: 'create-program',
           blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
@@ -1511,18 +1651,21 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
     
   },{
-    key: "checkLastLetter",
-    value: function checkLastLetter({ TEXT, LETTER }) {
-      console.log("=========TEXT: " + TEXT);
-      
-      const lastChar = TEXT.slice(-1); // Get the last character of the input text
-      console.log(LETTER + ": " + lastChar);
-      if (lastChar === LETTER) {
-          return "NG"; // If the last character matches the specified letter, return "NG"
+    key: "getX",
+    value: function getX (args) {
+      let landmark = parseInt(args.LANDMARK, 10) - 1;
+      if (this.landmarks[landmark]) {
+        if (this.runtime.ioDevices.video.mirror === false) {
+          return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
+        } else {
+          return 240 - this.landmarks[landmark][0] * this.ratio;
+        }
       } else {
-          return "OK"; // Otherwise, return "OK"
+        return "";
       }
     }
+    
+    
   },{
     key: "wordchain",
     value: function wordchain(TEXT) {
@@ -1590,26 +1733,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       // サーバー1からサーバー2にリクエストを送信
       return sendRequestToServer2();
       
-    }
-    
-    },{
-    key: "checkHistory",
-    value: function checkHistory(args) {
-      var listText = args.LIST;
-      var list = listText.split(" ");
-      console.log('===========list:', list);
-      var tmp_word = args.WORD;
-      console.log('===========tmp_word:', tmp_word);
-      
-      // リスト内の単語をループしてチェック
-      console.log('===========list.length:', list.length);
-      for (var i = 0; i < list.length; i++) {
-        console.log('===========list[i]', list[i]);
-        if (list[i] === tmp_word) {
-            return "OK";
-          }
-      }
-      return "NG";
     }
     
     },{
