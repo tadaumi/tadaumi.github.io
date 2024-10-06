@@ -1543,18 +1543,17 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               defaultValue: 'hello'
             }
           }
-          opcode: 'getX',
-                    blockType: BlockType.REPORTER,
-                    text: Message.getX[this._locale],
-                    arguments: {
-                        LANDMARK: {
-                            type: ArgumentType.STRING,
-                            menu: 'landmark',
-                            defaultValue: '1'
-                        }
-                    }
-          },{
           
+          },{
+          opcode: 'getX',
+          blockType: BlockType.REPORTER,
+          text: Message.getX[this._locale],
+          arguments: {
+              LANDMARK: {
+                  type: ArgumentType.STRING,
+                  menu: 'landmark',
+                  defaultValue: '1'
+              }
           }
           
           },{
@@ -1612,7 +1611,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   }, {
     
     key: "sayHello",
-    value: function sayHello(args) {
+    value: function sayHello(args) {https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
       console.log("args: " + args);
       
       //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
