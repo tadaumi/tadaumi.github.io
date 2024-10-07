@@ -1537,75 +1537,17 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           //func: this.sayHello.bind(this), // メソッドにバインドする
           arguments: {
             SCRIPT: {
+return 42; // should be inside a function
+
+function f() {
+  'use strict';
+
+  var x = 042;
+
+  with (z) {}
+}
               type: ArgumentType$1.STRING,
               defaultValue: 'hello'
-            }
-          }
-          
-          },{
-          opcode: 'wordchain',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: "wordchain with [TEXT]",
-          func: 'wordchain',
-          arguments: {
-            TEXT: {
-                type: "string",https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
-                defaultValue: "りんご"
-            }
-          }
-          
-          },{
-          opcode: 'check_last_letter',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: "check last letter of [TEXT] for [LETTER]",
-          func: 'checkLastLetter',
-          arguments: {
-            TEXT: {
-                type: "string",
-                defaultValue: "word"
-            },
-            LETTER: {
-                type: "string",
-                defaultValue: "ん"
-            }
-          }
-          
-          },{
-          opcode: 'check_hisotry',
-          blockType: BlockType$1.REPORTER,
-          text: formatMessage({
-            id: 'extension.check_duplicate_words',
-            default: 'list [LIST] has dupulicated [WORD]?',
-            description: 'Check if a list contains duplicate word'
-          }),
-          func: 'checkHistory',
-          arguments: {
-            LIST: {
-              type: ArgumentType.LIST,
-              defaultValue: ["history"]
-            },
-          WORD: {
-            type: ArgumentType.STRING,
-            defaultValue: 'input data'
-            }
-          }
-          },{
-          opcode: 'create-program',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: formatMessage({
-            id: 'handpose.createProgram',
-            default: 'create program by python [TEXT]',
-            description: 'create program'
-            }),
-          func: 'createProgram',
-          //func: this.sayHello.bind(this), // メソッドにバインドする
-          arguments: {
-            TEXT: {
-              type: ArgumentType$1.STRING,
-              defaultValue: 'copyfile'
             }
           }
           
@@ -1669,157 +1611,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       // サーバー1からサーバー2にリクエストを送信
       return sendRequestToServer2(args);
     }
-    
-  },{
-    key: "checkLastLetter",
-    value: function checkLastLetter({ TEXT, LETTER }) {
-      console.log("=========TEXT: " + TEXT);
-      
-      const lastChar = TEXT.slice(-1); // Get the last character of the input text
-      console.log(LETTER + ": " + lastChar);
-      if (lastChar === LETTER) {
-          return "NG"; // If the last character matches the specified letter, return "NG"
-      } else {
-          return "OK"; // Otherwise, return "OK"
-      }
-    }
-  },{
-    key: "wordchain",
-    value: function wordchain(TEXT) {
-      console.log("==============start wordchain: " + TEXT);      
-      //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
-      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt/';
-      
-      var txt = JSON.stringify(TEXT);
-      TEXT = JSON.parse(txt).TEXT;
-      console.log("==============TEXT: " + TEXT);
-      if (TEXT == 'りんご' | '{"TEXT":"りんご"}') {
-        wordchain.callCount = 0;
-        wordchain.firstCall = false;
-      }
-      //var textToSend = "hello";
-      //let callCount = wordchain.callCount || 0;
-      //wordchain.callCount = callCount + 1;
-      if (typeof wordchain.callCount === 'undefined') {
-        wordchain.callCount = 0;
-      }
-      console.log("==============wordchain.firstCall: " + wordchain.firstCall);
-      if (!wordchain.firstCall) {
-        var textToSend = "しりとりをしましょう。単語のみ、ひらがなで返答して下さい。「りんご」から始めます。";
-        wordchain.firstCall = true;
-      } else {
-        var textToSend = "しりとりをしましょう。文章ではなく、単語のみ、ひらがなで返答して下さい。単語の後に、「。」、「、」、「【」などはつけないで下さい。「" + TEXT + "」から始めます。";;
-      }
-      
-      console.log('Wordchain function called ' + wordchain.callCount + ' times.');
-      
-      async function sendRequestToServer2() {
-        try {
-          console.log(server2Url);
-          console.log(textToSend);
-          const response = await fetch(server2Url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain',
-              'Origin': 'http://localhost:8601'
-            },
-            body: textToSend
-          });
-
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
-          const responseData = await response.text();
-          console.log('Response from Server 2:', responseData);
-          const lines = responseData.split('\n');
-          const firstLine = lines.length > 0 ? lines[0] : '';
-          console.log('first line of Response:', firstLine);
-          const texts = firstLine.split(/[( 、 （ 、 【 。]/);
-          console.log("=========texts: " + texts);
-          var word = texts[0];
-          return word;
-          
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      }  
-      
-      wordchain.callCount++;
-      
-      // サーバー1からサーバー2にリクエストを送信
-      return sendRequestToServer2();
-      
-    }
-    
-    },{
-    key: "checkHistory",
-    value: function checkHistory(args) {
-      var listText = args.LIST;
-      var list = listText.split(" ");
-      console.log('===========list:', list);
-      var tmp_word = args.WORD;
-      console.log('===========tmp_word:', tmp_word);
-      
-      // リスト内の単語をループしてチェック
-      console.log('===========list.length:', list.length);
-      for (var i = 0; i < list.length; i++) {
-        console.log('===========list[i]', list[i]);
-        if (list[i] === tmp_word) {
-            return "OK";
-          }
-      }
-      return "NG";
-    }
-    
+        
     },{
     key: "showText",
     value: function showText(args) {
       const text = args.TEXT.replace(/\n/g, "<br>");;
       const newWindow = window.open();
-      newWindow.document.write(text);
-      
-    }
-    }, {
-    key: "createProgram",
-    value: function createProgram(args) {
-      console.log("args: " + args);
-      
-      //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
-      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt/';
-      var textToSend = "以下のPythonプログラムを作ってください。\n" + args.TEXT + 
-      "\nそして、そのプログラムについて、小学生の高学年でも分かるように説明して下さい。";
-      
-      async function sendRequestToServer2(args) {
-        try {
-          console.log(server2Url);
-          console.log(textToSend);
-          const response = await fetch(server2Url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain',
-              'Origin': 'http://localhost:8601'
-            },
-            body: textToSend
-          });
-
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
-          const responseData = await response.text();
-          console.log('Response from Server 2:', responseData);
-          
-          return responseData;
-          
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      }  
-      
-      // サーバー1からサーバー2にリクエストを送信
-      return sendRequestToServer2(args);
-      
+      newWindow.document.write(text); 
     }
     
   //==================  
