@@ -1539,31 +1539,40 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   }
   
   ExtensionBlocks.prototype.VIDEO_MENU = function () {
-        return [
-            { text: Message.off[this._locale], value: 'off' },
-            { text: Message.on[this._locale], value: 'on' },
-            { text: Message.video_on_flipped[this._locale], value: 'on-flipped' }
-        ];
-    };
+      return [
+          { text: Message.off[this._locale], value: 'off' },
+          { text: Message.on[this._locale], value: 'on' },
+          { text: Message.video_on_flipped[this._locale], value: 'on-flipped' }
+      ];
+  };
 
-    ExtensionBlocks.prototype.INTERVAL_MENU = function () {
-        return [
-            { text: '0.1', value: '0.1' },
-            { text: '0.2', value: '0.2' },
-            { text: '0.5', value: '0.5' },
-            { text: '1.0', value: '1.0' }
-        ];
-    };
+  ExtensionBlocks.prototype.INTERVAL_MENU = function () {
+      return [
+          { text: '0.1', value: '0.1' },
+          { text: '0.2', value: '0.2' },
+          { text: '0.5', value: '0.5' },
+          { text: '1.0', value: '1.0' }
+      ];
+  };
 
-    ExtensionBlocks.prototype.RATIO_MENU = function () {
-        return [
-            { text: '0.5', value: '0.5' },
-            { text: '0.75', value: '0.75' },
-            { text: '1', value: '1' },
-            { text: '1.5', value: '1.5' },
-            { text: '2.0', value: '2.0' }
-        ];
-    };
+  ExtensionBlocks.prototype.RATIO_MENU = function () {
+      return [
+          { text: '0.5', value: '0.5' },
+          { text: '0.75', value: '0.75' },
+          { text: '1', value: '1' },
+          { text: '1.5', value: '1.5' },
+          { text: '2.0', value: '2.0' }
+      ];
+  };
+  
+  ExtensionBlocks.prototype.setLocale = function () {
+      let locale = formatMessage.setup().locale;
+      if (AvailableLocales.includes(locale)) {
+          return locale;
+      } else {
+          return 'en';
+      }
+  };
   
   /**
    * @returns {object} metadata for this extension and its blocks.
