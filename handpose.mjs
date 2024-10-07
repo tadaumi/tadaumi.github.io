@@ -1505,7 +1505,65 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
       formatMessage = runtime.formatMessage;
     }
+    
+    // インスタンス変数の初期化
+    this.landmarks = [];
+    this.ratio = 0.75;
+    this._locale = this.setLocale();
+
+    // 手の検出を開始
+    this.detectHand = () => {
+        this.video = this.runtime.ioDevices.video.provider.video;
+        alert(Message.please_wait[this._locale]);
+
+        const handpose = ml5.handpose(this.video, function() {
+            console.log("Model loaded!");
+        });
+
+        handpose.on('predict', hands => {
+            hands.forEach(hand => {
+                this.landmarks = hand.landmarks;
+            });
+        });
+    };
+
+    this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
   }
+
+  ExtensionBlocks.prototype.LANDMARK_MENU = function () {
+      const landmark_menu = [];
+      for (let i = 1; i <= 21; i++) {
+          landmark_menu.push({text: `${Message.landmarks[i - 1][this._locale]} (${i})`, value: String(i)});
+      }
+      return landmark_menu;
+  }
+  
+  ExtensionBlocks.prototype.VIDEO_MENU = function () {
+        return [
+            { text: Message.off[this._locale], value: 'off' },
+            { text: Message.on[this._locale], value: 'on' },
+            { text: Message.video_on_flipped[this._locale], value: 'on-flipped' }
+        ];
+    };
+
+    ExtensionBlocks.prototype.INTERVAL_MENU = function () {
+        return [
+            { text: '0.1', value: '0.1' },
+            { text: '0.2', value: '0.2' },
+            { text: '0.5', value: '0.5' },
+            { text: '1.0', value: '1.0' }
+        ];
+    };
+
+    ExtensionBlocks.prototype.RATIO_MENU = function () {
+        return [
+            { text: '0.5', value: '0.5' },
+            { text: '0.75', value: '0.75' },
+            { text: '1', value: '1' },
+            { text: '1.5', value: '1.5' },
+            { text: '2.0', value: '2.0' }
+        ];
+    };
   
   /**
    * @returns {object} metadata for this extension and its blocks.
