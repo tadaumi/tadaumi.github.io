@@ -22,7 +22,7 @@ var translations$1 = {
 	"ja-Hira": {
 	"handpose.entry.name": "handpose2scratch",
 	"handpose.entry.description": "handpose2scratchをじっこうする"
-}
+  }
 };
 
 /**
@@ -1445,7 +1445,7 @@ const Message = {
       'en': 'the 2nd joint of little finger'
     },
     {
-      'ja': '小指の第1関節',BlockType
+      'ja': '小指の第1関節',
       'ja-Hira': 'こゆびのだい1かんせつ',
       'en': 'the 1st joint of little finger'
     },
