@@ -1532,20 +1532,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             default: 'say hello',
             description: 'execute javascript for example'
           }),
-          tooltip: "このブロックは、新しいタブを開いてテキストを表示します。",
           func: 'sayHello',
-          //func: this.sayHello.bind(this), // メソッドにバインドする
           arguments: {
-            SCRIPT: {
-return 42; // should be inside a function
-
-function f() {
-  'use strict';
-
-  var x = 042;
-
-  with (z) {}
-}
+            TEXT: {
               type: ArgumentType$1.STRING,
               defaultValue: 'hello'
             }
@@ -1597,6 +1586,16 @@ function f() {
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
+
+return 42; // should be inside a function
+
+function f() {
+  'use strict';
+
+  var x = 042;
+
+  with (z) {}
+}
 
           const responseData = await response.text();
           console.log('Response from Server 2:', responseData);
