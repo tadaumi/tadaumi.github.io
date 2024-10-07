@@ -1483,7 +1483,7 @@ var EXTENSION_ID = 'handpose';
  * @type {string}
  */
 //var extensionURL = 'https://yokobond.github.io/xcx-handpose/dist/handpose.mjs';
-var extensionURL = 'http://localhost/example';
+var extensionURL = 'https://xcratch.github.io/handpose.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
@@ -1587,16 +1587,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             throw new Error('Network response was not ok');
           }
 
-return 42; // should be inside a function
-
-function f() {
-  'use strict';
-
-  var x = 042;
-
-  with (z) {}
-}
-
           const responseData = await response.text();
           console.log('Response from Server 2:', responseData);
           
@@ -1630,7 +1620,7 @@ function f() {
     function set(formatter) {
       formatMessage = formatter;
       if (formatMessage) setupTranslations();
-    }get
+    }
 
     /**
      * @return {string} - the name of this extension.
