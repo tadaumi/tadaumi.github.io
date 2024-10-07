@@ -1489,6 +1489,15 @@ var extensionURL = 'https://xcratch.github.io/handpose.mjs';
  * Scratch 3.0 blocks for example of Xcratch.
  */
 
+function setLocale() {
+    let locale = formatMessage.setup().locale;
+    if (AvailableLocales.includes(locale)) {
+        return locale;
+    } else {
+        return 'en';
+    }
+}
+
 var ExtensionBlocks = /*#__PURE__*/function () {
   /**
    * Construct a set of blocks for handpose.
