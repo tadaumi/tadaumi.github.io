@@ -49,7 +49,7 @@ var entry = {
     });
   },
   extensionId: 'handpose',
-  extensionURL: 'https://xcratch.github.io/xcx-example/dist/handpose.mjs',
+  extensionURL: 'https://xcratch.github.io/handpose.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -64,7 +64,7 @@ var entry = {
   disabled: false,
   bluetoothRequired: false,
   internetConnectionRequired: false,
-  helpLink: 'https://xcratch.github.io/xcx-example/',
+  helpLink: 'https://xcratch.github.io/xcx-example/',  //should be changed
   setFormatMessage: function setFormatMessage(formatter) {
     formatMessage$1 = formatter;
   },
@@ -1515,8 +1515,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
-      this._locale = this.setLocale();
-      
       return {
         id: ExtensionBlocks.EXTENSION_ID,
         name: ExtensionBlocks.EXTENSION_NAME,
@@ -1545,18 +1543,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
           
           },{
-          opcode: 'getX',
-          blockType: BlockType.REPORTER,
-          text: Message.getX[this._locale],
-          arguments: {
-              LANDMARK: {
-                  type: ArgumentType.STRING,
-                  menu: 'landmark',
-                  defaultValue: '1'
-              }
-          }
-          
-          },{
           opcode: 'wordchain',
           blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
@@ -1570,7 +1556,42 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
           
           },{
+          opcode: 'check_last_letter',
+          blockType: BlockType$1.REPORTER,
+          blockAllThreads: false,
+          text: "check last letter of [TEXT] for [LETTER]",
+          func: 'checkLastLetter',
+          arguments: {
+            TEXT: {
+                type: "string",
+                defaultValue: "word"
+            },
+            LETTER: {
+                type: "string",
+                defaultValue: "ん"
+            }
+          }
           
+          },{
+          opcode: 'check_hisotry',
+          blockType: BlockType$1.REPORTER,
+          text: formatMessage({
+            id: 'extension.check_duplicate_words',
+            default: 'list [LIST] has dupulicated [WORD]?',
+            description: 'Check if a list contains duplicate word'
+          }),
+          func: 'checkHistory',
+          arguments: {
+            LIST: {
+              type: ArgumentType.LIST,
+              defaultValue: ["history"]
+            },
+          WORD: {
+            type: ArgumentType.STRING,
+            defaultValue: 'input data'
+            }
+          }
+          },{
           opcode: 'create-program',
           blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
@@ -1611,7 +1632,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   }, {
     
     key: "sayHello",
-    value: function sayHello(args) {https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
+    value: function sayHello(args) {
       console.log("args: " + args);
       
       //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
@@ -1650,21 +1671,18 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
     
   },{
-    key: "getX",
-    value: function getX (args) {
-      let landmark = parseInt(args.LANDMARK, 10) - 1;
-      if (this.landmarks[landmark]) {
-        if (this.runtime.ioDevices.video.mirror === false) {
-          return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
-        } else {
-          return 240 - this.landmarks[landmark][0] * this.ratio;
-        }
+    key: "checkLastLetter",
+    value: function checkLastLetter({ TEXT, LETTER }) {
+      console.log("=========TEXT: " + TEXT);
+      
+      const lastChar = TEXT.slice(-1); // Get the last character of the input text
+      console.log(LETTER + ": " + lastChar);
+      if (lastChar === LETTER) {
+          return "NG"; // If the last character matches the specified letter, return "NG"
       } else {
-        return "";
+          return "OK"; // Otherwise, return "OK"
       }
     }
-    
-    
   },{
     key: "wordchain",
     value: function wordchain(TEXT) {
@@ -1735,6 +1753,26 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
     
     },{
+    key: "checkHistory",
+    value: function checkHistory(args) {
+      var listText = args.LIST;
+      var list = listText.split(" ");
+      console.log('===========list:', list);
+      var tmp_word = args.WORD;
+      console.log('===========tmp_word:', tmp_word);
+      
+      // リスト内の単語をループしてチェック
+      console.log('===========list.length:', list.length);
+      for (var i = 0; i < list.length; i++) {
+        console.log('===========list[i]', list[i]);
+        if (list[i] === tmp_word) {
+            return "OK";
+          }
+      }
+      return "NG";
+    }
+    
+    },{
     key: "showText",
     value: function showText(args) {
       const text = args.TEXT.replace(/\n/g, "<br>");;
@@ -1795,7 +1833,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     function set(formatter) {
       formatMessage = formatter;
       if (formatMessage) setupTranslations();
-    }
+    }get
 
     /**
      * @return {string} - the name of this extension.
