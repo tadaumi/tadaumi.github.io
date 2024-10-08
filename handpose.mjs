@@ -1486,7 +1486,7 @@ const Message = {
       'en': 'little finger'
     }
   ]
-}
+};
 
 
 // 利用可能なロケールを定義
@@ -1540,7 +1540,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     };
 
     this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
-  }
+  };
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
       const landmark_menu = [];
@@ -1548,7 +1548,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           landmark_menu.push({text: `${Message.landmarks[i - 1][this._locale]} (${i})`, value: String(i)});
       }
       return landmark_menu;
-  }
+  };
   
   ExtensionBlocks.prototype.VIDEO_MENU = function () {
       return [
@@ -1615,7 +1615,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       };
   };
   
-  ExtensionBlocks.prototype.getX (args) {
+  ExtensionBlocks.prototype.getX = function (args) {
     let landmark = parseInt(args.LANDMARK, 10) - 1;
     if (this.landmarks[landmark]) {
       if (this.runtime.ioDevices.video.mirror === false) {
