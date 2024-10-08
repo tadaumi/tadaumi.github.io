@@ -1488,6 +1488,8 @@ var extensionURL = 'https://xcratch.github.io/handpose.mjs';
 /**
  * Scratch 3.0 blocks for example of Xcratch.
  */
+// 利用可能なロケールを定義
+const AvailableLocales = ['en', 'ja', 'ja-Hira']; // 使用するロケールコード
 
 function setLocale() {
     let locale = formatMessage.setup().locale;
