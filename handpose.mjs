@@ -1649,24 +1649,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         showStatusButton: false,
         blocks: [{
           
-          opcode: 'say-hello',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: formatMessage({
-            id: 'handpose.sayHello',
-            //default: 'do it [SCRIPT]',https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
-            default: 'say hello',
-            description: 'execute javascript for example'
-          }),
-          func: 'sayHello',
-          arguments: {
-            TEXT: {
-              type: ArgumentType$1.STRING,
-              defaultValue: 'hello'
-            }
-          }
-          
-          },{
           opcode: 'show',
           blockType: BlockType$1.COMMAND,
           blockAllThreads: false,
@@ -1679,6 +1661,21 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
           
+          },{
+          opcode: 'getY',
+          blockType: BlockType.REPORTER,
+          text: Message.getY[this._locale],
+          arguments: {
+            LANDMARK: {
+                type: ArgumentType.STRING,
+                menu: 'landmark',
+                defaultValue: '1'
+            }
+          }
+
+
+          
+          
           //=============
           }
         ],
@@ -1688,52 +1685,22 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     
   }, {
     
-    key: "sayHello",
-    value: function sayHello(args) {
-      console.log("args: " + args);
-      
-      //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
-      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt/';
-      var textToSend = args.SCRIPT || "what is your name";
-      
-      async function sendRequestToServer2(args) {
-        try {
-          console.log(server2Url);
-          console.log(textToSend);
-          const response = await fetch(server2Url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain',
-              'Origin': 'http://localhost:8601'
-            },
-            body: textToSend
-          });
-
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
-          const responseData = await response.text();
-          console.log('Response from Server 2:', responseData);
-          
-          return responseData;
-          
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      }  
-      
-      // サーバー1からサーバー2にリクエストを送信
-      return sendRequestToServer2(args);
-    }
-        
-    },{
     key: "showText",
     value: function showText(args) {
       const text = args.TEXT.replace(/\n/g, "<br>");;
       const newWindow = window.open();
       newWindow.document.write(text); 
     }
+    
+  },{
+    getY (args) {
+      let landmark = parseInt(args.LANDMARK, 10) - 1;
+      if (this.landmarks[landmark]) {
+        return 180 - this.landmarks[landmark][1] * this.ratio;
+      } else {
+        return "";
+      }
+    } 
     
   //==================  
   }], [{  
