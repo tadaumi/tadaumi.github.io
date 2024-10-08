@@ -42,12 +42,12 @@ var formatMessage = function formatMessage(messageData) {
 var entry = {
   get name() {
     return formatMessage$1({
-      id: 'handpose.entry.name',
+      id: 'handpose2scratch.entry.name',
       defaultMessage: 'handpseo2scratch',
       description: 'name of the extension'
     });
   },
-  extensionId: 'handpose',
+  extensionId: 'handpose2scratch',
   extensionURL: 'https://xcratch.github.io/handpose.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
