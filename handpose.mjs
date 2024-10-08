@@ -1661,6 +1661,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
           
+          /*
           },{
           opcode: 'getY',
           blockType: BlockType.REPORTER,
@@ -1672,7 +1673,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 defaultValue: '1'
             }
           }
-
+          */
 
           
           
@@ -1691,7 +1692,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       const newWindow = window.open();
       newWindow.document.write(text); 
     }
-    
+  
+  /*  
   },{
     getY (args) {
       let landmark = parseInt(args.LANDMARK, 10) - 1;
@@ -1700,7 +1702,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       } else {
         return "";
       }
-    } 
+    }
+  */ 
     
   //==================  
   }], [{  
