@@ -1585,6 +1585,53 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
   };
   
+  ExtensionBlocks.prototype.getInfo = function () {
+      return {
+          id: 'handpose2scratch',
+          name: 'Handpose2Scratch',
+          blockIconURI: blockIconURI,
+          blocks: [
+            // ... (ブロック定義をそのまま配置)
+            {
+              opcode: 'getX',
+              blockType: BlockType.REPORTER,
+              text: Message.getX[this._locale],
+              arguments: {
+                  LANDMARK: {
+                      type: ArgumentType.STRING,
+                      menu: 'landmark',
+                      defaultValue: '1'
+                  }
+              }
+            }
+          ],
+          menus: {
+              landmark: { acceptReporters: true, items: this.LANDMARK_MENU() },
+              videoMenu: { acceptReporters: true, items: this.VIDEO_MENU() },
+              ratioMenu: { acceptReporters: true, items: this.RATIO_MENU() },
+              intervalMenu: { acceptReporters: true, items: this.INTERVAL_MENU() }
+          }
+      };
+  };
+  
+  ExtensionBlocks.prototype.getX (args) {
+    let landmark = parseInt(args.LANDMARK, 10) - 1;
+    if (this.landmarks[landmark]) {
+      if (this.runtime.ioDevices.video.mirror === false) {
+        return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
+      } else {
+        return 240 - this.landmarks[landmark][0] * this.ratio;
+      }
+    } else {
+      return "";
+    }
+  }
+
+  
+  
+  
+  
+  //============================
   /**
    * @returns {object} metadata for this extension and its blocks.
    */
