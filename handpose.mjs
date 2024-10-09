@@ -1545,7 +1545,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.video = this.runtime.ioDevices.video.provider.video;
       alert(Message.please_wait[this._locale]);
 
-https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs      // handposeモデルの読み込み
+      // handposeモデルの読み込み
       loadHandposeModel().then(() => {
         /*
         const handpose = ml5.handpose(this.video, function() {
