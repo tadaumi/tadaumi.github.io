@@ -9,22 +9,24 @@ var img$2 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHA
 var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8' standalone='no'%3f%3e%3c!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg width='100%25' height='100%25' viewBox='0 0 53 53' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd%3bclip-rule:evenodd%3bstroke-linejoin:round%3bstroke-miterlimit:2%3b'%3e%3crect id='%e3%82%a2%e3%83%bc%e3%83%88%e3%83%9c%e3%83%bc%e3%83%891' x='0' y='-0' width='52.083' height='52.056' style='fill:none%3b'/%3e%3cclipPath id='_clip1'%3e%3crect x='0' y='-0' width='52.083' height='52.056'/%3e%3c/clipPath%3e%3cg clip-path='url(%23_clip1)'%3e%3cg%3e%3cg%3e%3cpath d='M17.605%2c14.113c1.125%2c0.983 1.582%2c2.148 2.563%2c3.17c2.407%2c2.507 4.811%2c5.102 7.423%2c7.551c4.352%2c4.079 10.045%2c7.577 14.675%2c11.435' style='fill:none%3bstroke:white%3bstroke-width:19.17px%3bstroke-linecap:round%3bstroke-miterlimit:1.5%3b'/%3e%3cpath d='M40.824%2c11.292c-0.914%2c2.03 -3.668%2c3.898 -5.723%2c5.559c-2.684%2c2.171 -5.276%2c4.398 -7.941%2c6.581c-7.278%2c5.958 -12.955%2c12.359 -18.301%2c19.04' style='fill:none%3bstroke:white%3bstroke-width:19.17px%3bstroke-linecap:round%3bstroke-miterlimit:1.5%3b'/%3e%3c/g%3e%3cg%3e%3cpath d='M17.605%2c14.113c1.125%2c0.983 1.582%2c2.148 2.563%2c3.17c2.407%2c2.507 4.811%2c5.102 7.423%2c7.551c4.352%2c4.079 10.045%2c7.577 14.675%2c11.435' style='fill:none%3bstroke:%23f9a83a%3bstroke-width:12.5px%3bstroke-linecap:round%3bstroke-miterlimit:1.5%3b'/%3e%3cpath d='M40.824%2c11.292c-0.914%2c2.03 -3.668%2c3.898 -5.723%2c5.559c-2.684%2c2.171 -5.276%2c4.398 -7.941%2c6.581c-7.278%2c5.958 -12.955%2c12.359 -18.301%2c19.04' style='fill:none%3bstroke:%23f9a83a%3bstroke-width:12.5px%3bstroke-linecap:round%3bstroke-miterlimit:1.5%3b'/%3e%3c/g%3e%3cg%3e%3cpath d='M16.783%2c15.055c0.264%2c0.231 0.482%2c0.475 0.679%2c0.725c0.621%2c0.785 1.078%2c1.612 1.804%2c2.368c1.456%2c1.517 2.91%2c3.065 4.41%2c4.594c0.996%2c1.015 2.012%2c2.021 3.06%2c3.004c1.353%2c1.268 2.831%2c2.481 4.368%2c3.666c3.429%2c2.643 7.152%2c5.143 10.362%2c7.817c0.53%2c0.442 1.319%2c0.37 1.76%2c-0.16c0.442%2c-0.53 0.37%2c-1.319 -0.16%2c-1.76c-3.233%2c-2.694 -6.982%2c-5.215 -10.435%2c-7.877c-1.472%2c-1.135 -2.89%2c-2.296 -4.185%2c-3.51c-1.023%2c-0.959 -2.014%2c-1.941 -2.985%2c-2.931c-1.494%2c-1.522 -2.942%2c-3.064 -4.392%2c-4.574c-0.667%2c-0.695 -1.075%2c-1.465 -1.645%2c-2.187c-0.288%2c-0.365 -0.61%2c-0.72 -0.997%2c-1.058c-0.52%2c-0.454 -1.31%2c-0.4 -1.764%2c0.119c-0.453%2c0.52 -0.4%2c1.31 0.12%2c1.764Z' style='fill:white%3b'/%3e%3cpath d='M39.685%2c10.779c-0.331%2c0.733 -0.963%2c1.428 -1.694%2c2.108c-1.138%2c1.059 -2.52%2c2.058 -3.676%2c2.992l-7.947%2c6.585c-3.596%2c2.944 -6.805%2c5.995 -9.778%2c9.133c-3.104%2c3.276 -5.949%2c6.648 -8.707%2c10.094c-0.431%2c0.539 -0.343%2c1.326 0.195%2c1.757c0.539%2c0.431 1.326%2c0.344 1.757%2c-0.195c2.715%2c-3.392 5.515%2c-6.712 8.57%2c-9.937c2.903%2c-3.064 6.036%2c-6.043 9.547%2c-8.917l7.935%2c-6.576c1.418%2c-1.146 3.155%2c-2.393 4.43%2c-3.716c0.716%2c-0.743 1.293%2c-1.516 1.647%2c-2.301c0.283%2c-0.629 0.003%2c-1.37 -0.626%2c-1.653c-0.629%2c-0.284 -1.37%2c-0.003 -1.653%2c0.626Z' style='fill:white%3b'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e";
 
 //===================
+/*
 var en$1 = {
-	"handpose.entry.name": "handpose2scratch",
-	"handpose.entry.description": "handpose2scratch"
+	"handpose2scratch.entry.name": "handpose2scratch",
+	"handpose2scratch.entry.description": "handpose2scratch"
 };
 var ja$1 = {
-	"handpose.entry.name": "handpose2scratch",
-	"handpose.entry.description": "handpose2scratchを実行する"
+	"handpose2scratch.entry.name": "handpose2scratch",
+	"handpose2scratch.entry.description": "handpose2scratchを実行する"
 };
 var translations$1 = {
 	en: en$1,
 	ja: ja$1,
 	"ja-Hira": {
-	"handpose.entry.name": "handpose2scratch",
-	"handpose.entry.description": "handpose2scratchをじっこうする"
+	"handpose2scratch.entry.name": "handpose2scratch",
+	"handpose2scratch.entry.description": "handpose2scratchをじっこうする"
   }
 };
+*/
 
 /**
  * This is an extension for Xcratch.
@@ -58,7 +60,7 @@ var entry = {
     return formatMessage$1({
       defaultMessage: 'an extension for Xcratch',
       description: 'Description for this extension',
-      id: 'handpose.entry.description'
+      id: 'handpose2scratch.entry.description'
     });
   },
   featured: true,
@@ -1282,23 +1284,25 @@ var log = minilog('vm');
 var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
-	"handpose.name": "handpose2scratch",
-	"handpose.sayHello": "handpose2scratch"
+	"handpose2scratch.name": "handpose2scratch",
+	"handpose2scratch.sayHello": "handpose2scratch"
 };
 var ja = {
-	"handpose.name": "handpose2scratch",
-	"handpose.sayHello": "handpose2scratchを実行する"
+	"handpose2scratch.name": "handpose2scratch",
+	"handpose2scratch.sayHello": "handpose2scratchを実行する"
 };
 var translations = {
 	en: en,
 	ja: ja,
 	"ja-Hira": {
-	"handpose.name": "handpose2scratch",
-	"handpose.sayHello": "handpose2scratchをじっこうする"
+	"handpose2scratch.name": "handpose2scratch",
+	"handpose2scratch.sayHello": "handpose2scratchをじっこうする"
 }
 };
 
+/*
 var img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABgWlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kctLQkEUh7+0MHpgUESLFhLWSsMKpDZBRlggEWbQa6PXV6B2ufdGRNugrVAQtem1qL+gtkHrICiKINoFrYvalNzOVUGJPMOZ881v5hxmzoAtklGyer0PsjlDCwcDrvmFRZfjFTsObHTiiSq6OjYzE6KmfT1QZ8U7r1Wr9rl/rTme0BWoaxQeVVTNEJ4UDq0bqsW7wh1KOhoXPhf2aHJB4XtLj5X4zeJUiX8s1iLhcbC1CbtSVRyrYiWtZYXl5bizmTWlfB/rJS2J3NysxB7xbnTCBAngYooJxvEzwIjMfrwM0i8rauT7ivnTrEquIrPKBhorpEhj4BF1TaonJCZFT8jIsGH1/29f9eTQYKl6SwAaXkzzoxccO1DIm+b3sWkWTsD+DFe5Sv7qEQx/ip6vaO5DcG7BxXVFi+3B5TZ0PalRLVqU7OK2ZBLez6B1AdpvoWmp1LPyPqePENmUr7qB/QPok/PO5V8gz2fGkateTgAAAAlwSFlzAAALEwAACxMBAJqcGAAACQxJREFUWIXtmGt0VdURx39zzrkX8oLwSIhY3iAokYURsBBsQCO2aitraavL1mWF2pZVUFFpfdtWHtaqYMUlaGm11epCq/XRWqmIAUHDS40QgzwUECQYSCCQ1z3nTD/sc869NwkBvrD6obPW+bBnz+z579lnZs9s+B8nOdUGVfV04GLgwoB1APgAeFFEEqcaTyowR1XvVVVX26fdqnpta72T8qCq5gNXAP0AF9gHLBWR/cfRiwNvAhdEvMYD4DUh8RyId0kVv0lE/nAyuFDVXFV9UVW9dnaeUNXnVTX3GLqWqj4QCvs1mzWxYoY2vzDOfEtLNLF2rvoNX6eu+d1Q/7geVNUzgDeAIRHTbQSxwO6UKloJXCIiO1N0beAR4BeArXXbSLx9A3gtbexI7mBiFy4CJwNgPTBGRLRDgKrqAOuAkQD+npV4lc+gtZ8BguQOxi78CVbvcaHKF8AoETmgqt2B54FJAHpoB+67N6FNBw2gnD5ITl/8mk3QcggAe+hV2CNvDNcqFpE1VkcAgZ+H4Lyq53DfuwM9WAXqg3po7RbcVbPwPvhttps://xcratch.github.io/xcx-example/dist/xcratchExample.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";
+*/
 
 /**
  * Formatter which is used for translation.
@@ -1316,7 +1320,7 @@ var setupTranslations = function setupTranslations() {
     Object.assign(localeSetup.translations[localeSetup.locale], translations[localeSetup.locale]);
   }
 };
-var EXTENSION_ID = 'handpose';
+//var EXTENSION_ID = 'handpose';
 
 /**
  * URL to get this extension as a module.
@@ -1638,6 +1642,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
    * @returns {object} metadata for this extension and its blocks.
    */
 
+  /*
   _createClass$1(ExtensionBlocks, [{
     key: "getInfo",
     value: function getInfo() {
@@ -1662,22 +1667,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
           
-          /*
-          },{
-          opcode: 'getY',
-          blockType: BlockType.REPORTER,
-          text: Message.getY[this._locale],
-          arguments: {
-            LANDMARK: {
-                type: ArgumentType.STRING,
-                menu: 'landmark',
-                defaultValue: '1'
-            }
-          }
-          */
-
-          
-          
           //=============
           }
         ],
@@ -1694,34 +1683,17 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       newWindow.document.write(text); 
     }
   
-  /*  
-  },{
-    getY (args) {
-      let landmark = parseInt(args.LANDMARK, 10) - 1;
-      if (this.landmarks[landmark]) {
-        return 180 - this.landmarks[landmark][1] * this.ratio;
-      } else {
-        return "";
-      }
-    }
-  */ 
+  
     
   //==================  
   }], [{  
     key: "formatMessage",
     set:
-    /**
-     * A translation object which is used in this class.
-     * @param {FormatObject} formatter - translation object
-     */
     function set(formatter) {
       formatMessage = formatter;
       if (formatMessage) setupTranslations();
     }
 
-    /**
-     * @return {string} - the name of this extension.
-     */
   }, {
     key: "EXTENSION_NAME",
     get: function get() {
@@ -1732,34 +1704,26 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       });
     }
 
-    /**
-     * @return {string} - the ID of this extension.
-     */
   }, {
     key: "EXTENSION_ID",
     get: function get() {
       return EXTENSION_ID;
     }
 
-    /**
-     * URL to get this extension.
-     * @type {string}
-     */
   }, {
     key: "extensionURL",
     get: function get() {
       return extensionURL;
     }
 
-    /**
-     * Set URL to get this extension.
-     * The extensionURL will be changed to the URL of the loading server.
-     * @param {string} url - URL
-     */,
     set: function set(url) {
       extensionURL = url;
     }
   }]);
+  */
+  
+  
+  
   return ExtensionBlocks;
 }();
 
