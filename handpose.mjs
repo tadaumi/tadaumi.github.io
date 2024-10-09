@@ -1544,7 +1544,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.video = this.runtime.ioDevices.video.provider.video;
       alert(Message.please_wait[this._locale]);
 
-      // handposeモデルの読み込み
+https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs      // handposeモデルの読み込み
       loadHandposeModel().then(() => {
         /*
         const handpose = ml5.handpose(this.video, function() {
@@ -1554,6 +1554,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         // ml5 の手のポーズモデルを定義
         const handpose = new Handpose(this.video, () => {
             console.log("Model loaded!");
+            // 手の検出を開始
+            this.startHandDetection(handpose);
         });
 
         handpose.on('predict', hands => {
@@ -1571,6 +1573,15 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     
     //} //end
   };
+
+  // 手の検出を開始するメソッド
+  startHandDetection(handpose) {
+    handpose.on('predict', hands => {
+      hands.forEach(hand => {
+        this.landmarks = hand.landmarks;
+      });
+    });
+  }
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
       const landmark_menu = [];
