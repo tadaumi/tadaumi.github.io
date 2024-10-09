@@ -1525,7 +1525,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       formatMessage = runtime.formatMessage;
     }
     
-    constructor(runtime) { //begin
+    //constructor(runtime) { //begin
     // インスタンス変数の初期化
     this.landmarks = [];
     this.ratio = 0.75;
@@ -1552,7 +1552,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             });
         });
     };
-    }  //end
+    //}  //end
 
     this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
   };
