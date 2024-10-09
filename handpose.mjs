@@ -1519,18 +1519,21 @@ var ExtensionBlocks = /*#__PURE__*/function () {
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
    */
   function ExtensionBlocks(runtime) {
+    //constructor(runtime) { //begin
+    
     _classCallCheck$1(this, ExtensionBlocks);
+    
     /**
      * The Scratch 3.0 runtime.
      * @type {Runtime}
      */
+    
     this.runtime = runtime;
     if (runtime.formatMessage) {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
       formatMessage = runtime.formatMessage;
     }
     
-    constructor(runtime) { //begin
     // インスタンス変数の初期化
     this.landmarks = [];
     this.ratio = 0.75;
@@ -1566,7 +1569,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       });
     };  
     
-    } //end
+    //} //end
   };
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
