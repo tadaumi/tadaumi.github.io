@@ -1525,6 +1525,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       formatMessage = runtime.formatMessage;
     }
     
+    constructor(runtime) { //begin
     // インスタンス変数の初期化
     this.landmarks = [];
     this.ratio = 0.75;
@@ -1535,7 +1536,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         this.video = this.runtime.ioDevices.video.provider.video;
         alert(Message.please_wait[this._locale]);
 
+        /*
         const handpose = ml5.handpose(this.video, function() {
+            console.log("Model loaded!");
+        });
+        */
+        // ml5 の手のポーズモデルを定義
+        const handpose = new Handpose(this.video, () => {
             console.log("Model loaded!");
         });
 
@@ -1545,6 +1552,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             });
         });
     };
+    }  //end
 
     this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
   };
