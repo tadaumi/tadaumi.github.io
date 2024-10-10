@@ -1515,13 +1515,13 @@ async function loadHandposeModel() {
 }
 
 var extensionBlocks = /*#__PURE__*/function () {
-  alert("extensionBlocks");
+  //alert("extensionBlocks");
   /**
    * Construct a set of blocks for handpose.
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
    */
   function ExtensionBlocks(runtime) {
-    alert("ExtensionBlocks");
+    //alert("ExtensionBlocks");
     //constructor(runtime) { //begin
     
     _classCallCheck$1(this, ExtensionBlocks);
@@ -1538,25 +1538,29 @@ var extensionBlocks = /*#__PURE__*/function () {
     }
     
     // インスタンス変数の初期化
-    alert("ExtensionBlocks_initialize");
+    //alert("ExtensionBlocks_initialize");
     this.landmarks = [];
     this.ratio = 0.75;
     this._locale = this.setLocale();
 
     // 手の検出を開始
-    alert("ExtensionBlocks_detecthand");
+    //alert("ExtensionBlocks_detecthand");
     this.detectHand = () => {
-      this.video = this.runtime.ioDevices.video.provider.video;
-      if (!this.video) {
-        console.error("Video element not found");
-        return;
-      }
-      console.log("Video element found:", this.video);
+      //this.video = this.runtime.ioDevices.video.provider.video;
+      alert("ExtensionBlocks_detecthand");
+      
       alert(Message.please_wait[this._locale]);
 
       // handposeモデルの読み込み
       loadHandposeModel().then(() => {
         console.log("Handpose model loaded. Initializing...");
+        
+        const videoElement = this.runtime.ioDevices.video.provider.video;
+        if (!videoElement) {
+          console.error("Video element is not available.");
+          return;
+        }
+        
         /*
         const handpose = ml5.handpose(this.video, function() {
             console.log("Model loaded!");
@@ -1575,7 +1579,13 @@ var extensionBlocks = /*#__PURE__*/function () {
         //.then(this.detectHand);
         .then(() => {
           console.log("Video enabled successfully");
-          this.detectHand(); // ビデオが有効になった後に手の検出を呼び出す
+          this.video = this.runtime.ioDevices.video.provider.video;
+            if (this.video) {
+              this.detectHand(); // ビデオが取得できた場合のみ手の検出を開始
+            } else {
+              console.error("Failed to initialize video.");
+            }
+          //this.detectHand(); // ビデオが有効になった後に手の検出を呼び出す
           })
         .catch((err) => {
             console.error("Error enabling video:", err);
