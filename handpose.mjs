@@ -1538,11 +1538,13 @@ var extensionBlocks = /*#__PURE__*/function () {
     }
     
     // インスタンス変数の初期化
+    alert("ExtensionBlocks_initialize");
     this.landmarks = [];
     this.ratio = 0.75;
     this._locale = this.setLocale();
 
     // 手の検出を開始
+    alert("ExtensionBlocks_detecthand");
     this.detectHand = () => {
       this.video = this.runtime.ioDevices.video.provider.video;
       if (!this.video) {
