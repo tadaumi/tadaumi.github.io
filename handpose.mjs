@@ -1510,11 +1510,15 @@ function setLocale() {
 
 // 手のポーズモデルを動的に読み込む関数
 async function loadHandposeModel() {
+  alert("loadHandposeModel");
   try {
     const response = await fetch('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose');
+    alert("response");
     const modelScript = await response.text();
+    alert("modelScript");
     console.log("Handpose model script loaded.");
     eval(modelScript); // スクリプトを実行して手のポーズ機能を追加
+    alert("eval");
     if (typeof Handpose !== 'undefined') {
         console.log("Handpose is defined.");
     } else {
@@ -1548,7 +1552,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     }
     
     // インスタンス変数の初期化
-    alert("ExtensionBlocks_initialize");
+    //alert("ExtensionBlocks_initialize");
     this.landmarks = [];
     this.ratio = 0.75;
     this._locale = this.setLocale();
@@ -1571,7 +1575,7 @@ var extensionBlocks = /*#__PURE__*/function () {
       });
       
     // 手の検出を開始
-    alert("ExtensionBlocks_before_detecthand");
+    //alert("ExtensionBlocks_before_detecthand");
     this.detectHand = () => {
       //this.video = this.runtime.ioDevices.video.provider.video;
       alert("ExtensionBlocks_detecthand");
