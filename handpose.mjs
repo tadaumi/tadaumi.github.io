@@ -1514,12 +1514,14 @@ async function loadHandposeModel() {
     eval(modelScript); // スクリプトを実行して手のポーズ機能を追加
 }
 
-var ExtensionBlocks = /*#__PURE__*/function () {
+var extensionBlocks = /*#__PURE__*/function () {
+  alert("extensionBlocks");
   /**
    * Construct a set of blocks for handpose.
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
    */
   function ExtensionBlocks(runtime) {
+    alert("ExtensionBlocks");
     //constructor(runtime) { //begin
     
     _classCallCheck$1(this, ExtensionBlocks);
@@ -1570,9 +1572,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.runtime.ioDevices.video.enableVideo()
         //.then(this.detectHand);
         .then(() => {
-        console.log("Video enabled successfully");
-        this.detectHand(); // ビデオが有効になった後に手の検出を呼び出す
-        })
+          console.log("Video enabled successfully");
+          this.detectHand(); // ビデオが有効になった後に手の検出を呼び出す
+          })
         .catch((err) => {
             console.error("Error enabling video:", err);
         });
@@ -1680,5 +1682,5 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   return ExtensionBlocks;
 }();
 
-export { ExtensionBlocks as blockClass, entry };
+export { extensionBlocks as blockClass, entry };
 //# sourceMappingURL=handpose.mjs.map
