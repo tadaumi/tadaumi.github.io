@@ -1574,6 +1574,8 @@ var extensionBlocks = /*#__PURE__*/function () {
       }).catch(err => {
         console.error("Error loading handpose model:", err);
       });
+      
+      alert("ExtensionBlocks_enableVideo");
       this.runtime.ioDevices.video.enableVideo()
         //.then(this.detectHand);
         .then(() => {
@@ -1589,7 +1591,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         .catch((err) => {
             console.error("Error enabling video:", err);
         });
-
+      alert("ExtensionBlocks_end");  
     };
   }   //end of ExtensionBlocks
 
