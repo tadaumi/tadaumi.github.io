@@ -1544,7 +1544,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     this._locale = this.setLocale();
 
     // 手の検出を開始
-    //alert("ExtensionBlocks_detecthand");
+    alert("ExtensionBlocks_detecthand");
     this.detectHand = () => {
       //this.video = this.runtime.ioDevices.video.provider.video;
       alert("ExtensionBlocks_detecthand");
@@ -1598,6 +1598,7 @@ var extensionBlocks = /*#__PURE__*/function () {
 
   // 手の検出を開始するメソッド
   ExtensionBlocks.prototype.startHandDetection = function(handpose) {
+    alert("startHandDetection");
     handpose.on('predict', hands => {
       hands.forEach(hand => {
         this.landmarks = hand.landmarks;
@@ -1606,6 +1607,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   };
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
+      alert("LANDMARK_MENU");
       const landmark_menu = [];
       for (let i = 1; i <= 21; i++) {
           landmark_menu.push({text: `${Message.landmarks[i - 1][this._locale]} (${i})`, value: String(i)});
@@ -1614,6 +1616,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   };
   
   ExtensionBlocks.prototype.VIDEO_MENU = function () {
+      alert("VIDEO_MENU");
       return [
           { text: Message.off[this._locale], value: 'off' },
           { text: Message.on[this._locale], value: 'on' },
