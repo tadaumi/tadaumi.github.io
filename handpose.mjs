@@ -1499,6 +1499,7 @@ const Message = {
 const AvailableLocales = ['en', 'ja', 'ja-Hira']; // 使用するロケールコード
 
 function setLocale() {
+    alert("setLocale");
     let locale = formatMessage.setup().locale;
     if (AvailableLocales.includes(locale)) {
         return locale;
