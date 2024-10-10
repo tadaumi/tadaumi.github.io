@@ -1638,6 +1638,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   };
   
   ExtensionBlocks.prototype.getInfo = function () {
+      alert("getInfo");
       return {
           id: 'handpose2scratch',
           name: 'handpose2Scratch',
@@ -1667,6 +1668,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   };
   
   ExtensionBlocks.prototype.getX = function (args) {
+    alert("getX");
     let landmark = parseInt(args.LANDMARK, 10) - 1;
     if (this.landmarks[landmark]) {
       if (this.runtime.ioDevices.video.mirror === false) {
