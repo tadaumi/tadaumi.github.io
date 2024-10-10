@@ -1542,6 +1542,23 @@ var extensionBlocks = /*#__PURE__*/function () {
     this.ratio = 0.75;
     this._locale = this.setLocale();
 
+    alert("ExtensionBlocks_enableVideo");
+    this.runtime.ioDevices.video.enableVideo()
+      //.then(this.detectHand);
+      .then(() => {
+        console.log("Video enabled successfully");
+        this.video = this.runtime.ioDevices.video.provider.video;
+          if (this.video) {
+            this.detectHand(); // ビデオが取得できた場合のみ手の検出を開始
+          } else {
+            console.error("Failed to initialize video.");
+          }
+        //this.detectHand(); // ビデオが有効になった後に手の検出を呼び出す
+        })
+      .catch((err) => {
+          console.error("Error enabling video:", err);
+      });
+      
     // 手の検出を開始
     alert("ExtensionBlocks_before_detecthand");
     this.detectHand = () => {
@@ -1575,22 +1592,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         console.error("Error loading handpose model:", err);
       });
       
-      alert("ExtensionBlocks_enableVideo");
-      this.runtime.ioDevices.video.enableVideo()
-        //.then(this.detectHand);
-        .then(() => {
-          console.log("Video enabled successfully");
-          this.video = this.runtime.ioDevices.video.provider.video;
-            if (this.video) {
-              this.detectHand(); // ビデオが取得できた場合のみ手の検出を開始
-            } else {
-              console.error("Failed to initialize video.");
-            }
-          //this.detectHand(); // ビデオが有効になった後に手の検出を呼び出す
-          })
-        .catch((err) => {
-            console.error("Error enabling video:", err);
-        });
+      
       alert("ExtensionBlocks_end");  
     };
   }   //end of ExtensionBlocks
