@@ -1558,31 +1558,23 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             // 手の検出を開始
             this.startHandDetection(handpose);
         });
-
-        handpose.on('predict', hands => {
-            hands.forEach(hand => {
-                this.landmarks = hand.landmarks;
-            });
-        });
-
-        this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
-        
       }).catch(err => {
         console.error("Error loading handpose model:", err);
       });
-    };  
-    
+      this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
+    };
     //} //end
-  };
+
+  }
 
   // 手の検出を開始するメソッド
-  startHandDetection(handpose) {
+  ExtensionBlocks.prototype.startHandDetection = function(handpose) {
     handpose.on('predict', hands => {
       hands.forEach(hand => {
         this.landmarks = hand.landmarks;
       });
     });
-  }
+  };
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
       const landmark_menu = [];
