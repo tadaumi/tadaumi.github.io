@@ -1521,8 +1521,7 @@ var extensionBlocks = /*#__PURE__*/function () {
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
    */
   function ExtensionBlocks(runtime) {
-    //alert("ExtensionBlocks");
-    //constructor(runtime) { //begin
+    alert("ExtensionBlocks");
     
     _classCallCheck$1(this, ExtensionBlocks);
     
@@ -1538,7 +1537,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     }
     
     // インスタンス変数の初期化
-    //alert("ExtensionBlocks_initialize");
+    alert("ExtensionBlocks_initialize");
     this.landmarks = [];
     this.ratio = 0.75;
     this._locale = this.setLocale();
@@ -1592,9 +1591,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         });
 
     };
-    //} //end
-
-  }
+  }   //end of ExtensionBlocks
 
   // 手の検出を開始するメソッド
   ExtensionBlocks.prototype.startHandDetection = function(handpose) {
