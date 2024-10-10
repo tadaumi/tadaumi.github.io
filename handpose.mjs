@@ -1640,7 +1640,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   ExtensionBlocks.prototype.getInfo = function () {
       return {
           id: 'handpose2scratch',
-          name: 'Handpose2Scratch',
+          name: 'handpose2Scratch',
           blockIconURI: img,
           blocks: [
             // ... (ブロック定義をそのまま配置)
