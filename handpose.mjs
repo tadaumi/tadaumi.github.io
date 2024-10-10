@@ -1510,9 +1510,19 @@ function setLocale() {
 
 // 手のポーズモデルを動的に読み込む関数
 async function loadHandposeModel() {
+  try {
     const response = await fetch('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose');
     const modelScript = await response.text();
+    console.log("Handpose model script loaded.");
     eval(modelScript); // スクリプトを実行して手のポーズ機能を追加
+    if (typeof Handpose !== 'undefined') {
+        console.log("Handpose is defined.");
+    } else {
+        console.error("Handpose is not defined.");
+    }
+  } catch (err) {
+    console.error("Error loading handpose model:", err);
+  }
 }
 
 var extensionBlocks = /*#__PURE__*/function () {
