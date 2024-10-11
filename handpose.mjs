@@ -1700,7 +1700,7 @@ var extensionBlocks = /*#__PURE__*/function () {
       if (AvailableLocales.includes(locale)) {
           return locale;
       } else {
-          return 'en';https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
+          return 'en';
       }
   };
   
