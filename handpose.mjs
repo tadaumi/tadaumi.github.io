@@ -1509,6 +1509,8 @@ function setLocale() {
 }
 
 // 手のポーズモデルを動的に読み込む関数
+
+/*
 async function loadHandposeModel() {
   alert("loadHandposeModel");
   try {
@@ -1527,6 +1529,29 @@ async function loadHandposeModel() {
   } catch (err) {
     console.error("Error loading handpose model:", err);
   }
+}
+*/
+
+function loadHandposeModel() {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
+    script.async = true;
+
+    script.onload = () => {
+      if (typeof ml5 !== 'undefined') {
+        resolve();
+      } else {
+        reject(new Error('Failed to load ml5 library.'));
+      }
+    };
+
+    script.onerror = (err) => {
+      reject(new Error(`Failed to load ml5 library: ${err.message}`));
+    };
+
+    document.head.appendChild(script);
+  });
 }
 
 var extensionBlocks = /*#__PURE__*/function () {
@@ -1583,33 +1608,44 @@ var extensionBlocks = /*#__PURE__*/function () {
       alert(Message.please_wait[this._locale]);
 
       // handposeモデルの読み込み
-      loadHandposeModel().then(() => {
-        console.log("Handpose model loaded. Initializing...");
+      loadHandposeModel()
+        .then(() => {
+          console.log("Handpose model loaded. Initializing...");
         
-        const videoElement = this.runtime.ioDevices.video.provider.video;
-        if (!videoElement) {
-          console.error("Video element is not available.");
-          return;
-        }
+          const videoElement = this.runtime.ioDevices.video.provider.video;
+          if (!videoElement) {
+            console.error("Video element is not available.");
+            return;
+          }
         
-        /*
-        const handpose = ml5.handpose(this.video, function() {
-            console.log("Model loaded!");
+          // ml5 の手のポーズモデルを定義
+          const handpose = ml5.handpose(videoElement, () => {
+              console.log("Model loaded!");
+              // 手の検出を開始
+              this.startHandDetection(handpose);
+          });
+          handpose.on('predict', (results) => {
+            if (results && results.length > 0) {
+              // 手のランドマークデータを保持
+              this.landmarks = results[0].landmarks;
+            }
+          });
+          
+          /*
+          const handpose = new Handpose(this.video, () => {
+              console.log("Model loaded!");
+              // 手の検出を開始
+              this.startHandDetection(handpose);
+          });
+          */
+        })
+        .catch(err => {
+          console.error("Error loading handpose model:", err);
         });
-        */
-        // ml5 の手のポーズモデルを定義
-        const handpose = new Handpose(this.video, () => {
-            console.log("Model loaded!");
-            // 手の検出を開始
-            this.startHandDetection(handpose);
-        });
-      }).catch(err => {
-        console.error("Error loading handpose model:", err);
-      });
       
-      
-      alert("ExtensionBlocks_end");  
-    };
+    };  //end of detecthand
+    
+    alert("ExtensionBlocks_end");
   }   //end of ExtensionBlocks
 
   // 手の検出を開始するメソッド
@@ -1623,7 +1659,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   };
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
-      alert("LANDMARK_MENU");
+      //alert("LANDMARK_MENU");
       const landmark_menu = [];
       for (let i = 1; i <= 21; i++) {
           landmark_menu.push({text: `${Message.landmarks[i - 1][this._locale]} (${i})`, value: String(i)});
@@ -1632,7 +1668,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   };
   
   ExtensionBlocks.prototype.VIDEO_MENU = function () {
-      alert("VIDEO_MENU");
+      //alert("VIDEO_MENU");
       return [
           { text: Message.off[this._locale], value: 'off' },
           { text: Message.on[this._locale], value: 'on' },
@@ -1664,7 +1700,7 @@ var extensionBlocks = /*#__PURE__*/function () {
       if (AvailableLocales.includes(locale)) {
           return locale;
       } else {
-          return 'en';
+          return 'en';https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
       }
   };
   
