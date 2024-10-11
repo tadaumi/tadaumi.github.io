@@ -1620,7 +1620,7 @@ var extensionBlocks = /*#__PURE__*/function () {
           }
         
           // ml5 の手のポーズモデルを定義
-          const handpose = ml5.handpose(videoElement, () => {
+          const handpose = ml5.handPose(videoElement, () => {
               console.log("Model loaded!");
               // 手の検出を開始
               this.startHandDetection(handpose);
