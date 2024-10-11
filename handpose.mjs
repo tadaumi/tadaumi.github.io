@@ -1329,7 +1329,7 @@ var setupTranslations = function setupTranslations() {
  * @type {string}
  */
 //var extensionURL = 'https://yokobond.github.io/xcx-handpose/dist/handpose.mjs';
-var extensionURL = 'https://xcratch.github.io/handpose.mjs';
+//var extensionURL = 'https://xcratch.github.io/handpose.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
