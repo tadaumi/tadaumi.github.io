@@ -1556,7 +1556,7 @@ function loadHandposeModel() {
 
 var extensionBlocks = /*#__PURE__*/function () {
   alert("extensionBlocks");
-  this.log("extensionBlocks");
+  //this.log("extensionBlocks");
   /**
    * Construct a set of blocks for handpose.
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
