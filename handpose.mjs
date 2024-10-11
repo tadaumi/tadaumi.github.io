@@ -1645,12 +1645,13 @@ var extensionBlocks = /*#__PURE__*/function () {
   }   //end of ExtensionBlocks
 
   // 手の検出を開始するメソッド
-  ExtensionBlocks.prototype.startHandDetection = function(handpose) {
+  ExtensionBlocks.prototype.startHandDetection = function(handpose, videoElement) {
     alert("startHandDetection");
     
     // 手の検出を開始
     const detectHands = () => {
-      handpose.detect((error, results) => {
+      //handpose.detect((error, results) => {
+      handpose.detect(videoElement, (error, results) => {
         if (error) {
           console.error(error);
           return;
@@ -1720,7 +1721,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   };
   
   ExtensionBlocks.prototype.getInfo = function () {
-      alert("getInfo");
+      //alert("getInfo");
       return {
           id: 'handpose2scratch',
           name: 'handpose2Scratch',
@@ -1750,7 +1751,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   };
   
   ExtensionBlocks.prototype.getX = function (args) {
-    alert("getX");
+    //alert("getX");
     let landmark = parseInt(args.LANDMARK, 10) - 1;
     if (this.landmarks[landmark]) {
       if (this.runtime.ioDevices.video.mirror === false) {
