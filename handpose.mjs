@@ -1625,18 +1625,13 @@ var extensionBlocks = /*#__PURE__*/function () {
               // 手の検出を開始
               this.startHandDetection(handpose);
           });
+          
+          /*
           handpose.on('predict', (results) => {
             if (results && results.length > 0) {
               // 手のランドマークデータを保持
               this.landmarks = results[0].landmarks;
             }
-          });
-          
-          /*
-          const handpose = new Handpose(this.video, () => {
-              console.log("Model loaded!");
-              // 手の検出を開始
-              this.startHandDetection(handpose);
           });
           */
         })
@@ -1646,17 +1641,36 @@ var extensionBlocks = /*#__PURE__*/function () {
       
     };  //end of detecthand
     
-    alert("ExtensionBlocks_end");
+    //alert("ExtensionBlocks_end");
   }   //end of ExtensionBlocks
 
   // 手の検出を開始するメソッド
   ExtensionBlocks.prototype.startHandDetection = function(handpose) {
     alert("startHandDetection");
-    handpose.on('predict', hands => {
-      hands.forEach(hand => {
-        this.landmarks = hand.landmarks;
+    
+    // 手の検出を開始
+    const detectHands = () => {
+      handpose.detect((error, results) => {
+        if (error) {
+          console.error(error);
+          return;
+        }
+        
+        if (results && results.length > 0) {
+          // 最初の手のデータを取得
+          const hands = results;
+          hands.forEach(hand => {
+            this.landmarks = hand.landmarks;
+          });
+        }
+        
+        // 次のフレームをリクエスト
+        requestAnimationFrame(detectHands);
       });
-    });
+    };
+    
+    // 手の検出を開始
+    detectHands();
   };
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
