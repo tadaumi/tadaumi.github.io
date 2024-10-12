@@ -1642,8 +1642,6 @@ var extensionBlocks = /*#__PURE__*/function () {
         });
       
     };  //end of detecthand
-    
-    //alert("ExtensionBlocks_end");
   }   //end of ExtensionBlocks
 
   // 手の検出を開始するメソッド
@@ -1680,9 +1678,13 @@ var extensionBlocks = /*#__PURE__*/function () {
       alert("detectHands_end");
     };
     
+    console.log("Handpose model loaded and ready for detection.");
+    alert("Handpose model loaded");
+    detectHands(); // モデルロード完了後に手の検出を開始
     // 手の検出を開始
+    /*
     handpose.on('predict', () => {
-      console.log("Handpose model loaded and ready for detection.");
+      console.log("Handpose modelhttps://xcratch.github.io/xcx-example/dist/xcratchExample.mjs loaded and ready for detection.");
       alert("Handpose model loaded");
       if (!videoElement) {
         alert("Video element is not available");
@@ -1691,8 +1693,8 @@ var extensionBlocks = /*#__PURE__*/function () {
       } else {
         console.log("Video element is ready:", videoElement);
       }
-      detectHands(); // モデルロード完了後に手の検出を開始
     });
+    */
     //detectHands();
   };
 
