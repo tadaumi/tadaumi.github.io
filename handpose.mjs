@@ -1628,14 +1628,15 @@ var extensionBlocks = /*#__PURE__*/function () {
               this.startHandDetection(handpose);
           });
           
-          /*
-          handpose.on('predict', (results) => {
+          alert("handpose.on");
+          handpose.on('predict', results => {
+            alert("handpose.on worked!");
             if (results && results.length > 0) {
               // 手のランドマークデータを保持
               this.landmarks = results[0].landmarks;
             }
           });
-          */
+          
         })
         .catch(err => {
           console.error("Error loading handpose model:", err);
@@ -1681,6 +1682,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     console.log("Handpose model loaded and ready for detection.");
     alert("Handpose model loaded");
     detectHands(); // モデルロード完了後に手の検出を開始
+    alert("startHandDetection_end");
     // 手の検出を開始
     /*
     handpose.on('predict', () => {
