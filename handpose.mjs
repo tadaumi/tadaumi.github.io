@@ -1615,6 +1615,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         
           const videoElement = this.runtime.ioDevices.video.provider.video;
           if (!videoElement) {
+            alert("Video element is not available");
             console.error("Video element is not available.");
             return;
           }
@@ -1654,6 +1655,7 @@ var extensionBlocks = /*#__PURE__*/function () {
       //handpose.detect((error, results) => {
       handpose.detect(videoElement, (error, results) => {
         alert("results");
+        
         if (error) {
           console.error(error);
           return;
@@ -1676,7 +1678,19 @@ var extensionBlocks = /*#__PURE__*/function () {
     };
     
     // 手の検出を開始
-    detectHands();
+    handpose.on('predict', () => {
+      console.log("Handpose model loaded and ready for detection.");
+      alert("Handpose model loaded");
+      if (!videoElement) {
+        alert("Video element is not available");
+        console.error("Video element is not available.");
+        return;
+      } else {
+        console.log("Video element is ready:", videoElement);
+      }
+      detectHands(); // モデルロード完了後に手の検出を開始
+    });
+    //detectHands();
   };
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
