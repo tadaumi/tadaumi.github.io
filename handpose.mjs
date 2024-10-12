@@ -1754,12 +1754,14 @@ var extensionBlocks = /*#__PURE__*/function () {
     //alert("getX");
     let landmark = parseInt(args.LANDMARK, 10) - 1;
     if (this.landmarks[landmark]) {
+      alert("getX");
       if (this.runtime.ioDevices.video.mirror === false) {
         return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
       } else {
         return 240 - this.landmarks[landmark][0] * this.ratio;
       }
     } else {
+      alert("getX_failed");
       return "";
     }
   };
