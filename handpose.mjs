@@ -1555,14 +1555,14 @@ function loadHandposeModel() {
 }
 
 var extensionBlocks = /*#__PURE__*/function () {
-  alert("extensionBlocks");
+  //alert("extensionBlocks");
   //this.log("extensionBlocks");
   /**
    * Construct a set of blocks for handpose.
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
    */
   function ExtensionBlocks(runtime) {
-    alert("ExtensionBlocks");
+    //alert("ExtensionBlocks");
     
     _classCallCheck$1(this, ExtensionBlocks);
     
@@ -1583,7 +1583,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     this.ratio = 0.75;
     this._locale = this.setLocale();
 
-    alert("ExtensionBlocks_enableVideo");
+    //alert("ExtensionBlocks_enableVideo");
     this.runtime.ioDevices.video.enableVideo()
       //.then(this.detectHand);
       .then(() => {
@@ -1604,7 +1604,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     //alert("ExtensionBlocks_before_detecthand");
     this.detectHand = () => {
       //this.video = this.runtime.ioDevices.video.provider.video;
-      alert("ExtensionBlocks_detecthand");
+      //alert("ExtensionBlocks_detecthand");
       
       alert(Message.please_wait[this._locale]);
 
@@ -1652,13 +1652,16 @@ var extensionBlocks = /*#__PURE__*/function () {
     const detectHands = () => {
       //handpose.detect((error, results) => {
       handpose.detect(videoElement, (error, results) => {
+        alert("results");
         if (error) {
           console.error(error);
           return;
         }
         
         if (results && results.length > 0) {
+          alert("handpose.detect");
           // 最初の手のデータを取得
+          this.landmarks = [];
           const hands = results;
           hands.forEach(hand => {
             this.landmarks = hand.landmarks;
