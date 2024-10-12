@@ -1619,7 +1619,8 @@ var extensionBlocks = /*#__PURE__*/function () {
             console.error("Video element is not available.");
             return;
           }
-        
+          alert("Video element is ready");
+          
           // ml5 の手のポーズモデルを定義
           const handpose = ml5.handPose(videoElement, () => {
               console.log("Model loaded!");
@@ -1652,10 +1653,9 @@ var extensionBlocks = /*#__PURE__*/function () {
     // 手の検出を開始
     const detectHands = () => {
       alert("detectHands");
+      alert(results);
       //handpose.detect((error, results) => {
       handpose.detect(videoElement, (error, results) => {
-        alert("results");
-        
         if (error) {
           console.error(error);
           return;
