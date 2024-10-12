@@ -1650,6 +1650,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     
     // 手の検出を開始
     const detectHands = () => {
+      alert("detectHands");
       //handpose.detect((error, results) => {
       handpose.detect(videoElement, (error, results) => {
         alert("results");
@@ -1671,6 +1672,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         // 次のフレームをリクエスト
         requestAnimationFrame(detectHands);
       });
+      alert("detectHands_end");
     };
     
     // 手の検出を開始
