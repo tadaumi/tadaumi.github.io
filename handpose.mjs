@@ -1664,11 +1664,14 @@ var extensionBlocks = /*#__PURE__*/function () {
         if (results && results.length > 0) {
           alert("handpose.detect");
           // 最初の手のデータを取得
-          this.landmarks = [];
+          this.landmarks = results[0].landmarks; // 最初の手のデータを取得
+          //this.landmarks = [];
+          /*
           const hands = results;
           hands.forEach(hand => {
             this.landmarks = hand.landmarks;
           });
+          */
         }
         
         // 次のフレームをリクエスト
