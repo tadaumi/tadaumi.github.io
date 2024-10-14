@@ -1533,6 +1533,9 @@ async function loadHandposeModel() {
 */
 
 function loadHandposeModel() {
+  .then(() => {
+  alert("ml5 library loaded successfully!");
+  console.log("ml5 library loaded successfully!");
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
@@ -1544,7 +1547,12 @@ function loadHandposeModel() {
       } else {
         reject(new Error('Failed to load ml5 library.'));
       }
-    };
+    
+  })
+  .catch((error) => {
+    alert(error);
+    console.error(error);
+  };
 
     script.onerror = (err) => {
       reject(new Error(`Failed to load ml5 library: ${err.message}`));
