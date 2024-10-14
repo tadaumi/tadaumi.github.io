@@ -1628,6 +1628,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               this.startHandDetection(handpose);
           });
           
+          /*
           alert("handpose.on");
           handpose.on('predict', results => {
             alert("handpose.on worked!");
@@ -1636,6 +1637,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               this.landmarks = results[0].landmarks;
             }
           });
+          */
           
         })
         .catch(err => {
@@ -1644,7 +1646,7 @@ var extensionBlocks = /*#__PURE__*/function () {
       
     };  //end of detecthand
   }   //end of ExtensionBlocks
-
+https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
   // 手の検出を開始するメソッド
   ExtensionBlocks.prototype.startHandDetection = function(handpose, videoElement) {
     alert("startHandDetection");
