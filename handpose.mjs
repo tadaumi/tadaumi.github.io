@@ -1667,7 +1667,7 @@ var extensionBlocks = /*#__PURE__*/function () {
       
     };  //end of detecthand
   }   //end of ExtensionBlocks
-https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs
+
   // 手の検出を開始するメソッド
   ExtensionBlocks.prototype.startHandDetection = function(handpose, videoElement) {
     alert("startHandDetection");
