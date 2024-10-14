@@ -1652,18 +1652,18 @@ var extensionBlocks = /*#__PURE__*/function () {
     // 手の検出を開始
     const detectHands = () => {
       alert("detectHands");
-      alert(results);
+      alert(result);
       //handpose.detect((error, results) => {
-      handpose.detect(videoElement, (error, results) => {
+      handpose.detect(videoElement, (error, result) => {
         if (error) {
           console.error(error);
           return;
         }
         
-        if (results && results.length > 0) {
+        if (result && result.length > 0) {
           alert("handpose.detect");
           // 最初の手のデータを取得
-          this.landmarks = results[0].landmarks; // 最初の手のデータを取得
+          this.landmarks = result[0].landmarks; // 最初の手のデータを取得
           //this.landmarks = [];
           /*
           const hands = results;
