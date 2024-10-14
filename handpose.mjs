@@ -1532,7 +1532,7 @@ async function loadHandposeModel() {
 }
 */
 
-function loadHandposeModel() {
+export function loadHandposeModel() {
   console.log("ml5 library loaded successfully!");
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
