@@ -1537,7 +1537,7 @@ function loadHandposeModel() {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     //script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
-    script.src = '/ml5.min.js';
+    script.src = 'https://tadaumi.github.io/ml5.min.js';
     script.async = true;
 
     script.onload = () => {
