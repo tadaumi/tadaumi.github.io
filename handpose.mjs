@@ -1628,6 +1628,19 @@ var extensionBlocks = /*#__PURE__*/function () {
               this.startHandDetection(handpose);
           });
           
+          // 手のポーズの検出を開始
+          setInterval(() => {
+            handpose.predict((error, results) => {
+              if (error) {
+                console.error(error);
+                return;
+              }
+              
+              alert("handpose_results");
+              alert(results);
+              console.log(results); // 検出結果をコンソールに出力
+            });
+          }, 100); // 100ミリ秒ごとに検出を行う
           /*
           alert("handpose.on");
           handpose.on('predict', results => {
