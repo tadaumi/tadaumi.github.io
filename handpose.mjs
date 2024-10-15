@@ -1635,7 +1635,7 @@ var extensionBlocks = /*#__PURE__*/function () {
           }
           function detectPose() {
             alert("detectPose");
-            handpose.prediction(videoElement, (error, results) => {
+            handpose.detect(videoElement, (error, results) => {
               if (error) {
                 alert("error");
                 console.error(error);
