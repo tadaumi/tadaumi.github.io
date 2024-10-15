@@ -1631,6 +1631,18 @@ var extensionBlocks = /*#__PURE__*/function () {
           
           // 手のポーズの検出を開始
           setInterval(() => {
+            alert("setInterval");
+            handpose.estimateHands(videoElement)
+            .then((results) => {
+              alert("handpose_results");
+              alert(results);
+              console.log(results); // 検出結果をコンソールに出力
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+            
+            /*
             handpose.predict((error, results) => {
               if (error) {
                 console.error(error);
@@ -1641,6 +1653,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               alert(results);
               console.log(results); // 検出結果をコンソールに出力
             });
+            */
           }, 100); // 100ミリ秒ごとに検出を行う
           /*
           alert("handpose.on");
