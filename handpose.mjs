@@ -1627,6 +1627,8 @@ var extensionBlocks = /*#__PURE__*/function () {
               console.log("Model loaded!");
               // 手の検出を開始
               this.startHandDetection(handpose);
+              console.log(handpose);
+              alert(handpose in handpose);
           });
           console.log(handpose); // handposeのオブジェクト構造を確認
           alert(handpose);
