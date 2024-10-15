@@ -1628,6 +1628,8 @@ var extensionBlocks = /*#__PURE__*/function () {
               // 手の検出を開始
               this.startHandDetection(handpose);
           });
+          console.log(handpose); // handposeのオブジェクト構造を確認
+          alert(handpose);
           
           // 手のポーズの検出を開始
           setInterval(() => {
