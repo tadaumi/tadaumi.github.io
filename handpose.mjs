@@ -1624,11 +1624,17 @@ var extensionBlocks = /*#__PURE__*/function () {
           
           // ml5 の手のポーズモデルを定義
           const handpose = ml5.handPose(videoElement, () => {
+            if (handpose) {
               console.log("Model loaded!");
+              alert("handpose in handpose");
+              console.log(handpose);
+              alert(handpose);
               // 手の検出を開始
               this.startHandDetection(handpose);
-              console.log(handpose);
-              alert(handpose in handpose);
+            } else {
+              alert("Failed to initialize handpose");
+              console.error("Failed to initialize handpose.");
+            }
           });
           console.log(handpose); // handposeのオブジェクト構造を確認
           alert(handpose);
