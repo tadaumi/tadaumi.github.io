@@ -1590,7 +1590,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     this.runtime.ioDevices.video.enableVideo()
       //.then(this.detectHand);
       .then(() => {
-        console.log("Video enabled successfully");
+        console.log("enableVideo: Video enabled successfully");
         this.video = this.runtime.ioDevices.video.provider.video;
           if (this.video) {
             this.detectHand(); // ビデオが取得できた場合のみ手の検出を開始
@@ -1629,9 +1629,8 @@ var extensionBlocks = /*#__PURE__*/function () {
           const handpose = ml5.handPose(videoElement, () => {
             if (handpose) {
               console.log("Model loaded!");
-              alert("handpose in handpose");
               console.log(handpose);
-              alert(handpose);
+              alert("handpose in handpose: " + handpose);
               // 手の検出を開始
               this.startHandDetection(handpose);
             } else {
@@ -1640,7 +1639,7 @@ var extensionBlocks = /*#__PURE__*/function () {
             }
           });
           console.log(handpose); // handposeのオブジェクト構造を確認
-          alert(handpose);
+          alert("after const handpose: " + handpose);
           
           // 手のポーズの検出を開始
           setInterval(() => {
@@ -1667,7 +1666,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               console.log(results); // 検出結果をコンソールに出力
             });
             */
-          }, 100); // 100ミリ秒ごとに検出を行う
+          }, 1000); // 100ミリ秒ごとに検出を行う
           /*
           alert("handpose.on");
           handpose.on('predict', results => {
