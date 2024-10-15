@@ -1533,7 +1533,7 @@ async function loadHandposeModel() {
 */
 
 export function loadHandposeModel() {
-  console.log("ml5 library loaded successfully!");
+  console.log("loadHandposeModel: ml5 library loaded successfully!");
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
@@ -1542,6 +1542,7 @@ export function loadHandposeModel() {
 
     script.onload = () => {
       if (typeof ml5 !== 'undefined') {
+        console.log("onload: ml5 library loaded successfully!");
         resolve();
       } else {
         alert("onload: Failed to load ml5 library");
