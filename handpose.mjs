@@ -1628,16 +1628,20 @@ var extensionBlocks = /*#__PURE__*/function () {
           // ml5 の手のポーズモデルを定義
           const handpose = ml5.handPose(videoElement, modelReady);
           function modelReady() {
-            console.log("Handpose model loaded!");
+            console.log("modelReady");
+            alert("Video element is ready");
             // 手のポーズを検出する関数を呼び出す
             detectPose();
           }
           function detectPose() {
+            alert("detectPose");
             handpose.predict(videoElement, (error, results) => {
               if (error) {
+                alert("error");
                 console.error(error);
                 return;
               }
+              alert("results: " + results);
               console.log(results); // 検出結果を表示
               requestAnimationFrame(detectPose); // フレームごとにポーズを検出
             });
