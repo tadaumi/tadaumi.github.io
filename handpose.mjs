@@ -1645,16 +1645,18 @@ var extensionBlocks = /*#__PURE__*/function () {
           // 手のポーズの検出を開始
           setInterval(() => {
             alert("setInterval");
-            handpose.detect(videoElement)
-            .then((results) => {
+            handpose.detect(videoElement, (error, results)) => {
+              if (error) {
+                console.error(error);
+                alert("error:" + results);
+                return;
+              }
+              
               alert("handpose_results");
               alert(results);
               console.log(results); // 検出結果をコンソールに出力
-            })
-            .catch((error) => {
-              console.error(error);
             });
-          
+            
             /*
             handpose.predict((error, results) => {
               if (error) {
