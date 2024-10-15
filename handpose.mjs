@@ -1536,18 +1536,20 @@ export function loadHandposeModel() {
   console.log("ml5 library loaded successfully!");
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    //script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
-    script.src = 'https://tadaumi.github.io/ml5.min.js';
+    script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
+    //script.src = 'https://tadaumi.github.io/ml5.min.js';
     script.async = true;
 
     script.onload = () => {
       if (typeof ml5 !== 'undefined') {
         resolve();
       } else {
+        alert("onload: Failed to load ml5 library");
         reject(new Error('Failed to load ml5 library.'));
       }
     };
     script.onerror = (err) => {
+      alert("onerror: Failed to load ml5 library ");
       reject(new Error(`Failed to load ml5 library: ${err.message}`     ));
     };
     document.head.appendChild(script);
