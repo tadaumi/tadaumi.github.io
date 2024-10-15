@@ -1626,29 +1626,6 @@ var extensionBlocks = /*#__PURE__*/function () {
           alert("Video element is ready");
           
           // ml5 の手のポーズモデルを定義
-          const handpose = ml5.handPose(videoElement, modelReady);
-          function modelReady() {
-            console.log("modelReady");
-            alert("Video element is ready");
-            // 手のポーズを検出する関数を呼び出す
-            detectPose();
-          }
-          function detectPose() {
-            alert("detectPose");
-            handpose.detect(videoElement, (error, results) => {
-              if (error) {
-                alert("error");
-                console.error(error);
-                return;
-              }
-              alert("results: " + results);
-              console.log(results); // 検出結果を表示
-              requestAnimationFrame(detectPose); // フレームごとにポーズを検出
-            });
-          }
-
-
-          /*
           const handpose = ml5.handPose(videoElement, () => {
             if (handpose) {
               console.log("const handpose: Model loaded!:" + handpose);
@@ -1661,15 +1638,14 @@ var extensionBlocks = /*#__PURE__*/function () {
               console.error("Failed to initialize handpose.");
             }
           });
-          */
+          
           console.log(handpose); // handposeのオブジェクト構造を確認
           alert("after const handpose: " + handpose);
           
           // 手のポーズの検出を開始
-          /*
           setInterval(() => {
             alert("setInterval");
-            handpose.estimateHands(videoElement)
+            handpose.detect(videoElement)
             .then((results) => {
               alert("handpose_results");
               alert(results);
@@ -1678,7 +1654,7 @@ var extensionBlocks = /*#__PURE__*/function () {
             .catch((error) => {
               console.error(error);
             });
-          */
+          
             /*
             handpose.predict((error, results) => {
               if (error) {
@@ -1691,7 +1667,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               console.log(results); // 検出結果をコンソールに出力
             });
             */
-          //}, 1000); // 100ミリ秒ごとに検出を行う
+          }, 1000); // 100ミリ秒ごとに検出を行う
           
           
           /*
