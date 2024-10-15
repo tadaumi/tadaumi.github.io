@@ -1612,7 +1612,7 @@ var extensionBlocks = /*#__PURE__*/function () {
       alert(Message.please_wait[this._locale]);
 
       // handposeモデルの読み込み
-      loadHandposeModel()
+      return loadHandposeModel()
         .then(() => {
           alert("loadHandposeModel: ml5 library loaded!");
           console.log("Handpose model loaded. Initializing...");
@@ -1628,9 +1628,9 @@ var extensionBlocks = /*#__PURE__*/function () {
           // ml5 の手のポーズモデルを定義
           const handpose = ml5.handPose(videoElement, () => {
             if (handpose) {
-              console.log("Model loaded!");
-              console.log(handpose);
-              alert("handpose in handpose: " + handpose);
+              console.log("const handpose: Model loaded!:" + handpose);
+              //console.log(handpose);
+              alert("handpose in const handpose: " + handpose);
               // 手の検出を開始
               this.startHandDetection(handpose);
             } else {
