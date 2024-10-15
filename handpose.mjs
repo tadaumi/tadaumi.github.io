@@ -1626,6 +1626,25 @@ var extensionBlocks = /*#__PURE__*/function () {
           alert("Video element is ready");
           
           // ml5 の手のポーズモデルを定義
+          const handpose = ml5.handpose(videoElement, modelReady);
+          function modelReady() {
+            console.log("Handpose model loaded!");
+            // 手のポーズを検出する関数を呼び出す
+            detectPose();
+          }
+          function detectPose() {
+            handpose.predict(videoElement, (error, results) => {
+              if (error) {
+                console.error(error);
+                return;
+              }
+              console.log(results); // 検出結果を表示
+              requestAnimationFrame(detectPose); // フレームごとにポーズを検出
+            });
+          }
+
+
+          /*
           const handpose = ml5.handPose(videoElement, () => {
             if (handpose) {
               console.log("const handpose: Model loaded!:" + handpose);
@@ -1638,6 +1657,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               console.error("Failed to initialize handpose.");
             }
           });
+          */
           console.log(handpose); // handposeのオブジェクト構造を確認
           alert("after const handpose: " + handpose);
           
