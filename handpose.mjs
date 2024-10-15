@@ -1645,7 +1645,7 @@ var extensionBlocks = /*#__PURE__*/function () {
           // 手のポーズの検出を開始
           setInterval(() => {
             alert("setInterval");
-            handpose.detect(videoElement, (error, results)) => {
+            handpose.detect(videoElement, (error, results) => {
               if (error) {
                 console.error(error);
                 alert("error:" + results);
