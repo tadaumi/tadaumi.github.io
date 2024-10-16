@@ -1656,7 +1656,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                         
                         alert("handpose_results");
                         alert(callback);
-                        console.log(results); // 検出結果をコンソールに出力
+                        console.log(callback); // 検出結果をコンソールに出力
                       });
                     }, 100); // 100ミリ秒ごとに検出を行う
                     //this.startHandDetection(handpose);
