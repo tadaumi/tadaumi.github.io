@@ -1647,17 +1647,13 @@ var extensionBlocks = /*#__PURE__*/function () {
                       //handpose.detect(videoElement, (error, callback) => {
                       //handpose.detect(videoElement, (callback) => {
                       handpose.detect(videoElement, (results) => {
-                        /*
-                        if (error) {
-                          console.error(error);
-                          alert("handpose.detect error:" + callback);
-                          return;
+                        if (results && results.length > 0) {
+                          alert("Hand detected!");
+                          console.log(results); // 検出結果をコンソールに出力
+                        } else {
+                          alert("No hand detected or error occurred.");
+                          console.log("Results:", results);
                         }
-                        */
-                        
-                        alert("handpose_results");
-                        alert(results);
-                        console.log(results); // 検出結果をコンソールに出力
                       });
                     }, 100); // 100ミリ秒ごとに検出を行う
                     //this.startHandDetection(handpose);
