@@ -1614,7 +1614,7 @@ var extensionBlocks = /*#__PURE__*/function () {
       // handposeモデルの読み込み
       return loadHandposeModel()
         .then(() => {
-          alert("loadHandposeModel: ml5 library loaded!");
+          //alert("loadHandposeModel: ml5 library loaded!");
           console.log("Handpose model loaded. Initializing...");
         
           const videoElement = this.runtime.ioDevices.video.provider.video;
@@ -1630,7 +1630,7 @@ var extensionBlocks = /*#__PURE__*/function () {
             .then(stream => {
               videoElement.srcObject = stream;
               videoElement.play(); // ストリームを再生
-              alert("Video stream started");
+              //alert("Video stream started");
 
               videoElement.addEventListener('loadedmetadata', () => {
                 alert("videoElement.addEventListener: Video element is ready");
@@ -1642,21 +1642,27 @@ var extensionBlocks = /*#__PURE__*/function () {
                     alert("handpose in const handpose: " + handpose);
 
                     // 手のポーズの検出を開始
-                    setInterval(() => {
+                    let intervalId = setInterval(() => {
                       alert("setInterval");
                       //handpose.detect(videoElement, (error, callback) => {
                       //handpose.detect(videoElement, (callback) => {
+                    
                       handpose.detect(videoElement, (results) => {
                         if (results && results.length > 0) {
                           alert("Hand detected!");
                           console.log(results); // 検出結果をコンソールに出力
                           this.landmarks = results[0].landmarks; // 最初の手のデータを取得
-                          console.log("after landmarks: " + results);
+                          console.log("after landmarks: " + results[0]);
+                          clearInterval(intervalId);
+                          alert("Stopped the interval.");
+                          console.log("Stopped the interval.");
+                          
                         } else {
                           alert("No hand detected or error occurred.");
-                          console.log("Results:", results);
+                          console.log("Results: ", results);
                         }
                       });
+                      
                     }, 100); // 100ミリ秒ごとに検出を行う
                     //this.startHandDetection(handpose);
                   
