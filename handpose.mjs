@@ -1645,7 +1645,8 @@ var extensionBlocks = /*#__PURE__*/function () {
                     setInterval(() => {
                       alert("setInterval");
                       //handpose.detect(videoElement, (error, callback) => {
-                      handpose.detect(videoElement, (callback) => {
+                      //handpose.detect(videoElement, (callback) => {
+                      handpose.detect(videoElement, (results) => {
                         /*
                         if (error) {
                           console.error(error);
@@ -1655,8 +1656,8 @@ var extensionBlocks = /*#__PURE__*/function () {
                         */
                         
                         alert("handpose_results");
-                        alert(callback);
-                        console.log(callback); // 検出結果をコンソールに出力
+                        alert(results);
+                        console.log(results); // 検出結果をコンソールに出力
                       });
                     }, 100); // 100ミリ秒ごとに検出を行う
                     //this.startHandDetection(handpose);
