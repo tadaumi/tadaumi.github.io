@@ -1653,6 +1653,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                           console.log(results[0]); // 検出結果をコンソールに出力
                           this.landmarks = results[0].landmarks; // 最初の手のデータを取得
                           console.log("landmarks: " + this.landmarks);
+                          console.log("landmarks: " + this.landmarks[landmark]);
                           clearInterval(intervalId);
                           alert("Stopped the interval.");
                           console.log("Stopped the interval.");
