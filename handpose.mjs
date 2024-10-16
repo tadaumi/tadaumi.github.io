@@ -1837,7 +1837,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     let landmark = parseInt(args.LANDMARK, 10) - 1;
     console.log("args.LANDMARK: ", args.LANDMARK);
     console.log("Landmark index: ", landmark);
-    console.log("Keypoints: ", this.landmarks.keypoints);
+    console.log("Keypoints: ", this.landmarks.keypoints3D);
     if (this.landmarks[landmark]) {
       alert("getX");
       if (this.runtime.ioDevices.video.mirror === false) {
