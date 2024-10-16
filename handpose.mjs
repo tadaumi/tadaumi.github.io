@@ -1650,9 +1650,9 @@ var extensionBlocks = /*#__PURE__*/function () {
                       handpose.detect(videoElement, (results) => {
                         if (results && results.length > 0) {
                           alert("Hand detected!");
-                          console.log(results); // 検出結果をコンソールに出力
+                          console.log(results[0]); // 検出結果をコンソールに出力
                           this.landmarks = results[0].landmarks; // 最初の手のデータを取得
-                          console.log("after landmarks: " + results[0]);
+                          console.log("landmarks: " + landmarks);
                           clearInterval(intervalId);
                           alert("Stopped the interval.");
                           console.log("Stopped the interval.");
