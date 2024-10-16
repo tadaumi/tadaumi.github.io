@@ -1842,6 +1842,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   ExtensionBlocks.prototype.getX = function (args) {
     //alert("getX");
     let landmark = parseInt(args.LANDMARK, 10) - 1;
+    console.log("Landmark index: ", landmark);
     if (this.landmarks[landmark]) {
       alert("getX");
       if (this.runtime.ioDevices.video.mirror === false) {
