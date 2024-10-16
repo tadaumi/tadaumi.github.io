@@ -1644,15 +1644,15 @@ var extensionBlocks = /*#__PURE__*/function () {
                     // 手のポーズの検出を開始
                     setInterval(() => {
                       alert("setInterval");
-                      handpose.detect(videoElement, (error, results) => {
+                      handpose.detect(videoElement, (error, oblect) => {
                         if (error) {
                           console.error(error);
-                          alert("error:" + results);
+                          alert("handpose.detect error:" + object);
                           return;
                         }
                         
                         alert("handpose_results");
-                        alert(results);
+                        alert(object);
                         console.log(results); // 検出結果をコンソールに出力
                       });
                     }, 100); // 100ミリ秒ごとに検出を行う
