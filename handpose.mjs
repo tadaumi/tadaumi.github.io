@@ -1634,7 +1634,7 @@ var extensionBlocks = /*#__PURE__*/function () {
 
               // ml5 の手のポーズモデルを定義
               const handpose = ml5.handPose(videoElement, () => {
-                if (handpose) {
+                if (handpose.model) {
                   console.log("const handpose: Model loaded!:" + handpose);
                   //console.log(handpose);
                   alert("handpose in const handpose: " + handpose);
