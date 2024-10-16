@@ -1652,7 +1652,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                           alert("Hand detected!");
                           console.log(results[0]); // 検出結果をコンソールに出力
                           this.landmarks = results[0].landmarks; // 最初の手のデータを取得
-                          console.log("landmarks: " + landmarks);
+                          console.log("landmarks: " + this.landmarks);
                           clearInterval(intervalId);
                           alert("Stopped the interval.");
                           console.log("Stopped the interval.");
