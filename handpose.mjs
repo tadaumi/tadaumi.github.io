@@ -1625,52 +1625,62 @@ var extensionBlocks = /*#__PURE__*/function () {
           }
           alert("Video element is ready");
           
-          // ml5 の手のポーズモデルを定義
-          const handpose = ml5.handPose(videoElement, () => {
-            if (handpose) {
-              console.log("const handpose: Model loaded!:" + handpose);
-              //console.log(handpose);
-              alert("handpose in const handpose: " + handpose);
-              // 手の検出を開始
-              this.startHandDetection(handpose);
-            } else {
-              alert("Failed to initialize handpose");
-              console.error("Failed to initialize handpose.");
-            }
-          });
-          
-          console.log(handpose); // handposeのオブジェクト構造を確認
-          alert("after const handpose: " + handpose);
-          
-          // 手のポーズの検出を開始
-          setInterval(() => {
-            alert("setInterval");
-            handpose.detect(videoElement, (error, results) => {
-              if (error) {
-                console.error(error);
-                alert("error:" + results);
-                return;
-              }
+          // ビデオストリームを取得し、videoElementに設定
+          navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+              videoElement.srcObject = stream;
+              videoElement.play(); // ストリームを再生
+              alert("Video stream started");
+
+              // ml5 の手のポーズモデルを定義
+              const handpose = ml5.handPose(videoElement, () => {
+                if (handpose) {
+                  console.log("const handpose: Model loaded!:" + handpose);
+                  //console.log(handpose);
+                  alert("handpose in const handpose: " + handpose);
+                  // 手の検出を開始
+                  //this.startHandDetection(handpose);
+                } else {
+                  alert("Failed to initialize handpose");
+                  console.error("Failed to initialize handpose.");
+                }
+              });
               
-              alert("handpose_results");
-              alert(results);
-              console.log(results); // 検出結果をコンソールに出力
-            });
-            
-            /*
-            handpose.predict((error, results) => {
-              if (error) {
-                console.error(error);
-                return;
-              }
-              
-              alert("handpose_results");
-              alert(results);
-              console.log(results); // 検出結果をコンソールに出力
-            });
-            */
-          }, 1000); // 100ミリ秒ごとに検出を行う
+              console.log(handpose); // handposeのオブジェクト構造を確認
+              alert("after const handpose: " + handpose);
           
+              // 手のポーズの検出を開始
+              setInterval(() => {
+                alert("setInterval");
+                handpose.detect(videoElement, (error, results) => {
+                  if (error) {
+                    console.error(error);
+                    alert("error:" + results);
+                    return;
+                  }
+                  
+                  alert("handpose_results");
+                  alert(results);
+                  console.log(results); // 検出結果をコンソールに出力
+                });
+                
+                /*
+                handpose.predict((error, results) => {
+                  if (error) {
+                    console.error(error);
+                    return;
+                  }
+                  
+                  alert("handpose_results");
+                  alert(results);
+                  console.log(results); // 検出結果をコンソールに出力
+                });
+                */
+              }, 100); // 100ミリ秒ごとに検出を行う
+            })
+            .catch(error => {
+              console.error("Error accessing the camera: ", error);
+            });
           
           /*
           alert("handpose.on");
@@ -1698,18 +1708,18 @@ var extensionBlocks = /*#__PURE__*/function () {
     // 手の検出を開始
     const detectHands = () => {
       alert("detectHands");
-      alert(result);
+      alert(results);
       //handpose.detect((error, results) => {
-      handpose.detect(videoElement, (error, result) => {
+      handpose.detect(videoElement, (error, results) => {
         if (error) {
           console.error(error);
           return;
         }
         
-        if (result && result.length > 0) {
+        if (results && results.length > 0) {
           alert("handpose.detect");
           // 最初の手のデータを取得
-          this.landmarks = result[0].landmarks; // 最初の手のデータを取得
+          this.landmarks = results[0].landmarks; // 最初の手のデータを取得
           //this.landmarks = [];
           /*
           const hands = results;
