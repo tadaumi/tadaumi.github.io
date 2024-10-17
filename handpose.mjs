@@ -1633,13 +1633,13 @@ var extensionBlocks = /*#__PURE__*/function () {
               //alert("Video stream started");
 
               videoElement.addEventListener('loadedmetadata', () => {
-                alert("videoElement.addEventListener: Video element is ready");
+                //alert("videoElement.addEventListener: Video element is ready");
                 // ml5 の手のポーズモデルを定義
                 const handpose = ml5.handPose(videoElement, () => {
                   //if (handpose.model) {
                     console.log("const handpose: Model loaded!:" + handpose);
                     //console.log(handpose);
-                    alert("handpose in const handpose: " + handpose);
+                    //alert("handpose in const handpose: " + handpose);
 
                     // 手のポーズの検出を開始
                     let intervalId = setInterval(() => {
@@ -1844,6 +1844,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     if (this.landmarks && this.landmarks.keypoints && this.landmarks.keypoints.length > landmarkIndex) {
       alert("getX");
       let keypoint = this.landmarks.keypoints[landmarkIndex];
+      console.log("Keypoint: ", keypoint);
       
       if (this.runtime.ioDevices.video.mirror === false) {
         return -1 * (240 - keypoint[0] * this.ratio);
