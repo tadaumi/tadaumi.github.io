@@ -1837,7 +1837,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     //alert("getX");
     let landmarkIndex = parseInt(args.LANDMARK, 10) - 1;
     console.log("args.LANDMARK: ", args.LANDMARK);
-    console.log("Landmark index: ", landmark);
+    console.log("Landmark index: ", landmarkIndex);
     console.log("landmarks: ", this.landmarks);
     console.log("Keypoints: ", this.landmarks.keypoints);
     //if (this.landmarks[landmark]) {
