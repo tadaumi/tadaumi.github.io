@@ -1837,8 +1837,10 @@ var extensionBlocks = /*#__PURE__*/function () {
     let landmark = parseInt(args.LANDMARK, 10) - 1;
     console.log("args.LANDMARK: ", args.LANDMARK);
     console.log("Landmark index: ", landmark);
-    console.log("Keypoints: ", this.landmarks.keypoints3D);
-    if (this.landmarks[landmark]) {
+    console.log("landmarks: ", this.landmarks);
+    console.log("Keypoints: ", this.landmarks.keypoints);
+    //if (this.landmarks[landmark]) {
+    if (this.landmarks && this.landmarks.keypoints && this.landmarks.keypoints.length > landmarkIndex) {
       alert("getX");
       if (this.runtime.ioDevices.video.mirror === false) {
         return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
