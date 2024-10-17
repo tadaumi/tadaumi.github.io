@@ -1835,7 +1835,7 @@ var extensionBlocks = /*#__PURE__*/function () {
   
   ExtensionBlocks.prototype.getX = function (args) {
     //alert("getX");
-    let landmark = parseInt(args.LANDMARK, 10) - 1;
+    let landmarkIndex = parseInt(args.LANDMARK, 10) - 1;
     console.log("args.LANDMARK: ", args.LANDMARK);
     console.log("Landmark index: ", landmark);
     console.log("landmarks: ", this.landmarks);
@@ -1844,9 +1844,9 @@ var extensionBlocks = /*#__PURE__*/function () {
     if (this.landmarks && this.landmarks.keypoints && this.landmarks.keypoints.length > landmarkIndex) {
       alert("getX");
       if (this.runtime.ioDevices.video.mirror === false) {
-        return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
+        return -1 * (240 - this.landmarks[landmarkIndex][0] * this.ratio);
       } else {
-        return 240 - this.landmarks[landmark][0] * this.ratio;
+        return 240 - this.landmarks[landmarkIndex][0] * this.ratio;
       }
     } else {
       alert("getX_failed");
