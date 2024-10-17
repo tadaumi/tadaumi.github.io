@@ -1636,20 +1636,15 @@ var extensionBlocks = /*#__PURE__*/function () {
                 //alert("videoElement.addEventListener: Video element is ready");
                 // ml5 の手のポーズモデルを定義
                 const handpose = ml5.handPose(videoElement, () => {
-                  //if (handpose.model) {
                     console.log("const handpose: Model loaded!:" + handpose);
-                    //console.log(handpose);
-                    //alert("handpose in const handpose: " + handpose);
 
                     // 手のポーズの検出を開始
                     let intervalId = setInterval(() => {
                       alert("setInterval");
-                      //handpose.detect(videoElement, (error, callback) => {
-                      //handpose.detect(videoElement, (callback) => {
-                    
                       handpose.detect(videoElement, (results) => {
                         if (results && results.length > 0) {
                           alert("Hand detected!");
+                          console.log("Results:", results);
                           console.log("results[0]: " + results[0]); // 検出結果をコンソールに出力
                           //this.landmarks = results[0].landmarks; // 最初の手のデータを取得
                           this.landmarks = results[0]
