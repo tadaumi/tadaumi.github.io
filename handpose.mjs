@@ -1843,10 +1843,12 @@ var extensionBlocks = /*#__PURE__*/function () {
     //if (this.landmarks[landmark]) {
     if (this.landmarks && this.landmarks.keypoints && this.landmarks.keypoints.length > landmarkIndex) {
       alert("getX");
+      let keypoint = this.landmarks.keypoints[landmarkIndex];
+      
       if (this.runtime.ioDevices.video.mirror === false) {
-        return -1 * (240 - this.landmarks[landmarkIndex][0] * this.ratio);
+        return -1 * (240 - keypoint[0] * this.ratio);
       } else {
-        return 240 - this.landmarks[landmarkIndex][0] * this.ratio;
+        return 240 - keypoint[0] * this.ratio;
       }
     } else {
       alert("getX_failed");
