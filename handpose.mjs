@@ -1645,11 +1645,11 @@ var extensionBlocks = /*#__PURE__*/function () {
                     let intervalId = setInterval(() => {
                       alert("setInterval");
                       handpose.detect(videoElement, (results) => {
+                        console.log("Results:", results);
+                        console.log("results[0]: " + results[0]);
                         if (results && results.length > 0 && !isNaN(results[0].confidence)) {
                           alert("Hand detected!");
-                          console.log("Results:", results);
-                          console.log("results[0]: " + results[0]); // 検出結果をコンソールに出力
-                          //this.landmarks = results[0].landmarks; // 最初の手のデータを取得
+                          
                           this.landmarks = results[0]
                           console.log("landmarks: " + this.landmarks);
                           clearInterval(intervalId);
