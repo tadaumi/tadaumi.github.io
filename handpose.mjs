@@ -1623,6 +1623,9 @@ var extensionBlocks = /*#__PURE__*/function () {
             console.error("Video element is not available.");
             return;
           }
+          if (videoElement.readyState === 4) {  // HAVE_ENOUGH_DATA
+              console.log("Video is ready for handpose detection.");
+          }
           alert("Video element is ready");
           
           // ビデオストリームを取得し、videoElementに設定
@@ -1642,7 +1645,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                     let intervalId = setInterval(() => {
                       alert("setInterval");
                       handpose.detect(videoElement, (results) => {
-                        if (results && results.length > 0) {
+                        if (results && results.length > 0 && !isNaN(results[0].confidence)) {
                           alert("Hand detected!");
                           console.log("Results:", results);
                           console.log("results[0]: " + results[0]); // 検出結果をコンソールに出力
