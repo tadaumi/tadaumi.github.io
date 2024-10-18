@@ -1588,20 +1588,19 @@ var extensionBlocks = /*#__PURE__*/function () {
 
     alert("ExtensionBlocks_enableVideo");
     this.runtime.ioDevices.video.enableVideo()
-      //.then(this.detectHand);
       .then(() => {
         console.log("enableVideo: Video enabled successfully");
+        console.log("Video IO devices:", this.runtime.ioDevices.video);
         this.video = this.runtime.ioDevices.video.provider.video;
-          if (this.video) {
-            console.log("Video element:", this.video); // ビデオ要素の確認
-            console.log("Mirror setting:", this.runtime.ioDevices.video.mirror); // ミラー設定の確認
-
-            this.detectHand(); // ビデオが取得できた場合のみ手の検出を開始
-          } else {
-            console.error("Failed to initialize video.");
-          }
+        console.log("Video element:", this.video); // ビデオ要素の確認
+        console.log("Mirror setting:", this.runtime.ioDevices.video.mirror); // ミラー設定の確認
+        if (this.video) {
+          this.detectHand(); // ビデオが取得できた場合のみ手の検出を開始
+        } else {
+          console.error("Failed to initialize video.");
+        }
         //this.detectHand(); // ビデオが有効になった後に手の検出を呼び出す
-        })
+      })
       .catch((err) => {
           console.error("Error enabling video:", err);
       });
