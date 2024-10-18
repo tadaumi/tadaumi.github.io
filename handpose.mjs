@@ -1593,7 +1593,10 @@ var extensionBlocks = /*#__PURE__*/function () {
         console.log("Video IO devices:", this.runtime.ioDevices.video);
         this.video = this.runtime.ioDevices.video.provider.video;
         console.log("Video element:", this.video); // ビデオ要素の確認
-        console.log("Mirror setting:", this.runtime.ioDevices.video.mirror); // ミラー設定の確認
+        console.log("Video element reference:", this.video instanceof HTMLVideoElement); // trueならDOMのvideo要素
+        this.runtime.ioDevices.video.mirror = this.runtime.ioDevices.video.mirror || false; // デフォルト値を設定
+        console.log("Mirror setting after default:", this.runtime.ioDevices.video.mirror);
+
         if (this.video) {
           this.detectHand(); // ビデオが取得できた場合のみ手の検出を開始
         } else {
