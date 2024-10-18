@@ -1594,7 +1594,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         this.video = this.runtime.ioDevices.video.provider.video;
         console.log("Video element:", this.video); // ビデオ要素の確認
         console.log("Video element reference:", this.video instanceof HTMLVideoElement); // trueならDOMのvideo要素
-        this.runtime.ioDevices.video.mirror = this.runtime.ioDevices.video.mirror || false; // デフォルト値を設定
+        this.runtime.ioDevices.video.mirror = true;
         console.log("Mirror setting after default:", this.runtime.ioDevices.video.mirror);
 
         if (this.video) {
