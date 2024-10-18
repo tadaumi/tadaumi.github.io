@@ -1586,13 +1586,16 @@ var extensionBlocks = /*#__PURE__*/function () {
     this.ratio = 0.75;
     this._locale = this.setLocale();
 
-    //alert("ExtensionBlocks_enableVideo");
+    alert("ExtensionBlocks_enableVideo");
     this.runtime.ioDevices.video.enableVideo()
       //.then(this.detectHand);
       .then(() => {
         console.log("enableVideo: Video enabled successfully");
         this.video = this.runtime.ioDevices.video.provider.video;
           if (this.video) {
+            console.log("Video element:", this.video); // ビデオ要素の確認
+            console.log("Mirror setting:", this.runtime.ioDevices.video.mirror); // ミラー設定の確認
+
             this.detectHand(); // ビデオが取得できた場合のみ手の検出を開始
           } else {
             console.error("Failed to initialize video.");
@@ -1624,6 +1627,7 @@ var extensionBlocks = /*#__PURE__*/function () {
             return;
           }
           if (videoElement.readyState === 4) {  // HAVE_ENOUGH_DATA
+              document.body.appendChild(videoElement); // ビデオをページに表示
               console.log("Video is ready for handpose detection.");
           }
           alert("Video element is ready");
@@ -1647,6 +1651,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                       handpose.detect(videoElement, (results) => {
                         console.log("Results:", results);
                         console.log("results[0]: " + results[0]);
+                        console.log("Keypoints:", results[0].keypoints);
                         if (results && results.length > 0 && !isNaN(results[0].confidence)) {
                           alert("Hand detected!");
                           
