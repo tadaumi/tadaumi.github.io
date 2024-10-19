@@ -1662,7 +1662,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                   alert("ml5.handPose(this.video, function()");
                   console.log("Model loaded!")
                 });
-                
+                alert("after const handpose");
                 // 手のポーズの検出を開始
                 let intervalId = setInterval(() => {
                   alert("setInterval");
