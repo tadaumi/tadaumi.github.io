@@ -1659,6 +1659,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                 //const handpose = ml5.handPose(videoElement, () => {
                     //console.log("const handpose: Model loaded!:" + handpose);
                 const handpose = ml5.handPose(this.video, function() {
+                  alert("ml5.handPose(this.video, function()");
                   console.log("Model loaded!")
                 });
                 
