@@ -1656,9 +1656,22 @@ var extensionBlocks = /*#__PURE__*/function () {
               videoElement.addEventListener('loadedmetadata', () => {
                 //alert("videoElement.addEventListener: Video element is ready");
                 // ml5 の手のポーズモデルを定義
-                const handpose = ml5.handPose(videoElement, () => {
-                    console.log("const handpose: Model loaded!:" + handpose);
+                //const handpose = ml5.handPose(videoElement, () => {
+                    //console.log("const handpose: Model loaded!:" + handpose);
+                const handpose = ml5.handpose(this.video, function() {
+                  console.log("Model loaded!")
+                });
 
+                handpose.on('predict', hands => {
+                  alert("handpose.on");
+                  hands.forEach(hand => {
+                    this.landmarks = hand.landmarks;
+                  });
+                });
+                alert("stop!!!!!!!!!!!!");
+                
+                
+                
                     // 手のポーズの検出を開始
                     let intervalId = setInterval(() => {
                       alert("setInterval");
