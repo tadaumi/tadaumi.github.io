@@ -1661,46 +1661,37 @@ var extensionBlocks = /*#__PURE__*/function () {
                 const handpose = ml5.handPose(this.video, function() {
                   console.log("Model loaded!")
                 });
-
-                handpose.on('predict', hands => {
-                  alert("handpose.on");
-                  hands.forEach(hand => {
-                    this.landmarks = hand.landmarks;
-                  });
-                });
-                alert("stop!!!!!!!!!!!!");
                 
-                
-                
-                    // 手のポーズの検出を開始
-                    let intervalId = setInterval(() => {
-                      alert("setInterval");
-                      handpose.detect(videoElement, (results) => {
-                        console.log("Results:", results);
-                        console.log("results[0]: " + results[0]);
-                        console.log("Keypoints:", results[0].keypoints);
-                        if (results && results.length > 0 && !isNaN(results[0].confidence)) {
-                          alert("Hand detected!");
-                          
-                          this.landmarks = results[0]
-                          console.log("landmarks: " + this.landmarks);
-                          clearInterval(intervalId);
-                          alert("Stopped the interval.");
-                          console.log("Stopped the interval.");
-                          
-                        } else {
-                          alert("No hand detected or error occurred.");
-                          console.log("Results: ", results);
-                        }
+                // 手のポーズの検出を開始
+                let intervalId = setInterval(() => {
+                  alert("setInterval");
+                  handpose.detect(videoElement, (results) => {
+                    console.log("Results:", results);
+                    console.log("results[0]: " + results[0]);
+                    console.log("Keypoints:", results[0].keypoints);
+                    //if (results && results.length > 0 && !isNaN(results[0].confidence)) {
+                    if (results && results.length > 0) {
+                      results.forEach(hand => {
+                        this.landmarks = hand.landmarks; // Stretch3の処理に相当する部分
+                        console.log("Landmarks:", this.landmarks);
+                        
+                        // 必要なら、ここで他の処理を追加
                       });
+                      alert("Hand detected!");
                       
-                    }, 100); // 100ミリ秒ごとに検出を行う
-                    //this.startHandDetection(handpose);
+                      //this.landmarks = results[0]
+                      console.log("landmarks: " + this.landmarks);
+                      clearInterval(intervalId);
+                      alert("Stopped the interval.");
+                      console.log("Stopped the interval.");
+                      
+                    } else {
+                      alert("No hand detected or error occurred.");
+                      console.log("Results: ", results);
+                    }
+                  });
                   
-                  //} else {
-                    //alert("Failed to initialize handpose");
-                    //console.error("Failed to initialize handpose.");
-                  //}
+                }, 100); // 100ミリ秒ごとに検出を行う
                 //}); //end of const handpose
                 
                 console.log(handpose); // handposeのオブジェクト構造を確認
