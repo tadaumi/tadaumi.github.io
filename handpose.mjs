@@ -1634,6 +1634,18 @@ var extensionBlocks = /*#__PURE__*/function () {
           }
           alert("Video element is ready");
           
+          const canvas = document.createElement('canvas');
+          const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+
+          if (!gl) {
+            console.error("WebGL is not supported.");
+          } else {
+            alert("using WebGL");
+            console.log("WebGL context initialized successfully.");
+          }
+          videoElement.appendChild(canvas);
+          
+          
           // ビデオストリームを取得し、videoElementに設定
           navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
@@ -1644,7 +1656,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               videoElement.addEventListener('loadedmetadata', () => {
                 //alert("videoElement.addEventListener: Video element is ready");
                 // ml5 の手のポーズモデルを定義
-                const handpose = ml5.handPose(videoElement, { maxHands: 2, modelType: 'full' }, () => {
+                const handpose = ml5.handPose(videoElement, () => {
                     console.log("const handpose: Model loaded!:" + handpose);
 
                     // 手のポーズの検出を開始
