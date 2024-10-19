@@ -1644,7 +1644,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               videoElement.addEventListener('loadedmetadata', () => {
                 //alert("videoElement.addEventListener: Video element is ready");
                 // ml5 の手のポーズモデルを定義
-                const handpose = ml5.handPose(videoElement, { maxHands: 2, modelType: 'WebGL' }, () => {
+                const handpose = ml5.handPose(videoElement, { maxHands: 2, modelType: 'full' }, () => {
                     console.log("const handpose: Model loaded!:" + handpose);
 
                     // 手のポーズの検出を開始
