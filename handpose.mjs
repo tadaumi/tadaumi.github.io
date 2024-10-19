@@ -1701,7 +1701,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                     //alert("Failed to initialize handpose");
                     //console.error("Failed to initialize handpose.");
                   //}
-                }); //end of const handpose
+                //}); //end of const handpose
                 
                 console.log(handpose); // handposeのオブジェクト構造を確認
                 alert("after const handpose: " + handpose);
