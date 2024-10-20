@@ -1656,6 +1656,30 @@ var extensionBlocks = /*#__PURE__*/function () {
               videoElement.addEventListener('loadedmetadata', () => {
                 //alert("videoElement.addEventListener: Video element is ready");
                 // ml5 の手のポーズモデルを定義
+                function loadMl5HandPose(videoElement) {
+                  return new Promise((resolve, reject) => {
+                    const handpose = ml5.handPose(videoElement, () => {
+                      resolve(handpose); // handposeのインスタンスをresolveで返す
+                    });
+                    
+                    if (!handpose) {
+                      reject(new Error("Failed to load handpose model"));
+                    }
+                  });
+                }
+                async function startDetection() {
+                  try {
+                    // handposeモデルのロードが完了するまで待つ
+                    const handpose = await loadHandposeModel(videoElement);
+                    console.log("Handpose model loaded", handpose);
+                    this.startHandDetection(handpose, videoElement);
+                  } catch (error) {
+                    console.error("Error loading handpose model:", error);
+                  }
+                }
+                startDetection(); 
+                
+                /*
                 const handpose = ml5.handPose(videoElement, () => {
                     //console.log("const handpose: Model loaded!:" + handpose);
                 //const handpose = ml5.handPose(this.video, function() {
@@ -1663,6 +1687,8 @@ var extensionBlocks = /*#__PURE__*/function () {
                   console.log("const handpose: Model loaded!");
                   this.startHandDetection(handpose, videoElement);
                 });
+                */
+                
                 alert("after const handpose: " + handpose);
                 // 手のポーズの検出を開始
                 let intervalId = setInterval(() => {
