@@ -1670,7 +1670,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                 async function startDetection() {
                   try {
                     // handposeモデルのロードが完了するまで待つ
-                    const handpose = await loadHandposeModel(videoElement);
+                    const handpose = await loadMl5HandPose(videoElement);
                     console.log("Handpose model loaded", handpose);
                     this.startHandDetection(handpose, videoElement);
                   } catch (error) {
