@@ -1731,7 +1731,6 @@ var extensionBlocks = /*#__PURE__*/function () {
     // 手の検出を開始
     const detectHands = () => {
       alert("detectHands");
-      alert(results);
       //handpose.detect((error, results) => {
       handpose.detect(videoElement, (error, results) => {
         if (error) {
@@ -1741,15 +1740,10 @@ var extensionBlocks = /*#__PURE__*/function () {
         
         if (results && results.length > 0) {
           alert("handpose.detect");
-          // 最初の手のデータを取得
-          this.landmarks = results[0].landmarks; // 最初の手のデータを取得
-          //this.landmarks = [];
-          /*
-          const hands = results;
-          hands.forEach(hand => {
-            this.landmarks = hand.landmarks;
+          results.forEach(hand => {
+            this.landmarks = hand.landmarks; // Stretch3の処理に相当する部分
+            console.log("Landmarks:", this.landmarks);
           });
-          */
         }
         
         // 次のフレームをリクエスト
