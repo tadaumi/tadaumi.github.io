@@ -1663,7 +1663,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                   console.log("const handpose: Model loaded!");
                   this.startHandDetection(handpose, videoElement);
                 });
-                alert("after const handpose: " + handpose");
+                alert("after const handpose: " + handpose);
                 // 手のポーズの検出を開始
                 let intervalId = setInterval(() => {
                   alert("setInterval");
@@ -1722,7 +1722,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         });
       
     };  //end of detecthand
-  }   //end of ExtensionBlocks
+  };   //end of ExtensionBlocks
 
   // 手の検出を開始するメソッド
   ExtensionBlocks.prototype.startHandDetection = function(handpose, videoElement) {
@@ -1763,21 +1763,6 @@ var extensionBlocks = /*#__PURE__*/function () {
     alert("Handpose model loaded");
     detectHands(); // モデルロード完了後に手の検出を開始
     alert("startHandDetection_end");
-    // 手の検出を開始
-    /*
-    handpose.on('predict', () => {
-      console.log("Handpose modelhttps://xcratch.github.io/xcx-example/dist/xcratchExample.mjs loaded and ready for detection.");
-      alert("Handpose model loaded");
-      if (!videoElement) {
-        alert("Video element is not available");
-        console.error("Video element is not available.");
-        return;
-      } else {
-        console.log("Video element is ready:", videoElement);
-      }
-    });
-    */
-    //detectHands();
   };
 
   ExtensionBlocks.prototype.LANDMARK_MENU = function () {
