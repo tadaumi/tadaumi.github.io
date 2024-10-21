@@ -1658,8 +1658,8 @@ var extensionBlocks = /*#__PURE__*/function () {
                 // ml5 の手のポーズモデルを定義
                 function loadMl5HandPose(videoElement) {
                   return new Promise((resolve, reject) => {
-                    const handpose = ml5.handPose(videoElement, () => {
-                      resolve(handpose); // handposeのインスタンスをresolveで返す
+                    const handpose_tmp = ml5.handPose(videoElement, () => {
+                      resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
                     });
                     
                     if (!handpose) {
