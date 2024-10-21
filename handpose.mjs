@@ -1659,6 +1659,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                 function loadMl5HandPose(videoElement) {
                   return new Promise((resolve, reject) => {
                     const handpose_tmp = ml5.handPose(videoElement, () => {
+                      console.log("handpose_tmp", handpose_tmp);
                       resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
                     });
                     
