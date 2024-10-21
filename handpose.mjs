@@ -1663,7 +1663,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                       resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
                     });
                     
-                    if (!handpose) {
+                    if (!handpose_tmp) {
                       reject(new Error("Failed to load handpose model"));
                     }
                   });
@@ -1690,6 +1690,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                 });
                 */
                 
+                /*
                 alert("after const handpose: " + handpose);
                 // 手のポーズの検出を開始
                 let intervalId = setInterval(() => {
@@ -1721,7 +1722,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                   });
                   
                 }, 100); // 100ミリ秒ごとに検出を行う
-                //}); //end of const handpose
+                */
                 
                 console.log(handpose); // handposeのオブジェクト構造を確認
                 //alert("after const handpose: " + handpose);
