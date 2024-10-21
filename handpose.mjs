@@ -1673,7 +1673,11 @@ var extensionBlocks = /*#__PURE__*/function () {
                     // handposeモデルのロードが完了するまで待つ
                     const handpose = await loadMl5HandPose(videoElement);
                     console.log("Handpose model loaded", handpose);
-                    this.startHandDetection.bind(this)(handpose, videoElement);
+                    // ExtensionBlocks インスタンスを this にバインドしているか確認
+                    const extensionBlocksInstance = new ExtensionBlocks(this.runtime); // 適切にインスタンス化
+                    // startHandDetection を呼び出す
+                    extensionBlocksInstance.startHandDetection(handpose, videoElement);
+                    //this.startHandDetection(handpose, videoElement);
                   } catch (error) {
                     console.error("Error loading handpose model:", error);
                   }
