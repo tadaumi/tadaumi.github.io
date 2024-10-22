@@ -1675,11 +1675,12 @@ var extensionBlocks = /*#__PURE__*/function () {
                 try {
                   // handposeモデルのロードが完了するまで待つ
                   const handpose = await loadMl5HandPose(videoElement);
-                  console.log("Handpose model loaded", handpose);
+                  console.log("Handpose model loaded: ", handpose);
                   // ExtensionBlocks インスタンスを this にバインドしているか確認
                   //const extensionBlocksInstance = new ExtensionBlocks(this.runtime); // 適切にインスタンス化
                   // startHandDetection を呼び出す
                   //extensionBlocksInstance.startHandDetection(handpose, videoElement);
+                  console.log("videoElement.addEventListener: videoElement; ", videoElement);
                   this.startHandDetection(handpose, videoElement);
                 } catch (error) {
                   console.error("Error loading handpose model:", error);
@@ -1763,6 +1764,11 @@ var extensionBlocks = /*#__PURE__*/function () {
   ExtensionBlocks.prototype.startHandDetection = function(handpose, videoElement) {
     alert("startHandDetection");
     console.log("startHandDetection: ", videoElement);
+    if (!videoElement) {
+        console.error("No video element provided or initialized.");
+        return;
+    }
+    
     // 手の検出を開始
     const detectHands = () => {
       alert("detectHands");
