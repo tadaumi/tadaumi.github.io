@@ -1771,7 +1771,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         alert("videoElement.readyState === 4");
         handpose.detect(videoElement, (error, results) => {
           if (error) {
-            console.error(error);
+            console.log("handpose.detect error!: ", error);
             return;
           }
           alert("handpose.detect", results);
@@ -1785,13 +1785,13 @@ var extensionBlocks = /*#__PURE__*/function () {
             alert("handpose.detect: results failed", results);
           }
         });
-        
+        // 次のフレームをリクエスト
+        requestAnimationFrame(detectHands);
+        console.log("requested next frame");
       } else {
           console.log("Video element not ready.");
       }
       alert("detectHands_end");
-      // 次のフレームをリクエスト
-      requestAnimationFrame(detectHands);
     };
     
     console.log("startHandDetection: Handpose model loaded and ready for detection.");
