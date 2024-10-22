@@ -1673,7 +1673,6 @@ var extensionBlocks = /*#__PURE__*/function () {
               videoElement.srcObject = stream;
               console.log("navigator.mediaDevices.getUserMedia: videoElement: ", videoElement);
               videoElement.play(); // ストリームを再生
-              alert("Video stream started: videoElement: ", videoElement);
               console.log("Video stream started: videoElement: ", videoElement);
               
               
@@ -1682,8 +1681,8 @@ var extensionBlocks = /*#__PURE__*/function () {
               
               
               //videoElement.onloadedmetadata = () => {
-                videoElement.play() // ストリームを再生
-                  .then(() => {
+                //videoElement.play() // ストリームを再生
+                  //.then(() => {
                     alert("Video stream started: videoElement: ", videoElement);
 
                     videoElement.addEventListener('loadedmetadata', async () => {
@@ -1733,10 +1732,10 @@ var extensionBlocks = /*#__PURE__*/function () {
                       }, 100); // 100ミリ秒ごとに検出を行う
                       */
                     });  //end of videoElement.addEventListener
-                  })
-                  .catch(playError => {
-                    console.error("Error trying to play the video:", playError);
-                  });  //end of videoElement.play
+                  //})
+                  //.catch(playError => {
+                    //console.error("Error trying to play the video:", playError);
+                  //});  //end of videoElement.play
               //};  //end of videoElement.onloadedmetadata
             })
             .catch(error => {
