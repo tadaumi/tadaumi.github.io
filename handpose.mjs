@@ -1673,7 +1673,7 @@ var extensionBlocks = /*#__PURE__*/function () {
               videoElement.srcObject = stream;
               console.log("navigator.mediaDevices.getUserMedia: videoElement: ", videoElement);
               
-              videoElement.onloadedmetadata = () => {
+              //videoElement.onloadedmetadata = () => {
                 videoElement.play() // ストリームを再生
                   .then(() => {
                     alert("Video stream started: videoElement: ", videoElement);
@@ -1729,7 +1729,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                   .catch(playError => {
                     console.error("Error trying to play the video:", playError);
                   });  //end of videoElement.play
-              };  //end of videoElement.onloadedmetadata
+              //};  //end of videoElement.onloadedmetadata
             })
             .catch(error => {
               console.error("Error accessing the camera: ", error);
