@@ -1672,6 +1672,14 @@ var extensionBlocks = /*#__PURE__*/function () {
               }
               videoElement.srcObject = stream;
               console.log("navigator.mediaDevices.getUserMedia: videoElement: ", videoElement);
+              videoElement.play() // ストリームを再生
+              alert("Video stream started: videoElement: ", videoElement);
+              console.log("Video stream started: videoElement: ", videoElement);
+              
+              
+              
+              
+              
               
               //videoElement.onloadedmetadata = () => {
                 videoElement.play() // ストリームを再生
