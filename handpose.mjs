@@ -1662,8 +1662,7 @@ var extensionBlocks = /*#__PURE__*/function () {
           videoElement.appendChild(canvas);
           
           
-          // ビデオストリームを取得し、videoElementに設定
-          let videoElement; 
+          // ビデオストリームを取得し、videoElementに設定 
           navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
               const videoElement = this.runtime.ioDevices.video.provider.video; // Make sure to reference the correct video element
