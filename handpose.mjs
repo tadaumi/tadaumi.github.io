@@ -1762,34 +1762,38 @@ var extensionBlocks = /*#__PURE__*/function () {
   // 手の検出を開始するメソッド
   ExtensionBlocks.prototype.startHandDetection = function(handpose, videoElement) {
     alert("startHandDetection");
-    
+    console.log("startHandDetection", videoElement) 
     // 手の検出を開始
     const detectHands = () => {
       alert("detectHands");
       //handpose.detect((error, results) => {
-      handpose.detect(videoElement, (error, results) => {
-        if (error) {
-          console.error(error);
-          return;
+      if (videoElement.readyState === 4) {
+        handpose.detect(videoElement, (error, results) => {
+          if (error) {
+            console.error(error);
+            return;
+          }
+          if (results && results.length > 0) {
+            alert("handpose.detect", results);
+            results.forEach(hand => {
+              console.log("hand:", hand);
+              this.landmarks = hand.landmarks; // Stretch3の処理に相当する部分
+              console.log("Landmarks:", this.landmarks);
+            });
+          }
+          
+          // 次のフレームをリクエスト
+          requestAnimationFrame(detectHands);
+        });
+        
+      } else {
+            console.log("Video element not ready.");
         }
-        
-        if (results && results.length > 0) {
-          alert("handpose.detect");
-          results.forEach(hand => {
-            this.landmarks = hand.landmarks; // Stretch3の処理に相当する部分
-            console.log("Landmarks:", this.landmarks);
-          });
-        }
-        
-        // 次のフレームをリクエスト
-        requestAnimationFrame(detectHands);
-        
-      });
       alert("detectHands_end");
     };
     
-    console.log("Handpose model loaded and ready for detection.");
-    alert("Handpose model loaded");
+    console.log("startHandDetection: Handpose model loaded and ready for detection.");
+    alert("startHandDetection: Handpose model loaded");
     detectHands(); // モデルロード完了後に手の検出を開始
     alert("startHandDetection_end");
   };
