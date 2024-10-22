@@ -1646,9 +1646,9 @@ var extensionBlocks = /*#__PURE__*/function () {
           }
           if (videoElement.readyState === 4) {  // HAVE_ENOUGH_DATA
               document.body.appendChild(videoElement); // ビデオをページに表示
-              console.log("Video is ready for handpose detection.");
+              console.log("Video is ready for handpose detection: ", videoElement);
           }
-          alert("Video element is ready");
+          alert("Video element is ready: ", videoElement);
           
           const canvas = document.createElement('canvas');
           const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -1667,16 +1667,16 @@ var extensionBlocks = /*#__PURE__*/function () {
             .then(stream => {
               videoElement.srcObject = stream;
               videoElement.play(); // ストリームを再生
-              alert("Video stream started");
+              alert("Video stream started: videoElement: ", videoElement);
 
               videoElement.addEventListener('loadedmetadata', async () => {
                 //alert("videoElement.addEventListener: Video element is ready");
-                
+                console.log("videoElement.addEventListener: videoElement: ", videoElement);
                 try {
                   // handposeモデルのロードが完了するまで待つ
                   const handpose = await loadMl5HandPose(videoElement);
                   console.log("Handpose model loaded: ", handpose);
-                  console.log("videoElement.addEventListener: videoElement; ", videoElement);
+                  console.log("videoElement.addEventListener: videoElement: ", videoElement);
                   this.startHandDetection(handpose, videoElement);
                 } catch (error) {
                   console.error("Error loading handpose model:", error);
