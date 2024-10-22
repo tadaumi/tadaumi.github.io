@@ -1667,7 +1667,7 @@ var extensionBlocks = /*#__PURE__*/function () {
             .then(stream => {
               videoElement.srcObject = stream;
               videoElement.play(); // ストリームを再生
-              //alert("Video stream started");
+              alert("Video stream started");
 
               videoElement.addEventListener('loadedmetadata', async () => {
                 //alert("videoElement.addEventListener: Video element is ready");
@@ -1676,10 +1676,6 @@ var extensionBlocks = /*#__PURE__*/function () {
                   // handposeモデルのロードが完了するまで待つ
                   const handpose = await loadMl5HandPose(videoElement);
                   console.log("Handpose model loaded: ", handpose);
-                  // ExtensionBlocks インスタンスを this にバインドしているか確認
-                  //const extensionBlocksInstance = new ExtensionBlocks(this.runtime); // 適切にインスタンス化
-                  // startHandDetection を呼び出す
-                  //extensionBlocksInstance.startHandDetection(handpose, videoElement);
                   console.log("videoElement.addEventListener: videoElement; ", videoElement);
                   this.startHandDetection(handpose, videoElement);
                 } catch (error) {
