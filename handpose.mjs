@@ -1560,6 +1560,20 @@ export function loadHandposeModel() {
 var extensionBlocks = /*#__PURE__*/function () {
   //alert("extensionBlocks");
   //this.log("extensionBlocks");
+  // ml5 の手のポーズモデルを定義
+  function loadMl5HandPose(videoElement) {
+    return new Promise((resolve, reject) => {
+      const handpose_tmp = ml5.handPose(videoElement, () => {
+        console.log("handpose_tmp", handpose_tmp);
+        resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
+      });
+      
+      if (!handpose_tmp) {
+        reject(new Error("Failed to load handpose model"));
+      }
+    });
+  }
+  
   /**
    * Construct a set of blocks for handpose.
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
@@ -1575,6 +1589,7 @@ var extensionBlocks = /*#__PURE__*/function () {
      */
     
     this.runtime = runtime;
+    console.log("runtime: ", this.runtime);
     if (runtime.formatMessage) {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
       formatMessage = runtime.formatMessage;
@@ -1582,11 +1597,12 @@ var extensionBlocks = /*#__PURE__*/function () {
     
     // インスタンス変数の初期化
     //alert("ExtensionBlocks_initialize");
+    const handpose = {}; 
     this.landmarks = [];
     this.ratio = 0.75;
     this._locale = this.setLocale();
-
-    alert("ExtensionBlocks_enableVideo");
+    console.log("ExtensionBlocks_initialized");
+    
     this.runtime.ioDevices.video.enableVideo()
       .then(() => {
         console.log("enableVideo: Video enabled successfully");
@@ -1653,36 +1669,23 @@ var extensionBlocks = /*#__PURE__*/function () {
               videoElement.play(); // ストリームを再生
               //alert("Video stream started");
 
-              videoElement.addEventListener('loadedmetadata', () => {
+              videoElement.addEventListener('loadedmetadata', async () => {
                 //alert("videoElement.addEventListener: Video element is ready");
-                // ml5 の手のポーズモデルを定義
-                function loadMl5HandPose(videoElement) {
-                  return new Promise((resolve, reject) => {
-                    const handpose_tmp = ml5.handPose(videoElement, () => {
-                      console.log("handpose_tmp", handpose_tmp);
-                      resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
-                    });
-                    
-                    if (!handpose_tmp) {
-                      reject(new Error("Failed to load handpose model"));
-                    }
-                  });
+                
+                try {
+                  // handposeモデルのロードが完了するまで待つ
+                  const handpose = await loadMl5HandPose(videoElement);
+                  console.log("Handpose model loaded", handpose);
+                  // ExtensionBlocks インスタンスを this にバインドしているか確認
+                  //const extensionBlocksInstance = new ExtensionBlocks(this.runtime); // 適切にインスタンス化
+                  // startHandDetection を呼び出す
+                  //extensionBlocksInstance.startHandDetection(handpose, videoElement);
+                  this.startHandDetection(handpose, videoElement);
+                } catch (error) {
+                  console.error("Error loading handpose model:", error);
                 }
-                async function startDetection() {
-                  try {
-                    // handposeモデルのロードが完了するまで待つ
-                    const handpose = await loadMl5HandPose(videoElement);
-                    console.log("Handpose model loaded", handpose);
-                    // ExtensionBlocks インスタンスを this にバインドしているか確認
-                    const extensionBlocksInstance = new ExtensionBlocks(this.runtime); // 適切にインスタンス化
-                    // startHandDetection を呼び出す
-                    extensionBlocksInstance.startHandDetection(handpose, videoElement);
-                    //this.startHandDetection(handpose, videoElement);
-                  } catch (error) {
-                    console.error("Error loading handpose model:", error);
-                  }
-                }
-                startDetection(); 
+                
+                
                 
                 /*
                 const handpose = ml5.handPose(videoElement, () => {
@@ -1728,7 +1731,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                 }, 100); // 100ミリ秒ごとに検出を行う
                 */
                 
-                console.log(handpose); // handposeのオブジェクト構造を確認
+                //console.log(handpose); // handposeのオブジェクト構造を確認
                 //alert("after const handpose: " + handpose);
               });
                 
