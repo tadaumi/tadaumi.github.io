@@ -1665,73 +1665,66 @@ var extensionBlocks = /*#__PURE__*/function () {
           // ビデオストリームを取得し、videoElementに設定
           navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
+              const videoElement = this.runtime.ioDevices.video.provider.video; // Make sure to reference the correct video element
+              if (!videoElement) {
+                console.error("Video element not found");
+                return;
+              }
               videoElement.srcObject = stream;
-              videoElement.play(); // ストリームを再生
-              alert("Video stream started: videoElement: ", videoElement);
+              
+              videoElement.onloadedmetadata = () => {
+                videoElement.play(); // ストリームを再生
+                alert("Video stream started: videoElement: ", videoElement);
 
-              videoElement.addEventListener('loadedmetadata', async () => {
-                //alert("videoElement.addEventListener: Video element is ready");
-                console.log("videoElement.addEventListener: videoElement: ", videoElement);
-                try {
-                  // handposeモデルのロードが完了するまで待つ
-                  const handpose = await loadMl5HandPose(videoElement);
-                  console.log("Handpose model loaded: ", handpose);
+                videoElement.addEventListener('loadedmetadata', async () => {
+                  //alert("videoElement.addEventListener: Video element is ready");
                   console.log("videoElement.addEventListener: videoElement: ", videoElement);
-                  this.startHandDetection(handpose, videoElement);
-                } catch (error) {
-                  console.error("Error loading handpose model:", error);
-                }
-                
-                
-                
-                /*
-                const handpose = ml5.handPose(videoElement, () => {
-                    //console.log("const handpose: Model loaded!:" + handpose);
-                //const handpose = ml5.handPose(this.video, function() {
-                  alert("ml5.handPose(this.video, function()");
-                  console.log("const handpose: Model loaded!");
-                  this.startHandDetection(handpose, videoElement);
-                });
-                */
-                
-                /*
-                alert("after const handpose: " + handpose);
-                // 手のポーズの検出を開始
-                let intervalId = setInterval(() => {
-                  alert("setInterval");
-                  handpose.detect(videoElement, (results) => {
-                    console.log("Results:", results);
-                    console.log("results[0]: " + results[0]);
-                    console.log("Keypoints:", results[0].keypoints);
-                    //if (results && results.length > 0 && !isNaN(results[0].confidence)) {
-                    if (results && results.length > 0) {
-                      results.forEach(hand => {
-                        this.landmarks = hand.landmarks; // Stretch3の処理に相当する部分
-                        console.log("Landmarks:", this.landmarks);
-                        
-                        // 必要なら、ここで他の処理を追加
-                      });
-                      alert("Hand detected!");
-                      
-                      //this.landmarks = results[0]
-                      console.log("landmarks: " + this.landmarks);
-                      clearInterval(intervalId);
-                      alert("Stopped the interval.");
-                      console.log("Stopped the interval.");
-                      
-                    } else {
-                      alert("No hand detected or error occurred.");
-                      console.log("Results: ", results);
-                    }
-                  });
+                  try {
+                    // handposeモデルのロードが完了するまで待つ
+                    const handpose = await loadMl5HandPose(videoElement);
+                    console.log("Handpose model loaded: ", handpose);
+                    console.log("videoElement.addEventListener: videoElement: ", videoElement);
+                    this.startHandDetection(handpose, videoElement);
+                  } catch (error) {
+                    console.error("Error loading handpose model:", error);
+                  }
                   
-                }, 100); // 100ミリ秒ごとに検出を行う
-                */
-                
-                //console.log(handpose); // handposeのオブジェクト構造を確認
-                //alert("after const handpose: " + handpose);
-              });
-                
+                  /*
+                  alert("after const handpose: " + handpose);
+                  // 手のポーズの検出を開始
+                  let intervalId = setInterval(() => {
+                    alert("setInterval");
+                    handpose.detect(videoElement, (results) => {
+                      console.log("Results:", results);
+                      console.log("results[0]: " + results[0]);
+                      console.log("Keypoints:", results[0].keypoints);
+                      //if (results && results.length > 0 && !isNaN(results[0].confidence)) {
+                      if (results && results.length > 0) {
+                        results.forEach(hand => {
+                          this.landmarks = hand.landmarks; // Stretch3の処理に相当する部分
+                          console.log("Landmarks:", this.landmarks);
+                          
+                          // 必要なら、ここで他の処理を追加
+                        });
+                        alert("Hand detected!");
+                        
+                        //this.landmarks = results[0]
+                        console.log("landmarks: " + this.landmarks);
+                        clearInterval(intervalId);
+                        alert("Stopped the interval.");
+                        console.log("Stopped the interval.");
+                        
+                      } else {
+                        alert("No hand detected or error occurred.");
+                        console.log("Results: ", results);
+                      }
+                    });
+                    
+                  }, 100); // 100ミリ秒ごとに検出を行う
+                  */
+                  
+                });
+              };  
             })
             .catch(error => {
               console.error("Error accessing the camera: ", error);
