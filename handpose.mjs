@@ -1684,6 +1684,8 @@ var extensionBlocks = /*#__PURE__*/function () {
                   // handposeモデルのロードが完了するまで待つ
                   const handpose = await loadMl5HandPose(videoElement);
                   console.log("Handpose model loaded: ", handpose);
+                  
+                  videoElement = this.runtime.ioDevices.video.provider.video;
                   console.log("after const handpose: videoElement: ", videoElement);
                   console.log("Video Element readyState:", videoElement.readyState);
                   console.log("Video Element srcObject:", videoElement.srcObject);
