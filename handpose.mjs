@@ -1556,23 +1556,25 @@ export function loadHandposeModel() {
     document.head.appendChild(script);
   });
 }
+
+// ml5 の手のポーズモデルを定義
+function loadMl5HandPose(videoElement) {
+  return new Promise((resolve, reject) => {
+    const handpose_tmp = ml5.handPose(videoElement, () => {
+      console.log("handpose_tmp", handpose_tmp);
+      resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
+    });
     
+    if (!handpose_tmp) {
+      reject(new Error("Failed to load handpose model"));
+    }
+  });
+}
+      
 var extensionBlocks = /*#__PURE__*/function () {
   //alert("extensionBlocks");
   //this.log("extensionBlocks");
-  // ml5 の手のポーズモデルを定義
-  function loadMl5HandPose(videoElement) {
-    return new Promise((resolve, reject) => {
-      const handpose_tmp = ml5.handPose(videoElement, () => {
-        console.log("handpose_tmp", handpose_tmp);
-        resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
-      });
-      
-      if (!handpose_tmp) {
-        reject(new Error("Failed to load handpose model"));
-      }
-    });
-  }
+  
   
   /**
    * Construct a set of blocks for handpose.
@@ -1734,11 +1736,20 @@ var extensionBlocks = /*#__PURE__*/function () {
         
         console.log("handpose.detectStart: results", results);
         if (results && results.length > 0) {
-          this.landmarks = results[0]; // 結果を格納
           console.log("Landmarks detected:", this.landmarks);
+          results.forEach(hand => {
+            console.log("hand:", hand);
+            console.log(`Hand ${index}:`, hand);
+            console.log("Keypoints:", hand.keypoints);
+            console.log("Keypoints 3D:", hand.keypoints3D);
+            console.log("Handedness:", hand.handedness);
+            console.log("Confidence:", hand.confidence);
+            
+            this.landmarks = hand.landmarks; // Stretch3の処理に相当する部分
+            console.log("Landmarks:", this.landmarks);
+          });
           
-          // 必要な処理をここに追加
-          processResults(this.landmarks); // 結果に基づいて処理を実行
+
         } else {
           console.log("No hands detected.");
         }
