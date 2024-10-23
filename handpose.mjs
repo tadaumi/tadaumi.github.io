@@ -1662,9 +1662,14 @@ var extensionBlocks = /*#__PURE__*/function () {
           videoElement.appendChild(canvas);
           
           let handPose;
+          let predictions = [];
           function preload() {
-            handPose = ml5.handPose();
+            handPose = ml5.handPose(videoElement.elt, modelLoaded);
             console.log("preload handPose: ", handPose);
+          }
+          function modelLoaded() {
+            console.log("Model Loaded!");
+            detect_hands(); // モデルがロードされた後に手の検出を開始
           }
           function detect_hands() {
             setInterval(() => {
@@ -1680,7 +1685,6 @@ var extensionBlocks = /*#__PURE__*/function () {
               });
             }, 100); // 100ミリ秒ごとに手のポーズを検出
           }
-          detect_hands();
           function draw() {
             image(videoElement, 0, 0); // ビデオをキャンバスに描画
             
