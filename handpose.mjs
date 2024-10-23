@@ -1769,24 +1769,27 @@ var extensionBlocks = /*#__PURE__*/function () {
       //if (videoElement.readyState === 4) {
         
         handpose.detect(videoElement, (error, results) => {
-          console.log(`Hand ${index}:`, hand);
-          console.log("Keypoints:", hand.keypoints);
-          console.log("Keypoints 3D:", hand.keypoints3D);
-          console.log("Handedness:", hand.handedness);
-          console.log("Confidence:", hand.confidence);
-          
+          /*
           if (error) {
             console.log("handpose.detect error!: ", error);
             return;
           }
+          */
           console.log("handpose.detect", results);
           if (results && results.length > 0) {
             
             results.forEach(hand => {
               console.log("hand:", hand);
+              console.log(`Hand ${index}:`, hand);
+              console.log("Keypoints:", hand.keypoints);
+              console.log("Keypoints 3D:", hand.keypoints3D);
+              console.log("Handedness:", hand.handedness);
+              console.log("Confidence:", hand.confidence);
+              
               this.landmarks = hand.landmarks; // Stretch3の処理に相当する部分
               console.log("Landmarks:", this.landmarks);
             });
+            
           } else {
             alert("handpose.detect: results failed", results);
           }
