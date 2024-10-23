@@ -1751,18 +1751,29 @@ var extensionBlocks = /*#__PURE__*/function () {
         return;
     }
     
+    if (videoElement.readyState === 4) {
+      console.log("videoElement.readyState === 4");
+    } else {
+      console.log("Video element not ready.");
+      return;
+    }
+    
     // 手の検出を開始
+    let isDetecting = false;
     const detectHands = () => {
       alert("detectHands");
+      if (isDetecting) return;
+      isDetecting = true;
+      
       //handpose.detect((error, results) => {
-      if (videoElement.readyState === 4) {
-        alert("videoElement.readyState === 4");
+      //if (videoElement.readyState === 4) {
+        
         handpose.detect(videoElement, (error, results) => {
           if (error) {
             console.log("handpose.detect error!: ", error);
             return;
           }
-          alert("handpose.detect", results);
+          console.log("handpose.detect", results);
           if (results && results.length > 0) {
             results.forEach(hand => {
               console.log("hand:", hand);
@@ -1772,13 +1783,14 @@ var extensionBlocks = /*#__PURE__*/function () {
           } else {
             alert("handpose.detect: results failed", results);
           }
+          // 次のフレームをリクエスト
+          requestAnimationFrame(detectHands);
+          console.log("requested next frame");
         });
-        // 次のフレームをリクエスト
-        requestAnimationFrame(detectHands);
-        console.log("requested next frame");
-      } else {
-          console.log("Video element not ready.");
-      }
+        
+      //} else {
+          //;console.log("Video element not ready.");
+      //}
       alert("detectHands_end");
     };
     
