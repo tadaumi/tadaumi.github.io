@@ -1742,8 +1742,7 @@ var extensionBlocks = /*#__PURE__*/function () {
         } else {
           console.log("No hands detected.");
         }
-      });
-    }
+    });
     
     /*
     let isDetecting = false;
