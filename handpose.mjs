@@ -1729,6 +1729,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     
     // 手の検出を開始
     handpose.detectStart(videoElement, (results, error) => {
+        console.log("handpose.detectStart: ", videoElement.videoWidth, videoElement.videoHeight);
         if (error) {
           console.error("Error during hand pose detection:", error);
           return;
@@ -1739,7 +1740,7 @@ var extensionBlocks = /*#__PURE__*/function () {
           console.log("Landmarks detected:", this.landmarks);
           results.forEach(hand => {
             console.log("hand:", hand);
-            console.log(`Hand ${index}:`, hand);
+            //console.log(`Hand ${index}:`, hand);
             console.log("Keypoints:", hand.keypoints);
             console.log("Keypoints 3D:", hand.keypoints3D);
             console.log("Handedness:", hand.handedness);
