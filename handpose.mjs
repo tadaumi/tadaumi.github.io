@@ -1661,6 +1661,45 @@ var extensionBlocks = /*#__PURE__*/function () {
           }
           videoElement.appendChild(canvas);
           
+          let handPose;
+          function preload() {
+            handPose = ml5.handPose();
+            console.log("preload handPose: ", handPose);
+          }
+          function detect_hands() {
+            setInterval(() => {
+              handPose.detect(videoElement.elt, (results) => {
+                console.log("handPose.detect: results: ", results);
+                if (results && results.length > 0) {
+                  predictions = results; // 検出結果を格納
+                } else {
+                  predictions = []; // 手が検出されなかった場合は空にする
+                }
+                // 検出結果をコンソールに出力
+                console.log(predictions);
+              });
+            }, 100); // 100ミリ秒ごとに手のポーズを検出
+          }
+          detect_hands();
+          function draw() {
+            image(videoElement, 0, 0); // ビデオをキャンバスに描画
+            
+            // 検出された手のポーズを描画
+            if (predictions.length > 0) {
+              for (let i = 0; i < predictions.length; i++) {
+                let keypoints = predictions[i].keypoints;
+                for (let j = 0; j < keypoints.length; j++) {
+                  let x = keypoints[j].position.x;
+                  let y = keypoints[j].position.y;
+                  fill(255, 0, 0);
+                  noStroke();
+                  ellipse(x, y, 10, 10); // キーポイントを赤い円で描画
+                }
+              }
+            }
+          }
+          
+          alert("finish!!!");
           
           // ビデオストリームを取得し、videoElementに設定 
           navigator.mediaDevices.getUserMedia({ video: true })
@@ -1683,7 +1722,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                 try {
                   // handposeモデルのロードが完了するまで待つ
                   const handpose = await loadMl5HandPose(videoElement);
-                  console.log("Handpose model loaded: ", handpose);
+                  console.log("Handpose model loaded: handpose: ", handpose);
                   
                   //const videoElement = this.runtime.ioDevices.video.provider.video;
                   console.log("after const handpose: videoElement: ", videoElement);
@@ -1760,11 +1799,22 @@ var extensionBlocks = /*#__PURE__*/function () {
     
     // 手の検出を開始
     let isDetecting = false;
-    const detectHands = () => {
+    //const detectHands = () => {
+    async function detectHands(videoElement) {
       alert("detectHands");
       if (isDetecting) return;
       isDetecting = true;
       
+      await handpose.ready;
+      const predictions = await handpose.model.detect(videoElement);
+      // 結果を処理する
+      if (predictions.length > 0) {
+          console.log("Hand detections:", predictions);
+      } else {
+          console.log("No hands detected.");
+      }
+    
+      alert("finish!");
       //handpose.detect((error, results) => {
       //if (videoElement.readyState === 4) {
         
