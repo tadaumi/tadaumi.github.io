@@ -1536,7 +1536,7 @@ export function loadHandposeModel() {
   console.log("loadHandposeModel: ml5 library loaded successfully!");
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = 'http://192.168.122.133/ml5.min.js';
+    script.src = 'https://192.168.122.133/ml5.min.js';
     //script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
     //script.src = 'https://tadaumi.github.io/ml5.min.js';
     script.async = true;
