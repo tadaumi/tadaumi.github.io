@@ -1563,7 +1563,8 @@ export function loadHandposeModel() {
 // ml5 の手のポーズモデルを定義
 function loadMl5HandPose(videoElement) {
   return new Promise((resolve, reject) => {
-    const handpose_tmp = ml5.handPose(videoElement, {flipHorizontal: true}, () => {
+    //const handpose_tmp = ml5.handPose(videoElement, {flipHorizontal: true}, () => {
+    const handpose_tmp = ml5.handpose(videoElement, {flipHorizontal: true}, () => {
       console.log("handpose_tmp", handpose_tmp);
       resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
     });
