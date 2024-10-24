@@ -1536,7 +1536,8 @@ export function loadHandposeModel() {
   console.log("loadHandposeModel: ml5 library loaded successfully!");
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
+    script.src = '/home/tadaumi/Documents/xcratch/scratch-vm/src/util/ml5.min.js';
+    //script.src = 'https://unpkg.com/ml5@latest/dist/ml5.min.js';
     //script.src = 'https://tadaumi.github.io/ml5.min.js';
     script.async = true;
 
@@ -1560,7 +1561,7 @@ export function loadHandposeModel() {
 // ml5 の手のポーズモデルを定義
 function loadMl5HandPose(videoElement) {
   return new Promise((resolve, reject) => {
-    const handpose_tmp = ml5.handPose(videoElement, () => {
+    const handpose_tmp = ml5.handPose(videoElement, {flipHorizontal: true}, () => {
       console.log("handpose_tmp", handpose_tmp);
       resolve(handpose_tmp); // handposeのインスタンスをresolveで返す
     });
@@ -1726,8 +1727,12 @@ var extensionBlocks = /*#__PURE__*/function () {
       console.log("Video element not ready.");
       return;
     }
+    if (!handpose.model) {
+      console.error("Hand pose model not loaded correctly.");
+    }
     
     // 手の検出を開始
+    let detectionCount = 0;
     handpose.detectStart(videoElement, (results, error) => {
         console.log("handpose.detectStart: ", videoElement.videoWidth, videoElement.videoHeight);
         if (error) {
@@ -1754,6 +1759,12 @@ var extensionBlocks = /*#__PURE__*/function () {
         } else {
           console.log("No hands detected.");
         }
+        
+        if (detectionCount >= 10) {
+          handpose.detectStop(); // 検出回数が上限に達したら停止
+          console.log("Hand pose detection stopped after", detectionCount, "detections.");
+        }
+        detectionCount++;
     });
     
     /*
