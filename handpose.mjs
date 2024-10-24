@@ -1551,8 +1551,10 @@ export function loadHandposeModel() {
       }
     };
     script.onerror = (err) => {
+      console.error("onerror: Failed to load ml5 library ", err);
       alert("onerror: Failed to load ml5 library ");
-      reject(new Error(`Failed to load ml5 library: ${err.message}`     ));
+      reject(new Error(`onerror: Failed to load ml5 library: ${err.type}, ${err.message || 'No additional error details available'}`));
+      //reject(new Error(`Failed to load ml5 library: ${err.message}`     ));
     };
     document.head.appendChild(script);
   });
