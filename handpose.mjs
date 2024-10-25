@@ -1739,10 +1739,18 @@ var extensionBlocks = /*#__PURE__*/function () {
     };  //end of this.detecthand
     function startHandDetectionLoop(handpose, videoElement) {
       console.log("Running startHandDetectionLoop...");
-      async function detectHands() {
+      function detectHands() {
         console.log("detectHands...");
-        const hands = await handpose.predict(); // Manually run hand detection
-
+        //const hands = await handpose.predict(); // Manually run hand detection
+        handpose.detect(videoElement, (error, results) => {
+          if (error) {
+            console.error("Error detecting hands:", error);
+            return;
+          }
+          console.log("Detected hands:", results);
+          requestAnimationFrame(detectHands); // Continue the loop
+        });
+        
         if (hands && hands.length > 0) {
           console.log("Detected hands:", hands);
           // Update landmarks or do any necessary processing with `hands`
