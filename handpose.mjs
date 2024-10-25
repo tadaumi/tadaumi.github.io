@@ -1734,11 +1734,13 @@ var extensionBlocks = /*#__PURE__*/function () {
         })
         .catch(err => {
           console.error("Error loading handpose model:", err);
-        });
+        });   //end of loadHandposeModel()
       
     };  //end of this.detecthand
     function startHandDetectionLoop(handpose, videoElement) {
+      console.log("Running startHandDetectionLoop...");
       async function detectHands() {
+        console.log("detectHands...");
         const hands = await handpose.predict(); // Manually run hand detection
 
         if (hands && hands.length > 0) {
