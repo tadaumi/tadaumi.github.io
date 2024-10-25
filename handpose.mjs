@@ -1735,6 +1735,12 @@ var extensionBlocks = /*#__PURE__*/function () {
     }
     
     // 手の検出を開始
+    handpose.on("predict", results => {
+      console.log("handpose.on: ", results, results[0]);
+      predictions = results;
+    });
+    alert("finish!!!!");
+    
     let detectionCount = 0;
     handpose.detectStart(videoElement, (results, error) => {
         console.log("handpose.detectStart: ", videoElement.videoWidth, videoElement.videoHeight);
