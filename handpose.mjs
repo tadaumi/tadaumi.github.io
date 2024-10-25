@@ -1735,8 +1735,10 @@ var extensionBlocks = /*#__PURE__*/function () {
     }
     
     // 手の検出を開始
+    alert("before handpose.on");
     let detectionCount = 0;
     handpose.on("predict", hands => {
+      alert("handpose.on");
       console.log("handpose.on: ", hands, hands[0]);
       hands.forEach(hand => {
         this.landmarks = hand.landmarks;
@@ -1840,7 +1842,9 @@ var extensionBlocks = /*#__PURE__*/function () {
     detectHands(); // モデルロード完了後に手の検出を開始
     */
     
-    
+    // 次のフレームをリクエスト
+    requestAnimationFrame(detectHands);
+    console.log("requested next frame");
     alert("startHandDetection_end");
   };
 
