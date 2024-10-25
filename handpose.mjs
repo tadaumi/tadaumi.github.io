@@ -1736,9 +1736,11 @@ var extensionBlocks = /*#__PURE__*/function () {
     
     // 手の検出を開始
     let detectionCount = 0;
-    handpose.on("predict", results => {
-      console.log("handpose.on: ", results, results[0]);
-      predictions = results;
+    handpose.on("predict", hands => {
+      console.log("handpose.on: ", hands, hands[0]);
+      hands.forEach(hand => {
+        this.landmarks = hand.landmarks;
+      });
     //});
     //alert("finish!!!!");
     
