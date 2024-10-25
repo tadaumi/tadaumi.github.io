@@ -1687,19 +1687,10 @@ var extensionBlocks = /*#__PURE__*/function () {
                 console.log("videoElement.addEventListener: videoElement: ", videoElement);
                 try {
                   // handposeモデルのロードが完了するまで待つ
-                  //const handpose = await loadMl5HandPose(videoElement);
-                  //const handpose = await loadMl5HandPose();
-                  const handpose = ml5.handpose(videoElement, { flipHorizontal: true }, () => {
-                    console.log("Handpose model loaded: ", handpose);
-                    // Now attach the event listener
-                    alert("before handpose.on");
-                    handpose.on("predict", hands => {
-                      console.log("Prediction results:", hands);
-                    });
-                  });
-                  alert("finish");
+                  const handpose = await loadMl5HandPose(videoElement);
+                  console.log("Handpose model loaded: ", handpose);
+                  startHandDetectionLoop(handpose, videoElement);
                   
-                  //const videoElement = this.runtime.ioDevices.video.provider.video;
                   console.log("after const handpose: videoElement: ", videoElement);
                   console.log("Video Element readyState:", videoElement.readyState);
                   console.log("Video Element srcObject:", videoElement.srcObject);
@@ -1707,6 +1698,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                   console.log("after const handpose: videoElement after log: ", videoElement);
                   
                   console.log("ml5 version:", ml5.version);
+                  alert("finish");
                   
                   /*
                   setInterval(() => {
@@ -1719,7 +1711,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                     });
                   }, 100);
                   */
-                  
+                  /*
                   alert("before handpose.on");
                   handpose.on("predict", hands => {
                     alert("handpose.on");
@@ -1728,6 +1720,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                       this.landmarks = hand.landmarks;
                     });
                   });
+                  */
                   //this.startHandDetection(handpose, videoElement);
                 } catch (error) {
                   console.error("Error loading handpose model:", error);
@@ -1743,7 +1736,21 @@ var extensionBlocks = /*#__PURE__*/function () {
           console.error("Error loading handpose model:", err);
         });
       
-    };  //end of detecthand
+    };  //end of this.detecthand
+    function startHandDetectionLoop(handpose, videoElement) {
+      async function detectHands() {
+        const hands = await handpose.predict(); // Manually run hand detection
+
+        if (hands && hands.length > 0) {
+          console.log("Detected hands:", hands);
+          // Update landmarks or do any necessary processing with `hands`
+        }
+
+        requestAnimationFrame(detectHands); // Continue the detection loop
+      }
+
+      detectHands(); // Start the detection loop
+    }
   };   //end of ExtensionBlocks
 
   // 手の検出を開始するメソッド
