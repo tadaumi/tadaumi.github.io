@@ -1688,11 +1688,14 @@ var extensionBlocks = /*#__PURE__*/function () {
                 try {
                   // handposeモデルのロードが完了するまで待つ
                   //const handpose = await loadMl5HandPose(videoElement);
-                  const handpose = await loadMl5HandPose();
-                  console.log("Handpose model loaded: handpose: ", handpose);
-                  alert("before handpose.on");
-                  handpose.on("predict", hands => {
-                    console.log("Prediction results:", hands);
+                  //const handpose = await loadMl5HandPose();
+                  const handpose = ml5.handpose(videoElement, { flipHorizontal: true }, () => {
+                    console.log("Handpose model loaded: ", handpose);
+                    // Now attach the event listener
+                    alert("before handpose.on");
+                    handpose.on("predict", hands => {
+                      console.log("Prediction results:", hands);
+                    });
                   });
                   alert("finish");
                   
