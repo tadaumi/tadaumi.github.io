@@ -1697,7 +1697,15 @@ var extensionBlocks = /*#__PURE__*/function () {
                   console.log("Video Element srcObject:", videoElement.srcObject);
                   console.log("Video Element paused:", videoElement.paused);
                   console.log("after const handpose: videoElement after log: ", videoElement);
-                  this.startHandDetection(handpose, videoElement);
+                  
+                  handpose.on("predict", hands => {
+                    alert("handpose.on");
+                    console.log("handpose.on: ", hands, hands[0]);
+                    hands.forEach(hand => {
+                      this.landmarks = hand.landmarks;
+                    });
+                  });
+                  //this.startHandDetection(handpose, videoElement);
                 } catch (error) {
                   console.error("Error loading handpose model:", error);
                 }
