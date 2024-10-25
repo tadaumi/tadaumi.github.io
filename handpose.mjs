@@ -1697,7 +1697,17 @@ var extensionBlocks = /*#__PURE__*/function () {
                   console.log("Video Element srcObject:", videoElement.srcObject);
                   console.log("Video Element paused:", videoElement.paused);
                   console.log("after const handpose: videoElement after log: ", videoElement);
+                  setInterval(() => {
+                    handpose.detect(videoElement, (error, results) => {
+                      if (error) {
+                        console.error("Detection error:", error);
+                        return;
+                      }
+                      console.log("Detection results:", results);
+                    });
+                  }, 100);
                   
+                  alert("before handpose.on");
                   handpose.on("predict", hands => {
                     alert("handpose.on");
                     console.log("handpose.on: ", hands, hands[0]);
