@@ -1697,6 +1697,9 @@ var extensionBlocks = /*#__PURE__*/function () {
                   console.log("Video Element srcObject:", videoElement.srcObject);
                   console.log("Video Element paused:", videoElement.paused);
                   console.log("after const handpose: videoElement after log: ", videoElement);
+                  
+                  console.log("ml5 version:", ml5.version);
+                  
                   setInterval(() => {
                     handpose.detect(videoElement, (error, results) => {
                       if (error) {
