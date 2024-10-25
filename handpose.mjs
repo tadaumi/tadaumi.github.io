@@ -1736,7 +1736,7 @@ var extensionBlocks = /*#__PURE__*/function () {
     
     // 手の検出を開始
     let detectionCount = 0;
-    handpose.on("predict", (results, error) => {
+    handpose.on("predict", results => {
       console.log("handpose.on: ", results, results[0]);
       predictions = results;
     //});
