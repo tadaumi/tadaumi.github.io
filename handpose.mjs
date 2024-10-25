@@ -1690,6 +1690,11 @@ var extensionBlocks = /*#__PURE__*/function () {
                   //const handpose = await loadMl5HandPose(videoElement);
                   const handpose = await loadMl5HandPose();
                   console.log("Handpose model loaded: handpose: ", handpose);
+                  alert("before handpose.on");
+                  handpose.on("predict", hands => {
+                    console.log("Prediction results:", hands);
+                  });
+                  alert("finish");
                   
                   //const videoElement = this.runtime.ioDevices.video.provider.video;
                   console.log("after const handpose: videoElement: ", videoElement);
@@ -1700,6 +1705,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                   
                   console.log("ml5 version:", ml5.version);
                   
+                  /*
                   setInterval(() => {
                     handpose.detect(videoElement, (error, results) => {
                       if (error) {
@@ -1709,6 +1715,7 @@ var extensionBlocks = /*#__PURE__*/function () {
                       console.log("Detection results:", results);
                     });
                   }, 100);
+                  */
                   
                   alert("before handpose.on");
                   handpose.on("predict", hands => {
