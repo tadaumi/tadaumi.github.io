@@ -1,6 +1,6 @@
-alert("start"");
+alert("start");
 
-import * as ml5 from './lib/ml5';
+import * as ml5 from './lib/ml5.min.js';
 
 
 
