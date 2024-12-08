@@ -2,13 +2,12 @@ alert("start");
 console.log("current pass: ", window.location.pathname);
 console.log(`ml5.min.js のパス: ${window.location.pathname}/work/lib/ml5.min.js`);
 
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-console.log('App Root Path:', __dirname);
-const ml5Path = path.resolve(__dirname, './work/lib/ml5.min.js');
+const scriptUrl = import.meta.url;
+const scriptDir = new URL('.', scriptUrl).href;
+const ml5Path = new URL('./work/lib/ml5.min.js', scriptDir).href;
+console.log('Script Directory:', scriptDir);
 console.log('ml5 Path:', ml5Path);
+
 
 
 //import ml5 from './work/lib/ml5.min.js';
