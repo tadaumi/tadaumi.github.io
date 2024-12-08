@@ -1,6 +1,6 @@
 alert("start"");
 
-import * as ml5 from 'ml5';
+import * as ml5 from './lib/ml5';
 
 
 
