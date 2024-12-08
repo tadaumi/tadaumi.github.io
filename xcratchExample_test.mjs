@@ -1,4 +1,5 @@
 alert("start");
+console.log(process.cwd());
 
 import ml5 from './work/lib/ml5.min.js';
 
