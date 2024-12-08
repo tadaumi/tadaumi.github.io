@@ -1,6 +1,6 @@
 alert("start");
 console.log("current pass: ", window.location.pathname);
-console.log(`ml5.min.js のパス: ${__dirname}/work/lib/ml5.min.js`);
+console.log(`ml5.min.js のパス: ${window.location.pathname}/work/lib/ml5.min.js`);
 
 //import ml5 from './work/lib/ml5.min.js';
 
