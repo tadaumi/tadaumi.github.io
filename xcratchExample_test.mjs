@@ -9,7 +9,9 @@ console.log('Script Directory:', scriptDir);
 console.log('ml5 Path:', ml5Path);
 
 
-import ml5 from 'https://cdn.jsdelivr.net/npm/ml5@latest/dist/ml5.min.js';
+//import ml5 from 'https://cdn.jsdelivr.net/npm/ml5@latest/dist/ml5.min.js';
+import ml5 from 'https://tadaumi.github.io/ml5.min.js';
+
 
 //import ml5 from './work/lib/ml5.min.js';
 
