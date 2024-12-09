@@ -16,7 +16,7 @@ import ml5 from 'https://tadaumi.github.io/ml5.min.js';
 //import * as tf from '@tensorflow/tfjs';
 //import '@tensorflow/tfjs-backend-webgl';
 //import tf from 'https://tadaumi.github.io/tf.min.js';
-import tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs';
+import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs';
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 
 (async () => {
