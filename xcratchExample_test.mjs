@@ -1541,13 +1541,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
       alert(Message.please_wait[this._locale]);
       const handPose = ml5.handPose();
-      const handpose = ml5.handPose(this.video, modelReadyCallback);
-      console.log("Model loaded!");
-      /*
-      const handpose = ml5.handpose(this.video, function () {
+      //const handpose = ml5.handPose(this.video, modelReadyCallback);
+      //console.log("Model loaded!");
+      
+      const handpose = ml5.handPose(this.video, function () {
         console.log("Model loaded!");
       });
-      */
+      
 
       handpose.on('predict', (hands) => {
         hands.forEach((hand) => {
