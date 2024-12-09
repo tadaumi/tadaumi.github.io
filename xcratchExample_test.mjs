@@ -1548,12 +1548,30 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         console.log("Model loaded!");
       });
       
-
+      handpose.detectStart(videoElement, (results, error) => {
+        if (error) {
+          console.error("Detection Error:", error);
+          return;
+        }
+        if (results && results.length > 0) {
+          // 検出された手のランドマークを処理
+          results.forEach(hand => {
+            this.landmarks = hand.landmarks; // ランドマークを保存
+            console.log("Landmarks:", this.landmarks);
+          });
+        }
+      });
+      
+      
+      
       handpose.on('predict', (hands) => {
         hands.forEach((hand) => {
           this.landmarks = hand.landmarks;
         });
       });
+      
+      
+      
     };
     // Enable video and start detection
     this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
