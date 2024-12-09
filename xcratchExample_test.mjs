@@ -1548,6 +1548,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         console.log("Model loaded!");
       });
       
+      console.log("detectStart!");
       handpose.detectStart(this.video, (results, error) => {
         if (error) {
           console.error("Detection Error:", error);
