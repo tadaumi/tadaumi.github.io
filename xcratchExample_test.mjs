@@ -1553,6 +1553,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           console.error("Detection Error:", error);
           return;
         }
+        console.log("results: ", results);
         if (results && results.length > 0) {
           // 検出された手のランドマークを処理
           results.forEach(hand => {
@@ -1562,15 +1563,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         }
       });
       
-      
-      
-      handpose.on('predict', (hands) => {
-        hands.forEach((hand) => {
-          this.landmarks = hand.landmarks;
-        });
-      });
-      
-      
+
       
     };
     // Enable video and start detection
