@@ -1589,7 +1589,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       return {
         id: "handpose2scratch",
         name: "Handpose2Scratch",
-        blockIconURI: blockIconURI,
+        blockIconURI: img$2,
         blocks: [
           {
             opcode: "getX",
