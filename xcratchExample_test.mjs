@@ -13,8 +13,11 @@ console.log('ml5 Path:', ml5Path);
 import ml5 from 'https://tadaumi.github.io/ml5.min.js';
 //import ml5 from 'https://unpkg.com/ml5@1/dist/ml5.js'; =>NG!: does not provide an export named 'default'
 
-import * as tf from '@tensorflow/tfjs';
-import '@tensorflow/tfjs-backend-webgl';
+//import * as tf from '@tensorflow/tfjs';
+//import '@tensorflow/tfjs-backend-webgl';
+//import tf from 'https://tadaumi.github.io/tf.min.js';
+import tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs';
+import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 
 (async () => {
   // TensorFlow.js のバックエンドを WebGL に設定
