@@ -16,12 +16,13 @@ import ml5 from 'https://tadaumi.github.io/ml5.min.js';
 //import * as tf from '@tensorflow/tfjs';
 //import '@tensorflow/tfjs-backend-webgl';
 //import tf from 'https://tadaumi.github.io/tf.min.js';
-import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs';
+import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js';
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 
 (async () => {
   // TensorFlow.js のバックエンドを WebGL に設定
-  await tf.setBackend('webgl');
+  //await tf.setBackend('webgl');
+  await tf.setBackend('cpu');
   await tf.ready();
 
   console.log('TensorFlow.js is ready with WebGL backend');
@@ -1560,7 +1561,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       console.log("Video Element:", this.video);
       console.log("Video Ready State:", this.video.readyState);
       
-      alert(Message.please_wait[this._locale]);
+      //alert(Message.please_wait[this._locale]);
+      alert("please wait");
+      
       const handPose = ml5.handPose();
       //const handpose = ml5.handPose(this.video, modelReadyCallback);
       //console.log("Model loaded!");
