@@ -1573,6 +1573,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       
       console.log("Video Element:", this.video);
       
+      this.runtime.ioDevices.video.enableVideo().then(() => {
+        console.log("Video enabled!");
+      }).catch(error => {
+        console.error("Error enabling video:", error);
+      });
+      
       //alert(Message.please_wait[this._locale]);
       alert("please wait");
       
