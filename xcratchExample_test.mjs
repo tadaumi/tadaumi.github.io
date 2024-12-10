@@ -1561,8 +1561,17 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     // Video setup
     this.detectHand = () => {
       this.video = this.runtime.ioDevices.video.provider.video;
+      alert("video started");
+      const interval = setInterval(() => {
+        console.log("Checking video readyState:", this.video.readyState);
+        if (this.video.readyState === 4) { // HAVE_ENOUGH_DATA
+          console.log("Video readyState is 4. Proceeding...");
+          // ループを停止
+          clearInterval(interval);
+        }
+      }, 100); // 100msごとにチェック
+      
       console.log("Video Element:", this.video);
-      console.log("Video Ready State:", this.video.readyState);
       
       //alert(Message.please_wait[this._locale]);
       alert("please wait");
