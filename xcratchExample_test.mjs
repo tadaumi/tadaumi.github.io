@@ -1581,16 +1581,18 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       
       //alert(Message.please_wait[this._locale]);
       alert("please wait");
+      var videoElement = this.Video;
+      console.log("Video Element after copied:", videoElement);
       
       const handPose = ml5.handPose();
       //const handpose = ml5.handPose(this.video, modelReadyCallback);
       //console.log("Model loaded!");
       
-      const handpose = ml5.handPose(this.video, function () {
+      const handpose = ml5.handPose(videoElement, function () {
         console.log("Model loaded!");
 
         console.log("detectStart!");
-        handpose.detectStart(this.video, callback);
+        handpose.detectStart(videoElement, callback);
         console.log("callback: ", callback);
         
         /*
