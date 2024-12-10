@@ -1557,13 +1557,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     // Video setup
     this.detectHand = () => {
       this.video = this.runtime.ioDevices.video.provider.video;
-
+      console.log("Video Element:", this.video);
+      console.log("Video Ready State:", this.video.readyState);
+      
       alert(Message.please_wait[this._locale]);
       const handPose = ml5.handPose();
       //const handpose = ml5.handPose(this.video, modelReadyCallback);
       //console.log("Model loaded!");
-      console.log("Video Element:", this.video);
-      console.log("Video Ready State:", this.video.readyState);
       
       const handpose = ml5.handPose(this.video, function () {
         console.log("Model loaded!");
