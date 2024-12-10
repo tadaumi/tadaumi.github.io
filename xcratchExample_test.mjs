@@ -30,7 +30,7 @@ console.log('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js'
   console.log('TensorFlow.js is ready with CPU backend');
   alert("webgl started");
 })();
-*/:
+*/
 
 
 
