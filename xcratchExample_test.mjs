@@ -22,6 +22,7 @@ import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 console.log('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js');
 (async () => {
   // TensorFlow.js のバックエンドを WebGL に設定
+  console.log("Backend: " + tf.getBackend());
   //await tf.setBackend('webgl');
   await tf.setBackend('cpu');
   await tf.ready();
