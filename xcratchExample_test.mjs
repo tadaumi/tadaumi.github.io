@@ -16,16 +16,17 @@ import ml5 from 'https://tadaumi.github.io/ml5.min.js';
 //import * as tf from '@tensorflow/tfjs';
 //import '@tensorflow/tfjs-backend-webgl';
 //import tf from 'https://tadaumi.github.io/tf.min.js';
-import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js';
-import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
-
+//import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js';
+import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core';
+//import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
+import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@4.22.0/dist/tf-backend-webgl.min.js';
+console.log('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core');
 (async () => {
   // TensorFlow.js のバックエンドを WebGL に設定
   //await tf.setBackend('webgl');
   await tf.setBackend('cpu');
   await tf.ready();
-
-  console.log('TensorFlow.js is ready with WebGL backend');
+  console.log('TensorFlow.js is ready with CPU backend');
 })();
 
 
