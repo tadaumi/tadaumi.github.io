@@ -1,4 +1,4 @@
-alert("start");
+//alert("start");
 console.log("current pass: ", window.location.pathname);
 console.log(`ml5.min.js のパス: ${window.location.pathname}/work/lib/ml5.min.js`);
 
@@ -1587,18 +1587,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       alert("please wait");
       
       const handpose = ml5.handPose();
-      //const handpose = ml5.handPose(this.video, modelReadyCallback);
-      //console.log("Model loaded!");
       
-      /*
-      const callback = (results, error) => {
-          if (error) {
-              console.error(error);
-              return;
-          }
-          console.log(results);  // 手の検出結果を表示
-      };
-      */
       // Callback function for when handPose outputs data
       function gotHands(results) {
         // save the output to the hands variable
@@ -1606,7 +1595,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
 
       
-      handPose.detectStart(videoElement, gotHands);
+      handpose.detectStart(videoElement, gotHands);
       console.log("gotHands: ", gotHands);
 
       
