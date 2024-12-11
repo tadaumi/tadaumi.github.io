@@ -1560,7 +1560,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     
     // Video setup
     this.detectHand = () => {
+      let handPose;
       let videoElement;
+      let hands = [];
+      
       videoElement = this.runtime.ioDevices.video.provider.video;
       alert("video started");
       const interval = setInterval(() => {
@@ -1572,7 +1575,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         }
       }, 100); // 100msごとにチェック
       
-      console.log("Video Element:", this.video);
+      console.log("Video Element:", videoElement);
       
       this.runtime.ioDevices.video.enableVideo().then(() => {
         console.log("Video enabled!");
@@ -1582,13 +1585,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       
       //alert(Message.please_wait[this._locale]);
       alert("please wait");
-      //var videoElement = this.Video;
-      console.log("Video Element after copied:", videoElement);
       
-      const handPose = ml5.handPose();
+      const handpose = ml5.handPose();
       //const handpose = ml5.handPose(this.video, modelReadyCallback);
       //console.log("Model loaded!");
       
+      /*
       const callback = (results, error) => {
           if (error) {
               console.error(error);
@@ -1596,37 +1598,16 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
           console.log(results);  // 手の検出結果を表示
       };
-      
-      const handpose = ml5.handPose(videoElement, function () {
-        console.log("Model loaded!");
-
-        console.log("detectStart!");
-        handpose.detectStart(videoElement, callback);
-        console.log("callback: ", callback);
-        
-        /*
-        handpose.detectStart(this.video, (results, error) => {
-          if (error) {
-            console.error("Detection Error:", error);
-            return;
-          }
-          console.log("results: ", results);
-          if (results && results.length > 0) {
-            // 検出された手のランドマークを処理
-            results.forEach(hand => {
-              this.landmarks = hand.landmarks; // ランドマークを保存
-              console.log("Landmarks:", this.landmarks);
-            });
-          }
-        }
-        );
-        */
-        
-      });
-      
-
+      */
+      // Callback function for when handPose outputs data
+      function gotHands(results) {
+        // save the output to the hands variable
+        hands = results;
+      }
 
       
+      handPose.detectStart(videoElement, gotHands);
+      console.log("gotHands: ", gotHands);
 
       
     };
