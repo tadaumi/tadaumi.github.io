@@ -1587,6 +1587,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           console.log("Video Element:", videoElement);
           video.size(p.width, p.height);
           video.hide(); // ビデオの表示を隠す
+          
+          const handpose = ml5.handPose();
         }
       }
       
@@ -1594,7 +1596,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       //alert(Message.please_wait[this._locale]);
       alert("please wait");
       
-      const handpose = ml5.handPose();
+      
       
       // Callback function for when handPose outputs data
       function gotHands(results) {
