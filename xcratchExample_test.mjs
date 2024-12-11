@@ -1588,6 +1588,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       //const handpose = ml5.handPose(this.video, modelReadyCallback);
       //console.log("Model loaded!");
       
+      const callback = (results, error) => {
+          if (error) {
+              console.error(error);
+              return;
+          }
+          console.log(results);  // 手の検出結果を表示
+      };
+      
       const handpose = ml5.handPose(videoElement, function () {
         console.log("Model loaded!");
 
