@@ -31,7 +31,7 @@ console.log('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js'
   alert("webgl started");
 })();
 */
-
+import 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js';
 
 
 
@@ -1564,6 +1564,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       let videoElement;
       let hands = [];
       
+      /*
       videoElement = this.runtime.ioDevices.video.provider.video;
       alert("video started");
       const interval = setInterval(() => {
@@ -1574,6 +1575,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           clearInterval(interval);
         }
       }, 100); // 100msごとにチェック
+      */
+      
+      videoElement = createCapture(VIDEO);
+      
+      
       
       console.log("Video Element:", videoElement);
       
@@ -1596,7 +1602,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
       
       handpose.detectStart(videoElement, gotHands);
-      console.log("gotHands: ", gotHands);
+      console.log("gotHands: ", hands);
 
       
     };
