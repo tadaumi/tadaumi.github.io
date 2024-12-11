@@ -1560,7 +1560,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     
     // Video setup
     this.detectHand = () => {
-      let handPose;
+      let handpose;
       let videoElement;
       let hands = [];
       
@@ -1588,7 +1588,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           video.size(p.width, p.height);
           video.hide(); // ビデオの表示を隠す
           
-          const handpose = ml5.handPose();
+          handpose = ml5.handPose();
         }
       }
       
