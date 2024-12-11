@@ -1577,17 +1577,19 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }, 100); // 100msごとにチェック
       */
       
-      videoElement = createCapture(VIDEO);
+      const sketch = (p) => {
+        p.setup = async function() {
+        // p5.jsのCanvasを作成
+        p.createCanvas(640, 480);
+        // 動画要素の取得（p5.jsのcreateCaptureを使用）
+        video = p.createCapture(p.VIDEO);
+        videoElement = createCapture(VIDEO);
+        console.log("Video Element:", videoElement);
+        video.size(p.width, p.height);
+        video.hide(); // ビデオの表示を隠す
+      }
       
       
-      
-      console.log("Video Element:", videoElement);
-      
-      this.runtime.ioDevices.video.enableVideo().then(() => {
-        console.log("Video enabled!");
-      }).catch(error => {
-        console.error("Error enabling video:", error);
-      });
       
       //alert(Message.please_wait[this._locale]);
       alert("please wait");
