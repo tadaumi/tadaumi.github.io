@@ -1552,6 +1552,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         p.setup = async function () {
           // p5.jsのCanvasを作成
           p.createCanvas(640, 480);
+          // XcratchのStageをp5.jsのCanvasで置き換える
+          const stageElement = document.getElementById('stage');
+          stageElement.parentNode.replaceChild(p.canvas, stageElement);
 
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
           video = p.createCapture(p.VIDEO);
