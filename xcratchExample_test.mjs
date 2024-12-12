@@ -1598,7 +1598,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           videoElement.size(p.width, p.height);
           videoElement.hide(); // ビデオの表示を隠す
           
-          handpose.detectStart(videoElement, gotHands);
+          handpose.detectStart(videoElement, p.gotHands);
           console.log("gotHands: ", hands);
         }
         
