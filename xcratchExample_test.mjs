@@ -1581,6 +1581,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       alert("please wait");
       
       const sketch = (p) => {
+        alert("sketch started");
         p.preload = async function () {
           // Handpose モデルのロード
           handpose = ml5.handPose();
