@@ -1593,7 +1593,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           p.createCanvas(640, 480);
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
           //video = p.createCapture(p.VIDEO);
-          videoElement = createCapture(p.VIDEO);
+          videoElement = p.createCapture(p.VIDEO);
           console.log("Video Element:", videoElement);
           videoElement.size(p.width, p.height);
           videoElement.hide(); // ビデオの表示を隠す
