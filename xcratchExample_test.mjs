@@ -1584,11 +1584,16 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         alert("sketch started");
         p.preload = async function () {
           // Handpose モデルのロード
-          handpose = ml5.handPose();
-          console.log("Handpose model preloaded.");
+          console.log("preload");
+          handpose = await ml5.handPose(video, () => {
+            console.log("Handpose model loaded.");
+          });
+          //handpose = ml5.handPose();
+          //console.log("Handpose model preloaded.");
         };
         
         p.setup = async function() {
+          console.log("setup");
           // p5.jsのCanvasを作成
           p.createCanvas(640, 480);
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
@@ -1603,6 +1608,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         }
         
         p.gotHands = function (results) {
+          console.log("gotHands");
           hands = results;
           console.log("検出結果:", hands);
         };
