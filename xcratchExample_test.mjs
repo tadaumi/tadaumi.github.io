@@ -1592,11 +1592,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // p5.jsのCanvasを作成
           p.createCanvas(640, 480);
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
-          video = p.createCapture(p.VIDEO);
-          videoElement = createCapture(VIDEO);
+          //video = p.createCapture(p.VIDEO);
+          videoElement = createCapture(p.VIDEO);
           console.log("Video Element:", videoElement);
-          video.size(p.width, p.height);
-          video.hide(); // ビデオの表示を隠す
+          videoElement.size(p.width, p.height);
+          videoElement.hide(); // ビデオの表示を隠す
           
           handpose.detectStart(videoElement, gotHands);
           console.log("gotHands: ", hands);
