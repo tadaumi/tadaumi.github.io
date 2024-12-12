@@ -1558,7 +1558,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           video.hide();
 
           // Handpose モデルのロード
-          handpose = ml5.handpose(video, modelLoaded);
+          handpose = ml5.handPose(video, modelLoaded);
         };
 
         // モデルがロードされたときのコールバック
