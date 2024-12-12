@@ -1608,9 +1608,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         };
         
       }
-
+      
       
     };
+    new p5(sketch);
+    
+    
+    
     // Enable video and start detection
     this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
     
