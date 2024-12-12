@@ -9,8 +9,8 @@ console.log('Script Directory:', scriptDir);
 console.log('ml5 Path:', ml5Path);
 
 
-import ml5 from 'https://unpkg.com/ml5@0.12.2/dist/ml5.min.js';
-//import ml5 from 'https://tadaumi.github.io/ml5.min.js';
+//import ml5 from 'https://unpkg.com/ml5@0.12.2/dist/ml5.min.js';
+import ml5 from 'https://tadaumi.github.io/ml5.min.js';
 //import ml5 from 'https://unpkg.com/ml5@1/dist/ml5.js'; =>NG!: does not provide an export named 'default'
 
 //import tf from 'https://tadaumi.github.io/tf.min.js';
