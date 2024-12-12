@@ -1608,10 +1608,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         };
         
       }
-      
+      new p5(sketch);
       
     };
-    new p5(sketch);
+    
     
     
     
