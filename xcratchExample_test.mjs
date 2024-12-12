@@ -1608,8 +1608,23 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
       // p5.jsのインスタンスを作成して実行
       new p5(sketch);
+      
+      // p5.jsのcanvasをScratchのStageに追加
+      function moveCanvasToScratch() {
+        const canvas = document.querySelector('canvas');
+        const stage = document.querySelector('.stage'); // XcratchのStageクラスを選択
+        stage.appendChild(canvas); // p5.jsのCanvasをStageの中に追加
+
+        // canvasのスタイルを調整（必要に応じて）
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.zIndex = '1000'; // Stageの上に表示されるように
+      }
+
+      moveCanvasToScratch();
     };
-    
+          
     // Enable video and start detection
     this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
     
