@@ -1599,12 +1599,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           
           handpose.detectStart(videoElement, gotHands);
           console.log("gotHands: ", hands);
-          
-          p.gotHands = function (results) {
-            hands = results;
-            console.log("検出結果:", hands);
-          };
         }
+        
+        p.gotHands = function (results) {
+          hands = results;
+          console.log("検出結果:", hands);
+        };
+        
       }
 
       
