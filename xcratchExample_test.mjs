@@ -1580,37 +1580,30 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           p.image(video, 0, 0, p.width, p.height);
 
           // 手の検出結果を描画
-          p.draw = function () {
-            p.background(200);
+          if (predictions.length > 0) {
+            for (let hand of predictions) {
+              // バウンディングボックスを描画
+              let boundingBox = hand.boundingBox;
+              let x1 = boundingBox.topLeft[0];
+              let y1 = boundingBox.topLeft[1];
+              let x2 = boundingBox.bottomRight[0];
+              let y2 = boundingBox.bottomRight[1];
 
-            // 動画を描画
-            p.image(video, 0, 0, p.width, p.height);
+              // バウンディングボックスを描画
+              p.noFill();
+              p.stroke(255, 0, 0);
+              p.rect(x1, y1, x2 - x1, y2 - y1);
 
-            // 手の検出結果を描画
-            if (predictions.length > 0) {
-              for (let hand of predictions) {
-                // バウンディングボックスを描画
-                let boundingBox = hand.boundingBox;
-                let x1 = boundingBox.topLeft[0];
-                let y1 = boundingBox.topLeft[1];
-                let x2 = boundingBox.bottomRight[0];
-                let y2 = boundingBox.bottomRight[1];
-
-                // バウンディングボックスを描画
-                p.noFill();
-                p.stroke(255, 0, 0);
-                p.rect(x1, y1, x2 - x1, y2 - y1);
-
-                // 手のランドマークを描画
-                for (let [x, y] of hand.landmarks) {
-                  p.fill(0, 255, 0);
-                  p.noStroke();
-                  p.ellipse(x, y, 10, 10); // 各ランドマークを描画
-                }
+              // 手のランドマークを描画
+              for (let [x, y] of hand.landmarks) {
+                p.fill(0, 255, 0);
+                p.noStroke();
+                p.ellipse(x, y, 10, 10); // 各ランドマークを描画
               }
             }
-          
+          }
         };
+        
       };
 
       // p5.jsのインスタンスを作成して実行
