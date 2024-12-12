@@ -1577,7 +1577,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }, 100); // 100msごとにチェック
       */
       
+      //alert(Message.please_wait[this._locale]);
+      alert("please wait");
+      
       const sketch = (p) => {
+        p.preload() {
+          handpose = ml5.handPose();
+        }
+        
         p.setup = async function() {
           // p5.jsのCanvasを作成
           p.createCanvas(640, 480);
@@ -1588,15 +1595,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           video.size(p.width, p.height);
           video.hide(); // ビデオの表示を隠す
           
-          handpose = ml5.handPose();
+          handpose.detectStart(videoElement, gotHands);
+          console.log("gotHands: ", hands);
         }
       }
-      
-      
-      //alert(Message.please_wait[this._locale]);
-      alert("please wait");
-      
-      
       
       // Callback function for when handPose outputs data
       function gotHands(results) {
@@ -1605,8 +1607,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
 
       
-      handpose.detectStart(videoElement, gotHands);
-      console.log("gotHands: ", hands);
+
 
       
     };
