@@ -9,28 +9,11 @@ console.log('Script Directory:', scriptDir);
 console.log('ml5 Path:', ml5Path);
 
 
-//import ml5 from 'https://cdn.jsdelivr.net/npm/ml5@latest/dist/ml5.min.js';
-import ml5 from 'https://tadaumi.github.io/ml5.min.js';
+import ml5 from 'https://unpkg.com/ml5@0.12.2/dist/ml5.min.js';
+//import ml5 from 'https://tadaumi.github.io/ml5.min.js';
 //import ml5 from 'https://unpkg.com/ml5@1/dist/ml5.js'; =>NG!: does not provide an export named 'default'
 
 //import tf from 'https://tadaumi.github.io/tf.min.js';
-import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js';
-//import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core';
-import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
-//import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@4.22.0/dist/tf-backend-webgl.min.js';
-//console.log('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core');
-console.log('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js');
-/*
-(async () => {
-  // TensorFlow.js のバックエンドを WebGL に設定
-  console.log("Backend: " + tf.getBackend());
-  //await tf.setBackend('webgl');
-  await tf.setBackend('cpu');
-  await tf.ready();
-  console.log('TensorFlow.js is ready with CPU backend');
-  alert("webgl started");
-})();
-*/
 import 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js';
 
 
@@ -1560,22 +1543,64 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     
     // Video setup
     this.detectHand = () => {
+      let video;
+      let handpose;
+      let predictions = [];
+
+      const sketch = (p) => {
+        p.setup = async function () {
+          // p5.jsのCanvasを作成
+          p.createCanvas(640, 480);
+
+          // 動画要素の取得（p5.jsのcreateCaptureを使用）
+          video = p.createCapture(p.VIDEO);
+          video.size(p.width, p.height);
+          video.hide();
+
+          // Handpose モデルのロード
+          handpose = ml5.handpose(video, modelLoaded);
+        };
+
+        // モデルがロードされたときのコールバック
+        function modelLoaded() {
+          console.log("Model Loaded!");
+
+          // 手の検出イベントをリッスン
+          handpose.on("hand", (results) => {
+            predictions = results;
+            console.log("検出結果:", predictions);
+          });
+        }
+
+        p.draw = function () {
+          p.background(200);
+
+          // 動画を描画
+          p.image(video, 0, 0, p.width, p.height);
+
+          // 手の検出結果を描画
+          if (predictions.length > 0) {
+            for (let hand of predictions) {
+              for (let [x, y] of hand.landmarks) {
+                p.fill(0, 255, 0);
+                p.noStroke();
+                p.ellipse(x, y, 10, 10); // 各ランドマークを描画
+              }
+            }
+          }
+        };
+      };
+
+      // p5.jsのインスタンスを作成して実行
+      new p5(sketch);
+
+    
+    
+    
+      /*
       let handpose;
       let videoElement;
       let hands = [];
-      
-      /*
-      videoElement = this.runtime.ioDevices.video.provider.video;
-      alert("video started");
-      const interval = setInterval(() => {
-        console.log("Checking video readyState:", videoElement.readyState);
-        if (videoElement.readyState === 4) { // HAVE_ENOUGH_DATA
-          console.log("Video readyState is 4. Proceeding...");
-          // ループを停止
-          clearInterval(interval);
-        }
-      }, 100); // 100msごとにチェック
-      */
       
       //alert(Message.please_wait[this._locale]);
       alert("please wait");
@@ -1585,9 +1610,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         p.preload = async function () {
           // Handpose モデルのロード
           console.log("preload");
-          handpose = await ml5.handPose(p.VIDEO, () => {
-            console.log("Handpose model loaded.");
+          //handpose = await ml5.handPose(p.VIDEO, () => {
+          handpose = await ml5.handPose({
+            flipHorizontal: true,
+            maxHands: 2,
+            modelName: "MediaPipeHands",
           });
+          console.log("Handpose model loaded.");
+          
           //handpose = ml5.handPose();
           //console.log("Handpose model preloaded.");
         };
@@ -1615,7 +1645,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         
       }
       new p5(sketch);
-      
+      */
     };
     
     
