@@ -1581,7 +1581,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       alert("please wait");
       
       const sketch = (p) => {
-        p.preload() {
+        function preload() {
+          // Load the handPose model
           handpose = ml5.handPose();
         }
         
@@ -1605,9 +1606,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         // save the output to the hands variable
         hands = results;
       }
-
-      
-
 
       
     };
