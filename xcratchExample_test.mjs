@@ -1580,77 +1580,42 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           p.image(video, 0, 0, p.width, p.height);
 
           // 手の検出結果を描画
-          if (predictions.length > 0) {
-            for (let hand of predictions) {
-              for (let [x, y] of hand.landmarks) {
-                p.fill(0, 255, 0);
-                p.noStroke();
-                p.ellipse(x, y, 10, 10); // 各ランドマークを描画
+          p.draw = function () {
+            p.background(200);
+
+            // 動画を描画
+            p.image(video, 0, 0, p.width, p.height);
+
+            // 手の検出結果を描画
+            if (predictions.length > 0) {
+              for (let hand of predictions) {
+                // バウンディングボックスを描画
+                let boundingBox = hand.boundingBox;
+                let x1 = boundingBox.topLeft[0];
+                let y1 = boundingBox.topLeft[1];
+                let x2 = boundingBox.bottomRight[0];
+                let y2 = boundingBox.bottomRight[1];
+
+                // バウンディングボックスを描画
+                p.noFill();
+                p.stroke(255, 0, 0);
+                p.rect(x1, y1, x2 - x1, y2 - y1);
+
+                // 手のランドマークを描画
+                for (let [x, y] of hand.landmarks) {
+                  p.fill(0, 255, 0);
+                  p.noStroke();
+                  p.ellipse(x, y, 10, 10); // 各ランドマークを描画
+                }
               }
             }
-          }
+          
         };
       };
 
       // p5.jsのインスタンスを作成して実行
       new p5(sketch);
-
-    
-    
-    
-      /*
-      let handpose;
-      let videoElement;
-      let hands = [];
-      
-      //alert(Message.please_wait[this._locale]);
-      alert("please wait");
-      
-      const sketch = (p) => {
-        alert("sketch started");
-        p.preload = async function () {
-          // Handpose モデルのロード
-          console.log("preload");
-          //handpose = await ml5.handPose(p.VIDEO, () => {
-          handpose = await ml5.handPose({
-            flipHorizontal: true,
-            maxHands: 2,
-            modelName: "MediaPipeHands",
-          });
-          console.log("Handpose model loaded.");
-          
-          //handpose = ml5.handPose();
-          //console.log("Handpose model preloaded.");
-        };
-        
-        p.setup = async function() {
-          console.log("setup");
-          // p5.jsのCanvasを作成
-          p.createCanvas(640, 480);
-          // 動画要素の取得（p5.jsのcreateCaptureを使用）
-          //video = p.createCapture(p.VIDEO);
-          videoElement = p.createCapture(p.VIDEO);
-          console.log("Video Element:", videoElement);
-          videoElement.size(p.width, p.height);
-          videoElement.hide(); // ビデオの表示を隠す
-          
-          handpose.detectStart(videoElement, p.gotHands);
-          console.log("gotHands: ", hands);
-        }
-        
-        p.gotHands = function (results) {
-          console.log("gotHands");
-          hands = results;
-          console.log("検出結果:", hands);
-        };
-        
-      }
-      new p5(sketch);
-      */
     };
-    
-    
-    
     
     // Enable video and start detection
     this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
