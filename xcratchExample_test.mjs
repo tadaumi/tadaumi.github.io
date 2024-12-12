@@ -1581,10 +1581,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       alert("please wait");
       
       const sketch = (p) => {
-        function preload() {
-          // Load the handPose model
-          handpose = ml5.handPose();
-        }
+        handpose = await ml5.handPose();
+          p.preload = async function () {
+          // Handpose モデルのロード
+          console.log("Handpose model preloaded.");
+        };
         
         p.setup = async function() {
           // p5.jsのCanvasを作成
@@ -1598,13 +1599,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           
           handpose.detectStart(videoElement, gotHands);
           console.log("gotHands: ", hands);
+          
+          p.gotHands = function (results) {
+            hands = results;
+            console.log("検出結果:", hands);
+          };
         }
-      }
-      
-      // Callback function for when handPose outputs data
-      function gotHands(results) {
-        // save the output to the hands variable
-        hands = results;
       }
 
       
