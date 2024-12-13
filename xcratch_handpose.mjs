@@ -1513,7 +1513,7 @@ const Message = {
 
 
 
-var EXTENSION_ID = 'xcratchExample';
+var EXTENSION_ID = 'handpose2scratch';
 
 /**
  * URL to get this extension as a module.
@@ -1677,68 +1677,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-          {
-            opcode: "getY",
-            blockType: BlockType.REPORTER,
-            text: Message.getY[this._locale],
-            arguments: {
-              LANDMARK: {
-                type: ArgumentType.STRING,
-                menu: "landmark",
-                defaultValue: "1",
-              },
-            },
-          },
-          {
-            opcode: "getZ",
-            blockType: BlockType.REPORTER,
-            text: Message.getZ[this._locale],
-            arguments: {
-              LANDMARK: {
-                type: ArgumentType.STRING,
-                menu: "landmark",
-                defaultValue: "1",
-              },
-            },
-          },
-          {
-            opcode: "videoToggle",
-            blockType: BlockType.COMMAND,
-            text: Message.videoToggle[this._locale],
-            arguments: {
-              VIDEO_STATE: {
-                type: ArgumentType.STRING,
-                menu: "videoMenu",
-                defaultValue: "off",
-              },
-            },
-          },
-          {
-            opcode: "setVideoTransparency",
-            blockType: BlockType.COMMAND,
-            text: formatMessage({
-              id: "videoSensing.setVideoTransparency",
-              default: "set video transparency to [TRANSPARENCY]",
-            }),
-            arguments: {
-              TRANSPARENCY: {
-                type: ArgumentType.NUMBER,
-                defaultValue: 50,
-              },
-            },
-          },
-          {
-            opcode: "setRatio",
-            blockType: BlockType.COMMAND,
-            text: Message.setRatio[this._locale],
-            arguments: {
-              RATIO: {
-                type: ArgumentType.STRING,
-                menu: "ratioMenu",
-                defaultValue: "0.75",
-              },
-            },
-          },
+
           {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
