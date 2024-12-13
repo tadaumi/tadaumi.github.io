@@ -27,19 +27,19 @@ var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8' standal
 
 var img$2 = blockIconURI;
 var en$1 = {
-	"xcratchExample.entry.name": "Xcratch Example",
-	"xcratchExample.entry.description": "Do it in JavaScript"
+	"handpose2scratch.entry.name": "Xcratch Example",
+	"handpose2scratch.entry.description": "Do it in JavaScript"
 };
 var ja$1 = {
-	"xcratchExample.entry.name": "Xcratchの例",
-	"xcratchExample.entry.description": "JavaScriptを実行する"
+	"handpose2scratch.entry.name": "Xcratchの例",
+	"handpose2scratch.entry.description": "JavaScriptを実行する"
 };
 var translations$1 = {
 	en: en$1,
 	ja: ja$1,
 	"ja-Hira": {
-	"xcratchExample.entry.name": "エクスクラッチのれい",
-	"xcratchExample.entry.description": "ジャバスクリプトをじっこうする"
+	"handpose2scratch.entry.name": "エクスクラッチのれい",
+	"handpose2scratch.entry.description": "ジャバスクリプトをじっこうする"
 }
 };
 
@@ -60,13 +60,13 @@ var formatMessage$1 = function formatMessage(messageData) {
 var entry = {
   get name() {
     return formatMessage$1({
-      id: 'xcratchExample.entry.name',
+      id: 'handpose2scratch.entry.name',
       defaultMessage: 'Xcratch Example',
       description: 'name of the extension'
     });
   },
-  extensionId: 'xcratchExample',
-  extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
+  extensionId: 'handpose2scratch',
+  extensionURL: 'https://tadaumi.github.io/xcratch_handpose.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -74,7 +74,7 @@ var entry = {
     return formatMessage$1({
       defaultMessage: 'an extension for Xcratch',
       description: 'Description for this extension',
-      id: 'xcratchExample.entry.description'
+      id: 'handpose2scratch.entry.description'
     });
   },
   featured: true,
@@ -1298,19 +1298,19 @@ var log = minilog('vm');
 var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
-	"xcratchExample.name": "Xcratch Example",
-	"xcratchExample.doIt": "do it [SCRIPT]"
+	"handpose2scratch.name": "Xcratch Example",
+	"handpose2scratch.doIt": "do it [SCRIPT]"
 };
 var ja = {
-	"xcratchExample.name": "Xcratchの例",
-	"xcratchExample.doIt": "[SCRIPT] を実行する"
+	"handpose2scratch.name": "Xcratchの例",
+	"handpose2scratch.doIt": "[SCRIPT] を実行する"
 };
 var translations = {
 	en: en,
 	ja: ja,
 	"ja-Hira": {
-	"xcratchExample.name": "エクスクラッチのれい",
-	"xcratchExample.doIt": "[SCRIPT] をじっこうする"
+	"handpose2scratch.name": "エクスクラッチのれい",
+	"handpose2scratch.doIt": "[SCRIPT] をじっこうする"
 }
 };
 
@@ -1520,7 +1520,7 @@ var EXTENSION_ID = 'handpose2scratch';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
+var extensionURL = 'https://tadaumi.github.io/xcratch_handpose.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
@@ -1683,7 +1683,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             blockType: BlockType$1.REPORTER,
             blockAllThreads: false,
             text: formatMessage({
-              id: 'xcratchExample.doIt',
+              id: 'handpose2scratch.doIt',
               default: 'do it [SCRIPT]',
               description: 'execute javascript for example'
             }),
@@ -1836,8 +1836,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     key: "EXTENSION_NAME",
     get: function get() {
       return formatMessage({
-        id: 'xcratchExample.name',
-        default: 'xcratchExample',
+        id: 'handpose2scratch.name',
+        default: 'handpose2scratch',
         description: 'name of the extension'
       });
     }
