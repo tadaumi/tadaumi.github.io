@@ -1666,7 +1666,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           {
             opcode: "getY",
             blockType: BlockType$1.REPORTER,
-            text: Message.getY[this._locale],
+            text: Message.getY[this._locale] || "y of [LANDMARK]",
             arguments: {
               LANDMARK: {
                 type: ArgumentType.STRING,
@@ -1678,7 +1678,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           {
             opcode: "getZ",
             blockType: BlockType$1.REPORTER,
-            text: Message.getZ[this._locale],
+            text: Message.getZ[this._locale] || "z of [LANDMARK]",
             arguments: {
               LANDMARK: {
                 type: ArgumentType.STRING,
@@ -1824,6 +1824,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     value: function setLocale() {
       let locale = formatMessage.setup().locale;
       if (AvailableLocales.includes(locale)) {
+        this._locale = locale;
         return locale;
       } else {
         return "en";
