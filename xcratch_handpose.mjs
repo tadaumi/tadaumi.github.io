@@ -1580,6 +1580,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           });
         }
 
+        /*
         p.draw = function () {
           p.background(200);
 
@@ -1597,6 +1598,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
         };
+        */
         
       };
 
