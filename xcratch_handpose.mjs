@@ -1761,7 +1761,18 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   }, {
     key: "getX",
     value: function getX(args) {
+      console.log("LANDMARK argument:", args.LANDMARK);
       let landmark = parseInt(args.LANDMARK, 10) - 1;
+      console.log("landmark: ", landmark);
+      if (this.landmarks && Array.isArray(this.landmarks) && this.landmarks.length > 0) {
+        console.log("Landmarks are present:", this.landmarks);
+      } else {
+        console.log("Landmarks are empty or not initialized");
+      }
+      console.log("Ratio:", this.ratio);
+      
+      
+      
       if (this.landmarks[landmark]) {
         if (this.runtime.ioDevices.video.mirror === false) {
           return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
@@ -1769,6 +1780,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           return 240 - this.landmarks[landmark][0] * this.ratio;
         }
       } else {
+        console.log("Error!!!");
         return "";
       }
     },
