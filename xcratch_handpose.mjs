@@ -1620,7 +1620,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       get: function () {
         console.log("LANDMARK_MENU: locale: ", this._locale);
         const landmark_menu = [];
-        this._locale = "en";
+        //this._locale = "en";
         const locale = this._locale || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
         const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
         for (let i = 1; i <= 21; i++) {
@@ -1659,7 +1659,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             text: Message.getX[this._locale] || "x of [LANDMARK]",
             arguments: {
               LANDMARK: {
-                type: ArgumentType.STRING,
+                type: ArgumentType$1.STRING,
                 menu: "landmark",
                 defaultValue: "1",
               },
@@ -1671,7 +1671,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             text: Message.getY[this._locale] || "y of [LANDMARK]",
             arguments: {
               LANDMARK: {
-                type: ArgumentType.STRING,
+                type: ArgumentType$1.STRING,
                 menu: "landmark",
                 defaultValue: "1",
               },
@@ -1683,7 +1683,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             text: Message.getZ[this._locale] || "z of [LANDMARK]",
             arguments: {
               LANDMARK: {
-                type: ArgumentType.STRING,
+                type: ArgumentType$1.STRING,
                 menu: "landmark",
                 defaultValue: "1",
               },
@@ -1695,7 +1695,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             text: Message.videoToggle[this._locale],
             arguments: {
               VIDEO_STATE: {
-                type: ArgumentType.STRING,
+                type: ArgumentType$1.STRING,
                 menu: "videoMenu",
                 defaultValue: "off",
               },
@@ -1721,7 +1721,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             text: Message.setRatio[this._locale],
             arguments: {
               RATIO: {
-                type: ArgumentType.STRING,
+                type: ArgumentType$1.STRING,
                 menu: "ratioMenu",
                 defaultValue: "0.75",
               },
