@@ -1553,8 +1553,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // p5.jsのCanvasを作成
           p.createCanvas(640, 480);
           // XcratchのStageをp5.jsのCanvasで置き換える
-          const stageElement = document.getElementById('stage');
-          stageElement.parentNode.replaceChild(p.canvas, stageElement);
+          const stageElement = document.querySelector(".stage_stage_yEvd4.box_box_bP3Aq");
+          console.log("stageElement: ", stageElement);
+          if (stageElement) {
+            // Stageの親要素にp5.jsのCanvasを置き換え
+            stageElement.parentNode.replaceChild(p.canvas, stageElement);
+          }
 
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
           video = p.createCapture(p.VIDEO);
