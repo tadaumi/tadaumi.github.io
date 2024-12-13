@@ -1668,7 +1668,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           {
             opcode: "getX",
             blockType: BlockType$1.REPORTER,
-            text: Message.getX[this._locale],
+            text: Message.getX[this._locale] || "x of [LANDMARK]",
             arguments: {
               LANDMARK: {
                 type: ArgumentType.STRING,
@@ -1760,7 +1760,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         menus: {
           landmark: {
             acceptReporters: true,
-            items: this.LANDMARK_MENU,
+            items: this.LANDMARK_MENU || ["1", "2", "3"],
           },
           videoMenu: {
             acceptReporters: true,
