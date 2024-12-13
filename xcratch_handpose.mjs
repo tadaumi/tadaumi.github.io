@@ -1625,6 +1625,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     {
       key: "LANDMARK_MENU",
       get: function () {
+        console.log("LANDMARK_MENU");
         const landmark_menu = [];
         const locale = this._locale || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
         const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
@@ -1634,6 +1635,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             value: String(i),
           });
         }
+        console.log("landmark_menu: ", landmark_menu);
         return landmark_menu;
       },
     },
