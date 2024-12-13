@@ -1739,6 +1739,22 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
+          {
+            opcode: 'do-it',
+            blockType: BlockType$1.REPORTER,
+            blockAllThreads: false,
+            text: formatMessage({
+              id: 'xcratchExample.doIt',
+              default: 'do it [SCRIPT]',
+              description: 'execute javascript for example'
+            }),
+            func: 'doIt',
+            arguments: {
+              SCRIPT: {
+                type: ArgumentType$1.STRING,
+                defaultValue: '3 + 4'
+              }
+            }
         ],
         menus: {
           landmark: {
@@ -1751,6 +1767,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           },
         },  
       
+        /*
         id: ExtensionBlocks.EXTENSION_ID,
         name: ExtensionBlocks.EXTENSION_NAME,
         extensionURL: ExtensionBlocks.extensionURL,
@@ -1774,6 +1791,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
         }],
         menus: {}
+        */
       };
     }
   }, {
