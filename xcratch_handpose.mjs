@@ -1497,7 +1497,7 @@ const Message = {
   ]
 }
 const AvailableLocales = ['en', 'ja', 'ja-Hira'];
-
+this._locale = "en";
 
 var EXTENSION_ID = 'handpose2scratch';
 
