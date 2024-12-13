@@ -1549,7 +1549,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       let predictions = [];
 
       const sketch = (p) => {
-        p.setup = async function () {
+        //p.setup = async function () {
+        p.setup = function () {
           // p5.jsのCanvasを作成
           p.createCanvas(640, 480);
           // XcratchのStageをp5.jsのCanvasで置き換える
@@ -1580,7 +1581,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           });
         }
 
-        /*
+        
         p.draw = function () {
           p.background(200);
 
@@ -1598,7 +1599,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
         };
-        */
+        
         
       };
 
