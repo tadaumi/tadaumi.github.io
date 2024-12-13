@@ -1667,7 +1667,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blocks: [
           {
             opcode: "getX",
-            blockType: BlockType.REPORTER,
+            blockType: BlockType$1.REPORTER,
             text: Message.getX[this._locale],
             arguments: {
               LANDMARK: {
@@ -1677,7 +1677,68 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-
+          {
+            opcode: "getY",
+            blockType: BlockType$1.REPORTER,
+            text: Message.getY[this._locale],
+            arguments: {
+              LANDMARK: {
+                type: ArgumentType.STRING,
+                menu: "landmark",
+                defaultValue: "1",
+              },
+            },
+          },
+          {
+            opcode: "getZ",
+            blockType: BlockType$1.REPORTER,
+            text: Message.getZ[this._locale],
+            arguments: {
+              LANDMARK: {
+                type: ArgumentType.STRING,
+                menu: "landmark",
+                defaultValue: "1",
+              },
+            },
+          },
+          {
+            opcode: "videoToggle",
+            blockType: BlockType$1.COMMAND,
+            text: Message.videoToggle[this._locale],
+            arguments: {
+              VIDEO_STATE: {
+                type: ArgumentType.STRING,
+                menu: "videoMenu",
+                defaultValue: "off",
+              },
+            },
+          },
+          {
+            opcode: "setVideoTransparency",
+            blockType: BlockType$1.COMMAND,
+            text: formatMessage({
+              id: "videoSensing.setVideoTransparency",
+              default: "set video transparency to [TRANSPARENCY]",
+            }),
+            arguments: {
+              TRANSPARENCY: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 50,
+              },
+            },
+          },
+          {
+            opcode: "setRatio",
+            blockType: BlockType$1.COMMAND,
+            text: Message.setRatio[this._locale],
+            arguments: {
+              RATIO: {
+                type: ArgumentType.STRING,
+                menu: "ratioMenu",
+                defaultValue: "0.75",
+              },
+            },
+          },
           {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
@@ -1707,31 +1768,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           },
         },  
       
-        /*
-        id: ExtensionBlocks.EXTENSION_ID,
-        name: ExtensionBlocks.EXTENSION_NAME,
-        extensionURL: ExtensionBlocks.extensionURL,
-        blockIconURI: img,
-        showStatusButton: false,
-        blocks: [{
-          opcode: 'do-it',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: formatMessage({
-            id: 'xcratchExample.doIt',
-            default: 'do it [SCRIPT]',
-            description: 'execute javascript for example'
-          }),
-          func: 'doIt',
-          arguments: {
-            SCRIPT: {
-              type: ArgumentType$1.STRING,
-              defaultValue: '3 + 4'
-            }
-          }
-        }],
-        menus: {}
-        */
       };
     }
   }, {
