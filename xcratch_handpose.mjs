@@ -1537,7 +1537,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         //p.setup = async function () {
         p.setup = function () {
           // p5.jsのCanvasを作成
-          p.createCanvas(640, 480);
+          p.createCanvas(480, 320);
           // XcratchのStageをp5.jsのCanvasで置き換える
           const stageElement = document.querySelector(".stage_stage_yEvd4.box_box_bP3Aq");
           console.log("stageElement: ", stageElement);
@@ -1566,7 +1566,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           });
         }
 
-        
+        /*
         p.draw = function () {
           p.background(200);
 
@@ -1584,7 +1584,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
         };
-        
+        */
         
       };
 
