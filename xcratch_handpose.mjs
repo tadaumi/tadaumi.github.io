@@ -1755,6 +1755,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 defaultValue: '3 + 4'
               }
             }
+          }
         ],
         menus: {
           landmark: {
