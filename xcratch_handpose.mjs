@@ -1496,21 +1496,7 @@ const Message = {
     }
   ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const AvailableLocales = ['en', 'ja', 'ja-Hira'];
 
 
 var EXTENSION_ID = 'handpose2scratch';
@@ -1631,7 +1617,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     {
       key: "LANDMARK_MENU",
       get: function () {
-        console.log("LANDMARK_MENU");
+        console.log("LANDMARK_MENU: locale: ", this._locale);
         const landmark_menu = [];
         const locale = this._locale || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
         const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
