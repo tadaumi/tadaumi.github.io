@@ -1617,8 +1617,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     };
           
     // Enable video and start detection
-    this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
-    
+    //this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
+    this.runtime.ioDevices.video.enableVideo().then(() => {
+      // detectHandを呼び出して動画の検出を開始
+      this.detectHand();
+    });
   }
 
   /**
