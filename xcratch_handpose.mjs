@@ -1552,7 +1552,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             p.canvas.style.position = "absolute";
             p.canvas.style.top = "0";
             p.canvas.style.left = "0";
-            p.canvas.style.zIndex = "5"; //"-1"; // 最背面に配置
+            p.canvas.style.zIndex = "0"; //"-1"; // 最背面に配置
             console.log("zIndexValue in stageElement: ", zIndexValue);
             // Stageの親要素にp5.jsのCanvasを置き換え
             //stageElement.parentNode.replaceChild(p.canvas, stageElement);
