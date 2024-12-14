@@ -1572,6 +1572,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                   this.landmarks = hand.landmarks;
                 });
             }
+            console.log("this.landmarks:", this.landmarks);
             //console.log("検出結果:", predictions);
           });
         }
