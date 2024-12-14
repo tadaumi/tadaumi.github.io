@@ -1568,8 +1568,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // Handpose モデルのロード
           handpose = ml5.handpose(video, modelLoaded);
           
-          // 一定時間待機してからzIndexを増加させる
-          await updateZIndex();
           
         };
 
