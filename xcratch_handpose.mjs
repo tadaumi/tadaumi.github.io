@@ -1569,12 +1569,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           handpose = ml5.handpose(video, modelLoaded);
           
           // 一定時間待機してからzIndexを増加させる
-          await delay(2000); 
-          zIndexValue++; // z-indexを1増やす
-          p.canvas.style.zIndex = zIndexValue; // Canvasのz-indexを更新
-          console.log("zIndex更新:", zIndexValue);
-      
-          
+          await updateZIndex();
           
         };
 
@@ -1630,6 +1625,15 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       
       function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      async function updateZIndex() {
+        await delay(2000); // 1秒待機
+        zIndexValue++; // z-indexを1増やす
+        const canvas = document.querySelector("canvas");
+        if (canvas) {
+          canvas.style.zIndex = zIndexValue; // Canvasのz-indexを更新
+          console.log("zIndex更新:", zIndexValue);
+        }
       }
       
       // Stageをp5.jsのCanvasで置き換え
