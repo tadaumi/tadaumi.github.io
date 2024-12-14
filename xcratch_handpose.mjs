@@ -1560,7 +1560,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         };
 
         // モデルがロードされたときのコールバック
-        function modelLoaded = () => {  //() {
+        //function modelLoaded() {
+        const modelLoaded = () => {
           //const self = this;
           console.log("Model Loaded!");
 
