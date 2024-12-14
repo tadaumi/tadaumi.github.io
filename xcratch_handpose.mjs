@@ -1802,8 +1802,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
       console.log("Ratio:", this.ratio);
       
-      
-      
       if (this.landmarks[landmark]) {
         if (this.runtime.ioDevices.video.mirror === false) {
           return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
@@ -1862,6 +1860,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   {
     key: "setRatio",
     value: function setRatio(args) {
+      console.log("aetRatio: args: ", args);
       this.ratio = parseFloat(args.RATIO);
     },
   },
