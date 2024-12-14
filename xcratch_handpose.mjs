@@ -1592,7 +1592,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
         
         p.draw = function () {
-          p.background(200);
+          //p.background(200);
+          p.clear(); // 前フレームをクリア
 
           // 動画を描画
           p.image(video, 0, 0, p.width, p.height);
