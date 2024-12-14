@@ -1748,7 +1748,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           {
             opcode: "setRatio",
             blockType: BlockType$1.COMMAND,
-            text: Message.setRatio[this._locale],
+            text: Message.setRatio[this._locale] || "0.75",
             arguments: {
               RATIO: {
                 type: ArgumentType$1.STRING,
