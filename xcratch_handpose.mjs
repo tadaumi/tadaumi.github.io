@@ -1788,11 +1788,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           ratioMenu: {
             acceptReporters: true,
             items: this.RATIO_MENU
-          },
+          }
+          /*
+          ,
           intervalMenu: {
             acceptReporters: true,
             items: this.INTERVAL_MENU
           }
+          */
         },  
       
       };
