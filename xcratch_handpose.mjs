@@ -1566,6 +1566,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // 手の検出イベントをリッスン
           handpose.on("hand", (results) => {
             predictions = results;
+            console.log("検出結果:", predictions);
             if (results && results.length > 0) {
                 //this.landmarks = results[0].landmarks; // 必要なデータ構造に合わせて調整
                 results.forEach(hand => {
@@ -1573,7 +1574,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 });
             }
             console.log("this.landmarks:", this.landmarks);
-            //console.log("検出結果:", predictions);
+            
           });
         }
 
