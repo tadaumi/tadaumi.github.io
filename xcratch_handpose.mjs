@@ -1527,6 +1527,69 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       formatMessage = runtime.formatMessage;
     }
     
+    // メニュー設定の定義
+    this.LANDMARK_MENU = [];
+    for (let i = 1; i <= 21; i++) {
+      this.LANDMARK_MENU.push({ text: `${Message.landmarks[i - 1][this._locale]} (${i})`, value: String(i) });
+    }
+
+    this.VIDEO_MENU = [
+      {
+        text: Message.off[this._locale],
+        value: 'off'
+      },
+      {
+        text: Message.on[this._locale],
+        value: 'on'
+      },
+      {
+        text: Message.video_on_flipped[this._locale],
+        value: 'on-flipped'
+      }
+    ];
+
+    this.INTERVAL_MENU = [
+      {
+        text: '0.1',
+        value: '0.1'
+      },
+      {
+        text: '0.2',
+        value: '0.2'
+      },
+      {
+        text: '0.5',
+        value: '0.5'
+      },
+      {
+        text: '1.0',
+        value: '1.0'
+      }
+    ];
+
+    this.RATIO_MENU = [
+      {
+        text: '0.5',
+        value: '0.5'
+      },
+      {
+        text: '0.75',
+        value: '0.75'
+      },
+      {
+        text: '1',
+        value: '1'
+      },
+      {
+        text: '1.5',
+        value: '1.5'
+      },
+      {
+        text: '2.0',
+        value: '2.0'
+      }
+    ];
+    
     // Video setup
     this.detectHand = () => {
       let video;
@@ -1787,7 +1850,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           },
           ratioMenu: {
             acceptReporters: true,
-            items: this.RATIO_MENU
+            items: this.RATIO_MENU,
           }
           /*
           ,
