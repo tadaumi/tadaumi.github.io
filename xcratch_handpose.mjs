@@ -1526,69 +1526,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
       formatMessage = runtime.formatMessage;
     }
-    
-    // メニュー設定の定義
-    this.LANDMARK_MENU = [];
-    for (let i = 1; i <= 21; i++) {
-      this.LANDMARK_MENU.push({ text: `${Message.landmarks[i - 1][this._locale]} (${i})`, value: String(i) });
-    }
 
-    this.VIDEO_MENU = [
-      {
-        text: Message.off[this._locale],
-        value: 'off'
-      },
-      {
-        text: Message.on[this._locale],
-        value: 'on'
-      },
-      {
-        text: Message.video_on_flipped[this._locale],
-        value: 'on-flipped'
-      }
-    ];
-
-    this.INTERVAL_MENU = [
-      {
-        text: '0.1',
-        value: '0.1'
-      },
-      {
-        text: '0.2',
-        value: '0.2'
-      },
-      {
-        text: '0.5',
-        value: '0.5'
-      },
-      {
-        text: '1.0',
-        value: '1.0'
-      }
-    ];
-
-    this.RATIO_MENU = [
-      {
-        text: '0.5',
-        value: '0.5'
-      },
-      {
-        text: '0.75',
-        value: '0.75'
-      },
-      {
-        text: '1',
-        value: '1'
-      },
-      {
-        text: '1.5',
-        value: '1.5'
-      },
-      {
-        text: '2.0',
-        value: '2.0'
-      }
-    ];
     
     // Video setup
     this.detectHand = () => {
@@ -1735,6 +1673,54 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         ];
       },
     },
+    {
+      key: "INTERVAL_MENU",
+      get: function () {
+        return [
+          { text: '0.1', value: '0.1' },
+          { text: '0.2', value: '0.2' },
+          { text: '0.5', value: '0.5' },
+          { text: '1.0', value: '1.0' }
+        ];
+      }
+    },
+    {
+      key: "RATIO_MENU",
+      get: function () {
+        return [
+          { text: '0.5', value: '0.5' },
+          { text: '0.75', value: '0.75' },
+          { text: '1', value: '1' },
+          { text: '1.5', value: '1.5' },
+          { text: '2.0', value: '2.0' }
+        ];
+      }
+    },
+    {
+      key: "defineBlocks",
+      value: function () {
+        const setRatioBlock = {
+          opcode: 'setRatio',
+          blockType: BlockType$1.COMMAND,
+          text: Message.setRatio[this._locale],
+          arguments: {
+            RATIO: {
+              type: ArgumentType$1.STRING,
+              menu: 'RATIO_MENU',
+              defaultValue: '0.75'
+            }
+          },
+          value: function setRatio(args) {
+            this.ratio = parseFloat(args.RATIO);
+            console.log('Ratio set to:', this.ratio);
+          }
+        };
+
+        // 必要なブロックをここで追加
+        // this.runtime.addBlock(setRatioBlock);
+      }
+    },
+    
     
     {
     key: "getInfo",
