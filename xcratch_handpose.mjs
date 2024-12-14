@@ -1568,10 +1568,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             predictions = results;
             console.log("検出結果:", predictions);
             if (results && results.length > 0) {
-                //this.landmarks = results[0].landmarks; // 必要なデータ構造に合わせて調整
+                this.landmarks = results[0].landmarks; // 必要なデータ構造に合わせて調整
+                /*
                 results.forEach(hand => {
                   this.landmarks = hand.landmarks;
                 });
+                */
             }
             console.log("this.landmarks:", this.landmarks);
             
