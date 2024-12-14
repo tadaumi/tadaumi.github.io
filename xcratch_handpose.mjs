@@ -1608,6 +1608,37 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               }
             }
           }
+          
+          
+          // ランドマーク画像を新たに作成して表示
+          if (predictions.length > 0) {
+            // 新たにキャンバスを作成してランドマークを描画
+            landmarkCanvas = p.createGraphics(p.width, p.height);
+            landmarkCanvas.clear(); // 既存の描画内容をクリア
+            for (let hand of predictions) {
+              for (let [x, y] of hand.landmarks) {
+                landmarkCanvas.fill(0, 255, 0);
+                landmarkCanvas.noStroke();
+                landmarkCanvas.ellipse(x, y, 10, 10); // 各ランドマークを描画
+              }
+            }
+            
+            // ランドマークが描かれた画像を新しいdivに追加
+            const landmarkImage = landmarkCanvas.get(); // ランドマークを描画した画像を取得
+            const childContainer = document.createElement('div'); // 新しいdiv要素を作成
+            childContainer.style.position = 'absolute';
+            childContainer.style.bottom = '10px'; // 画面下部に配置
+            childContainer.style.left = '10px';
+            childContainer.style.zIndex = '1'; // 他の要素より前面に配置
+            document.body.appendChild(childContainer); // bodyに追加
+
+            const imgElement = new Image();
+            imgElement.src = landmarkImage.canvas.toDataURL(); // 画像データをURL形式で取得
+            imgElement.style.width = '320px'; // 画像の幅を設定
+            imgElement.style.height = '240px'; // 画像の高さを設定
+            childContainer.appendChild(imgElement); // divに画像を追加
+          }
+        
         };
         
         
