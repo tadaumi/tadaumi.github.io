@@ -1576,7 +1576,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 });
                 */
             }
-            console.log("this.landmarks:", this.landmarks);
+            console.log("this.landmarks:", self.landmarks);
             
           });
         }
