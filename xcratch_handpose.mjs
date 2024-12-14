@@ -1532,7 +1532,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       let video;
       let handpose;
       let predictions = [];
-
+      this.landmarks = [];
+      this.ratio = 0.75;
+      
       const sketch = (p) => {
         //p.setup = async function () {
         p.setup = function () {
@@ -1564,6 +1566,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // 手の検出イベントをリッスン
           handpose.on("hand", (results) => {
             predictions = results;
+            if (results && results.length > 0) {
+                //this.landmarks = results[0].landmarks; // 必要なデータ構造に合わせて調整
+                results.forEach(hand => {
+                  this.landmarks = hand.landmarks;
+                });
+            }
             //console.log("検出結果:", predictions);
           });
         }
@@ -1594,13 +1602,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       new p5(sketch);
       
       // Stageをp5.jsのCanvasで置き換え
+      /*
       function replaceStageWithCanvas() {
         const canvas = document.querySelector('canvas');
         const stage = document.querySelector('.stage'); // XcratchのStageクラスを選択
-
         // Stage要素をp5.jsのcanvasで置き換え
         stage.parentNode.replaceChild(canvas, stage);
       }
+      */
     };
           
     // Enable video and start detection
