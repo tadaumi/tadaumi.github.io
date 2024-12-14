@@ -1534,6 +1534,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       let predictions = [];
       this.landmarks = [];
       this.ratio = 0.75;
+      let zIndexValue = -1; // 初期z-index
       
       const sketch = (p) => {
         //p.setup = async function () {
@@ -1565,6 +1566,18 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
           // Handpose モデルのロード
           handpose = ml5.handpose(video, modelLoaded);
+          
+          // 徐々に前面に出す処理
+          let interval = setInterval(() => {
+            if (zIndexValue < 10) {
+              zIndexValue++; // z-indexを増やす
+              p.canvas.style.zIndex = zIndexValue;
+            } else {
+              clearInterval(interval); // z-indexが10に達したらインターバル停止
+            }
+          }, 1000); // 100msごとにz-indexを増加
+          
+          
         };
 
         // モデルがロードされたときのコールバック
