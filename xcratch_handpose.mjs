@@ -1540,15 +1540,22 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         p.setup = function () {
           // p5.jsのCanvasを作成
           p.createCanvas(480, 320);
+          // Canvasを最背面に配置
+          const canvas = p.canvas;
+          canvas.style.position = "absolute";
+          canvas.style.top = "0";
+          canvas.style.left = "0";
+          canvas.style.zIndex = "-1"; // 最背面に配置
+          
           // XcratchのStageをp5.jsのCanvasで置き換える
-          /*
+          
           const stageElement = document.querySelector(".stage_stage_yEvd4.box_box_bP3Aq");
           console.log("stageElement: ", stageElement);
           if (stageElement) {
             // Stageの親要素にp5.jsのCanvasを置き換え
             stageElement.parentNode.replaceChild(p.canvas, stageElement);
           }
-          */
+          
 
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
           video = p.createCapture(p.VIDEO);
@@ -1582,7 +1589,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           });
         }
 
-        /*
+        
         p.draw = function () {
           p.background(200);
 
@@ -1600,7 +1607,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
         };
-        */
+        
         
       };
 
