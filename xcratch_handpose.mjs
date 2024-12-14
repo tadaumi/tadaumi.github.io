@@ -1534,7 +1534,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       let predictions = [];
       this.landmarks = [];
       this.ratio = 0.75;
-      let zIndexValue = 1; // 初期z-index
+      let zIndexValue = 0; // 初期z-index
       
       const sketch = (p) => {
         p.setup = async function () {
@@ -1563,11 +1563,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
           video = p.createCapture(p.VIDEO);
           video.size(p.width, p.height);
-          //video.hide();
+          video.hide();
 
           // Handpose モデルのロード
           handpose = ml5.handpose(video, modelLoaded);
-          
+          video.hide();
           
         };
 
