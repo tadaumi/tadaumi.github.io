@@ -1537,8 +1537,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       let zIndexValue = -1; // 初期z-index
       
       const sketch = (p) => {
-        //p.setup = async function () {
-        p.setup = function () {
+        p.setup = async function () {
+        //p.setup = function () {
           // p5.jsのCanvasを作成
           p.createCanvas(480, 320);
           // Canvasを最背面に配置
@@ -1549,10 +1549,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const stageElement = document.querySelector(".stage_stage_yEvd4.box_box_bP3Aq");
           console.log("stageElement: ", stageElement);
           if (stageElement) {
-            canvas.style.position = "absolute";
-            canvas.style.top = "0";
-            canvas.style.left = "0";
-            canvas.style.zIndex = zIndexValue //"-1"; // 最背面に配置
+            p.canvas.style.position = "absolute";
+            p.canvas.style.top = "0";
+            p.canvas.style.left = "0";
+            p.canvas.style.zIndex = zIndexValue //"-1"; // 最背面に配置
             console.log("zIndexValue in stageElement: ", zIndexValue);
             // Stageの親要素にp5.jsのCanvasを置き換え
             //stageElement.parentNode.replaceChild(p.canvas, stageElement);
@@ -1568,17 +1568,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // Handpose モデルのロード
           handpose = ml5.handpose(video, modelLoaded);
           
-          
-          // 徐々に前面に出す処理
-          let interval = setInterval(() => {
-            if (zIndexValue < 10) {
-              zIndexValue++; // z-indexを増やす
-              console.log("zIndexValue: ", zIndexValue);
-              //p.canvas.style.zIndex = zIndexValue;
-            } else {
-              clearInterval(interval); // z-indexが10に達したらインターバル停止
-            }
-          }, 2000); // 100msごとにz-indexを増加
+          // 一定時間待機してからzIndexを増加させる
+          await delay(2000); 
+          zIndexValue++; // z-indexを1増やす
+          p.canvas.style.zIndex = zIndexValue; // Canvasのz-indexを更新
+          console.log("zIndex更新:", zIndexValue);
+      
           
           
         };
