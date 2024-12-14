@@ -1569,7 +1569,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           handpose = ml5.handpose(video, modelLoaded);
           
           // 一定時間待機してからzIndexを増加させる
-          await p.delay(2000); 
+          await delay(2000); 
           zIndexValue++; // z-indexを1増やす
           p.canvas.style.zIndex = zIndexValue; // Canvasのz-indexを更新
           console.log("zIndex更新:", zIndexValue);
