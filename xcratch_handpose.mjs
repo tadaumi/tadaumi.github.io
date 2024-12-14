@@ -1565,7 +1565,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           video = p.createCapture(p.VIDEO);
           video.size(p.width, p.height);
           video.hide();
-          p.hide();
+          //p.hide();
           
           // Handpose モデルのロード
           handpose = ml5.handpose(video, modelLoaded);
