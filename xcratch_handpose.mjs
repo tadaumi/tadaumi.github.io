@@ -1552,7 +1552,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             canvas.style.position = "absolute";
             canvas.style.top = "0";
             canvas.style.left = "0";
-            canvas.style.zIndex = "-1"; // 最背面に配置
+            canvas.style.zIndex = zIndexValue //"-1"; // 最背面に配置
             // Stageの親要素にp5.jsのCanvasを置き換え
             //stageElement.parentNode.replaceChild(p.canvas, stageElement);
             stageElement.parentNode.insertBefore(p.canvas, stageElement);
@@ -1567,12 +1567,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // Handpose モデルのロード
           handpose = ml5.handpose(video, modelLoaded);
           
+          
           // 徐々に前面に出す処理
           let interval = setInterval(() => {
             if (zIndexValue < 10) {
               zIndexValue++; // z-indexを増やす
               console.log("zIndexValue: ", zIndexValue);
-              p.canvas.style.zIndex = zIndexValue;
+              //p.canvas.style.zIndex = zIndexValue;
             } else {
               clearInterval(interval); // z-indexが10に達したらインターバル停止
             }
