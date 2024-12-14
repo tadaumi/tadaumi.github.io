@@ -1628,6 +1628,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       // p5.jsのインスタンスを作成して実行
       new p5(sketch);
       
+      function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      
       // Stageをp5.jsのCanvasで置き換え
       /*
       function replaceStageWithCanvas() {
