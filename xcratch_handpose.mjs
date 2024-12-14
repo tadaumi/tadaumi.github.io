@@ -1561,6 +1561,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
         // モデルがロードされたときのコールバック
         function modelLoaded() {
+          const self = this;
           console.log("Model Loaded!");
 
           // 手の検出イベントをリッスン
@@ -1568,7 +1569,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             predictions = results;
             console.log("検出結果:", predictions);
             if (results && results.length > 0) {
-                this.landmarks = results[0].landmarks; // 必要なデータ構造に合わせて調整
+                self.landmarks = results[0].landmarks;
                 /*
                 results.forEach(hand => {
                   this.landmarks = hand.landmarks;
