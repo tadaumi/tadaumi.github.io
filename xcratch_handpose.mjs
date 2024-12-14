@@ -1542,18 +1542,19 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           p.createCanvas(480, 320);
           // Canvasを最背面に配置
           const canvas = p.canvas;
-          canvas.style.position = "absolute";
-          canvas.style.top = "0";
-          canvas.style.left = "0";
-          canvas.style.zIndex = "-1"; // 最背面に配置
           
           // XcratchのStageをp5.jsのCanvasで置き換える
           
           const stageElement = document.querySelector(".stage_stage_yEvd4.box_box_bP3Aq");
           console.log("stageElement: ", stageElement);
           if (stageElement) {
+            canvas.style.position = "absolute";
+            canvas.style.top = "0";
+            canvas.style.left = "0";
+            canvas.style.zIndex = "-1"; // 最背面に配置
             // Stageの親要素にp5.jsのCanvasを置き換え
-            stageElement.parentNode.replaceChild(p.canvas, stageElement);
+            //stageElement.parentNode.replaceChild(p.canvas, stageElement);
+            stageElement.parentNode.insertBefore(p.canvas, stageElement);
           }
           
 
