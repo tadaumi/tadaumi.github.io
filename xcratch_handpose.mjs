@@ -1596,8 +1596,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
         
         p.draw = function () {
-          //p.background(200);
           p.clear(); // 前フレームをクリア
+          p.background(200); // 背景を描画（Canvasを目立たせるため）
 
           // 動画を描画
           p.image(video, 0, 0, p.width, p.height);
