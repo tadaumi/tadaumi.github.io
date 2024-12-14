@@ -1560,8 +1560,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         };
 
         // モデルがロードされたときのコールバック
-        function modelLoaded() {
-          const self = this;
+        function modelLoaded = () => {  //() {
+          //const self = this;
           console.log("Model Loaded!");
 
           // 手の検出イベントをリッスン
@@ -1569,7 +1569,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             predictions = results;
             console.log("検出結果:", predictions);
             if (results && results.length > 0) {
-                self.landmarks = results[0].landmarks;
+                this.landmarks = results[0].landmarks;
                 /*
                 results.forEach(hand => {
                   this.landmarks = hand.landmarks;
@@ -1577,7 +1577,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 */
             }
             
-            console.log("this.landmarks:", self.landmarks);
+            console.log("this.landmarks:", this.landmarks);
             
           });
         }
@@ -1730,6 +1730,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
+          /*
           {
             opcode: "setRatio",
             blockType: BlockType$1.COMMAND,
@@ -1742,6 +1743,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
+          */
           {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
@@ -1842,12 +1844,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.runtime.ioDevices.video.setPreviewGhost(transparency);
     },
   },
+  /*
   {
     key: "setRatio",
     value: function setRatio(args) {
       this.ratio = parseFloat(args.RATIO);
     },
   },
+  */
   {
     key: "setLocale",
     value: function setLocale() {
