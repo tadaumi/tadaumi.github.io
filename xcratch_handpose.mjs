@@ -1807,6 +1807,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             },
           },
           
+          /*
           {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
@@ -1824,6 +1825,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               }
             }
           }
+          */
         ],
         menus: {
           landmark: {
@@ -1938,6 +1940,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     },
   },
   
+  /*
   {
     key: "doIt",
     value: function doIt(args) {
@@ -1946,7 +1949,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       log$1.log("doIt: ".concat(statement));
       return func.call(this);
     }
-  }], [{
+  }
+  */
+  
+  ], [{
     key: "formatMessage",
     set:
     /**
