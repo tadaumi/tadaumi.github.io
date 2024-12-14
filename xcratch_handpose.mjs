@@ -1739,7 +1739,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }),
             arguments: {
               TRANSPARENCY: {
-                type: ArgumentType.NUMBER,
+                type: ArgumentType$1.NUMBER,
                 defaultValue: 50,
               },
             },
@@ -1785,6 +1785,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             acceptReporters: true,
             items: this.VIDEO_MENU,
           },
+          ratioMenu: {
+            acceptReporters: true,
+            items: this.RATIO_MENU
+          },
+          intervalMenu: {
+            acceptReporters: true,
+            items: this.INTERVAL_MENU
+          }
         },  
       
       };
