@@ -1744,7 +1744,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-          /*
+          
           {
             opcode: "setRatio",
             blockType: BlockType$1.COMMAND,
@@ -1757,7 +1757,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-          */
+          
           {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
@@ -1858,14 +1858,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.runtime.ioDevices.video.setPreviewGhost(transparency);
     },
   },
-  /*
+  
   {
     key: "setRatio",
     value: function setRatio(args) {
       this.ratio = parseFloat(args.RATIO);
     },
   },
-  */
+  
   {
     key: "setLocale",
     value: function setLocale() {
