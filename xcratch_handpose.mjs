@@ -61,7 +61,7 @@ var entry = {
   get name() {
     return formatMessage$1({
       id: 'handpose2scratch.entry.name',
-      defaultMessage: 'Xcratch Example',
+      defaultMessage: 'handpose2scratch',
       description: 'name of the extension'
     });
   },
@@ -1734,7 +1734,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           {
             opcode: "getX",
             blockType: BlockType$1.REPORTER,
-            text: Message.getX[this._locale] || "x of [LANDMARK]",
+            text: Message.getX[this._locale], // || "x of [LANDMARK]",
             arguments: {
               LANDMARK: {
                 type: ArgumentType$1.STRING,
