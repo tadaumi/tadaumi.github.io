@@ -1617,6 +1617,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   _createClass$1(ExtensionBlocks, [
     
     {
+      /*
       key: "LANDMARK_MENU",
       get: function () {
         console.log("LANDMARK_MENU: locale: ", this._locale);
@@ -1635,7 +1636,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       },
     },
     
-    /*
+    
     {
       key: "VIDEO_MENU",
       get: function () {
