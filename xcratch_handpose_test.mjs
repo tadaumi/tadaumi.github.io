@@ -1739,6 +1739,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
+          /*
           {
             opcode: "videoToggle",
             blockType: BlockType$1.COMMAND,
@@ -1765,7 +1766,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-          /*
+          
           {
             opcode: "setRatio",
             blockType: BlockType$1.COMMAND,
@@ -1803,11 +1804,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             acceptReporters: true,
             items: this.LANDMARK_MENU || ["1", "2", "3"],
           },
+          /*
           videoMenu: {
             acceptReporters: true,
             items: this.VIDEO_MENU,
           },
-          /*
+          
           ratioMenu: {
             acceptReporters: true,
             items: this.RATIO_MENU,
@@ -1870,6 +1872,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
     },
   },
+  /*
   {
     key: "videoToggle",
     value: function videoToggle(args) {
@@ -1890,7 +1893,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.runtime.ioDevices.video.setPreviewGhost(transparency);
     },
   },
-  /*
+  
   {
     key: "setRatio",
     value: function setRatio(args) {
@@ -1898,7 +1901,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.ratio = parseFloat(args.RATIO);
     },
   },
-  */
+  
   {
     key: "setLocale",
     value: function setLocale() {
@@ -1911,7 +1914,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
     },
   },
-  
+  */
   
   {
     key: "doIt",
