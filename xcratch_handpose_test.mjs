@@ -1605,16 +1605,17 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           
     // Enable video and start detection
     //this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
-    this.runtime.ioDevices.video.enableVideo().then(() => {
+    //this.runtime.ioDevices.video.enableVideo().then(() => {
       // detectHandを呼び出して動画の検出を開始
       //this.detectHand();
-    });
+    //});
   }
 
   /**
    * @returns {object} metadata for this extension and its blocks.
    */
   _createClass$1(ExtensionBlocks, [
+    /*
     {
       key: "LANDMARK_MENU",
       get: function () {
@@ -1686,11 +1687,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
         };
 
-        // 必要なブロックをここで追加
-        // this.runtime.addBlock(setRatioBlock);
+
       }
     },
-    
+    */
     
     {
     key: "getInfo",
