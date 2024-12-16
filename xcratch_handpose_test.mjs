@@ -1615,7 +1615,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
    * @returns {object} metadata for this extension and its blocks.
    */
   _createClass$1(ExtensionBlocks, [
-    /*
+    
     {
       key: "LANDMARK_MENU",
       get: function () {
@@ -1634,6 +1634,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return landmark_menu;
       },
     },
+    
     {
       key: "VIDEO_MENU",
       get: function () {
@@ -1644,6 +1645,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         ];
       },
     },
+    /*
     {
       key: "INTERVAL_MENU",
       get: function () {
@@ -1763,7 +1765,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-          
+          /*
           {
             opcode: "setRatio",
             blockType: BlockType$1.COMMAND,
@@ -1776,7 +1778,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-          
+          */
           {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
