@@ -1619,6 +1619,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
+      console.log("ExtensionBlocks.extensionURL:", ExtensionBlocks.extensionURL);
       return {
         id: ExtensionBlocks.EXTENSION_ID,
         name: ExtensionBlocks.EXTENSION_NAME,
