@@ -1,4 +1,4 @@
-//alert("start");
+alert("start");
 console.log("current pass: ", window.location.pathname);
 console.log(`ml5.min.js のパス: ${window.location.pathname}/work/lib/ml5.min.js`);
 
@@ -9,13 +9,29 @@ console.log('Script Directory:', scriptDir);
 console.log('ml5 Path:', ml5Path);
 
 
-//import ml5 from 'https://unpkg.com/ml5@0.12.2/dist/ml5.min.js';
-//import ml5 from 'https://tadaumi.github.io/ml5.min.js';
-import ml5 from 'https://tadaumi.github.io/ml5_unpkg.min.js';
+//import ml5 from 'https://cdn.jsdelivr.net/npm/ml5@latest/dist/ml5.min.js';
+import ml5 from 'https://tadaumi.github.io/ml5.min.js';
 //import ml5 from 'https://unpkg.com/ml5@1/dist/ml5.js'; =>NG!: does not provide an export named 'default'
 
 //import tf from 'https://tadaumi.github.io/tf.min.js';
-import 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js';
+import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js';
+//import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core';
+import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
+//import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl@4.22.0/dist/tf-backend-webgl.min.js';
+//console.log('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core');
+console.log('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js');
+/*
+(async () => {
+  // TensorFlow.js のバックエンドを WebGL に設定
+  console.log("Backend: " + tf.getBackend());
+  //await tf.setBackend('webgl');
+  await tf.setBackend('cpu');
+  await tf.ready();
+  console.log('TensorFlow.js is ready with CPU backend');
+  alert("webgl started");
+})();
+*/
+
 
 
 
@@ -66,7 +82,7 @@ var entry = {
     });
   },
   extensionId: 'xcratchExample',
-  extensionURL: 'https://xcratch.github.io/xcx-example/dist/xcratchExample.mjs',
+  extensionURL: 'https://tadaumi.github.io/xcratch_handpose.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1520,7 +1536,7 @@ var EXTENSION_ID = 'xcratchExample';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://yokobond.github.io/xcx-xcratchExample/dist/xcratchExample.mjs';
+var extensionURL = 'https://tadaumi.github.io/xcratch_handpose.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
@@ -1544,75 +1560,76 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     
     // Video setup
     this.detectHand = () => {
-      let video;
-      let handpose;
-      let predictions = [];
-
-      const sketch = (p) => {
-        p.setup = async function () {
-          // p5.jsのCanvasを作成
-          p.createCanvas(640, 480);
-          // XcratchのStageをp5.jsのCanvasで置き換える
-          const stageElement = document.querySelector(".stage_stage_yEvd4.box_box_bP3Aq");
-          console.log("stageElement: ", stageElement);
-          if (stageElement) {
-            // Stageの親要素にp5.jsのCanvasを置き換え
-            stageElement.parentNode.replaceChild(p.canvas, stageElement);
-          }
-
-          // 動画要素の取得（p5.jsのcreateCaptureを使用）
-          video = p.createCapture(p.VIDEO);
-          video.size(p.width, p.height);
-          video.hide();
-
-          // Handpose モデルのロード
-          handpose = ml5.handpose(video, modelLoaded);
-        };
-
-        // モデルがロードされたときのコールバック
-        function modelLoaded() {
-          console.log("Model Loaded!");
-
-          // 手の検出イベントをリッスン
-          handpose.on("hand", (results) => {
-            predictions = results;
-            console.log("検出結果:", predictions);
-          });
+      let videoElement;
+      videoElement = this.runtime.ioDevices.video.provider.video;
+      alert("video started");
+      const interval = setInterval(() => {
+        console.log("Checking video readyState:", videoElement.readyState);
+        if (videoElement.readyState === 4) { // HAVE_ENOUGH_DATA
+          console.log("Video readyState is 4. Proceeding...");
+          // ループを停止
+          clearInterval(interval);
         }
-
-        p.draw = function () {
-          p.background(200);
-
-          // 動画を描画
-          p.image(video, 0, 0, p.width, p.height);
-
-          // 手の検出結果を描画
-          if (predictions.length > 0) {
-            for (let hand of predictions) {
-              for (let [x, y] of hand.landmarks) {
-                p.fill(0, 255, 0);
-                p.noStroke();
-                p.ellipse(x, y, 10, 10); // 各ランドマークを描画
-              }
-            }
-          }
-        };
-        
-      };
-
-      // p5.jsのインスタンスを作成して実行
-      new p5(sketch);
+      }, 100); // 100msごとにチェック
       
-      // Stageをp5.jsのCanvasで置き換え
-      function replaceStageWithCanvas() {
-        const canvas = document.querySelector('canvas');
-        const stage = document.querySelector('.stage'); // XcratchのStageクラスを選択
+      console.log("Video Element:", this.video);
+      
+      this.runtime.ioDevices.video.enableVideo().then(() => {
+        console.log("Video enabled!");
+      }).catch(error => {
+        console.error("Error enabling video:", error);
+      });
+      
+      //alert(Message.please_wait[this._locale]);
+      alert("please wait");
+      //var videoElement = this.Video;
+      console.log("Video Element after copied:", videoElement);
+      
+      const handPose = ml5.handPose();
+      //const handpose = ml5.handPose(this.video, modelReadyCallback);
+      //console.log("Model loaded!");
+      
+      const callback = (results, error) => {
+          if (error) {
+              console.error(error);
+              return;
+          }
+          console.log(results);  // 手の検出結果を表示
+      };
+      
+      const handpose = ml5.handPose(videoElement, function () {
+        console.log("Model loaded!");
 
-        // Stage要素をp5.jsのcanvasで置き換え
-        stage.parentNode.replaceChild(canvas, stage);
-      }
+        console.log("detectStart!");
+        handpose.detectStart(videoElement, callback);
+        console.log("callback: ", callback);
+        
+        /*
+        handpose.detectStart(this.video, (results, error) => {
+          if (error) {
+            console.error("Detection Error:", error);
+            return;
+          }
+          console.log("results: ", results);
+          if (results && results.length > 0) {
+            // 検出された手のランドマークを処理
+            results.forEach(hand => {
+              this.landmarks = hand.landmarks; // ランドマークを保存
+              console.log("Landmarks:", this.landmarks);
+            });
+          }
+        }
+        );
+        */
+        
+      });
+      
+
+
+      
+
+      
     };
-          
     // Enable video and start detection
     this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
     
