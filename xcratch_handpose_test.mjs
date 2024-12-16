@@ -1615,174 +1615,16 @@ var ExtensionBlocks = /*#__PURE__*/function () {
    * @returns {object} metadata for this extension and its blocks.
    */
   _createClass$1(ExtensionBlocks, [
-    
-    {
-      /*
-      key: "LANDMARK_MENU",
-      get: function () {
-        console.log("LANDMARK_MENU: locale: ", this._locale);
-        const landmark_menu = [];
-        this._locale = "en";
-        const locale = this._locale || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
-        const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
-        for (let i = 1; i <= 21; i++) {
-          landmark_menu.push({
-            text: `${Message.landmarks[i - 1][this._locale]} (${i})`,
-            value: String(i),
-          });
-        }
-        console.log("landmark_menu: ", landmark_menu);
-        return landmark_menu;
-      },
-    },
-    
-    
-    {
-      key: "VIDEO_MENU",
-      get: function () {
-        return [
-          { text: Message.off[this._locale], value: "off" },
-          { text: Message.on[this._locale], value: "on" },
-          { text: Message.video_on_flipped[this._locale], value: "on-flipped" },
-        ];
-      },
-    },
-    
-    {
-      key: "INTERVAL_MENU",
-      get: function () {
-        return [
-          { text: '0.1', value: '0.1' },
-          { text: '0.2', value: '0.2' },
-          { text: '0.5', value: '0.5' },
-          { text: '1.0', value: '1.0' }
-        ];
-      }
-    },
-    {
-      key: "RATIO_MENU",
-      get: function () {
-        return [
-          { text: '0.5', value: '0.5' },
-          { text: '0.75', value: '0.75' },
-          { text: '1', value: '1' },
-          { text: '1.5', value: '1.5' },
-          { text: '2.0', value: '2.0' }
-        ];
-      }
-    },
-    {
-      key: "defineBlocks",
-      value: function () {
-        const setRatioBlock = {
-          opcode: 'setRatio',
-          blockType: BlockType$1.COMMAND,
-          text: Message.setRatio[this._locale],
-          arguments: {
-            RATIO: {
-              type: ArgumentType$1.STRING,
-              menu: 'RATIO_MENU',
-              defaultValue: '0.75'
-            }
-          },
-          value: function setRatio(args) {
-            this.ratio = parseFloat(args.RATIO);
-            console.log('Ratio set to:', this.ratio);
-          }
-        };
-
-
-      }
-    },
-    */
-    
     {
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
       return {
-        id: "handpose2scratch",
-        name: "Handpose2Scratch",
+        id: ExtensionBlocks.EXTENSION_ID,
+        name: ExtensionBlocks.EXTENSION_NAME,
+        extensionURL: ExtensionBlocks.extensionURL,
         blockIconURI: blockIconURI,
         blocks: [
-          /*
-          {
-            opcode: "getX",
-            blockType: BlockType$1.REPORTER,
-            text: Message.getX[this._locale], // || "x of [LANDMARK]",
-            arguments: {
-              LANDMARK: {
-                type: ArgumentType$1.STRING,
-                menu: "landmark",
-                defaultValue: "1",
-              },
-            },
-          },
-          {
-            opcode: "getY",
-            blockType: BlockType$1.REPORTER,
-            text: Message.getY[this._locale] || "y of [LANDMARK]",
-            arguments: {
-              LANDMARK: {
-                type: ArgumentType$1.STRING,
-                menu: "landmark",
-                defaultValue: "1",
-              },
-            },
-          },
-          {
-            opcode: "getZ",
-            blockType: BlockType$1.REPORTER,
-            text: Message.getZ[this._locale] || "z of [LANDMARK]",
-            arguments: {
-              LANDMARK: {
-                type: ArgumentType$1.STRING,
-                menu: "landmark",
-                defaultValue: "1",
-              },
-            },
-          },
-          
-          {
-            opcode: "videoToggle",
-            blockType: BlockType$1.COMMAND,
-            text: Message.videoToggle[this._locale],
-            arguments: {
-              VIDEO_STATE: {
-                type: ArgumentType$1.STRING,
-                menu: "videoMenu",
-                defaultValue: "off",
-              },
-            },
-          },
-          {
-            opcode: "setVideoTransparency",
-            blockType: BlockType$1.COMMAND,
-            text: formatMessage({
-              id: "videoSensing.setVideoTransparency",
-              default: "set video transparency to [TRANSPARENCY]",
-            }),
-            arguments: {
-              TRANSPARENCY: {
-                type: ArgumentType$1.NUMBER,
-                defaultValue: 50,
-              },
-            },
-          },
-          
-          {
-            opcode: "setRatio",
-            blockType: BlockType$1.COMMAND,
-            text: Message.setRatio[this._locale] || "0.75",
-            arguments: {
-              RATIO: {
-                type: ArgumentType$1.STRING,
-                menu: "ratioMenu",
-                defaultValue: "0.75",
-              },
-            },
-          },
-          */
           {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
@@ -1825,11 +1667,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             items: this.INTERVAL_MENU
           }
           */
-        },  
+        }
       
       };
     }
-  }, {
+  }, 
+  {
     key: "getX",
     value: function getX(args) {
       console.log("LANDMARK argument:", args.LANDMARK);
