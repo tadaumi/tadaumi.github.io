@@ -1635,6 +1635,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       },
     },
     
+    /*
     {
       key: "VIDEO_MENU",
       get: function () {
@@ -1645,7 +1646,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         ];
       },
     },
-    /*
+    
     {
       key: "INTERVAL_MENU",
       get: function () {
@@ -1703,6 +1704,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         name: "Handpose2Scratch",
         blockIconURI: blockIconURI,
         blocks: [
+          /*
           {
             opcode: "getX",
             blockType: BlockType$1.REPORTER,
@@ -1739,7 +1741,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-          /*
+          
           {
             opcode: "videoToggle",
             blockType: BlockType$1.COMMAND,
