@@ -1807,11 +1807,12 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             acceptReporters: true,
             items: this.VIDEO_MENU,
           },
+          /*
           ratioMenu: {
             acceptReporters: true,
             items: this.RATIO_MENU,
           }
-          /*
+          
           ,
           intervalMenu: {
             acceptReporters: true,
@@ -1889,7 +1890,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.runtime.ioDevices.video.setPreviewGhost(transparency);
     },
   },
-  
+  /*
   {
     key: "setRatio",
     value: function setRatio(args) {
@@ -1897,7 +1898,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       this.ratio = parseFloat(args.RATIO);
     },
   },
-  
+  */
   {
     key: "setLocale",
     value: function setLocale() {
