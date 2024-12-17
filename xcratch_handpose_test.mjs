@@ -1743,7 +1743,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             acceptReporters: true,
             items: this.LANDMARK_MENU || ["1", "2", "3"],
           },
-          /*
+          
           videoMenu: {
             acceptReporters: true,
             items: this.VIDEO_MENU,
@@ -1759,7 +1759,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             acceptReporters: true,
             items: this.INTERVAL_MENU
           }
-          */
+          
         }
       
       };
