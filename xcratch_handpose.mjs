@@ -1544,22 +1544,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           p.createCanvas(480, 320);
           // Canvasを最背面に配置
           const canvas = p.canvas;
-          
-          // XcratchのStageをp5.jsのCanvasで置き換える
-          /*
-          const stageElement = document.querySelector(".stage_stage_yEvd4.box_box_bP3Aq");
-          console.log("stageElement: ", stageElement);
-          if (stageElement) {
-            p.canvas.style.position = "absolute";
-            p.canvas.style.top = "0";
-            p.canvas.style.left = "0";
-            p.canvas.style.zIndex = zIndexValue; //"-1"; // 最背面に配置
-            console.log("zIndexValue in stageElement: ", zIndexValue);
-            // Stageの親要素にp5.jsのCanvasを置き換え
-            //stageElement.parentNode.replaceChild(p.canvas, stageElement);
-            stageElement.parentNode.insertBefore(p.canvas, stageElement);
-          }
-          */
 
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
           video = p.createCapture(p.VIDEO);
@@ -1584,11 +1568,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             //console.log("検出結果:", predictions);
             if (results && results.length > 0) {
                 this.landmarks = results[0].landmarks;
-                /*
-                results.forEach(hand => {
-                  this.landmarks = hand.landmarks;
-                });
-                */
             }
             //console.log("this.landmarks:", this.landmarks);
             
@@ -1622,15 +1601,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       // p5.jsのインスタンスを作成して実行
       new p5(sketch);
       
-      // Stageをp5.jsのCanvasで置き換え
-      /*
-      function replaceStageWithCanvas() {
-        const canvas = document.querySelector('canvas');
-        const stage = document.querySelector('.stage'); // XcratchのStageクラスを選択
-        // Stage要素をp5.jsのcanvasで置き換え
-        stage.parentNode.replaceChild(canvas, stage);
-      }
-      */
     };
           
     // Enable video and start detection
@@ -1663,7 +1633,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return landmark_menu;
       },
     },
-    {
+        {
       key: "VIDEO_MENU",
       get: function () {
         return [
@@ -1722,13 +1692,16 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     },
     
     
+    
     {
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
+      console.log("ExtensionBlocks.extensionURL:", ExtensionBlocks.extensionURL);
       return {
-        id: "handpose2scratch",
-        name: "Handpose2Scratch",
+        id: ExtensionBlocks.EXTENSION_ID,
+        name: ExtensionBlocks.EXTENSION_NAME,
+        extensionURL: ExtensionBlocks.extensionURL,
         blockIconURI: blockIconURI,
         blocks: [
           {
@@ -1806,8 +1779,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-          
-          /*
+        
           {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
@@ -1825,33 +1797,34 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               }
             }
           }
-          */
+          
         ],
         menus: {
           landmark: {
             acceptReporters: true,
             items: this.LANDMARK_MENU || ["1", "2", "3"],
           },
+          
           videoMenu: {
             acceptReporters: true,
             items: this.VIDEO_MENU,
           },
+          
           ratioMenu: {
             acceptReporters: true,
             items: this.RATIO_MENU,
-          }
-          /*
-          ,
+          },
           intervalMenu: {
             acceptReporters: true,
             items: this.INTERVAL_MENU
           }
-          */
-        },  
+          
+        }
       
       };
     }
-  }, {
+  }, 
+  {
     key: "getX",
     value: function getX(args) {
       console.log("LANDMARK argument:", args.LANDMARK);
@@ -1898,6 +1871,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
     },
   },
+  
   {
     key: "videoToggle",
     value: function videoToggle(args) {
@@ -1940,7 +1914,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     },
   },
   
-  /*
+  
   {
     key: "doIt",
     value: function doIt(args) {
@@ -1950,7 +1924,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       return func.call(this);
     }
   }
-  */
+  
   
   ], [{
     key: "formatMessage",
