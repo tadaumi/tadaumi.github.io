@@ -1752,7 +1752,33 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-        
+          {
+            opcode: "setVideoTransparency",
+            blockType: BlockType$1.COMMAND,
+            text: formatMessage({
+              id: "videoSensing.setVideoTransparency",
+              default: "set video transparency to [TRANSPARENCY]",
+            }),
+            arguments: {
+              TRANSPARENCY: {
+                type: ArgumentType$1.NUMBER,
+                defaultValue: 50,
+              },
+            },
+          },
+          
+          {
+            opcode: "setRatio",
+            blockType: BlockType$1.COMMAND,
+            text: Message.setRatio[this._locale] || "0.75",
+            arguments: {
+              RATIO: {
+                type: ArgumentType$1.STRING,
+                menu: "ratioMenu",
+                defaultValue: "0.75",
+              },
+            },
+          },
         
           {
             opcode: 'do-it',
