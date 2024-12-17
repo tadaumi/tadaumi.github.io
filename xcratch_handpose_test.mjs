@@ -1601,7 +1601,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       // p5.jsのインスタンスを作成して実行
       new p5(sketch);
       
-    
+    };
           
     // Enable video and start detection
     //this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
