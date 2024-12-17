@@ -1616,6 +1616,27 @@ var ExtensionBlocks = /*#__PURE__*/function () {
    */
   _createClass$1(ExtensionBlocks, [
     {
+      key: "LANDMARK_MENU",
+      get: function () {
+        console.log("LANDMARK_MENU: locale: ", this._locale);
+        const landmark_menu = [];
+        this._locale = "en";
+        const locale = this._locale || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
+        const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
+        for (let i = 1; i <= 21; i++) {
+          landmark_menu.push({
+            text: `${Message.landmarks[i - 1][this._locale]} (${i})`,
+            value: String(i),
+          });
+        }
+        console.log("landmark_menu: ", landmark_menu);
+        return landmark_menu;
+      },
+    },
+    
+    
+    
+    {
     key: "getInfo",
     value: function getInfo() {
       setupTranslations();
