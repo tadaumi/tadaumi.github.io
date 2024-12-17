@@ -1705,6 +1705,21 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: blockIconURI,
         blocks: [
           {
+            opcode: "getX",
+            blockType: BlockType$1.REPORTER,
+            text: Message.getX[this._locale], // || "x of [LANDMARK]",
+            arguments: {
+              LANDMARK: {
+                type: ArgumentType$1.STRING,
+                menu: "landmark",
+                defaultValue: "1",
+              },
+            },
+          },
+        
+        
+        
+          {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
             blockAllThreads: false,
