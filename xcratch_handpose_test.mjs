@@ -1633,6 +1633,63 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return landmark_menu;
       },
     },
+        {
+      key: "VIDEO_MENU",
+      get: function () {
+        return [
+          { text: Message.off[this._locale], value: "off" },
+          { text: Message.on[this._locale], value: "on" },
+          { text: Message.video_on_flipped[this._locale], value: "on-flipped" },
+        ];
+      },
+    },
+    {
+      key: "INTERVAL_MENU",
+      get: function () {
+        return [
+          { text: '0.1', value: '0.1' },
+          { text: '0.2', value: '0.2' },
+          { text: '0.5', value: '0.5' },
+          { text: '1.0', value: '1.0' }
+        ];
+      }
+    },
+    {
+      key: "RATIO_MENU",
+      get: function () {
+        return [
+          { text: '0.5', value: '0.5' },
+          { text: '0.75', value: '0.75' },
+          { text: '1', value: '1' },
+          { text: '1.5', value: '1.5' },
+          { text: '2.0', value: '2.0' }
+        ];
+      }
+    },
+    {
+      key: "defineBlocks",
+      value: function () {
+        const setRatioBlock = {
+          opcode: 'setRatio',
+          blockType: BlockType$1.COMMAND,
+          text: Message.setRatio[this._locale],
+          arguments: {
+            RATIO: {
+              type: ArgumentType$1.STRING,
+              menu: 'RATIO_MENU',
+              defaultValue: '0.75'
+            }
+          },
+          value: function setRatio(args) {
+            this.ratio = parseFloat(args.RATIO);
+            console.log('Ratio set to:', this.ratio);
+          }
+        };
+
+        // 必要なブロックをここで追加
+        // this.runtime.addBlock(setRatioBlock);
+      }
+    },
     
     
     
