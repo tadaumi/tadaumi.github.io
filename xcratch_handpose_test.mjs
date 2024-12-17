@@ -1739,12 +1739,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           
         ],
         menus: {
-          /*
           landmark: {
             acceptReporters: true,
             items: this.LANDMARK_MENU || ["1", "2", "3"],
           },
-          
+          /*
           videoMenu: {
             acceptReporters: true,
             items: this.VIDEO_MENU,
