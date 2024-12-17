@@ -1720,7 +1720,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
     },
   },
-  /*
+  
   {
     key: "videoToggle",
     value: function videoToggle(args) {
@@ -1762,7 +1762,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
     },
   },
-  */
+  
   
   {
     key: "doIt",
