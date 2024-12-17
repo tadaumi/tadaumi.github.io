@@ -1716,7 +1716,42 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               },
             },
           },
-        
+          {
+            opcode: "getY",
+            blockType: BlockType$1.REPORTER,
+            text: Message.getY[this._locale] || "y of [LANDMARK]",
+            arguments: {
+              LANDMARK: {
+                type: ArgumentType$1.STRING,
+                menu: "landmark",
+                defaultValue: "1",
+              },
+            },
+          },
+          {
+            opcode: "getZ",
+            blockType: BlockType$1.REPORTER,
+            text: Message.getZ[this._locale] || "z of [LANDMARK]",
+            arguments: {
+              LANDMARK: {
+                type: ArgumentType$1.STRING,
+                menu: "landmark",
+                defaultValue: "1",
+              },
+            },
+          },
+          {
+            opcode: "videoToggle",
+            blockType: BlockType$1.COMMAND,
+            text: Message.videoToggle[this._locale],
+            arguments: {
+              VIDEO_STATE: {
+                type: ArgumentType$1.STRING,
+                menu: "videoMenu",
+                defaultValue: "off",
+              },
+            },
+          },
         
         
           {
@@ -1752,9 +1787,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           ratioMenu: {
             acceptReporters: true,
             items: this.RATIO_MENU,
-          }
-          
-          ,
+          },
           intervalMenu: {
             acceptReporters: true,
             items: this.INTERVAL_MENU
