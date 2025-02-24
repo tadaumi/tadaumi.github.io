@@ -1574,7 +1574,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           });
         }
 
-        
+        /*
         p.draw = function () {
           p.clear(); // 前フレームをクリア
           p.background(200); // 背景を描画（Canvasを目立たせるため）
@@ -1594,7 +1594,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
         
         };
-        
+        */
         
       };
 
