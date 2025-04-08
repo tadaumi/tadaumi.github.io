@@ -1541,7 +1541,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         p.setup = async function () {
         //p.setup = function () {
           // p5.jsのCanvasを作成
-          p.createCanvas(160, 120);
+          p.createCanvas(80, 60);
           // Canvasを最背面に配置
           const canvas = p.canvas;
 
@@ -1568,7 +1568,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
           // 手の検出イベントをリッスン
           handpose.on("hand", (results) => {
-            if (frameCount % 5 !== 0) return;
+            if (frameCount % 10 !== 0) return;
          
             predictions = results;
             //console.log("検出結果:", predictions);
