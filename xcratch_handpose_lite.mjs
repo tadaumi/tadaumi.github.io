@@ -66,7 +66,7 @@ var entry = {
     });
   },
   extensionId: 'handpose2scratch',
-  extensionURL: 'https://tadaumi.github.io/xcratch_handpose.mjs',
+  extensionURL: 'https://tadaumi.github.io/xcratch_handpose_lite.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1298,11 +1298,11 @@ var log = minilog('vm');
 var log$1 = /*@__PURE__*/getDefaultExportFromCjs(log);
 
 var en = {
-	"handpose2scratch.name": "Xcratch Example",
+	"handpose2scratch.name": "Handpose",
 	"handpose2scratch.doIt": "do it [SCRIPT]"
 };
 var ja = {
-	"handpose2scratch.name": "Xcratchの例",
+	"handpose2scratch.name": "Handpose",
 	"handpose2scratch.doIt": "[SCRIPT] を実行する"
 };
 var translations = {
@@ -1505,7 +1505,7 @@ var EXTENSION_ID = 'handpose2scratch';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://tadaumi.github.io/xcratch_handpose.mjs';
+var extensionURL = 'https://tadaumi.github.io/xcratch_handpose_lite.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
@@ -1541,7 +1541,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         p.setup = async function () {
         //p.setup = function () {
           // p5.jsのCanvasを作成
-          p.createCanvas(80, 60);
+          p.createCanvas(40, 30);
           // Canvasを最背面に配置
           const canvas = p.canvas;
 
@@ -1556,9 +1556,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             modelType: "lite"
           };
           handpose = ml5.handpose(video, options, modelLoaded);
-          
+          frameCount++;
         };
-
+frameCount++;
         // モデルがロードされたときのコールバック
         let frameCount = 0;
         //function modelLoaded() {
@@ -1566,9 +1566,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           //const self = this;
           console.log("Model Loaded!");
 
-          // 手の検出イベントをリッスン
+          // 手の検出イベンframeCount++;トをリッスン
           handpose.on("hand", (results) => {
-            if (frameCount % 10 !== 0) return;
+            frameCount++;
+            if (frameCount frameCount++;% 10 !== 0) return;
          
             predictions = results;
             //console.log("検出結果:", predictions);
@@ -1626,8 +1627,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       get: function () {
         console.log("LANDMARK_MENU: locale: ", this._locale);
         const landmark_menu = [];
-        this._locale = "en";
-        const locale = this._locale || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
+        this._locale = "ja";
+        const locale = this._locale; // || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
         const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
         for (let i = 1; i <= 21; i++) {
           landmark_menu.push({
