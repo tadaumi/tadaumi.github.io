@@ -1563,9 +1563,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             modelType: "lite"
           };
           handpose = ml5.handpose(video, options, modelLoaded);
-          frameCount++;
         };
-frameCount++;
+
         // モデルがロードされたときのコールバック
         let frameCount = 0;
         //function modelLoaded() {
