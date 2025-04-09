@@ -1575,13 +1575,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // 手の検出イベンframeCount++;トをリッスン
           handpose.on("hand", (results) => {
             frameCount++;
+            console.log("frameCount:", frameCount);
             if (frameCount % 10 == 0) {
               predictions = results;
               //console.log("検出結果:", predictions);
               if (results && results.length > 0) {
                   this.landmarks = results[0].landmarks;
               }
-             }
+            }
             //console.log("this.landmarks:", this.landmarks);
             
           });
@@ -1633,7 +1634,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       get: function () {
         console.log("LANDMARK_MENU: locale: ", this._locale);
         const landmark_menu = [];
-        this._locale = "ja";
+        this._locale = "en";
         const locale = this._locale; // || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
         const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
         for (let i = 1; i <= 21; i++) {
