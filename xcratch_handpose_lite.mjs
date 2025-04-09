@@ -1546,7 +1546,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const canvas = p.canvas;
 
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
-          video = p.createCapture(p.VIDEO);
+          let constraints = {
+            video: {
+              width: { ideal: 40 },
+              height: { ideal: 30 }
+            }
+          };
+          //video = p.createCapture(p.VIDEO);
+          video = p.createCapture(constraints);
           video.size(p.width, p.height);
           video.hide();
           //p.hide();
@@ -1569,13 +1576,13 @@ frameCount++;
           // 手の検出イベンframeCount++;トをリッスン
           handpose.on("hand", (results) => {
             frameCount++;
-            if (frameCount frameCount++;% 10 !== 0) return;
-         
-            predictions = results;
-            //console.log("検出結果:", predictions);
-            if (results && results.length > 0) {
-                this.landmarks = results[0].landmarks;
-            }
+            if (frameCount % 10 == 0) {
+              predictions = results;
+              //console.log("検出結果:", predictions);
+              if (results && results.length > 0) {
+                  this.landmarks = results[0].landmarks;
+              }
+             }
             //console.log("this.landmarks:", this.landmarks);
             
           });
