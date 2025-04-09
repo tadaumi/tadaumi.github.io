@@ -1576,13 +1576,14 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           handpose.on("hand", (results) => {
             frameCount++;
             console.log("frameCount:", frameCount);
-            if (frameCount % 10 == 0) {
-              predictions = results;
-              //console.log("検出結果:", predictions);
-              if (results && results.length > 0) {
-                  this.landmarks = results[0].landmarks;
-              }
+            if (frameCount % 10 !== 0) return;
+            
+            predictions = results;
+            //console.log("検出結果:", predictions);
+            if (results && results.length > 0) {
+                this.landmarks = results[0].landmarks;
             }
+            
             //console.log("this.landmarks:", this.landmarks);
             
           });
