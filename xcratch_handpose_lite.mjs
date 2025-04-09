@@ -1566,7 +1566,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         };
 
         // モデルがロードされたときのコールバック
-        let frameCount = 0;
+        let frameCount = 0;https://tadaumi.github.io/xcratch_handpose_lite.mjs
         //function modelLoaded() {
         const modelLoaded = () => {
           //const self = this;
