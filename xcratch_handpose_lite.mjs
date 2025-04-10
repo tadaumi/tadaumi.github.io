@@ -1562,19 +1562,37 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           let options = {
             modelType: "lite"
           };
-          handpose = ml5.handpose(video, options, modelLoaded);
+          //handpose = ml5.handpose(video, options, modelLoaded);
+          handpose = await ml5.handpose(video, options);
         };
 
+        function startPredictingLoop() {
+          setInterval(async () => {
+            if (handpose && video.readyState === 4) {
+              predictions = await handpose.predict(video);
+
+              if (predictions.length > 0) {
+                this.landmarks = predictions[0].landmarks;
+                // ここで landmarks を使って何か処理
+                console.log(this.landmarks);
+              }
+            }
+          }, 200); 
+        }
+
+
+
+        /*
         // モデルがロードされたときのコールバック
-        let frameCount = 0;
+        //let frameCount = 0;
         //function modelLoaded() {
         const modelLoaded = () => {
           //const self = this;
           console.log("Model Loaded!");
-
-          // 手の検出イベンframeCount++;トをリッスン
+          // 手の検出イベントをリッスン
+          /*
           handpose.on("hand", (results) => {
-            frameCount++;
+            //frameCount++;
             //console.log("===frameCount:", frameCount);
             //if (frameCount % 2 !== 0) return;
             
@@ -1588,7 +1606,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             
           });
         }
-
+        */
+        
         /*
         p.draw = function () {
           p.clear(); // 前フレームをクリア
@@ -1697,7 +1716,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           },
           value: function setRatio(args) {
             this.ratio = parseFloat(args.RATIO);
-            console.log('Ratio set to:', this.ratio);
+            //console.log('Ratio set to:', this.ratio);
           }
         };
 
@@ -1850,7 +1869,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       } else {
         console.log("Landmarks are empty or not initialized");
       }
-      console.log("Ratio:", this.ratio);
+      //console.log("Ratio:", this.ratio);
       
       if (this.landmarks[landmark]) {
         if (this.runtime.ioDevices.video.mirror === false) {
