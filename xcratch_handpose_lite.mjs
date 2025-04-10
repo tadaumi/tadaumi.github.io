@@ -1575,8 +1575,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           // 手の検出イベンframeCount++;トをリッスン
           handpose.on("hand", (results) => {
             frameCount++;
-            console.log("frameCount:", frameCount);
-            if (frameCount % 10 !== 0) return;
+            console.log("===frameCount:", frameCount);
+            if (frameCount % 2 !== 0) return;
             
             predictions = results;
             //console.log("検出結果:", predictions);
