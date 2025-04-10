@@ -27,18 +27,18 @@ var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='UTF-8' standal
 
 var img$2 = blockIconURI;
 var en$1 = {
-	"handpose2scratch.entry.name": "Xcratch Example",
+	"handpose2scratch.entry.name": "handpose",
 	"handpose2scratch.entry.description": "Do it in JavaScript"
 };
 var ja$1 = {
-	"handpose2scratch.entry.name": "Xcratchの例",
+	"handpose2scratch.entry.name": "handpose",
 	"handpose2scratch.entry.description": "JavaScriptを実行する"
 };
 var translations$1 = {
 	en: en$1,
 	ja: ja$1,
 	"ja-Hira": {
-	"handpose2scratch.entry.name": "エクスクラッチのれい",
+	"handpose2scratch.entry.name": "handpose",
 	"handpose2scratch.entry.description": "ジャバスクリプトをじっこうする"
 }
 };
@@ -1576,7 +1576,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           handpose.on("hand", (results) => {
             frameCount++;
             console.log("frameCount:", frameCount);
-            //if (frameCount % 2 !== 0) return;
+            if (frameCount % 10 !== 0) return;
             
             predictions = results;
             //console.log("検出結果:", predictions);
