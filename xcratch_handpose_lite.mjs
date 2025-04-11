@@ -1567,6 +1567,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           };
           //handpose = ml5.handpose(video, options, modelLoaded);
           handpose = await ml5.handpose(video, options);
+          console.log("handpose: ", handpose);
           
           startPredictingLoop();
         };
@@ -1575,6 +1576,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           console.log("startPredictingLoop started");
           setInterval(async () => {
             if (handpose && video.readyState === 4) {
+              console.log("before handpose.predict");
               predictions = await handpose.predict(video);
               console.log("predictions: ", predictions);
               if (predictions.length > 0) {
