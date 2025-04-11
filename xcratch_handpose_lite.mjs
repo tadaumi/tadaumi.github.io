@@ -1577,7 +1577,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           setInterval(async () => {
             if (handpose && video.elt.readyState === 4) {
               console.log("before handpose.predict");
-              predictions = await handpose.predict(video);
+              predictions = await handpose.predict(video.elt);
               console.log("predictions: ", predictions);
               if (predictions.length > 0) {
                 this.landmarks = predictions[0].landmarks;
