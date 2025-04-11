@@ -1582,6 +1582,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 // ここで landmarks を使って何か処理
                 console.log(this.landmarks);
               }
+            } else {
+              console.log("Error: handpose: ", handpose, ": video.readyState: ", video.readyState);
             }
           }, 200); 
         }
