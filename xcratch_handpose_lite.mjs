@@ -1564,6 +1564,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           };
           //handpose = ml5.handpose(video, options, modelLoaded);
           handpose = await ml5.handpose(video, options);
+          
+          startPredictingLoop();
         };
 
         function startPredictingLoop() {
