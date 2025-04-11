@@ -1575,7 +1575,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         function startPredictingLoop() {
           console.log("startPredictingLoop started");
           setInterval(async () => {
-            if (handpose && video.readyState === 4) {
+            if (handpose && video.elt.readyState === 4) {
               console.log("before handpose.predict");
               predictions = await handpose.predict(video);
               console.log("predictions: ", predictions);
