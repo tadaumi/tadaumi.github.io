@@ -1530,6 +1530,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     
     // Video setup
     this.detectHand = () => {
+      console.log("detectHand started");
       let video;
       let handpose;
       let predictions = [];
@@ -1538,8 +1539,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       let zIndexValue = 0; // 初期z-index
       
       const sketch = (p) => {
+        console.log("sketch started");
         p.setup = async function () {
         //p.setup = function () {
+          console.log("setup started");
           // p5.jsのCanvasを作成
           p.createCanvas(40, 30);
           // Canvasを最背面に配置
@@ -1569,6 +1572,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         };
 
         function startPredictingLoop() {
+          console.log("startPredictingLoop started");
           setInterval(async () => {
             if (handpose && video.readyState === 4) {
               predictions = await handpose.predict(video);
