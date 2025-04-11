@@ -1570,7 +1570,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           setInterval(async () => {
             if (handpose && video.readyState === 4) {
               predictions = await handpose.predict(video);
-
+              console.log("predictions: ", predictions);
               if (predictions.length > 0) {
                 this.landmarks = predictions[0].landmarks;
                 // ここで landmarks を使って何か処理
@@ -1655,7 +1655,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         console.log("LANDMARK_MENU: locale: ", this._locale);
         const landmark_menu = [];
         this._locale = "en";
-        const locale = this._locale; // || "en"; // ロケールが未定義の場合はデフォルトで "en" を使用
+        const locale = this._locale; 
         const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
         for (let i = 1; i <= 21; i++) {
           landmark_menu.push({
