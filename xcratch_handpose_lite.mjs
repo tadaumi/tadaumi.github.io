@@ -1586,7 +1586,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 console.log(this.landmarks);
               }
             } else {
-              console.log("Error: handpose: ", handpose, ": video.readyState: ", video.readyState);
+              console.log("Error: handpose: ", handpose, ": video.readyState: ", video.elt.readyState);
             }
             
             setTimeout(predictLoop, 200);
