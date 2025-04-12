@@ -1566,7 +1566,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             modelType: "lite"
           };
           //handpose = ml5.handpose(video, options, modelLoaded);
-          handpose = await ml5.handpose(options);
+          handpose = await ml5.handpose();
           console.log("Model loaded: handpose: ", handpose);
           
           startPredictingLoop();
