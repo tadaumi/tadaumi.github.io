@@ -1574,7 +1574,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
         function startPredictingLoop() {
           console.log("startPredictingLoop started");
-          setInterval(async () => {
+          //setInterval(async () => {
+          async function predictLoop() {
             if (handpose && video.elt.readyState === 4) {
               console.log("before handpose.predict");
               predictions = await handpose.predict(video.elt);
@@ -1587,7 +1588,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             } else {
               console.log("Error: handpose: ", handpose, ": video.readyState: ", video.readyState);
             }
-          }, 200); 
+            
+            setTimeout(predictLoop, 200);
+          }
+          
+          predictLoop();
         }
 
 
