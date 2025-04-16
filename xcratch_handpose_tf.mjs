@@ -17,9 +17,12 @@ import ml5 from 'https://tadaumi.github.io/ml5_unpkg.min.js';
 //import tf from 'https://tadaumi.github.io/tf.min.js';
 import 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js';
 
-import * as handpose from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose';
+//import * as handpose from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose';
+//import * as handposeModule from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7/dist/handpose.min.js';
 import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl'; // 高速なWebGLバックエンド
+import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js';
+import * as handpose from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7/dist/handpose.esm.js';
 
 
 
@@ -1535,7 +1538,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     this.detectHand = () => {
       console.log("detectHand started");
       let video;
-      let handpose;
+      let model;
       let predictions = [];
       this.landmarks = [];
       this.ratio = 0.75;
