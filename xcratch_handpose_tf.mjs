@@ -19,6 +19,7 @@ import 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js';
 
 import * as handpose from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose';
 import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
+import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl'; // 高速なWebGLバックエンド
 
 
 
@@ -68,7 +69,7 @@ var entry = {
     });
   },
   extensionId: 'handpose2scratch',
-  extensionURL: 'https://tadaumi.github.io/xcratch_handpose_lite.mjs',
+  extensionURL: 'https://tadaumi.github.io/xcratch_handpose_tf.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1507,7 +1508,7 @@ var EXTENSION_ID = 'handpose2scratch';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://tadaumi.github.io/xcratch_handpose_lite.mjs';
+var extensionURL = 'https://tadaumi.github.io/xcratch_handpose_tf.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
@@ -1546,15 +1547,16 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         //p.setup = function () {
           console.log("setup started");
           // p5.jsのCanvasを作成
-          p.createCanvas(40, 30);
+          p.createCanvas(320, 240);
           // Canvasを最背面に配置
           const canvas = p.canvas;
 
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
           let constraints = {
             video: {
-              width: { ideal: 40 },
-              height: { ideal: 30 }
+              width: 320,
+              height: 240,
+              facingMode: "user"
             }
           };
           //video = p.createCapture(p.VIDEO);
@@ -1568,8 +1570,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             modelType: "lite"
           };
           //handpose = ml5.handpose(video, options, modelLoaded);
-          handpose = await ml5.handpose();
-          console.log("Model loaded: handpose: ", handpose);
+          //handpose = await ml5.handpose();
+          model = await handpose.load(); // ← Fullモデルのみ
+          console.log("Model loaded: model: ", model);
           
           startPredictingLoop();
         };
@@ -1578,13 +1581,15 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           console.log("startPredictingLoop started");
           //setInterval(async () => {
           async function predictLoop() {
-            if (handpose && video.elt.readyState === 4) {
+            if (model && video.elt.readyState === 4) {
+              const predictionsRaw = await model.estimateHands(video.elt, true); // ← Full推論
+              console.log("predictionsRaw.length: ", predictionsRaw.length);
               console.log("before handpose.predict");
-              predictions = await handpose.predict(video.elt);  //predict is not work!!!
+              //predictions = await handpose.predict(video.elt);  //predict is not work!!!
+              predictions = predictionsRaw;
               console.log("predictions: ", predictions);
               if (predictions.length > 0) {
                 this.landmarks = predictions[0].landmarks;
-                // ここで landmarks を使って何か処理
                 console.log(this.landmarks);
               }
             } else {
