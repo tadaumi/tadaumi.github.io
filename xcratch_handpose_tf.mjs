@@ -21,8 +21,22 @@ import 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js';
 //import * as handposeModule from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7/dist/handpose.min.js';
 import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl'; // 高速なWebGLバックエンド
-import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js';
-import * as handpose from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7/dist/handpose.esm.js';
+//import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js';
+//import * as handpose from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7/dist/handpose.esm.js';
+await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0');
+await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7');
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+
+
 
 
 
@@ -1574,7 +1588,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           };
           //handpose = ml5.handpose(video, options, modelLoaded);
           //handpose = await ml5.handpose();
-          model = await handpose.load(); // ← Fullモデルのみ
+          model = await window.handpose.load(); // ← Fullモデルのみ
           console.log("Model loaded: model: ", model);
           
           startPredictingLoop();
