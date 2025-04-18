@@ -1596,6 +1596,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
         function startPredictingLoop() {
           console.log("startPredictingLoop started");
+          const self = this; // ← 外側の this を保持
           //setInterval(async () => {
           async function predictLoop() {
             if (model && video.elt.readyState === 4) {
@@ -1603,11 +1604,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               console.log("predictionsRaw.length: ", predictionsRaw.length);
               console.log("before handpose.predict");
               //predictions = await handpose.predict(video.elt);  //predict is not work!!!
-              predictions = predictionsRaw;
               console.log("predictions: ", predictions);
               if (predictions.length > 0) {
-                this.landmarks = predictions[0].landmarks;
-                console.log(this.landmarks);
+                self.landmarks = predictions[0].landmarks;
+                console.log("landmarks:", self.landmarks);
               }
             } else {
               console.log("Error: handpose: ", handpose, ": video.readyState: ", video.elt.readyState);
