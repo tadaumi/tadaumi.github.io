@@ -1,17 +1,17 @@
 //alert("start");
 console.log("current pass: ", window.location.pathname);
-console.log(`ml5.min.js のパス: ${window.location.pathname}/work/lib/ml5.min.js`);
+//console.log(`ml5.min.js のパス: ${window.location.pathname}/work/lib/ml5.min.js`);
 
 const scriptUrl = import.meta.url;
 const scriptDir = new URL('.', scriptUrl).href;
-const ml5Path = new URL('./work/lib/ml5.min.js', scriptDir).href;
-console.log('Script Directory:', scriptDir);
-console.log('ml5 Path:', ml5Path);
+//const ml5Path = new URL('./work/lib/ml5.min.js', scriptDir).href;
+//console.log('Script Directory:', scriptDir);
+//console.log('ml5 Path:', ml5Path);
 
 
 //import ml5 from 'https://unpkg.com/ml5@0.12.2/dist/ml5.min.js';
 //import ml5 from 'https://tadaumi.github.io/ml5.min.js';
-import ml5 from 'https://tadaumi.github.io/ml5_unpkg.min.js';
+//import ml5 from 'https://tadaumi.github.io/ml5_unpkg.min.js'; //correct
 //import ml5 from 'https://unpkg.com/ml5@1/dist/ml5.js'; =>NG!: does not provide an export named 'default'
 
 //import tf from 'https://tadaumi.github.io/tf.min.js';
