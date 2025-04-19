@@ -1602,11 +1602,11 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             if (model && video.elt.readyState === 4) {
               const predictionsRaw = await model.estimateHands(video.elt, true); // ← Full推論
               console.log("predictionsRaw.length: ", predictionsRaw.length);
-              console.log("before handpose.predict");
+              //console.log("before handpose.predict");
               //predictions = await handpose.predict(video.elt);  //predict is not work!!!
-              console.log("predictions: ", predictions);
-              if (predictions.length > 0) {
-                self.landmarks = predictions[0].landmarks;
+              console.log("predictionsRaw: ", predictionsRaw);
+              if (predictionsRaw.length > 0) {
+                self.landmarks = predictionsRaw[0].landmarks;
                 console.log("landmarks:", self.landmarks);
               }
             } else {
