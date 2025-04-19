@@ -1594,7 +1594,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           startPredictingLoop();
         };
 
-        function startPredictingLoop() {
+        function startPredictingLoop = () => {  //() {
           console.log("startPredictingLoop started");
           const self = this; // ← 外側の this を保持
           //setInterval(async () => {
