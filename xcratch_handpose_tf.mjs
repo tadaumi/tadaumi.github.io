@@ -1598,7 +1598,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           console.log("startPredictingLoop started");
           const self = this; // ← 外側の this を保持
           //setInterval(async () => {
-          async function predictLoop() {
+          const predictLoop = async () => {
             if (model && video.elt.readyState === 4) {
               const predictionsRaw = await model.estimateHands(video.elt, true); // ← Full推論
               console.log("predictionsRaw.length: ", predictionsRaw.length);
