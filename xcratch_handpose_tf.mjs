@@ -1581,6 +1581,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           video.size(p.width, p.height);
           video.hide();
           //p.hide();
+          this.video = video;
           
           // Handpose モデルのロード
           let options = {
@@ -1601,13 +1602,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const predictLoop = async () => {
             if (model && video.elt.readyState === 4) {
               const predictionsRaw = await model.estimateHands(video.elt, true); // ← Full推論
-              console.log("predictionsRaw.length: ", predictionsRaw.length);
+              //console.log("predictionsRaw.length: ", predictionsRaw.length);
               //console.log("before handpose.predict");
               //predictions = await handpose.predict(video.elt);  //predict is not work!!!
-              console.log("predictionsRaw: ", predictionsRaw);
+              //console.log("predictionsRaw: ", predictionsRaw);
               if (predictionsRaw.length > 0) {
                 self.landmarks = predictionsRaw[0].landmarks;
-                console.log("landmarks:", self.landmarks);
+                //console.log("landmarks:", self.landmarks);
               }
             } else {
               console.log("Error: handpose: ", handpose, ": video.readyState: ", video.elt.readyState);
