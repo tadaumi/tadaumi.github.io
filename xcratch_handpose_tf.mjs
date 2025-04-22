@@ -1551,6 +1551,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     // Video setup
     this.detectHand = () => {
       console.log("detectHand started");
+      const self = this;
       let video;
       let model;
       let predictions = [];
@@ -1581,7 +1582,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           video.size(p.width, p.height);
           video.hide();
           //p.hide();
-          this.video = video;
+          self.video = video;
           
           // Handpose モデルのロード
           let options = {
@@ -1597,7 +1598,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
         const startPredictingLoop = () => {  //() {
           console.log("startPredictingLoop started");
-          const self = this; // ← 外側の this を保持
+          //const self = this; // ← 外側の this を保持
           //setInterval(async () => {
           const predictLoop = async () => {
             if (model && video.elt.readyState === 4) {
