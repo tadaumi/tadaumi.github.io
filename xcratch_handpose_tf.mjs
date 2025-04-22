@@ -1693,7 +1693,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       get: function () {
         console.log("LANDMARK_MENU: locale: ", this._locale);
         const landmark_menu = [];
-        this._locale = "en";
+        this._locale = "ja";
         const locale = this._locale; 
         const landmarks = Message.landmarks || []; // Message.landmarksが未定義の場合は空配列を使用
         for (let i = 1; i <= 21; i++) {
