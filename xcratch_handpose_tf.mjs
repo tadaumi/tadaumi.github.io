@@ -1909,7 +1909,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       //console.log("Ratio:", this.ratio);
       //if (!this.landmarks || !this.landmarks[landmarkIndex]) return 0;
 
-      const rawX = this.landmarks[landmarkIndex][0];
+      const rawX = this.landmarks[landmark][0];
       const scaledX = rawX * this.ratio;
       const isMirror = this.runtime.ioDevices.video.mirror;
       const videoWidth = this.video ? this.video.width : 480; // fallback
