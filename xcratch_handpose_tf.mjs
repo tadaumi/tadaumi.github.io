@@ -1911,7 +1911,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
       const rawX = this.landmarks[landmark][0];
       //const scaledX = rawX * this.ratio;
-      const scaledX = rawX * video.width / video.elt.videoWidth;
+      const scaledX = rawX * this.video.width / this.video.elt.videoWidth;
       const isMirror = this.runtime.ioDevices.video.mirror;
       const videoWidth = this.video ? this.video.width : 480; // fallback
 
