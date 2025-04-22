@@ -1758,9 +1758,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             //console.log('Ratio set to:', this.ratio);
           }
         };
-
-        // 必要なブロックをここで追加
-        // this.runtime.addBlock(setRatioBlock);
       }
     },
     
@@ -1907,9 +1904,21 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         console.log("Landmarks are present:", this.landmarks);
       } else {
         console.log("Landmarks are empty or not initialized");
+        return 0;
       }
       //console.log("Ratio:", this.ratio);
+      //if (!this.landmarks || !this.landmarks[landmarkIndex]) return 0;
+
+      const rawX = this.landmarks[landmarkIndex][0];
+      const scaledX = rawX * this.ratio;
+      const isMirror = this.runtime.ioDevices.video.mirror;
+      const videoWidth = this.video ? this.video.width : 480; // fallback
+
+      return isMirror ? (videoWidth - scaledX) : scaledX;
       
+      
+      
+      /*
       if (this.landmarks[landmark]) {
         if (this.runtime.ioDevices.video.mirror === false) {
           return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
@@ -1920,6 +1929,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         console.log("Error!!!");
         return "";
       }
+      */
     },
   },
   {
