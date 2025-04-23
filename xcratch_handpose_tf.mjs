@@ -1938,7 +1938,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         }
       } else {
         console.log("Error!!!");
-        return "";
+        return "";getY() の完全バージョン
       }
       */
     },
@@ -1948,10 +1948,19 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     value: function getY(args) {
       let landmark = parseInt(args.LANDMARK, 10) - 1;
       if (this.landmarks[landmark]) {
-        return 180 - this.landmarks[landmark][1] * this.ratio;
+        console.log("Landmarks are present:", this.landmarks);
+        //return 180 - this.landmarks[landmark][1] * this.ratio;
       } else {
-        return "";
+        return 0;
       }
+      const videoHeight = this.video ? this.video.height : 360;
+      const sourceHeight = this.video && this.video.elt ? this.video.elt.videoHeight : 480;
+      const scaleY = videoHeight / sourceHeight;
+
+      const yScaled = rawY * scaleY;
+      const yScratch = 180 - (yScaled / videoHeight) * 360;
+
+      return yScratch;
     },
   },
   {
