@@ -1910,17 +1910,23 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       }
       //console.log("Ratio:", this.ratio);
       //if (!this.landmarks || !this.landmarks[landmarkIndex]) return 0;
-
+      
       const rawX = this.landmarks[landmark][0];
       //const scaledX = rawX * this.ratio;
       console.log("this.video:", this.video, ": this.video.elt: ", this.video.elt);
-      const scaledX = rawX * this.video.width / this.video.elt.videoWidth;
-      const isMirror = this.runtime.ioDevices.video.mirror;
-      const videoWidth = this.video ? this.video.width : 480; // fallback
-
-      return isMirror ? (videoWidth - scaledX) : scaledX;
+      const videoWidth = this.video ? this.video.width : 480; // Scratchの幅に合わせる
+      const sourceWidth = this.video && this.video.elt ? this.video.elt.videoWidth : 640; // カメラ元の解像度
+      const scaleX = videoWidth / sourceWidth;
+      const xScaled = rawX * scaleX;
       
+      // ミラー対応
+      const mirrored = this.runtime.ioDevices.video.mirror;
+      const xFlipped = mirrored ? (videoWidth - xScaled) : xScaled;
       
+      // Scratch座標系に変換（中心を0に）
+      const xScratch = xFlipped - videoWidth / 2;
+      
+      return xScratch;
       
       /*
       if (this.landmarks[landmark]) {
