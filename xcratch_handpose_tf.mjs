@@ -1924,7 +1924,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       const xFlipped = mirrored ? (videoWidth - xScaled) : xScaled;
       
       // Scratch座標系に変換（中心を0に）
-      const xScratch = xFlipped - videoWidth / 2;
+      //const xScratch = xFlipped - videoWidth / 2;
+      const xScratch = (xFlipped / videoWidth) * 480 - 240;
       
       return xScratch;
       
