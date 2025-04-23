@@ -1954,7 +1954,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return 0;
       }
       
-      const rawY = this.landmarks[landmarkIndex][1];
+      const rawY = this.landmarks[landmark][1];
       
       const videoHeight = this.video ? this.video.height : 360;
       const sourceHeight = this.video && this.video.elt ? this.video.elt.videoHeight : 480;
