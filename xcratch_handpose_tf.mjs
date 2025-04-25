@@ -1853,6 +1853,23 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           },
         
           {
+            opcode: 'set_interval',
+            blockType: BlockType$1.COMMAND,
+            blockAllThreads: false,
+            text: formatMessage({
+              id: 'handpose2scratch.setInterval',
+              default: 'set interval: [SCRIPT] msec',
+              description: 'set interval'
+            }),
+            func: 'setInterval',
+            arguments: {
+              SCRIPT: {
+                type: ArgumentType$1.STRING,
+                defaultValue: '200'
+              }
+            }
+          }
+          {
             opcode: 'do-it',
             blockType: BlockType$1.REPORTER,
             blockAllThreads: false,
@@ -1928,19 +1945,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       const xScratch = (xFlipped / videoWidth) * 480 - 240;
       
       return xScratch;
-      
-      /*
-      if (this.landmarks[landmark]) {
-        if (this.runtime.ioDevices.video.mirror === false) {
-          return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
-        } else {
-          return 240 - this.landmarks[landmark][0] * this.ratio;
-        }
-      } else {
-        console.log("Error!!!");
-        return "";getY() の完全バージョン
-      }
-      */
     },
   },
   {
