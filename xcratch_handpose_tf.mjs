@@ -1895,7 +1895,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       let landmark = parseInt(args.LANDMARK, 10) - 1;
       console.log("landmark: ", landmark);
       if (this.landmarks && Array.isArray(this.landmarks) && this.landmarks.length > 0) {
-        console.log("Landmarks are present:", this.landmarks);
+        //console.log("Landmarks are present:", this.landmarks);
       } else {
         console.log("Landmarks are empty or not initialized");
         return 0;
@@ -1905,7 +1905,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       
       const rawX = this.landmarks[landmark][0];
       //const scaledX = rawX * this.ratio;
-      console.log("this.video:", this.video, ": this.video.elt: ", this.video.elt);
+      //console.log("this.video:", this.video, ": this.video.elt: ", this.video.elt);
       const videoWidth = this.video ? this.video.width : 480; // Scratchの幅に合わせる
       const sourceWidth = this.video && this.video.elt ? this.video.elt.videoWidth : 640; // カメラ元の解像度
       const scaleX = videoWidth / sourceWidth;
