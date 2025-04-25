@@ -1542,6 +1542,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
      * @type {Runtime}
      */
     this.runtime = runtime;
+    this.interval = 200; // 初期値
     if (runtime.formatMessage) {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
       formatMessage = runtime.formatMessage;
@@ -1998,7 +1999,20 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     },
   },
   
-  
+  {
+    key: "setInterval",
+    value: function setInterval(args) {
+      const interval = parseInt(args.SCRIPT);
+      if (!isNaN(interval) && interval > 0) {
+        this.interval = interval
+        return;
+      }  else {
+        console.warn('Invalid interval:', args.SCRIPT);
+        this.interval = 200;
+      }
+    }
+  },
+    
   {
     key: "doIt",
     value: function doIt(args) {
