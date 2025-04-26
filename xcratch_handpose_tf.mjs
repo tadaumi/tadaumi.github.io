@@ -1599,7 +1599,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         };
 
         const startPredictingLoop = () => {  //() {
-          console.log("startPredictingLoop started");
+          const startTime = performance.now();
+          console.log("startPredictingLoop started:", startTime);
           //const self = this; // ← 外側の this を保持
           //setInterval(async () => {
           const predictLoop = async () => {
@@ -1621,6 +1622,10 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
           
           predictLoop();
+          
+          const now = performance.now();
+          const elapsed = now - startTime;
+          console.log("startPredictingLoop ended: elapsed: ${elapsed.toFixed(2)} msec");
         }
 
         
