@@ -1892,9 +1892,9 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   {
     key: "getX",
     value: function getX(args) {
-      console.log("LANDMARK argument:", args.LANDMARK);
+      //console.log("LANDMARK argument:", args.LANDMARK);
       let landmark = parseInt(args.LANDMARK, 10) - 1;
-      console.log("landmark: ", landmark);
+      //console.log("landmark: ", landmark);
       if (this.landmarks && Array.isArray(this.landmarks) && this.landmarks.length > 0) {
         //console.log("Landmarks are present:", this.landmarks);
       } else {
