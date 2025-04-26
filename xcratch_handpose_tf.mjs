@@ -1530,6 +1530,7 @@ var extensionURL = 'https://tadaumi.github.io/xcratch_handpose_tf.mjs';
 /**
  * Scratch 3.0 blocks for example of Xcratch.
  */
+let interval = 200;
 var ExtensionBlocks = /*#__PURE__*/function () {
   /**
    * Construct a set of blocks for xcratchExample.
@@ -1542,7 +1543,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
      * @type {Runtime}
      */
     this.runtime = runtime;
-    this.interval = 200; // 初期値
+    //this.interval = 200; // 初期値
     if (runtime.formatMessage) {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
       formatMessage = runtime.formatMessage;
@@ -1615,8 +1616,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             } else {
               console.log("Error: handpose: ", handpose, ": video.readyState: ", video.elt.readyState);
             }
-            console.log("this.interval:", this.interval);
-            setTimeout(predictLoop, this.interval);
+            console.log("interval:", interval);
+            setTimeout(predictLoop, interval);
           }
           
           predictLoop();
@@ -2002,13 +2003,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   {
     key: "setInterval",
     value: function setInterval(args) {
-      const interval = parseInt(args.SCRIPT);
-      if (!isNaN(interval) && interval > 0) {
-        this.interval = interval
+      const intervalValue = parseInt(args.SCRIPT);
+      if (!isNaN(intervalValue) && intervalValue > 0) {
+        this.interval = intervalValue;
         return;
       }  else {
         console.warn('Invalid interval:', args.SCRIPT);
-        this.interval = 200;
+        interval = 200;
       }
     }
   },
