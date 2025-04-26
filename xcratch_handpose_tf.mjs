@@ -1615,8 +1615,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             } else {
               console.log("Error: handpose: ", handpose, ": video.readyState: ", video.elt.readyState);
             }
-            
-            setTimeout(predictLoop, 200);
+            console.log("this.interval:", this.interval);
+            setTimeout(predictLoop, this.interval);
           }
           
           predictLoop();
