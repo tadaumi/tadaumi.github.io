@@ -2005,7 +2005,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     value: function setInterval(args) {
       const intervalValue = parseInt(args.SCRIPT);
       if (!isNaN(intervalValue) && intervalValue > 0) {
-        this.interval = intervalValue;
+        interval = intervalValue;
         return;
       }  else {
         console.warn('Invalid interval:', args.SCRIPT);
