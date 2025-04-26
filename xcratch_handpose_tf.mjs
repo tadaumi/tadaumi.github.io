@@ -1625,7 +1625,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           
           const now = performance.now();
           const elapsed = now - startTime;
-          console.log("startPredictingLoop ended: elapsed: ${elapsed.toFixed(2)} msec");
+          console.log("startPredictingLoop ended: elapsed: ", elapsed.toFixed(2), " msec");
         }
 
         
