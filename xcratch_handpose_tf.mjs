@@ -1927,7 +1927,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     value: function getY(args) {
       let landmark = parseInt(args.LANDMARK, 10) - 1;
       if (this.landmarks[landmark]) {
-        console.log("Landmarks are present:", this.landmarks);
+        //console.log("Landmarks are present:", this.landmarks);
         //return 180 - this.landmarks[landmark][1] * this.ratio;
       } else {
         return 0;
