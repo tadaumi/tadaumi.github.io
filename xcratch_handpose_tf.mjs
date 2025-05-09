@@ -1567,15 +1567,15 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         //p.setup = function () {
           console.log("setup started");
           // p5.jsのCanvasを作成
-          p.createCanvas(320, 240);
+          p.createCanvas(160, 120);
           // Canvasを最背面に配置
           const canvas = p.canvas;
 
           // 動画要素の取得（p5.jsのcreateCaptureを使用）
           let constraints = {
             video: {
-              width: 320,
-              height: 240,
+              width: 160,
+              height: 120,
               facingMode: "user"
             }
           };
@@ -1913,7 +1913,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       //const scaledX = rawX * this.ratio;
       //console.log("this.video:", this.video, ": this.video.elt: ", this.video.elt);
       const videoWidth = this.video ? this.video.width : 480; // Scratchの幅に合わせる
-      const sourceWidth = this.video && this.video.elt ? this.video.elt.videoWidth : 640; // カメラ元の解像度
+      const sourceWidth = this.video && this.video.elt ? this.video.elt.videoWidth : 160; // カメラ元の解像度
       const scaleX = videoWidth / sourceWidth;
       const xScaled = rawX * scaleX;
       
@@ -1942,7 +1942,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       const rawY = this.landmarks[landmark][1];
       
       const videoHeight = this.video ? this.video.height : 360;
-      const sourceHeight = this.video && this.video.elt ? this.video.elt.videoHeight : 480;
+      const sourceHeight = this.video && this.video.elt ? this.video.elt.videoHeight : 120;
       const scaleY = videoHeight / sourceHeight;
 
       const yScaled = rawY * scaleY;
