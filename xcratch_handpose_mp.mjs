@@ -25,23 +25,25 @@ await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7
 import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core';
 //import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@latest';
 // ES Modules 用 hand-pose-detection の読み込み
-import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@0.0.7/dist/hand-pose-detection.esm.js';
+import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.1/dist/hand-pose-detection.esm.js';
 
-import 'https://cdn.jsdelivr.net/npm/@mediapipe/hands'; //'/hands.min.js';
+//import 'https://cdn.jsdelivr.net/npm/@mediapipe/hands'; //'/hands.min.js';
 //import { supportedModels } from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@0.4.0';
 //import { Camera } from 'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js';
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
-/*
-function lo座標取得関数adScript(src) {
+
+// MJSファイル内で定義：動的にスクリプトを読み込む関数
+function loadScript(url) {
   return new Promise((resolve, reject) => {
-    const s = document.createElement('script');
-    s.src = src;
-    s.onload = resolve;
-    s.onerror = reject;
-    document.head.appendChild(s);
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
   });
 }
-*/
+// MediaPipe Hands の読み込み（必須）
+await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js');
 
 
 
