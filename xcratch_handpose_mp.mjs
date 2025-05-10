@@ -23,10 +23,9 @@ await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7
 
 // TensorFlow.js と WebGL バックエンドの読み込み
 import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
-import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 // MediaPipe Hands モデルの読み込み
 import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection';
-
+import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 /*
 function lo座標取得関数adScript(src) {
   return new Promise((resolve, reject) => {
@@ -88,7 +87,7 @@ var entry = {
     });
   },
   extensionId: 'handpose2scratch',
-  extensionURL: 'https://tadaumi.github.io/xcratch_handpose_tf.mjs',
+  extensionURL: 'https://tadaumi.github.io/xcratch_handpose_mp.mjs',
   collaborator: 'xcratch',
   iconURL: img$2,
   insetIconURL: img$1,
@@ -1527,7 +1526,7 @@ var EXTENSION_ID = 'handpose2scratch';
  * When it was loaded as a module, 'extensionURL' will be replaced a URL which is retrieved from.
  * @type {string}
  */
-var extensionURL = 'https://tadaumi.github.io/xcratch_handpose_tf.mjs';
+var extensionURL = 'https://tadaumi.github.io/xcratch_handpose_mp.mjs';
 
 /**
  * Scratch 3.0 blocks for example of Xcratch.
@@ -1594,8 +1593,13 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const detectorConfig = {
             runtime: 'mediapipe',
             modelType: 'lite', // 'lite' または 'full'
-            solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands'
+            //solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands'
+            maxHands: 1,
           };
+          
+          await tf.setBackend('webgl');
+          await tf.ready();
+
           const detector = await handPoseDetection.createDetector(model, detectorConfig);
           
           startPredictingLoop();
