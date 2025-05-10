@@ -1616,6 +1616,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             maxHands: 1,
           };
           
+          await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js');
+
           await tf.setBackend('webgl');
           await tf.ready();
 
