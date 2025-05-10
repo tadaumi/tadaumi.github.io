@@ -14,8 +14,6 @@ import 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js';
 //import * as handpose from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose';
 //import * as handposeModule from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7/dist/handpose.min.js';
 /*
-import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
-import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl'; // 高速なWebGLバックエンド
 //import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js';
 //import * as handpose from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7/dist/handpose.esm.js';
 await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0');
@@ -27,10 +25,10 @@ await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7
 import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 // MediaPipe Hands モデルの読み込み
-await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection');
-await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands');
+import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection';
 
-function loadScript(src) {
+/*
+function lo座標取得関数adScript(src) {
   return new Promise((resolve, reject) => {
     const s = document.createElement('script');
     s.src = src;
@@ -39,7 +37,7 @@ function loadScript(src) {
     document.head.appendChild(s);
   });
 }
-
+*/
 
 
 
@@ -1914,7 +1912,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return 0;
       }
       
-      const rawX = this.landmarks[landmark].x;  //[0];
+      const rawX = this.landmarks[landmark].x[0];
       const videoWidth = this.video ? this.video.width : 480; // Scratchの幅に合わせる
       const sourceWidth = this.video && this.video.elt ? this.video.elt.videoWidth : 160; // カメラ元の解像度
       const scaleX = videoWidth / sourceWidth;
@@ -1942,7 +1940,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return 0;
       }
       
-      const rawY = this.landmarks[landmark].y;  //[1];
+      const rawY = this.landmarks[landmark][1];
       
       const videoHeight = this.video ? this.video.height : 360;
       const sourceHeight = this.video && this.video.elt ? this.video.elt.videoHeight : 120;
