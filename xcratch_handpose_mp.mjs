@@ -22,15 +22,17 @@ await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7
 
 
 //import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
-import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core';
+//import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core';
 //import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@latest';
 // ES Modules 用 hand-pose-detection の読み込み
-import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.1/dist/hand-pose-detection.esm.js';
+//import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.1/dist/hand-pose-detection.esm.js';
 
 //import 'https://cdn.jsdelivr.net/npm/@mediapipe/hands'; //'/hands.min.js';
 //import { supportedModels } from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@0.4.0';
 //import { Camera } from 'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js';
-import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
+//import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
+
+
 
 // MJSファイル内で定義：動的にスクリプトを読み込む関数
 function loadScript(url) {
@@ -42,8 +44,15 @@ function loadScript(url) {
     document.head.appendChild(script);
   });
 }
+await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core');
+await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter');
+await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl');
+await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection');
+
+
+
 // MediaPipe Hands の読み込み（必須）
-await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js');
+//await loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js');
 
 
 
@@ -1595,20 +1604,30 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           self.video = video;
           
           //model = await window.handpose.load(); // ← Fullモデルのみ
-          model = handPoseDetection.SupportedModels.MediaPipeHands;
+          //model = handPoseDetection.SupportedModels.MediaPipeHands;
           //model = supportedModels.MediaPipeHands;
           console.log("Model loaded: model: ", model);
+          /*
           const detectorConfig = {
             runtime: 'mediapipe',
             modelType: 'lite', // 'lite' または 'full'
             //solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands'
             maxHands: 1,
           };
+          */
           
           await tf.setBackend('webgl');
           await tf.ready();
+          
+          model = await handPoseDetection.createDetector(handPoseDetection.SupportedModels.MediaPipeHands, {
+            runtime: 'mediapipe',
+            modelType: 'lite',
+            solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915'
+          });
+          
+          
 
-          const detector = await handPoseDetection.createDetector(model, detectorConfig);
+          //const detector = await handPoseDetection.createDetector(model, detectorConfig);
           
           startPredictingLoop();
         };
@@ -1621,7 +1640,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const predictLoop = async () => {
             if (model && video.elt.readyState === 4) {
               //const predictionsRaw = await model.estimateHands(video.elt, true); // ← Full推論
-              const hands = await detector.estimateHands(video.elt, { flipHorizontal: true });
+              const hands = await model.estimateHands(video.elt, { flipHorizontal: true });
               //console.log("predictionsRaw.length: ", predictionsRaw.length);
               //console.log("before handpose.predict");
               //predictions = await handpose.predict(video.elt);  //predict is not work!!!
