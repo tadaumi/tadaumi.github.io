@@ -1604,30 +1604,21 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           self.video = video;
           
           //model = await window.handpose.load(); // ← Fullモデルのみ
-          //model = handPoseDetection.SupportedModels.MediaPipeHands;
+          model = window.handPoseDetection.SupportedModels.MediaPipeHands;
           //model = supportedModels.MediaPipeHands;
           console.log("Model loaded: model: ", model);
-          /*
+          
           const detectorConfig = {
             runtime: 'mediapipe',
             modelType: 'lite', // 'lite' または 'full'
-            //solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands'
+            solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915',
             maxHands: 1,
           };
-          */
           
           await tf.setBackend('webgl');
           await tf.ready();
-          
-          model = await handPoseDetection.createDetector(handPoseDetection.SupportedModels.MediaPipeHands, {
-            runtime: 'mediapipe',
-            modelType: 'lite',
-            solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915'
-          });
-          
-          
 
-          //const detector = await handPoseDetection.createDetector(model, detectorConfig);
+          const detector = await handPoseDetection.createDetector(model, detectorConfig);
           
           startPredictingLoop();
         };
@@ -1640,7 +1631,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const predictLoop = async () => {
             if (model && video.elt.readyState === 4) {
               //const predictionsRaw = await model.estimateHands(video.elt, true); // ← Full推論
-              const hands = await model.estimateHands(video.elt, { flipHorizontal: true });
+              const hands = await detector.estimateHands(video.elt, { flipHorizontal: true });
               //console.log("predictionsRaw.length: ", predictionsRaw.length);
               //console.log("before handpose.predict");
               //predictions = await handpose.predict(video.elt);  //predict is not work!!!
