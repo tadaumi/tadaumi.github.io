@@ -21,10 +21,10 @@ await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7
 */
 
 
-// TensorFlow.js と WebGL バックエンドの読み込み
-import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
-// MediaPipe Hands モデルの読み込み
+//import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0';
+import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core';
 import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection';
+import { supportedModels } from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection';
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 /*
 function lo座標取得関数adScript(src) {
@@ -1588,7 +1588,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           self.video = video;
           
           //model = await window.handpose.load(); // ← Fullモデルのみ
-          model = handPoseDetection.SupportedModels.MediaPipeHands;
+          //model = handPoseDetection.SupportedModels.MediaPipeHands;
+          model = supportedModels.MediaPipeHands;
           console.log("Model loaded: model: ", model);
           const detectorConfig = {
             runtime: 'mediapipe',
