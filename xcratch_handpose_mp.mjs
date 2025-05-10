@@ -35,10 +35,11 @@ await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7
 
 
 // MJSファイル内で定義：動的にスクリプトを読み込む関数
-function loadScript(url) {
+async function loadScript(url) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.src = url;
+    script.async = true;
     script.onload = resolve;
     script.onerror = reject;
     document.head.appendChild(script);
