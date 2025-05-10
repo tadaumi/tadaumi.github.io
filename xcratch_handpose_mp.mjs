@@ -1589,8 +1589,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           self.video = video;
           
           //model = await window.handpose.load(); // ← Fullモデルのみ
-          //model = handPoseDetection.SupportedModels.MediaPipeHands;
-          model = supportedModels.MediaPipeHands;
+          model = handPoseDetection.SupportedModels.MediaPipeHands;
+          //model = supportedModels.MediaPipeHands;
           console.log("Model loaded: model: ", model);
           const detectorConfig = {
             runtime: 'mediapipe',
