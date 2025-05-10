@@ -1574,6 +1574,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       const self = this;
       let video;
       let model;
+      let detector;
       let predictions = [];
       this.landmarks = [];
       this.ratio = 0.75;
@@ -1621,7 +1622,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           await tf.setBackend('webgl');
           await tf.ready();
 
-          const detector = await handPoseDetection.createDetector(model, detectorConfig);
+          detector = await handPoseDetection.createDetector(model, detectorConfig);
           
           startPredictingLoop();
         };
