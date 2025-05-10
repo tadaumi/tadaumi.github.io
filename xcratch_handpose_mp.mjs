@@ -25,7 +25,7 @@ await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose@0.0.7
 import * as tf from 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core';
 import * as handPoseDetection from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@latest';
 //import { supportedModels } from 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@0.4.0';
-import { Camera } from 'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js';
+//import { Camera } from 'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js';
 import 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl';
 /*
 function lo座標取得関数adScript(src) {
