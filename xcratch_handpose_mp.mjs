@@ -1938,7 +1938,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return 0;
       }
       
-      const rawX = this.landmarks[landmark].x[0];
+      const rawX = this.landmarks[landmark][0];
       const videoWidth = this.video ? this.video.width : 480; // Scratchの幅に合わせる
       const sourceWidth = this.video && this.video.elt ? this.video.elt.videoWidth : 160; // カメラ元の解像度
       const scaleX = videoWidth / sourceWidth;
