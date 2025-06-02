@@ -1408,6 +1408,27 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           }
           
           },{
+          opcode: 'set_ApiKey',
+          blockType: BlockType.COMMAND,
+          text: 'Gemini APIキーを [KEY] に設定する',
+          arguments: {
+            KEY: {
+              type: 'string',
+              defaultValue: 'YOUR_API_KEY'
+            }
+          }
+          },{
+          opcode: 'ask_Gemini',
+          blockType: BlockType.REPORTER,
+          text: 'Gemini に [QUESTION] を聞く',
+          arguments: {
+            QUESTION: {
+              type: 'string',
+              defaultValue: 'Scratchとは何ですか？'
+            }
+          }
+          
+          },{
           opcode: 'create-program',
           blockType: BlockType$1.REPORTER,
           blockAllThreads: false,
@@ -1504,74 +1525,43 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       newWindow.document.write(text);
     }
     
-  }, {   
-    key: "sayHello",
-    value: function sayHello(args) {
-      console.log("args: " + args);
-      
-      //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
-      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt/';
-      var textToSend = args.SCRIPT;
-      
-      async function sendRequestToServer2(args) {
-        try {
-          console.log(server2Url);
-          console.log(textToSend);
-          const response = await fetch(server2Url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain',
-              'Origin': 'http://localhost:8601'
-            },
-            body: textToSend
-          });
-
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
-          const responseData = await response.text();
-          console.log('Response from Server 2:', responseData);
-          
-          return responseData;
-          
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      }  
-      
-      // サーバー1からサーバー2にリクエストを送信
-      return sendRequestToServer2(args);
-    }
-    
-    },{
-    key: "checkHistory",
-    value: function checkHistory(args) {
-      var listText = args.LIST;
-      var list = listText.split(" ");
-      console.log('===========list:', list);
-      var tmp_word = args.WORD;
-      console.log('===========tmp_word:', tmp_word);
-      
-      // リスト内の単語をループしてチェック
-      console.log('===========list.length:', list.length);
-      for (var i = 0; i < list.length; i++) {
-        console.log('===========list[i]', list[i]);
-        if (list[i] === tmp_word) {
-            return "OK";
-          }
+    }, {   
+      key: "showText",
+      value: function showText(args) {
+        const text = args.TEXT.replace(/\n/g, "<br>");;
+        const newWindow = window.open();
+        newWindow.document.write(text);
       }
-      return "NG";
-    }
-    
-    },{
-    key: "showText",
-    value: function showText(args) {
-      const text = args.TEXT.replace(/\n/g, "<br>");;
-      const newWindow = window.open();
-      newWindow.document.write(text);
-    }
-    
+      
+    }, {
+      key: "setApiKey",
+      value: function setApiKey(args) {
+        apiKey = args.KEY;
+      }
+    }, {
+      key: "askGemini",
+      value: async function askGemini(args) {
+        const question = args.QUESTION;
+
+        if (!apiKey) {
+          return 'APIキーが設定されていません';
+        }
+
+        try {
+          if (!genAI) {
+            genAI = new GoogleGenerativeAI(apiKey);
+          }
+
+          const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+          const result = await model.generateContent(question);
+          const response = await result.response;
+          const text = await response.text();
+
+          return text;
+        } catch (e) {
+          return 'エラー: ' + e.message;
+        }
+      }
     }, {
     key: "createProgram",
     value: function createProgram(args) {
