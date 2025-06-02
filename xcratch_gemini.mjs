@@ -1552,7 +1552,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const result = await model.generateContent(question);
           const response = await result.response;
           const text = await response.text();
-
+          console.log("text: " + text);
+          
           return text;
         } catch (e) {
           return 'エラー: ' + e.message;
