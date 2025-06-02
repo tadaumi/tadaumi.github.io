@@ -1543,15 +1543,42 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           return 'APIキーが設定されていません';
         }
 
+        const url = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${apiKey}`;
+
+        const requestBody = {
+            contents: [{
+              parts: [{ text: question }]
+            }]
+          };
+
         try {
+          /*
           if (!genAI) {
             genAI = new GoogleGenerativeAI(apiKey);
           }
+          */
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+          });
 
+          if (!response.ok) {
+            const errorData = await response.json();
+            return `エラー: ${errorData.error.message || response.statusText}`;
+          }
+
+          const data = await response.json();
+          const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '(回答なし)';
+
+          /*
           const model = genAI.getGenerativeModel({ model: "gemini-pro" });
           const result = await model.generateContent(question);
           const response = await result.response;
           const text = await response.text();
+          */
           console.log("text: " + text);
           
           return text;
