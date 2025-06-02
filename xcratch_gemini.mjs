@@ -1412,16 +1412,18 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           opcode: 'set_ApiKey',
           blockType: BlockType.COMMAND,
           text: 'Gemini APIキーを [KEY] に設定する',
+          func: 'setApiKey',
           arguments: {
             KEY: {
               type: 'string',
-              defaultValue: 'YOUR_API_KEY'
+              defaultValue: 'Paste YOUR_API_KEY here'
             }
           }
           },{
           opcode: 'ask_Gemini',
           blockType: BlockType.REPORTER,
           text: 'Gemini に [QUESTION] を聞く',
+          func: 'askGemini',
           arguments: {
             QUESTION: {
               type: 'string',
