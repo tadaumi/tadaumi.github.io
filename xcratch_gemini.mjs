@@ -1545,7 +1545,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
         //const url = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${apiKey}`;
         const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
-
+        console.log("url: " + url);
         const requestBody = {
             contents: [{
               parts: [{ text: question }]
