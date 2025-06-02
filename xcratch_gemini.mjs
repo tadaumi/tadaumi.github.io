@@ -1367,7 +1367,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
   /**
    * @returns {object} metadata for this extension and its blocks.
    */
-
+  let genAI = null;
+  let apiKey = '';
   _createClass$1(ExtensionBlocks, [{
     key: "getInfo",
     value: function getInfo() {
