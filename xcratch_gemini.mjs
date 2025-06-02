@@ -1373,35 +1373,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         blockIconURI: img,
         showStatusButton: false,
         blocks: [{
-          opcode: 'show_explanation',
-          blockType: BlockType$1.COMMAND,
-          blockAllThreads: false,
-          text: "show explanation of this extention",
-          func: 'showExplanation',
-          arguments: {
-          }
-          },{
           
-          opcode: 'say-hello',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: formatMessage({
-            id: 'xcratchExample.sayHello',
-            //default: 'do it [SCRIPT]',
-            default: 'say hello',
-            description: 'execute javascript for example'
-          }),
-          tooltip: "このブロックは、新しいタブを開いてテキストを表示します。",
-          func: 'sayHello',
-          //func: this.sayHello.bind(this), // メソッドにバインドする
-          arguments: {
-            SCRIPT: {
-              type: ArgumentType$1.STRING,
-              defaultValue: 'hello'
-            }
-          }
-          
-          },{
           opcode: 'set_ApiKey',
           blockType: BlockType.COMMAND,
           text: 'Gemini APIキーを [KEY] に設定する',
@@ -1424,57 +1396,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             }
           }
           
-          },{
-          opcode: 'create-program',
-          blockType: BlockType$1.REPORTER,
-          blockAllThreads: false,
-          text: formatMessage({
-            id: 'xcratchExample.createProgram',
-            default: 'create program by python [TEXT]',
-            description: 'create program'
-            }),
-          func: 'createProgram',
-          //func: this.sayHello.bind(this), // メソッドにバインドする
-          arguments: {
-            TEXT: {
-              type: ArgumentType$1.STRING,
-              defaultValue: 'copyfile'
-            }
-          }
-          
-          },{
-          opcode: 'show',
-          blockType: BlockType$1.COMMAND,
-          blockAllThreads: false,
-          text: "show text [TEXT]",
-          func: 'showText',
-          arguments: {
-            TEXT: {
-                type: "string",
-                defaultValue: "hello"
-            }
-          }
-          
-          },{
-          opcode: 'ask_chatgpt4o',
-          blockType: BlockType$1.REPORTER,
-          text: formatMessage({
-            id: 'extension.ask_chatgpt4o',
-            default: 'ask [QUESTION] about image [URL]',
-            description: 'ask chatgpt4o'
-          }),
-          func: 'askChatgpt4o',
-          arguments: {
-            QUESTION: {
-                type: "string",
-                defaultValue: "まちがいさがし"
-            },
-            URL: {
-                type: "string",
-                defaultValue: "https://happylilac.net/thumb/matigai-w-undokai-01.png"
-            }
-          }
-          
           
           //=============
           }
@@ -1484,52 +1405,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
     
   }, {
-    key: "showExplanation",
-    value: function showExplanation() {
-      const text = `explanation of blocks:<br>
-      &emsp;ask chatgpt about:<br>
-      &emsp;&emsp;Function: ask chatchatgpt about "hello". "hello" should be replaceed by your question.<br> 
-      &emsp;&emsp;Return: answer text of chatgpt<br>
-      &emsp;wordchain with "りんご":<br>
-      &emsp;&emsp;Function: send chatgpt "りんご" as wordchain. "りんご" should be replaced with your wordchain answer.<br>
-      &emsp;&emsp;Return: answer word of chatgpt<br>
-      &emsp;check last letter of "word" for "ん":<br>
-      &emsp;&emsp;Function: check if "word" end with "ん"<br>
-      &emsp;&emsp;Return: "NG if the kast letter is "ん", else "OK"<br>
-      &emsp;list "[list name]" has duplicated "inpur data":<br>
-      &emsp;&emsp;Function: check if words in "<list namae>" has duplicated with "input data". "input data" should be replaced with your wordchain answer or chatgpt's answer.<br>
-      &emsp;&emsp;Return: "OK" if matched, else "NG"<br>
-      &emsp;create program by python "copy file":<br>
-      &emsp;&emsp;Function: create python program of function "copy file". "copy file" should be replaced with your description of function which you want to create.<br>
-      &emsp;&emsp;Return: generated program and the explanetion<br>
-      &emsp;show text "hello":<br>
-      &emsp;&emsp;Function: show "hello" in rigtside new tab, "input data" should be replaced with chatgpt's generated program or any of your text. <br>
-      &emsp;&emsp;Return: rigtside new tab<br>
-      &emsp;show image:<br>
-      &emsp;&emsp;Function: show image of input url on stage div<br>
-      &emsp;&emsp;Return: image on stage div<br>
-      &emsp;create image of:<br>
-      &emsp;&emsp;Function: create image spechified in "" such as "create an image of cat". you need to input  "create an image of XXX"(japanese can be used if the same meaning).<br>
-      &emsp;&emsp;Return: url of the created image<br>
-      &emsp;ask "まちがいさがし" about image "URL of image":<br>
-      &emsp;&emsp;Function: find differencee of input image( URL of image )<br>
-      &emsp;&emsp;Return: answer text about the differences
-      
-      
-      `;
-      const newWindow = window.open();
-      newWindow.document.write(text);
-    }
-    
-    }, {   
-      key: "showText",
-      value: function showText(args) {
-        const text = args.TEXT.replace(/\n/g, "<br>");;
-        const newWindow = window.open();
-        newWindow.document.write(text);
-      }
-      
-    }, {
       key: "setApiKey",
       value: function setApiKey(args) {
         apiKey = args.KEY;
@@ -1587,96 +1462,6 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           return 'エラー: ' + e.message;
         }
       }
-    }, {
-    key: "createProgram",
-    value: function createProgram(args) {
-      console.log("args: " + args);
-      
-      //const server2Url = 'http://43.207.104.22:8000/chatgpt/'; 
-      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt/';
-      var textToSend = "以下のPythonプログラムを作ってください。\n" + args.TEXT + 
-      "\nそして、そのプログラムについて、小学生の高学年でも分かるように説明して下さい。";
-      
-      async function sendRequestToServer2(args) {
-        try {
-          console.log(server2Url);
-          console.log(textToSend);
-          const response = await fetch(server2Url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain',
-              'Origin': 'http://localhost:8601'
-            },
-            body: textToSend
-          });
-
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
-          const responseData = await response.text();
-          console.log('Response from Server 2:', responseData);
-          
-          return responseData;
-          
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      }  
-      
-      // サーバー1からサーバー2にリクエストを送信
-      return sendRequestToServer2(args);
-    }
-    
-    }, {
-    key: "askChatgpt4o",
-    value: function askChatgpt4o(args) {
-      console.log("args: ", args);
-      const imageUrl = args.URL;
-      const textToSend = args.QUESTION;
-      //const imageUrl = 'https://example.com/image.jpg';
-      
-      const formData = new FormData();
-      formData.append('image', imageUrl);
-      formData.append('text', textToSend); // テキストデータを追加 
-      
-      const server2Url = 'https://www.tadaumi.com/xcratch_chatgpt4o/';
-      
-      async function sendRequestToServer2(args) {
-        try {
-          console.log(server2Url);
-          console.log(formData);
-          const response = await fetch(server2Url, {
-            method: 'POST',
-            headers: {
-              //'Content-Type': 'text/plain',
-              'Origin': 'http://localhost:8601'
-            },
-            body: formData
-          });
-
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
-          const responseData = await response.text();
-          console.log('Response from Server 2:', responseData);
-          
-          return responseData;
-          
-        } catch (error) {
-          console.error('Error:', error);
-          throw error; 
-        }
-      }
-      
-      // サーバー1からサーバー2にリクエストを送信
-      return sendRequestToServer2(args);
-    }
-    
-    
-    
-
     
   //==================  
   }], [{  
