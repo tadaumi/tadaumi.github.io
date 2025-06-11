@@ -1395,7 +1395,21 @@ var ExtensionBlocks = /*#__PURE__*/function () {
               defaultValue: 'Scratchとは何ですか？'
             }
           }
-          
+          },{
+          opcode: 'translation_Gemini',
+          blockType: BlockType.REPORTER,
+          text: 'Gemini に [English]の日本語訳は[Japanese] ですかと聞く',
+          func: 'translationGemini',
+          arguments: {
+            English: {
+              type: 'string',
+              defaultValue: 'Word'
+            },
+            Japanese: {
+              type: 'string',
+              defaultValue: '単語'
+            },
+          }
           
           //=============
           }
