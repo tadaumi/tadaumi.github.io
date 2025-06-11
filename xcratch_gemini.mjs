@@ -1408,7 +1408,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
             Japanese: {
               type: 'string',
               defaultValue: '単語'
-            },
+            }
           }
           
           //=============
