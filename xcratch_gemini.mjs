@@ -1477,6 +1477,58 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         }
       }
     
+    }, {
+      key: "translationGemini",
+      value: async function translationGemini(args) {
+        const english = args.English;
+        const japanese = args.Japanese;
+
+        if (!apiKey) {
+          return 'APIキーが設定されていません';
+        }
+
+        var question = english + "の日本語訳は" + japanese + "ですか？　" + 
+          "YESなら「YES」、NOなら正しい訳を「XXX」の形式でと回答してください。回答には、「YES」、「XXX」以外に文章は含まないで下さい。";
+        
+        //const url = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${apiKey}`;
+        const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
+        console.log("url: " + url);
+        const requestBody = {
+            contents: [{
+              parts: [{ text: question }]
+            }]
+          };
+
+        try {
+          /*
+          if (!genAI) {
+            genAI = new GoogleGenerativeAI(apiKey);
+          }
+          */
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            return `エラー: ${errorData.error.message || response.statusText}`;
+          }
+
+          const data = await response.json();
+          const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '(回答なし)';
+
+          console.log("text: " + text);
+          
+          return text;
+        } catch (e) {
+          return 'エラー: ' + e.message;
+        }
+      }
+      
   //==================  
   }], [{  
     key: "formatMessage",
