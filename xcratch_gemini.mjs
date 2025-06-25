@@ -1523,7 +1523,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
 
           console.log("text: " + text + ":");
           
-          return text.trim();
+          return text;
         } catch (e) {
           return 'エラー: ' + e.message;
         }
