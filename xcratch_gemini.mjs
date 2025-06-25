@@ -1521,7 +1521,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           const data = await response.json();
           const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '(回答なし)';
 
-          console.log("text: " + text.trim() + ":");
+          console.log("text: " + text + ":");
           
           return text.trim();
         } catch (e) {
