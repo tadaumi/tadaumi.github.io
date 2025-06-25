@@ -1514,7 +1514,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           });
 
           if (!response.ok) {
-            const errorData = a単語wait response.json();
+            const errorData = await response.json();
             return `エラー: ${errorData.error.message || response.statusText}`;
           }
 
