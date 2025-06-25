@@ -1423,7 +1423,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       value: function setApiKey(args) {
         apiKey = args.KEY;
       }
-    }, {
+  }, {
       key: "askGemini",
       value: async function askGemini(args) {
         const question = args.QUESTION;
@@ -1477,7 +1477,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         }
       }
     
-    }, {
+  }, {
       key: "translationGemini",
       value: async function translationGemini(args) {
         const english = args.English;
@@ -1514,16 +1514,16 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           });
 
           if (!response.ok) {
-            const errorData = await response.json();
+            const errorData = a単語wait response.json();
             return `エラー: ${errorData.error.message || response.statusText}`;
           }
 
           const data = await response.json();
           const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '(回答なし)';
 
-          console.log("text: " + text);
+          console.log("text: " + text.trim() + ":");
           
-          return text;
+          return text.trim();
         } catch (e) {
           return 'エラー: ' + e.message;
         }
